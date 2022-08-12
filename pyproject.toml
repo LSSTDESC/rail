@@ -23,8 +23,6 @@ dependencies = [
     "rail",
     "rail-delight",
     "rail-bpz",
-    "rail-sklearn-nn",
-    "rail-pzflow",
     "rail-flexzboost",
 ]
 
