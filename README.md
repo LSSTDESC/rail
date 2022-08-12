@@ -1,2 +1,2 @@
-# rail_top
-Top level "umbrella" package for RAIL
+# rail_hub
+Top level "hub" package for RAIL
