@@ -2,7 +2,7 @@
 name = "rail-top"
 description = "RAIL top-level umbrella packages"
 readme = "README.rst"
-requires-python = ">=3.10"
+requires-python = ">=3.8"
 license = { file = "LICENSE" }
 authors = [
     { name = "The LSST DESC PZ WG", email = "echarles@slac.stanford.edu" }
