@@ -1,0 +1,122 @@
+[project]
+name = "rail-top"
+description = "RAIL top-level umbrella packages"
+readme = "README.rst"
+requires-python = ">=3.8"
+license = { file = "LICENSE" }
+authors = [
+    { name = "The LSST DESC PZ WG", email = "echarles@slac.stanford.edu" }
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "License :: OSI Approved :: MIT License",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Natural Language :: English",
+    "Operating System :: POSIX"
+]
+dynamic = ["version"]
+dependencies = [
+    "rail",
+    "rail-delight",
+    "rail-bpz",
+    "rail-flexzboost",
+]
+
+[project.optional-dependencies]
+dev = [
+    "coverage",
+    "pylint",
+    "pytest",
+    "pytest-cov",
+    "yamllint",
+]
+
+[build-system]
+requires = ["setuptools>=61", "wheel", "setuptools_scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools_scm]
+
+[tool.coverage.run]
+source = ["rail"]
+branch = true
+
+[tool.coverage.report]
+show_missing = true
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "if self.debug:",
+    "if settings.DEBUG",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if 0:",
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:"
+]
+
+[tool.black]
+line-length = 110
+target-version = ["py310"]
+
+[tool.pydocstyle]
+convention = "numpy"
+add_select = [
+    "D212" # Multi-line docstring summary should start at the first line
+]
+add-ignore = [
+    "D105", # Missing docstring in magic method
+    "D102", # Missing docstring in public method (needed for docstring inheritance)
+    "D100", # Missing docstring in public module
+    # Below are required to allow multi-line summaries.
+    "D200", # One-line docstring should fit on one line with quotes
+    "D205", # 1 blank line required between summary line and description
+    "D400", # First line should end with a period
+    # Properties shouldn't be written in imperative mode. This will be fixed
+    # post 6.1.1, see https://github.com/PyCQA/pydocstyle/pull/546
+    "D401",
+]
+
+[tool.pylint]
+disable = [
+    "abstract-method",
+    "invalid-name",
+    "too-many-statements",
+    "missing-module-docstring",
+    "missing-class-docstring",
+    "missing-function-docstring",
+    "too-few-public-methods",
+    "duplicate-code"
+]
+max-line-length = 110
+max-locals = 50
+max-branches = 25
+max-public-methods = 50
+
+[tool.isort]
+profile = "black"
+line_length = 110
+
+[tool.pytest.ini_options]
+addopts = [
+    "--cov=rail",
+    "--cov-branch",
+    "--cov-report=html"
+]
+flake8-ignore = "E203"
+
+[tool.mypy]
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+ignore_missing_imports = true
+namespace_packages = true
+plugins = "sqlalchemy.ext.mypy.plugin"
+show_error_codes = true
+strict_equality = true
+warn_redundant_casts = true
+warn_unreachable = true
+warn_unused_ignores = true
