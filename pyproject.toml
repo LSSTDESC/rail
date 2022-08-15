@@ -1,5 +1,5 @@
 [project]
-name = "rail-top"
+name = "rail-hub"
 description = "RAIL top-level umbrella packages"
 readme = "README.rst"
 requires-python = ">=3.8"
