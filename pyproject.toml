@@ -1,5 +1,5 @@
 [project]
-name = "rail-hub"
+name = "pz-rail-hub"
 description = "RAIL top-level umbrella packages"
 readme = "README.rst"
 requires-python = ">=3.8"
@@ -20,10 +20,10 @@ classifiers = [
 ]
 dynamic = ["version"]
 dependencies = [
-    "rail",
-    "rail-delight",
-    "rail-bpz",
-    "rail-flexzboost",
+    "pz-rail",
+    "pz-rail-delight",
+    "pz-rail-bpz",
+    "pz-rail-flexzboost",
 ]
 
 [project.optional-dependencies]
