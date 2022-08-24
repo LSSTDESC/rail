@@ -26,15 +26,15 @@ from rail.evaluation.evaluator import Evaluator
 
 try:
     from rail.estimation.algos.delightPZ import *
-except ImportError:
+except ImportError:  # pragma: no cover
     pass
 try:
     from rail.estimation.algos.bpz_lite import *
-except ImportError:
+except ImportError:  # pragma: no cover
     pass
 try:
     from rail.estimation.algos.flexzboost import *
-except ImportError:
+except ImportError:  # pragma: no cover
     pass
     
 from rail.evaluation import *
