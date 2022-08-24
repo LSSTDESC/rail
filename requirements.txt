@@ -1,0 +1,4 @@
+delight @ git+https://github.com/LSSTDESC/Delight
+
+DESC_BPZ @ git+https://github.com/LSSTDESC/DESC_BPZ
+
