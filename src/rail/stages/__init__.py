@@ -1,9 +1,9 @@
 from ._version import __version__
 from rail.core.utilStages import *
-from rail.creation.engines.engine import * 
+from rail.creation.engine import * 
 from rail.creation.engines.flowEngine import *
 
-from rail.creation.degradation.degrader import *
+from rail.creation.degrader import *
 from rail.creation.degradation.grid_selection import *
 from rail.creation.degradation.lsst_error_model import *
 from rail.creation.degradation.quantityCut import *
