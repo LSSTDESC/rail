@@ -19,8 +19,10 @@ from rail.estimation.algos.pointEstimateHist import *
 from rail.estimation.algos.pzflow import *
 from rail.estimation.algos.randomPZ import *
 from rail.estimation.algos.sklearn_nn import *
+from rail.estimation.algos.somocluSOM import *
 from rail.estimation.algos.trainZ import *
 from rail.estimation.algos.varInference import *
+from rail.estimation.algos.simpleSOM import *
 
 from rail.evaluation.evaluator import Evaluator
 
@@ -36,5 +38,9 @@ try:
     from rail.estimation.algos.flexzboost import *
 except ImportError:  # pragma: no cover
     pass
-    
+try:
+    from rail.estimation.algos.gpz_v1 import *
+except ImportError:  # pragma: no cover
+    pass
+ 
 from rail.evaluation import *
