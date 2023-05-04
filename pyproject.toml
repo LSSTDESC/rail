@@ -21,7 +21,6 @@ classifiers = [
 dynamic = ["version"]
 dependencies = [
     "pz-rail>=0.98.4",
-    "pz-rail-delight>=0.0.4",
     "pz-rail-bpz>=0.0.9",
     "pz-rail-flexzboost>=0.0.9",
     "pz-rail-gpz-v1>=0.1.1",
