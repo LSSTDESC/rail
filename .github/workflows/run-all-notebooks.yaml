@@ -1,0 +1,103 @@
+# This notebook will run all Python notebooks
+#
+# The environment variable NOTEBOOKS should contain all notebooks, so if you
+# create a new one or notice a missing notebook, please feel free to add it!
+
+name: run all notebooks
+
+on:
+  workflow_dispatch:
+  schedule:
+      - cron: '40 12 * * 1'
+
+jobs:
+  run_all_notebooks:
+    runs-on: ubuntu-latest
+    env:
+        NOTEBOOKS: |
+          (
+            "examples/core_examples/FileIO_DataStore.ipynb"
+            "examples/core_examples/hyperbolic_magnitude_test.ipynb"
+            "examples/core_examples/iterator_test.ipynb"
+            "examples/core_examples/Run_Pipe.ipynb"
+            "examples/core_examples/Pipe_Example.ipynb"
+            "examples/creation_examples/posterior-demo.ipynb"
+            "examples/creation_examples/degradation-demo.ipynb"
+            "examples/creation_examples/example_GridSelection_for_HSC.ipynb"
+            "examples/creation_examples/example_SpecSelection_for_zCOSMOS.ipynb"
+            "examples/estimation_examples/NZDir.ipynb"
+            "examples/estimation_examples/test_sampled_summarizers.ipynb"
+            "examples/goldenspike_examples/goldenspike.ipynb"
+          )
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install dependencies
+        run: |
+         python -m pip install --upgrade pip
+         pip install wheel numpy # For somoclu
+         pip install .
+         pip install git+https://github.com/LSSTDESC/rail_bpz@lynn/rail-directory-match
+         pip install flake8 pytest pytest-cov mockmpi pytest-timeout
+         pip install -r docs/requirements.txt
+         pip install -r docs/nbconvert-requirements.txt
+         pip install jupyter nbconvert nbformat
+
+      - name: Core notebooks
+        shell: bash
+        run: |
+          allnotebooks=${{ env.NOTEBOOKS }}
+          for notebook in ${allnotebooks[*]}; do
+            if [[ $notebook == *"core_examples"* ]]; then
+              jupyter nbconvert --to html --execute "$notebook"
+            fi
+          done
+          
+      - name: Creation notebooks
+        shell: bash
+        run: |
+          allnotebooks=${{ env.NOTEBOOKS }}
+          for notebook in ${allnotebooks[*]}; do
+            if [[ $notebook == *"creation_examples"* ]]; then
+              jupyter nbconvert --to html --execute "$notebook"
+            fi
+          done
+          
+      - name: Estimation notebooks
+        shell: bash
+        run: |
+          allnotebooks=${{ env.NOTEBOOKS }}
+          for notebook in ${allnotebooks[*]}; do
+            if [[ $notebook =~ "estimation_examples" ]]; then
+              jupyter nbconvert --to html --execute "$notebook"
+            fi
+          done
+          
+      - name: Goldenspike notebooks
+        shell: bash
+        run: |
+          allnotebooks=${{ env.NOTEBOOKS }}
+          for notebook in ${allnotebooks[*]}; do
+            if [[ $notebook =~ "goldenspike_examples" ]]; then
+              jupyter nbconvert --to html --execute "$notebook"
+            fi
+          done
+          
+      - name: Other notebooks
+        shell: bash
+        run: |
+          allnotebooks=${{ env.NOTEBOOKS }}
+          for notebook in ${allnotebooks[*]}; do
+            if [[ ! $notebook =~ "core_examples" &&
+                  ! $notebook =~ "creation_examples" &&
+                  ! $notebook =~ "estimation_examples" &&
+                  ! $notebook =~ "goldenspike_examples" ]]; then
+              jupyter nbconvert --to html --execute "$notebook"
+            fi
+          done

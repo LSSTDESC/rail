@@ -1,0 +1,89 @@
+# This notebook will rebuild Python notebooks to html files (with cell outputs)
+
+name: rebuild notebooks
+
+on:
+  workflow_dispatch:
+  
+  schedule:
+      - cron: '50 16 1 * *'
+
+jobs:
+  notebook_update:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+      - name: Install dependencies
+        run: |
+         python -m pip install --upgrade pip
+         pip install wheel numpy # For somoclu
+         pip install .
+         pip install git+https://github.com/LSSTDESC/rail_bpz@lynn/rail-directory-match
+         pip install flake8 pytest pytest-cov mockmpi pytest-timeout
+         pip install -r docs/requirements.txt
+         pip install -r docs/nbconvert-requirements.txt
+         pip install jupyter nbconvert nbformat
+
+      - name: Update core notebooks
+        if: always()
+        run: |
+          jupyter nbconvert --to html --execute examples/core_examples/FileIO_DataStore.ipynb --output ../../docs/source/notebooks-core/FileIO_DataStore.html
+          jupyter nbconvert --to html --execute examples/core_examples/hyperbolic_magnitude_test.ipynb --output ../../docs/source/notebooks-core/hyperbolic_magnitude_test.html
+          jupyter nbconvert --to html --execute examples/core_examples/iterator_test.ipynb --output ../../docs/source/notebooks-core/iterator_test.html
+          jupyter nbconvert --to html --execute examples/core_examples/Run_Pipe.ipynb --output ../../docs/source/notebooks-core/Run_Pipe.html
+          jupyter nbconvert --to html --execute examples/core_examples/Pipe_Example.ipynb --output ../../docs/source/notebooks-core/Pipe_Example.html
+
+      - name: Update creation notebooks
+        if: always()
+        run: |
+          jupyter nbconvert --to html --execute examples/creation_examples/posterior-demo.ipynb --output ../../docs/source/notebooks-creation/posterior-demo.html
+          jupyter nbconvert --to html --execute examples/creation_examples/degradation-demo.ipynb --output ../../docs/source/notebooks-creation/degradation-demo.html       
+          jupyter nbconvert --to html --execute examples/creation_examples/example_GridSelection_for_HSC.ipynb --output ../../docs/source/notebooks-creation/example_GridSelection_for_HSC.html
+          jupyter nbconvert --to html --execute examples/creation_examples/example_SpecSelection_for_zCOSMOS.ipynb --output ../../docs/source/notebooks-creation/example_SpecSelection_for_zCOSMOS.html
+
+      - name: Update estimation notebooks
+        if: always()
+        run: |   
+          jupyter nbconvert --to html --execute examples/estimation_examples/NZDir.ipynb --output ../../docs/source/notebooks-estimation/NZDir.html
+          jupyter nbconvert --to html --execute examples/estimation_examples/test_sampled_summarizers.ipynb --output ../../docs/source/notebooks-estimation/test_sampled_summarizers.html
+
+      - name: Update goldenspike
+        if: always()
+        run: |
+          jupyter nbconvert --to html --execute examples/goldenspike_examples/goldenspike.ipynb --output ../../docs/source/notebooks-other/goldenspike.html
+
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v4
+        with:
+          branch: auto-notebooks
+          title: "Auto-rebuild notebooks"
+          body: "Automatically rebuilt Python notebooks in this repo."
+          commit-message: "[Auto-rebuild notebooks]"
+          add-paths: |
+            *.html
+          reviewers: OliviaLynn
+
+      - name: Report failure
+        if: ${{ failure() }}
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: ${{ github.repository }}'s ${{ github.job }} -> ${{ job.status }}
+          body: |
+            A GitHub Actions failure has been encountered.
+            Repo: ${{ github.repository }}
+            Workflow: ${{ github.workflow }}
+            Job: ${{ github.job }} 
+            Status: ${{ job.status }}
+          to: olynn@andrew.cmu.edu
+          from: Github (LSST/RAIL)

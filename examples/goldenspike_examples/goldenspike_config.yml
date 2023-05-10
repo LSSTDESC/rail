@@ -1,0 +1,330 @@
+col_remapper_test:
+  aliases:
+    input: output_quantity_cut
+    output: output_col_remapper_test
+  chunk_size: 100000
+  columns: &id001
+    mag_g_lsst_err: mag_err_g_lsst
+    mag_i_lsst_err: mag_err_i_lsst
+    mag_r_lsst_err: mag_err_r_lsst
+    mag_u_lsst_err: mag_err_u_lsst
+    mag_y_lsst_err: mag_err_y_lsst
+    mag_z_lsst_err: mag_err_z_lsst
+  config: null
+  inplace: false
+  input: None
+  name: col_remapper_test
+  output_mode: default
+col_remapper_train:
+  aliases:
+    input: output_lsst_error_model_train
+    output: output_col_remapper_train
+  chunk_size: 100000
+  columns: *id001
+  config: null
+  hdf5_groupname: ''
+  inplace: false
+  input: None
+  name: col_remapper_train
+  output_mode: default
+estimate_bpz:
+  aliases:
+    input: output_table_conv_test
+    output: output_estimate_bpz
+  bands: ugrizy
+  chunk_size: 10000
+  columns_file: examples/estimation/configs/test_bpz.columns
+  config: null
+  data_path: None
+  dz: 0.01
+  gauss_kernel: 0.0
+  hdf5_groupname: ''
+  input: None
+  madau_flag: 'no'
+  mag_err_min: 0.005
+  name: estimate_bpz
+  nzbins: 301
+  output_mode: default
+  p_min: 0.005
+  prior_band: mag_i_lsst
+  prior_file: hdfn_gen
+  spectra_file: SED/CWWSB4.list
+  zmax: 3.0
+  zmin: 0.0
+  zp_errors:
+  - 0.01
+  - 0.01
+  - 0.01
+  - 0.01
+  - 0.01
+  - 0.01
+estimate_randomZ:
+  aliases:
+    input: output_table_conv_test
+    output: output_estimate_randomZ
+  chunk_size: 10000
+  config: null
+  hdf5_groupname: ''
+  input: None
+  name: estimate_randomZ
+  nzbins: 301
+  output_mode: default
+  rand_width: 0.025
+  rand_zmax: 3.0
+  rand_zmin: 0.0
+estimate_trainZ:
+  aliases:
+    input: output_table_conv_test
+    model: model_inform_trainZ
+    output: output_estimate_trainZ
+  chunk_size: 10000
+  config: null
+  hdf5_groupname: ''
+  input: None
+  name: estimate_trainZ
+  nzbins: 301
+  output_mode: default
+  zmax: 3.0
+  zmin: 0.0
+flow_engine_test:
+  aliases:
+    output: output_flow_engine_test
+  config: null
+  flow: examples/goldenspike/data/pretrained_flow.pkl
+  n_samples: 50
+  name: flow_engine_test
+  output_mode: default
+  seed: 12345
+flow_engine_train:
+  aliases:
+    output: output_flow_engine_train
+  config: null
+  flow: examples/goldenspike/data/pretrained_flow.pkl
+  n_samples: 50
+  name: flow_engine_train
+  output_mode: default
+  seed: 12345
+inform_trainZ:
+  aliases:
+    input: output_table_conv_train
+    model: model_inform_trainZ
+  config: null
+  hdf5_groupname: ''
+  input: output_table_conv_train.hdf5
+  name: inform_trainZ
+  nzbins: 301
+  output_mode: default
+  save_train: true
+  zmax: 3.0
+  zmin: 0.0
+inv_redshift:
+  aliases:
+    input: output_lsst_error_model_test
+    output: output_inv_redshift
+  config: null
+  input: None
+  name: inv_redshift
+  output_mode: default
+  pivot_redshift: 1.0
+  seed: 12345
+line_confusion:
+  aliases:
+    input: output_inv_redshift
+    output: output_line_confusion
+  config: null
+  frac_wrong: 0.05
+  input: None
+  name: line_confusion
+  output_mode: default
+  seed: 12345
+  true_wavelen: 5007.0
+  wrong_wavelen: 3727.0
+lsst_error_model_test:
+  Cm:
+    g: 24.42
+    i: 24.32
+    r: 24.44
+    u: 23.09
+    y: 23.73
+    z: 24.16
+  airmass: 1.2
+  aliases:
+    input: output_flow_engine_test
+    output: output_lsst_error_model_test
+  bandNames:
+    g: mag_g_lsst
+    i: mag_i_lsst
+    r: mag_r_lsst
+    u: mag_u_lsst
+    y: mag_y_lsst
+    z: mag_z_lsst
+  config: null
+  extendedSource: 0.0
+  gamma:
+    g: 0.039
+    i: 0.039
+    r: 0.039
+    u: 0.038
+    y: 0.039
+    z: 0.039
+  highSNR: false
+  input: None
+  km:
+    g: 0.213
+    i: 0.096
+    r: 0.126
+    u: 0.491
+    y: 0.17
+    z: 0.069
+  m5: {}
+  magLim: 30.0
+  msky:
+    g: 22.26
+    i: 20.48
+    r: 21.2
+    u: 22.99
+    y: 18.61
+    z: 19.6
+  nVisYr:
+    g: 8.0
+    i: 18.4
+    r: 18.4
+    u: 5.6
+    y: 16.0
+    z: 16.0
+  nYrObs: 10.0
+  name: lsst_error_model_test
+  ndFlag: .nan
+  output_mode: default
+  seed: 12345
+  sigmaSys: 0.005
+  theta:
+    g: 0.77
+    i: 0.71
+    r: 0.73
+    u: 0.81
+    y: 0.68
+    z: 0.69
+  tvis: 30.0
+lsst_error_model_train:
+  Cm:
+    g: 24.42
+    i: 24.32
+    r: 24.44
+    u: 23.09
+    y: 23.73
+    z: 24.16
+  airmass: 1.2
+  aliases:
+    input: output_flow_engine_train
+    output: output_lsst_error_model_train
+  bandNames:
+    g: mag_g_lsst
+    i: mag_i_lsst
+    r: mag_r_lsst
+    u: mag_u_lsst
+    y: mag_y_lsst
+    z: mag_z_lsst
+  config: null
+  extendedSource: 0.0
+  gamma:
+    g: 0.039
+    i: 0.039
+    r: 0.039
+    u: 0.038
+    y: 0.039
+    z: 0.039
+  highSNR: false
+  input: None
+  km:
+    g: 0.213
+    i: 0.096
+    r: 0.126
+    u: 0.491
+    y: 0.17
+    z: 0.069
+  m5: {}
+  magLim: 30.0
+  msky:
+    g: 22.26
+    i: 20.48
+    r: 21.2
+    u: 22.99
+    y: 18.61
+    z: 19.6
+  nVisYr:
+    g: 8.0
+    i: 18.4
+    r: 18.4
+    u: 5.6
+    y: 16.0
+    z: 16.0
+  nYrObs: 10.0
+  name: lsst_error_model_train
+  ndFlag: .nan
+  output_mode: default
+  seed: 12345
+  sigmaSys: 0.005
+  theta:
+    g: 0.77
+    i: 0.71
+    r: 0.73
+    u: 0.81
+    y: 0.68
+    z: 0.69
+  tvis: 30.0
+naive_stack_test:
+  aliases:
+    input: output_estimate_bpz
+    output: output_naive_stack_test
+  chunk_size: 10000
+  config: null
+  input: None
+  name: naive_stack_test
+  nzbins: 301
+  output_mode: default
+  zmax: 3.0
+  zmin: 0.0
+point_estimate_test:
+  aliases:
+    input: output_estimate_bpz
+    output: output_point_estimate_test
+  chunk_size: 10000
+  config: null
+  input: None
+  name: point_estimate_test
+  nzbins: 301
+  output_mode: default
+  point_estimate: zmode
+  zmax: 3.0
+  zmin: 0.0
+quantity_cut:
+  aliases:
+    input: output_line_confusion
+    output: output_quantity_cut
+  config: null
+  cuts:
+    mag_i_lsst: 25.3
+  input: None
+  name: quantity_cut
+  output_mode: default
+  seed: 12345
+table_conv_test:
+  aliases:
+    input: output_col_remapper_test
+    output: output_table_conv_test
+  config: null
+  input: None
+  name: table_conv_test
+  output_format: numpyDict
+  output_mode: default
+table_conv_train:
+  aliases:
+    input: output_col_remapper_train
+    output: output_table_conv_train
+  config: null
+  input: None
+  name: table_conv_train
+  output_format: numpyDict
+  output_mode: default
+  seed: 12345

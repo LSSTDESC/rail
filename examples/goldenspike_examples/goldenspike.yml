@@ -1,0 +1,62 @@
+config: examples/goldenspike/goldenspike_config.yml
+inputs:
+  flow: examples/goldenspike/data/pretrained_flow.pkl
+log_dir: examples/goldenspike/logs
+modules: rail
+output_dir: examples/goldenspike/output
+resume: false
+site:
+  name: local
+  max_threads: 2
+stages:
+- classname: FlowEngine
+  name: flow_engine_test
+  nprocess: 1
+- classname: LSSTErrorModel
+  name: lsst_error_model_test
+  nprocess: 1
+- classname: ColumnMapper
+  name: col_remapper_test
+  nprocess: 1
+- classname: TableConverter
+  name: table_conv_test
+  nprocess: 1
+- classname: FlowEngine
+  name: flow_engine_train
+  nprocess: 1
+- classname: LSSTErrorModel
+  name: lsst_error_model_train
+  nprocess: 1
+- classname: ColumnMapper
+  name: col_remapper_train
+  nprocess: 1
+- classname: TableConverter
+  name: table_conv_train
+  nprocess: 1
+- classname: InvRedshiftIncompleteness
+  name: inv_redshift
+  nprocess: 1
+- classname: LineConfusion
+  name: line_confusion
+  nprocess: 1
+- classname: QuantityCut
+  name: quantity_cut
+  nprocess: 1
+- classname: Inform_trainZ
+  name: inform_trainZ
+  nprocess: 1
+- classname: Estimator
+  name: estimate_bpz
+  nprocess: 1
+- classname: TrainZ
+  name: estimate_trainZ
+  nprocess: 1
+- classname: RandomPZ
+  name: estimate_randomZ
+  nprocess: 1
+- classname: PointEstimateHist
+  name: point_estimate_test
+  nprocess: 1
+- classname: NaiveStack
+  name: naive_stack_test
+  nprocess: 1

@@ -1,0 +1,17 @@
+run_params:
+  class_name: flowModeler
+  run_name: test_flowModeler
+  seed: 0
+  phys_cols:
+    "redshift": [0., 3.]
+  phot_cols:
+    "mag_u_lsst": [22.79, 27.79]
+    "mag_g_lsst": [24.04, 29.04]
+    "mag_r_lsst": [24.06, 29.06]
+    "mag_i_lsst": [23.62, 28.62]
+    "mag_z_lsst": [22.98, 27.98]
+    "mag_y_lsst": [22.05, 27.05]
+  calc_colors:
+    ref_column_name: mag_i_lsst
+  spline_knots: 16
+  num_training_epochs: 30
