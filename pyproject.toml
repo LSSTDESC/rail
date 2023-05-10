@@ -24,7 +24,7 @@ dependencies = [
     "pz-rail-bpz>=0.0.9",
     "pz-rail-flexzboost>=0.0.9",
     "pz-rail-gpz-v1>=0.1.1",
-    "pz-rail-pipeline @ git+https://github.com/LSSTDESC/rail_pipelines@eac/introspection",
+    "pz-rail-pipelines @ git+https://github.com/LSSTDESC/rail_pipelines@eac/introspection",
 ]
 
 [project.optional-dependencies]
