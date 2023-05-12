@@ -20,10 +20,11 @@ classifiers = [
 ]
 dynamic = ["version"]
 dependencies = [
-    "pz-rail>=0.98.4",
+    "pz-rail>=0.98.5",
     "pz-rail-bpz>=0.0.9",
     "pz-rail-flexzboost>=0.0.9",
     "pz-rail-gpz-v1>=0.1.1",
+    "pz-rail-pipelines @ git+https://github.com/LSSTDESC/rail_pipelines@eac/introspection",
 ]
 
 [project.optional-dependencies]
@@ -40,7 +41,7 @@ requires = ["setuptools>=61", "wheel", "setuptools_scm[toml]>=6.2"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools_scm]
-write_to = "src/rail/stages/_version.py"
+write_to = "src/rail/hub/_version.py"
 
 [tool.coverage.run]
 source = ["rail"]
