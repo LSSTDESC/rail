@@ -1,0 +1,13 @@
+setuptools_scm
+jupyter
+jupyterlab
+sphinx<7.0
+sphinx_rtd_theme
+matplotlib
+scikit-learn
+dill
+yml
+pyyaml
+pip
+corner
+hyperbolic@git+https://github.com/jlvdb/hyperbolic
