@@ -1,0 +1,32 @@
+/* Hide the title of each notebook -- otherwise we get a redundancy with the  
+   required rst title. Choosing to keep the rst title because it allows users
+   to use Read The Docs' heading link feature */
+
+div.jp-RenderedHTMLCommon > h1 {
+    display: none;
+}
+
+section:not(:first-child) > h2 {
+    padding-top: 30px;
+}
+
+/* nbconvert overrides link color */
+
+p.notebook-link {
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+p.notebook-link > a {
+    margin-left: 6px;
+    color: rgb(25, 118, 210);
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+/* Keeps the bottom of the sidebar from overlapping and becoming unscrollable
+   all the way down, hiding reference > API Documentation */
+   
+div.wy-menu-vertical {
+    padding-bottom: 4em;
+}
