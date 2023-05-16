@@ -74,6 +74,8 @@ docs/_build/
 docs/api.rst
 docs/api
 docs/index.rst
+docs/examples
+
 
 # PyBuilder
 target/
