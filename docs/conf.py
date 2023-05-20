@@ -80,6 +80,7 @@ extensions = [
     'sphinx.ext.coverage',
     'sphinx.ext.ifconfig',
     'sphinx.ext.mathjax',
+    'nbsphinx',
     'sphinx.ext.viewcode',
     'sphinx.ext.autosummary',
     'sphinx.ext.githubpages',
@@ -112,6 +113,9 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', 'setup.rst',
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
+
+# Allow NB to fail
+nbsphinx_allow_errors = True
 
 
 # -- Options for HTML output -------------------------------------------------
@@ -171,6 +175,8 @@ htmlhelp_basename = 'raildoc'
 # from sphinxcontrib.apidoc import main as apidoc_main
 
 def run_apidoc(_):
+    os.system('ln -s ../examples')
+
     import rail
     from rail.core import RailEnv
     
