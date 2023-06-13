@@ -20,15 +20,15 @@ classifiers = [
 ]
 dynamic = ["version"]
 dependencies = [
-    "pz-rail-astro-tools@git+https://github.com/LSSTDESC/rail_astro_tools.git#egg=pz-rail-astro-tools",
+    "pz-rail-astro-tools",
     "pz-rail-bpz@git+https://github.com/LSSTDESC/rail_bpz.git@eac/minimal#egg=pz-rail-bpz",
     "pz-rail-dsps@git+https://github.com/LSSTDESC/rail_dsps.git#egg=pz-rail-dsps",
     "pz-rail-flexzboost@git+https://github.com/LSSTDESC/rail_flexzboost.git@eac/minimal#egg=pz-rail-flexzboost",
     "pz-rail-fsps@git+https://github.com/LSSTDESC/rail_fsps.git@eac/minimal#egg=pz-rail-fsps",
     "pz-rail-gpz-v1@git+https://github.com/LSSTDESC/rail_gpz_v1.git@eac/minimal#egg=pz-rail-gpz-v1",
-    "pz-rail-pzflow@git+https://github.com/LSSTDESC/rail_pzflow.git#egg=pz-rail-pzflow",
-    "pz-rail-sklearn@git+https://github.com/LSSTDESC/rail_sklearn.git#egg=pz-rail-sklearn",
-    "pz-rail-som@git+https://github.com/LSSTDESC/rail_som.git#egg=pz-rail-som",
+    "pz-rail-pzflow",
+    "pz-rail-sklearn",
+    "pz-rail-som",
     "pz-rail-pipelines@git+https://github.com/LSSTDESC/rail_pipelines.git@eac/minimal#egg=pz-rail-pipelines",
 ]
 
