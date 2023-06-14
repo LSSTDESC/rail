@@ -38,5 +38,5 @@ def clone_source(outdir, git_mode, dry_run, package_file, **kwargs):
 @options.from_source()
 @options.package_file()
 def install(outdir, dry_run, from_source, package_file, **kwargs):
-    """Install packages from source"""
+    """pip install rail packages one by one, to be fault tolerant"""
     scripts.install(outdir, from_source, dry_run, package_file)
