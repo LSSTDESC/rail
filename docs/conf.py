@@ -17,6 +17,7 @@ import subprocess
 import sys
 sys.path.insert(0, os.path.abspath('..'))
 import rail
+from rail.core import RailEnv
 
 for rail_path in rail.__path__:
     sys.path.insert(0, rail_path)
@@ -37,12 +38,21 @@ MOCK_MODULES = [
     'qp.plotting',
     'qp.utils',
     'flexcode',
+    'flexcode.helpers',
     'flexzboost',
     'flexcode.regression_models',
     'flexcode.loss_functions',
     'flexcode.basis_functions',
     'fsps',
+    'dsps',
+    'dsps.cosmology',
+    'pzflow',
+    'pzflow.bijectors',
+    'sklearn',
+    'sklearn.cluster',
+    'sklearn.decomposition',
     'gal_pop_model_components',
+    'qp_flexzboost',
 ]
 for mod_name in MOCK_MODULES:
     sys.modules[mod_name] = MagicMock()
@@ -177,9 +187,6 @@ htmlhelp_basename = 'raildoc'
 def run_apidoc(_):
     os.system('ln -s ../examples')
 
-    import rail
-    from rail.core import RailEnv
-    
     from sphinx.ext.apidoc import main as apidoc_main
     cur_dir = os.path.normpath(os.path.dirname(__file__))
     output_path = os.path.join(cur_dir, 'api')
