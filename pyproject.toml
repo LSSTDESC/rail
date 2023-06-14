@@ -21,6 +21,7 @@ classifiers = [
 dynamic = ["version"]
 dependencies = [
     "click",
+    "yaml",
 ]
 
 [project.optional-dependencies]
