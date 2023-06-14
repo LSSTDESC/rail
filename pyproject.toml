@@ -20,11 +20,12 @@ classifiers = [
 ]
 dynamic = ["version"]
 dependencies = [
-    "pz-rail-pipelines[full]",
+    "click",
 ]
 
 [project.optional-dependencies]
 dev = [
+    "pz-rail-pipelines[full]",
     "jupyter",
     "seaborn",
     "coverage",
@@ -33,6 +34,9 @@ dev = [
     "pytest-cov",
     "yamllint",
 ]
+
+[project.scripts]
+rail = "rail.hub.commands:cli"
 
 [build-system]
 requires = ["setuptools>=61", "wheel", "setuptools_scm[toml]>=6.2"]

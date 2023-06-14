@@ -1,0 +1,13 @@
+rail_base: pz-rail-base
+rail_astro_tools: pz-rail-astro-tools
+rail_bpz: pz-rail-bpz
+rail_cmnn: pz-rail-cmnn
+rail_delight: pz-rail_delight
+rail_dsps: pz-rail-dsps
+rail_flexzboost: pz-rail-flexzboost
+rail_fsps: pz-rail-fsps
+rail_gpz_v1: pz-rail-gpz-v1
+rail_pzflow: pz-rail-pzflow
+rail_sklearn: pz-rail-sklearn
+rail_som: pz-rail-som
+rail_pipelines: pz-rail-pipelines
