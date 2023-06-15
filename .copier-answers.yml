@@ -5,4 +5,4 @@ author_email: later@later.com
 author_name: LSST Dark Energy Science Collaboration (DESC)
 create_example_module: false
 package_name: hub
-project_name: pz-rail-hub
+project_name: pz-rail
