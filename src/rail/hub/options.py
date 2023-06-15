@@ -10,6 +10,12 @@ __all__ = [
     "outdir",
     "from_source",
     "git_mode",
+    "print_all",
+    "print_packages",
+    "print_namespaces",
+    "print_modules",
+    "print_tree",
+    "print_stages",
     "package_file",
     "inputs",
 ]
@@ -32,7 +38,7 @@ class EnumChoice(click.Choice):
         self._enum = enum
         super().__init__(list(enum.__members__.keys()), case_sensitive=case_sensitive)
 
-    def convert(self, value: Any, param: click.Parameter | None, ctx: click.Context | None) -> EnumType_co:
+    def convert(self, value: Any, param, ctx) -> EnumType_co:
         converted_str = super().convert(value, param, ctx)
         return self._enum.__members__[converted_str]
 
@@ -82,12 +88,52 @@ outdir = PartialOption(
     help="Output directory.",
 )
 
-git_mode =  PartialOption(
+git_mode = PartialOption(
     "--git-mode",
     type=EnumChoice(GitMode),
     default='ssh',
     help="Git Clone mode",
 )
+
+print_all = PartialOption(
+    "--print-all",
+    help="Print all RAIL information",
+    is_flag=True,
+)
+
+print_packages = PartialOption(
+    "--print-packages",
+    help="Print RAIL packages",
+    is_flag=True,
+)
+
+print_namespaces = PartialOption(
+    "--print-namespaces",
+    help="Print RAIL namespaces",
+    is_flag=True,
+)
+
+print_modules = PartialOption(
+    "--print-modules",
+    help="Print RAIL modules",
+    is_flag=True,
+)
+
+print_tree = PartialOption(
+    "--print-tree",
+    help="Print RAIL namespace tree",
+    is_flag=True,
+)
+
+print_stages = PartialOption(
+    "--print-stages",
+    help="Print RAIL stages",
+    is_flag=True,
+)
+
+
+
+
 
 package_file = PartialOption(
     "--package-file",
