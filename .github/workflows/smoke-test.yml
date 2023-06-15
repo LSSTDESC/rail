@@ -36,5 +36,6 @@ jobs:
         python -m pytest tests
     - name: Run notebooks
       run: |
-        rail render-nb
+        rail render-nb examples/*_examples/*.ipynb
+
 
