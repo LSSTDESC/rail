@@ -40,3 +40,16 @@ def clone_source(outdir, git_mode, dry_run, package_file, **kwargs):
 def install(outdir, dry_run, from_source, package_file, **kwargs):
     """pip install rail packages one by one, to be fault tolerant"""
     scripts.install(outdir, from_source, dry_run, package_file)
+
+
+@cli.command()
+@options.outdir(default='..')
+@options.print_all()
+@options.print_packages()
+@options.print_namespaces()
+@options.print_modules()
+@options.print_tree()
+@options.print_stages()
+def info(**kwargs):
+    """pip install rail packages one by one, to be fault tolerant"""
+    scripts.info(**kwargs)
