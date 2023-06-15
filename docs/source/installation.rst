@@ -99,7 +99,7 @@ Developer Installation
 
 Here we will be installing the source code from `rail <https://github.com/LSSTDESC/rail>`_ to access all of the demonstration notebooks, and using that to install all of the other alo
 
-We have included an `environment.yml` that makes it easy to create a conda environment named "[name-for-your-env]" that uses conda to install some packages that have compiled libraries we have found that it is easier to install with conda.
+We have included an `environment.yml` that makes it easy to create a conda environment named "[env]" that uses conda to install some packages that have compiled libraries we have found that it is easier to install with conda.
 
 .. code-block:: bash
 
@@ -109,7 +109,7 @@ We have included an `environment.yml` that makes it easy to create a conda envir
     conda activate [env]
     pip install .
     rail clone --package-file rail_packages.yml
-    rail install --package-file rail_packages.yml
+    rail install --package-file rail_packages.yml --from-source 
 
     
 
