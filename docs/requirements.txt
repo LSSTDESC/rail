@@ -1,12 +1,1 @@
 setuptools_scm
-click
-pyaml
-pz-rail-pipelines[full]
-jupyter
-seaborn
-nbsphinx
-sphinx==6.1.3
-sphinx_rtd_theme==1.2.0
-sphinx-autoapi==2.0.1
-
-
