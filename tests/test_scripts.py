@@ -17,3 +17,7 @@ def test_clone_source():
 def test_install():
     scripts.install('..', False, True, 'rail_packages.yml')
     scripts.install('..', True, True, 'rail_packages.yml')
+
+
+def test_info():
+    scripts.info(print_all=True)

@@ -8,7 +8,6 @@ __pycache__/
 
 # Distribution / packaging
 .Python
-_version.py
 build/
 develop-eggs/
 dist/
@@ -27,6 +26,7 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
+_version.py
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
@@ -71,11 +71,7 @@ instance/
 
 # Sphinx documentation
 docs/_build/
-docs/api.rst
-docs/api
-docs/index.rst
-docs/examples
-
+_readthedocs/
 
 # PyBuilder
 target/
@@ -133,3 +129,12 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# vscode
+.vscode/
+
+# dask
+dask-worker-space/
+
+# tmp directory
+tmp/
