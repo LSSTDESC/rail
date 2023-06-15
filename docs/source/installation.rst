@@ -12,10 +12,10 @@ Installation Options
 
 There are several ways you might choose to install RAIL.
 
-1. Exploration: install all of the RAIL algorithms and explore RAIL using a series of demonstration jupyter notebooks :ref:`Exploration Installation`
-2. Production: install all of the RAIL algorithms in an existing conda environment :ref:`Production Installation`
-3. Algorithm:  install a single RAIL algorithm in an existing conda environment :ref:`Algorithm Installation`
-4. Developer: install all of RAIL algorithms from source in "editable" mode :ref:`Developer Installation`
+1. `Exploration Installation`_: install all of the RAIL algorithms and explore RAIL using a series of demonstration jupyter notebooks.
+2. `Production Installation`_: install all of the RAIL algorithms in an existing conda environment.
+3. `Algorithm Installation`_  install a single RAIL algorithm in an existing conda environment.
+4. `Developer Installation`_: install all of RAIL algorithms from source in "editable" mode.
 
 
 Exploration Installation
