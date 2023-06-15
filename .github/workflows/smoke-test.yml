@@ -6,6 +6,15 @@ name: Unit test smoke test
 on:
   schedule:
     - cron: 45 6 * * *
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'     
+        required: true
+        default: 'warning'
+      tags:
+        description: 'smoke tests' 
+
 
 jobs:
   build:
@@ -25,6 +34,7 @@ jobs:
       run: |
         sudo apt-get update
         python -m pip install --upgrade pip
+        pip install wheel numpy
         pip install .
         pip install .[dev]
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
@@ -33,5 +43,6 @@ jobs:
         python -m pytest tests
     - name: Run notebooks
       run: |
-        rail render-nb
+        rail render-nb examples/*_examples/*.ipynb
+
 
