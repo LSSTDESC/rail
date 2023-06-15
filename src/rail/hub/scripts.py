@@ -3,6 +3,8 @@ import os
 import glob
 import yaml
 
+import rail.stages
+from rail.core import RailEnv
 from rail.hub.options import GitMode
 
 
@@ -84,3 +86,33 @@ def install(outdir, from_source, dry_run, package_file):
         else:
             os.system(com_line)
 
+
+def info(**kwargs):
+    
+    rail.stages.import_and_attach_all()
+
+    print_all = kwargs.get('print_all', False)
+    if kwargs.get('print_packages') or print_all:
+        print("======= Printing RAIL packages ==============")
+        RailEnv.print_rail_packages()
+        print("\n\n")
+    if kwargs.get('print_namespaces') or print_all:
+        print("======= Printing RAIL namespaces ==============")
+        RailEnv.print_rail_namespaces()
+        print("\n\n")
+    if kwargs.get('print_modules') or print_all:
+        print("======= Printing RAIL modules ==============")
+        RailEnv.print_rail_modules()
+        print("\n\n")
+    if kwargs.get('print_tree') or print_all:
+        print("======= Printing RAIL source tree ==============")
+        RailEnv.print_rail_namespace_tree()
+        print("\n\n")
+    if kwargs.get('print_stages') or print_all:
+        print("======= Printing RAIL stages ==============")
+        RailEnv.print_rail_stage_dict()
+        print("\n\n")
+    
+
+
+    
