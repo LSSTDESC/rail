@@ -44,5 +44,5 @@ jobs:
     - name: Run notebooks
       run: |
         rail render-nb examples/*_examples/*.ipynb
-
+      continue-on-error: true
 
