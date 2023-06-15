@@ -1,0 +1,8 @@
+# Changes here will be overwritten by Copier
+_commit: da1cc49
+_src_path: gh:LSSTDESC/RAIL-project-template
+author_email: later@later.com
+author_name: LSST Dark Energy Science Collaboration (DESC)
+create_example_module: false
+package_name: hub
+project_name: pz-rail-hub

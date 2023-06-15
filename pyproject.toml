@@ -1,90 +1,64 @@
 [project]
 name = "pz-rail-hub"
-description = "RAIL top-level umbrella packages"
-readme = "README.rst"
-requires-python = ">=3.8"
-license = { file = "LICENSE" }
+license = {file = "LICENSE"}
+readme = "README.md"
 authors = [
-    { name = "The LSST DESC PZ WG", email = "echarles@slac.stanford.edu" }
+    { name = "LSST Dark Energy Science Collaboration (DESC)", email = "later@later.com" }
 ]
 classifiers = [
     "Development Status :: 4 - Beta",
     "License :: OSI Approved :: MIT License",
     "Intended Audience :: Developers",
     "Intended Audience :: Science/Research",
+    "Operating System :: OS Independent",
     "Programming Language :: Python",
-    "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.10",
-    "Natural Language :: English",
-    "Operating System :: POSIX"
 ]
 dynamic = ["version"]
+
 dependencies = [
     "pz-rail-base",
     "click",
     "pyaml",
 ]
 
+# On a mac, install optional dependencies with `pip install '.[dev]'` (include the single quotes)
 [project.optional-dependencies]
 dev = [
     "pz-rail-pipelines[full]",
     "jupyter",
     "seaborn",
     "coverage",
-    "pylint",
     "pytest",
-    "pytest-cov",
-    "yamllint",
+    "pytest-cov", # Used to report total code coverage
+    "pre-commit", # Used to run checks before finalizing a git commit
+    "pylint", # Used for static linting of files
 ]
 
 [project.scripts]
 rail = "rail.hub.commands:cli"
 
 [build-system]
-requires = ["setuptools>=61", "wheel", "setuptools_scm[toml]>=6.2"]
+requires = [
+    "setuptools>=62", # Used to build and package the Python project
+    "setuptools_scm>=6.2", # Gets release version from git. Makes it available programmatically
+]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools_scm]
 write_to = "src/rail/hub/_version.py"
 
-[tool.coverage.run]
-source = ["rail"]
-branch = true
+[tools.setuptools.packages.find]
+where = ["."]
+include = ["rail"]
+namespaces = true
 
-[tool.coverage.report]
-show_missing = true
-exclude_lines = [
-    "pragma: no cover",
-    "def __repr__",
-    "if self.debug:",
-    "if settings.DEBUG",
-    "raise AssertionError",
-    "raise NotImplementedError",
-    "if 0:",
-    "if __name__ == .__main__.:",
-    "if TYPE_CHECKING:"
+[tool.pytest.ini_options]
+testpaths = [
+    "tests",
 ]
-
-[tool.black]
-line-length = 110
-target-version = ["py310"]
-
-[tool.pydocstyle]
-convention = "numpy"
-add_select = [
-    "D212" # Multi-line docstring summary should start at the first line
-]
-add-ignore = [
-    "D105", # Missing docstring in magic method
-    "D102", # Missing docstring in public method (needed for docstring inheritance)
-    "D100", # Missing docstring in public module
-    # Below are required to allow multi-line summaries.
-    "D200", # One-line docstring should fit on one line with quotes
-    "D205", # 1 blank line required between summary line and description
-    "D400", # First line should end with a period
-    # Properties shouldn't be written in imperative mode. This will be fixed
-    # post 6.1.1, see https://github.com/PyCQA/pydocstyle/pull/546
-    "D401",
+addopts = [
+    "--cov=rail",
+    "--cov-report=html"
 ]
 
 [tool.pylint]
@@ -96,33 +70,11 @@ disable = [
     "missing-class-docstring",
     "missing-function-docstring",
     "too-few-public-methods",
-    "duplicate-code"
+    "duplicate-code",
+    "use-dict-literal",
+    "broad-exception-caught",
 ]
 max-line-length = 110
 max-locals = 50
 max-branches = 25
 max-public-methods = 50
-
-[tool.isort]
-profile = "black"
-line_length = 110
-
-[tool.pytest.ini_options]
-addopts = [
-    "--cov=rail",
-    "--cov-branch",
-    "--cov-report=html"
-]
-flake8-ignore = "E203"
-
-[tool.mypy]
-disallow_untyped_defs = true
-disallow_incomplete_defs = true
-ignore_missing_imports = true
-namespace_packages = true
-plugins = "sqlalchemy.ext.mypy.plugin"
-show_error_codes = true
-strict_equality = true
-warn_redundant_casts = true
-warn_unreachable = true
-warn_unused_ignores = true
