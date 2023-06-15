@@ -185,7 +185,7 @@ htmlhelp_basename = 'raildoc'
 # from sphinxcontrib.apidoc import main as apidoc_main
 
 def run_apidoc(_):
-    os.system('ln -s ../examples')
+    #os.system('ln -s ../examples')
 
     from sphinx.ext.apidoc import main as apidoc_main
     cur_dir = os.path.normpath(os.path.dirname(__file__))
