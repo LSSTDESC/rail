@@ -20,8 +20,9 @@ classifiers = [
 ]
 dynamic = ["version"]
 dependencies = [
+    "pz-rail-base",
     "click",
-    "pyyaml",
+    "pyaml",
 ]
 
 [project.optional-dependencies]
