@@ -6,7 +6,15 @@ name: Unit test smoke test
 on:
   schedule:
     - cron: 45 6 * * *
-  workflow_dispatch
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'     
+        required: true
+        default: 'warning'
+      tags:
+        description: 'smoke tests' 
+
 
 jobs:
   build:
