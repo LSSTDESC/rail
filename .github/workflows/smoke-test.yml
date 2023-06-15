@@ -6,6 +6,8 @@ name: Unit test smoke test
 on:
   schedule:
     - cron: 45 6 * * *
+  push:
+    branches: [ eac/smoke ]
 
 jobs:
   build:
