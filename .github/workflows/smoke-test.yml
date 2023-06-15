@@ -23,7 +23,7 @@ jobs:
     strategy:
       matrix:
         python-version: ['3.10']
-	notebook-dir: ['core', 'creation', 'estimation', 'evaluation', 'goldenspike']
+        notebook-dir: ['core', 'creation', 'estimation', 'evaluation', 'goldenspike']
 
     steps:
     - uses: actions/checkout@v3
