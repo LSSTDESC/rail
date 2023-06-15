@@ -39,9 +39,14 @@ def render_nb(outdir, clear_output, dry_run, inputs, **kwargs):
             render = os.system(comline)
         status[nb_file] = render
 
+    ret_val = 0
     for key, val in status.items():
         print(f"{key} {val}")
+        if val != 0:
+            ret_val = val
 
+    return ret_val
+        
 
 def clone_source(outdir, git_mode, dry_run, package_file):
 
