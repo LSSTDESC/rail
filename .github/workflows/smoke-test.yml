@@ -27,7 +27,7 @@ jobs:
       run: |
         sudo apt-get update
         python -m pip install --upgrade pip
-	pip install wheel numpy
+        pip install wheel numpy
         pip install .
         pip install .[dev]
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
