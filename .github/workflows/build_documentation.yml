@@ -26,6 +26,7 @@ jobs:
         pip install wheel numpy
         pip install .
         pip install .[dev]
+        pip install .[docs]
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Install notebook requirements
       run: |
