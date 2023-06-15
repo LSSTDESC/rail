@@ -4,7 +4,114 @@ Installation
 
 RAIL is actually distributed as several software packages.   However, depending on your use case it is likely that you will be working directly with one of the packages.
 
-RAIL has multiple dependencies that are sensitive to out-of-date code versions, therefore it is strongly recommended that you create a new dedicated virtual environment for RAIL to avoid problems with pip/conda failing to update some packages that you have previously installed during installation of RAIL.  Also, having multiple version of RAIL in your path can cause difficult to diagnose probems, so we encourage you to make sure that you don't have an existing version of RAIL installed in your `.local` area or in your base conda environment.
+Some of the RAIL algorithms have dependencies that are sensitive to out-of-date code versions, therefore it is strongly recommended that you create a new dedicated virtual environment for RAIL to avoid problems with pip/conda failing to update some packages that you have previously installed during installation of RAIL.  Also, having multiple version of RAIL in your path can cause difficult to diagnose problems, so we encourage you to make sure that you don't have an existing version of RAIL installed in your `.local` area or in your base conda environment.
+
+
+Installation Options
+====================
+
+There are several ways you might choose to install RAIL.
+
+1. Exploration: install all of the RAIL algorithms and explore RAIL using a series of demonstration jupyter notebooks :ref:`Exploration Installation`
+2. Production: install all of the RAIL algorithms in an existing conda environment :ref:`Production Installation`
+3. Algorithm:  install a single RAIL algorithm in an existing conda environment :ref:`Algorithm Installation`
+4. Developer: install all of RAIL algorithms from source in "editable" mode :ref:`Developer Installation`
+
+
+Exploration Installation
+------------------------
+
+Here we will be installing the source code from `rail <https://github.com/LSSTDESC/rail>`_ to access all of the demonstration notebooks, and using that to install all of the other alo
+
+We have included an `environment.yml` that makes it easy to create a conda environment named "[env]" that uses conda to install some packages that have compiled libraries we have found that it is easier to install with conda.
+
+.. code-block:: bash
+
+    git clone https://github.com/LSSTDESC/rail.git
+    cd rail
+    conda env create -f environment.yml -n [env]  # or mamba env create, which is much faster
+    conda activate [env]
+    pip install .[dev]
+
+
+If for some reason the `pip install .[dev]` fails (e.g.,because of a problem in building the dependencies for one of the algorithms) you can run a more fault-tolerant installation using a rail script:
+
+.. code-block:: bash
+		
+    pip install .
+    rail install --package-file rail_packages.yml
+
+		    
+At that point you should be able to run the demonstration notebooks, e.g.;
+
+.. code-block:: bash
+
+    jupyter-notebook examples/estimation_examples/RAIL_estimation_demo.ipynb
+
+
+
+Production Installation
+-----------------------   
+
+Here we will be installing all of the RAIL algorithms into an existing conda environment "[env]".  To do this we recommend that you install `rail` from source, to be sure to get the latest version of the `conda-reqs.txt` file
+
+.. code-block:: bash
+
+    git clone https://github.com/LSSTDESC/rail.git
+    cd rail
+    conda activate [env]
+    conda install -n [env] -c conda-forge --file conda-reqs.txt  # or mamba install, which is much faster
+    pip install .[algos]
+
+
+Again, if for some reason the `pip install .[algos]` fails (e.g.,because of a problem in building the dependencies for one of the algorithms) you can run a more fault-tolerant installation using a rail script:
+
+.. code-block:: bash
+		
+    pip install .
+    rail install --package-file rail_packages.yml
+
+		
+
+Algorithm Installation
+----------------------   
+
+Here we will be a single RAIL algorithm (e.g., rail_som) into an existing conda environment "[env]".
+
+.. code-block:: bash
+
+    conda activate [env]
+    pip install pz-rail-som  # (note the name change)
+
+
+Again, if for some reason that fails because of conflicting dependencies, then adding the dependencies with compiled libraries via conda might fix the issue.  We have included `conda-reqs.txt` file in each RAIL algorithm's repository to specify the dependencies of that algorithm that might best be installed using conda.
+
+.. code-block:: bash
+
+    git clone https://github.com/LSSTDESC/rail_som.git
+    cd rail_som    
+    conda install -n [env] -c conda-forge --file conda-reqs.txt
+    pip install .		
+
+    
+Developer Installation
+----------------------   
+
+Here we will be installing the source code from `rail <https://github.com/LSSTDESC/rail>`_ to access all of the demonstration notebooks, and using that to install all of the other alo
+
+We have included an `environment.yml` that makes it easy to create a conda environment named "[name-for-your-env]" that uses conda to install some packages that have compiled libraries we have found that it is easier to install with conda.
+
+.. code-block:: bash
+
+    git clone https://github.com/LSSTDESC/rail.git
+    cd rail
+    conda env create -f environment.yml -n [env]  # or mamba env create, which is much faster
+    conda activate [env]
+    pip install .
+    rail clone --package-file rail_packages.yml
+    rail install --package-file rail_packages.yml
+
+    
 
 RAIL packages
 =============
@@ -12,22 +119,22 @@ RAIL packages
 Depending on how you want to use RAIL you will be installing one or more RAIL packages.  So, first let's clarify the
 RAIL packages structure.
 
-1. `RAIL <https://github.com/LSSTDESC/RAIL/>`_ (pz-rail on pypi): includes the core RAIL functionality and many algorithms that do not have complicated dependencies.
+1. `rail_base <https://github.com/LSSTDESC/rail_base>`_ (pz-rail-base on pypi): includes the RAIL base classes and some very simple example algorithms that do not include any dependencies beyond `numpy` and `scipy`.
 2. rail_<algorithm> (for now this includes `rail_delight <https://github.com/LSSTDESC/rail_delight>`_, `rail_bpz <https://github.com/LSSTDESC/rail_bpz>`_ and `rail_flexzboost <https://github.com/LSSTDESC/rail_flexzboost>`_)  (pz-rail-<algorithm> on pypi): these are small packages that split out algorithms that do have complicated dependencies.  They are all independent of each other, but each one does depend on RAIL.
-3. `rail_hub <https://github.com/LSSTDESC/rail_hub/>`_ (pz-rail-hub on pypi): is the umbrella package that pulls together RAIL and the various rail_<algorithm> packages.
-4. `rail_pipelines <https://github.com/LSSTDESC/rail_pipelines/>`_ (pz-rail-pipelines on pypi): is the package where we develop data analysis pipelines that use the various algorithms.
+3. `rail_pipelines <https://github.com/LSSTDESC/rail_pipelines/>`_ (pz-rail-pipelines on pypi): is the package where we develop data analysis pipelines that use the various algorithms.
+4. `rail_hub <https://github.com/LSSTDESC/rail_hub/>`_ (pz-rail-hub on pypi): is the umbrella package that pulls together RAIL and the various rail_<algorithm> packages.
 
 Note that the various RAIL packages all populate the `rail` namespace in python.   I.e., in python you will be importing from `rail` or `rail.pipelines` or `rail.estimation.algos`, not `rail_<alogrithm>` or `rail_pipelines`. 
    
 Installing any of the RAIL packages should automatically install all of the dependent RAIL packages.  However, in some cases you might find that you explicitly need to modify the source code in more than one package, in which case you will want to install multiple packages from source.
 
-To create a conda environment named "[name-for-your-env]" that has a specific version of python (in this case 3.9) and pip (and we have found that it is eaiser to use conda to install h5py, so we do that as well), run the command:
+In every RAIL package we have included an `environment.yml` that makes it easy to create a conda environment named "[name-for-your-env]" that uses conda to install some packages that have compiled libraries we have found that it is easier to install with conda.
 
 .. code-block:: bash
 
-    conda create -n [name-for-your-env] pip python=3.9 h5py
+    conda env create -f environment.yml -n [name-for-your-env]
     
-Where you have replaced [name-for-your-env] with whatever name you wish to use, e.g. `rail`.
+Where you have replaced [name-for-your-env] with whatever name you wish to use, e.g. `rail`.  (This is in fact the default, and you will get it if you leave off the `-n [name-for-your-env]`
 You can then run the command
 
 .. code-block:: bash
@@ -150,3 +257,11 @@ If you want to use the kernel that you have just created to run RAIL example dem
 `python -m ipykernel install --user --name [nametocallnewkernel]`
 (you may or may not need to prepend `sudo` depending on your permissions).  When you next start up Jupyter you should see a kernel with your new name as an option, including using the Jupyter interface at NERSC.
 
+
+..  LocalWords:  jupyter environment.yml rail_packages.yml pypi numpy
+..  LocalWords:  conda-reqs.txt conda-forge pz-rail-som pz-rail-base
+..  LocalWords:  scipy rail_bpz rail_flexzboost pz-rail alogrithm bpz
+..  LocalWords:  setup.py pz-rail-delight Cython openmp openmp pzflow
+..  LocalWords:  pz-rail-flexzboost xgboost xgboost bpz_lite ipython
+..  LocalWords:  pz-rail-bpz Goldenspike bpz_lite.py setuptools
+..  LocalWords:  subpackages ipykernel ipykernel nametocallnewkernel

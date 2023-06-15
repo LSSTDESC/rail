@@ -1,0 +1,12 @@
+numpy>=1.21.0
+astropy
+h5py>=2.9=*mpi_openmpi*
+healpy
+pandas
+pyarrow
+pytables
+mpi4py
+hdf5=*=*mpi_openmpi*
+jax
+jaxlib
+somoclu
