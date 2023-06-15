@@ -31,3 +31,7 @@ jobs:
     - name: Run unit tests with pytest
       run: |
         python -m pytest tests
+    - name: Run notebooks
+      run: |
+        rail render-nb
+
