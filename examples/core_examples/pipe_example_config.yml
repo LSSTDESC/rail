@@ -1,0 +1,107 @@
+col_remapper_test:
+  aliases:
+    input: output_lsst_error_model_test
+    output: output_col_remapper_test
+  chunk_size: 100000
+  columns:
+    mag_g_lsst_err: mag_err_g_lsst
+    mag_i_lsst_err: mag_err_i_lsst
+    mag_r_lsst_err: mag_err_r_lsst
+    mag_u_lsst_err: mag_err_u_lsst
+    mag_y_lsst_err: mag_err_y_lsst
+    mag_z_lsst_err: mag_err_z_lsst
+  config: null
+  hdf5_groupname: ''
+  inplace: false
+  input: None
+  name: col_remapper_test
+  output_mode: default
+flow_engine_test:
+  aliases:
+    output: output_flow_engine_test
+  config: null
+  model: ${FLOWDIR}/pretrained_flow.pkl
+  n_samples: 50
+  name: flow_engine_test
+  output_mode: default
+  seed: 12345
+lsst_error_model_test:
+  A_max: 2.0
+  A_min: 0.7
+  Cm:
+    g: 24.42
+    i: 24.32
+    r: 24.44
+    u: 23.09
+    y: 23.73
+    z: 24.16
+  airmass: 1.2
+  aliases:
+    input: output_flow_engine_test
+    output: output_lsst_error_model_test
+  bandNames:
+    g: mag_g_lsst
+    i: mag_i_lsst
+    r: mag_r_lsst
+    u: mag_u_lsst
+    y: mag_y_lsst
+    z: mag_z_lsst
+  config: null
+  errorType: point
+  extendedSource: 0.0
+  gamma:
+    g: 0.039
+    i: 0.039
+    r: 0.039
+    u: 0.038
+    y: 0.039
+    z: 0.039
+  highSNR: false
+  input: None
+  km:
+    g: 0.213
+    i: 0.096
+    r: 0.126
+    u: 0.491
+    y: 0.17
+    z: 0.069
+  m5: {}
+  magLim: 30.0
+  msky:
+    g: 22.26
+    i: 20.48
+    r: 21.2
+    u: 22.99
+    y: 18.61
+    z: 19.6
+  nVisYr:
+    g: 8.0
+    i: 18.4
+    r: 18.4
+    u: 5.6
+    y: 16.0
+    z: 16.0
+  nYrObs: 10.0
+  name: lsst_error_model_test
+  ndFlag: .nan
+  output_mode: default
+  seed: 12345
+  sigmaSys: 0.005
+  theta:
+    g: 0.77
+    i: 0.71
+    r: 0.73
+    u: 0.81
+    y: 0.68
+    z: 0.69
+  tvis: 30.0
+table_conv_test:
+  aliases:
+    input: output_col_remapper_test
+    output: output_table_conv_test
+  config: null
+  input: None
+  name: table_conv_test
+  output_format: numpyDict
+  output_mode: default
+  seed: 12345

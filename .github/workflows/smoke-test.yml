@@ -39,5 +39,4 @@ jobs:
     - name: Run notebooks
       run: |
         rail render-nb examples/${{ matrix.notebook-dir }}_examples/*.ipynb
-      continue-on-error: true
 

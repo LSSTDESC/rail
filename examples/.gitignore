@@ -3,5 +3,4 @@ results
 *.fits
 *.pq
 *.out
-*.yml
 *.pkl

@@ -1,0 +1,26 @@
+config: pipe_example_config.yml
+inputs:
+  model: ${FLOWDIR}/pretrained_flow.pkl
+log_dir: .
+modules: rail
+output_dir: .
+resume: false
+site:
+  max_threads: 2
+stages:
+- classname: FlowCreator
+  module_name: rail.creation.engines.flowEngine
+  name: flow_engine_test
+  nprocess: 1
+- classname: LSSTErrorModel
+  module_name: rail.creation.degradation.lsst_error_model
+  name: lsst_error_model_test
+  nprocess: 1
+- classname: ColumnMapper
+  module_name: rail.core.utilStages
+  name: col_remapper_test
+  nprocess: 1
+- classname: TableConverter
+  module_name: rail.core.utilStages
+  name: table_conv_test
+  nprocess: 1
