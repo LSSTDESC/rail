@@ -90,7 +90,7 @@
     "training_file = \"./healpix_10326_bright_data.hdf5\"\n",
     "\n",
     "if not os.path.exists(training_file):\n",
-    "  os.system('curl -O https://portal.nersc.gov/cfs/lsst/schmidt9/healpix_10326_bright_data.hdf5')"
+    "  os.system('curl -O https://portal.nersc.gov/cfs/lsst/PZ/healpix_10326_bright_data.hdf5')"
    ]
   },
   {
