@@ -108,7 +108,7 @@ We have included an `environment.yml` that makes it easy to create a conda envir
     conda env create -f environment.yml -n [env]  # or mamba env create, which is much faster
     conda activate [env]
     pip install .
-    rail clone --package-file rail_packages.yml
+    rail clone-source --package-file rail_packages.yml
     rail install --package-file rail_packages.yml --from-source 
 
     

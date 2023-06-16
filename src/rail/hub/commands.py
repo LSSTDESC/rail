@@ -1,13 +1,10 @@
-import sys
-from typing import Any, Tuple
-
 import click
 
-from rail.hub import options, scripts
+from rail.hub import options, scripts, __version__
 
 
 @click.group()
-@click.version_option(package_name="rail")
+@click.version_option(__version__)
 def cli() -> None:
     """RAIL utility scripts"""
 
@@ -39,7 +36,7 @@ def clone_source(outdir, git_mode, dry_run, package_file, **kwargs):
 @options.from_source()
 @options.package_file()
 def install(outdir, dry_run, from_source, package_file, **kwargs):
-    """pip install rail packages one by one, to be fault tolerant"""
+    """Install rail packages one by one, to be fault tolerant"""
     scripts.install(outdir, from_source, dry_run, package_file)
     return 0
     
@@ -53,6 +50,6 @@ def install(outdir, dry_run, from_source, package_file, **kwargs):
 @options.print_tree()
 @options.print_stages()
 def info(**kwargs):
-    """pip install rail packages one by one, to be fault tolerant"""
+    """Print information about the rail ecosystem"""
     scripts.info(**kwargs)
     return 0
