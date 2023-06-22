@@ -15,7 +15,7 @@ Similar to the installation process, depending on how you want to contribute to 
 Given the package structure we imagine three main use cases for contributions:
 
 1. To contribute to the core codebase, including algorithms with no special dependencies, install RAIL from source, indicate what you aim to do in an Issue, and follow the Contribution workflow below.
-2. To contribute a new algorithm or engine that depends on packages beyond numpy and scipy, you will probably be making a new rail_<algorithm> repository, and eventually rail_hub.
+2. To contribute a new algorithm or engine that depends on packages beyond numpy and scipy, you will probably be making a new rail_<algorithm> repository, and eventually adding to the dependencies in `rail`.
 3. To contribute analysis pipelines you built with RAIL Stages, clone `rail_pipelines` from source and follow the Contribution workflow instructions below.
 
 
