@@ -222,22 +222,6 @@ But if you run into problems you might need to:
 - cd to the DESC_BPZ directory and run `python setup.py install` (add `--user` if you are on a shared system such as NERSC)
 - try `pip install pz-rail-bpz` again.
 
-If you've installed rail and bpz to different directories (most commonly, you've installed rail from 
-source and bpz from PyPI), you may run into an issue where rail cannot locate a file installed by bpz 
-(usually encountered when running the estimation step in Goldenspike). 
-
-To fix this, find your test_bpz.columns file in your bpz directory (`or grab a new one here on 
-GitHub <https://github.com/LSSTDESC/rail_bpz/blob/main/src/rail/examples/estimation/configs/test_bpz.columns>`_) 
-and copy it into your rail directory to `/RAIL/src/rail/examples/estimation/configs/test_bpz.columns`.
-
-Alternatively, if you don't want to move files, you should be able to replace the configured paths with 
-your actual `test_bpz.columns` path:
-
-* inform stage: `bpz_lite.py L89 <https://github.com/LSSTDESC/rail_bpz/blob/65870ffd93ba35356a1af44104a0a78530085789/src/rail/estimation/algos/bpz_lite.py#L89>`_
-
-* estimation: `bpz_lite.py L259 <https://github.com/LSSTDESC/rail_bpz/blob/65870ffd93ba35356a1af44104a0a78530085789/src/rail/estimation/algos/bpz_lite.py#L259>`_
-
-
 
 Using GPU-optimization for pzflow
 ---------------------------------
