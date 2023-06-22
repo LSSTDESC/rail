@@ -2,14 +2,21 @@
 Contributing
 ************
 
+RAIL is developed publicly on GitHub and welcomes all interested developers, regardless of DESC membership or LSST data rights.
+The best way to get involved is to comment on `Issues <https://github.com/LSSTDESC/RAIL/issues?q=>`_ and `make Pull Requests <https://github.com/LSSTDESC/RAIL/compare>`_ for your contributions.
+
+Professional astronomers (including students!) based in the US, Chile, or a French IN2P3 institution are encouraged to `join the LSST-DESC <https://lsstdesc.org/pages/apply.html>`_ to gain access to the `\#desc-pz-rail <https://lsstc.slack.com/archives/CQGKM0WKD>`_ channel on the LSSTC Slack workspace.
+Those without data rights who wish to gain access to the Slack channel should `create an Issue <https://github.com/LSSTDESC/RAIL/issues/new/choose>`_ to request that the team leads initiate the process for adding a DESC External Collaborator.
+
 Where to contribute: RAIL packages
 ==================================
 
-Similar to the installation process, depending on how you want to contribute to RAIL you will be contributing to one or more of the RAIL packages.  Given the package structure we imagine three main use cases for contributions:
+Similar to the installation process, depending on how you want to contribute to RAIL, you will be contributing to one or more of the RAIL packages.  
+Given the package structure we imagine three main use cases for contributions:
 
-1. If you are contributing to the core code base, or developing an algorithm that has minimal dependencies, you will probably only be contributing to RAIL, and only need to install the source code for RAIL.
-2. If you are contritubing a new algorithm that does depend on a number of other packages beyond numpy, scipy and sklearn, you will probably be making a new rail_<algorithm> package, and eventually adding to the dependencies in rail_hub.
-3. If you are using existing algorithms to do studies and build analysis pipelines to do those studies, you will probably only be contriubting to rail_pipelines.
+1. To contribute to the core codebase, including algorithms with no special dependencies, install RAIL from source, indicate what you aim to do in an Issue, and follow the Contribution workflow below.
+2. To contribute a new algorithm or engine that depends on packages beyond numpy and scipy, you will probably be making a new rail_<algorithm> repository, and eventually rail_hub.
+3. To contribute analysis pipelines you built with RAIL Stages, clone `rail_pipelines` from source and follow the Contribution workflow instructions below.
 
 
 
@@ -21,8 +28,7 @@ When you identify something that should be done, `make an issue <https://github.
 for it.   
 We ask that if applicable and you are comfortable doing so, you add labels to the issue to
 mark what part of the code base it relates to, its priority level, and if it's well-suited to newcomers, as opposed to requiring more familiarity with the code or technical expertise.   
-Also, if you intend
-to work on the issue yourself, please assign the issue to yourself.
+
 
 To contribute, isolate `an issue <https://github.com/LSSTDESC/RAIL/issues>`_ to work on, assign yourself, and leave a comment on
 the issue's discussion page to let others know you're working on it. 
@@ -42,9 +48,12 @@ As regards `full coverage`, the automatic tests will require that 100% of the li
 
 When you're ready to merge your branch into the `main` branch,
 `make a pull request <https://github.com/LSSTDESC/RAIL/compare>`_, and request that other team members review it if you have any in mind, for example, those who have consulted on some of the work.
-Once the changes have been approved, you can merge and squash the pull request as well as close its corresponding issue by putting `closes #[#]` in the comment closing the pull request.
+Once the changes have been approved, 1. select "Squash and merge" on the approved pull request, 2. enter `closes #[#]` in the comment field to close the resolved issue, and 3. delete your branch using the button on the merged pull request.
 
-To review a pull request, it's a good idea to start by pulling the changes and running the unit tests (see above). If there are no problems with that, you can make suggestions for optional improvements (e.g. adding a one-line comment before a clever block of code or including a demonstration of new functionality in the example notebooks) or request necessary changes (e.g. including an exception for an edge case that will break the code or separating out code that's repeated in multiple places).
+To review a pull request, it's a good idea to start by pulling the changes and running the unit tests (see above). 
+Check the code for complete and accurate docstrings, sufficient comments, and to ensure any instances of `#pragma: no cover` (excluding the code from unit test coverage accounting) are extremely well-justified.
+Necessary changes to request may include, e.g. writing an exception for an edge case that will break the code, separating out code that's repeated in multiple places, etc.
+You may also make suggestions for optional improvements, such as adding a one-line comment before a clever block of code or including a demonstration of new functionality in the example notebooks.
 
 
 

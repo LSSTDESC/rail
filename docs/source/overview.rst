@@ -2,22 +2,27 @@
 Overview
 ********
 
-RAIL (Redshift Assessment Infrastructure Layers) is LSST-DESC software for the computation and assessment of redshifts derived from Rubin data.
-RAIL addresses the challenge of enabling stress-testing of multiple photo-z codes in the presence of realistically complex systematic imperfections in the input photometry and prior information (such as template libraries and training sets), everything from the handling of diverse output storage formats to the propagation of assumptions inherent to individual codes to the architecture of the machines on which the code is run.
-RAIL seeks to minimize such impacts by unifying much of the infrastructure in a single modular code base that can be used by photo-z developers and consumers alike.  
-Beyond the comparison of different photo-z approaches, RAIL will be employed to generate photo-z catalogs used by DESC members in their science analyses. 
+RAIL enables stress-testing of multiple approaches to photo-z estimation at-scale for LSST in the presence of realistically complex systematic imperfections in the input photometry and prior information (such as template libraries and training sets) under science-agnostic and science-specific metrics, with the expectation that once a pipeline is validated through controlled experimentation, the exact same estimation procedure could be applied to real data without loss of validity.
+To support such an ambitious goal, it has a highly modular structure encompassing three aspects of this kind of experiment and is built upon a number of key types of objects, however, the result is that RAIL is unavoidably complicated.
+This overview seeks to present the organizational philosophy, basic structures, and core dependencies in order to motivate an exposition to the RAIL ecosystem.
 
-There are three aspects to the RAIL approach to photo-zs: the creation of self-consistently forward-modeled, realistically complex mock data for testing purposes, the estimation of individual galaxy and galaxy sample redshift uncertainties, and the evaluation of the results of the estimators by generic and science-specific metrics.
-RAIL includes a subpackage for each, providing a flexible framework for handling different approaches and at least one baseline implementation of a method under that umbrella as an example for the broader community to integrate their own codes into RAIL.
+
+Organization
+************
+
+An end-to-end experiment entails the creation of self-consistently forward-modeled, realistically complex mock data for testing purposes, the estimation of individual galaxy and/or galaxy sample redshift uncertainties, and the evaluation of the resulting photo-z data products by informative metrics.
+RAIL includes subpackages for each, providing a flexible framework for accessing implementations of approaches under each umbrella.
 The purpose of each piece of infrastructure is outlined below.
-For a working example illustrating all four components of RAIL, see the `examples/goldenspike/goldenspike.ipynb <https://github.com/LSSTDESC/RAIL/blob/main/examples/goldenspike/goldenspike.ipynb>`_ jupyter notebook.
+For a working example illustrating all three components of RAIL, see the `examples/goldenspike/goldenspike.ipynb <https://github.com/LSSTDESC/RAIL/blob/main/examples/goldenspike/goldenspike.ipynb>`_ Jupyter notebook.
 
 
-A brief note on core DESC software dependencies
-===============================================
+Core DESC software dependencies
+===============================
 
 The `qp` Ensemble format is the expected default storage format for redshift information within DESC, and all redshift PDFs, for both individual galaxies and galaxy samples (such as tomographic bin members or galaxy cluster members), will be stored as `qp` Ensemble objects to be directly accessible to LSST-DESC pipelines, such as `TXPipe <https://github.com/LSSTDESC/TXPipe/>`_.
 The use of a unified `qp` Ensemble as the output format enables a consistent evaluation of redshift uncertainties.  See `the qp repository <https://github.com/LSSTDESC/qp>`_ for more details, though in brief, `qp` enables transformation between different PDF parameterizations, computation of many useful metrics, and easy fileIO.
+
+
 
 `creation`
 ==========
@@ -95,3 +100,4 @@ In the `example` directory, you can execute the evaluation/demo.ipynb jupyter no
 We aim to greatly expand the library of available metrics and welcome input from the community in doing so.  
 An immediate extension would propagate estimated redshift posteriors to science-motivated metrics, and/or metrics related to computational requirements of the estimators. 
 Within DESC, development of sophisticated metrics propagating photo-z uncertainties through cosmological probe analysis pipelines is now underway as part of Dark Energy Redshift Assessment Infrastructure Layers (DERAIL).
+
