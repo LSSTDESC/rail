@@ -1,0 +1,91 @@
+config: examples/goldenspike_examples/goldenspike_config.yml
+inputs:
+  input: src/rail/examples_data/goldenspike_data/data/base_catalog.pq
+log_dir: examples/goldenspike_examples/logs
+modules: rail
+output_dir: examples/goldenspike_examples/outputs
+resume: false
+site:
+  name: local
+  max_threads: 2
+stages:
+- classname: FlowModeler
+  module_name: rail.creation.engines.flowEngine
+  name: flow_modeler
+  nprocess: 1
+- classname: FlowCreator
+  module_name: rail.creation.engines.flowEngine
+  name: flow_creator_train
+  nprocess: 1
+- classname: LSSTErrorModel
+  module_name: rail.creation.degradation.lsst_error_model
+  name: lsst_error_model_train
+  nprocess: 1
+- classname: InvRedshiftIncompleteness
+  module_name: rail.creation.degradation.spectroscopic_degraders
+  name: inv_redshift
+  nprocess: 1
+- classname: LineConfusion
+  module_name: rail.creation.degradation.spectroscopic_degraders
+  name: line_confusion
+  nprocess: 1
+- classname: QuantityCut
+  module_name: rail.creation.degradation.quantityCut
+  name: quantity_cut
+  nprocess: 1
+- classname: ColumnMapper
+  module_name: rail.core.utilStages
+  name: col_remapper_train
+  nprocess: 1
+- classname: TableConverter
+  module_name: rail.core.utilStages
+  name: table_conv_train
+  nprocess: 1
+- classname: FlowCreator
+  module_name: rail.creation.engines.flowEngine
+  name: flow_creator_test
+  nprocess: 1
+- classname: LSSTErrorModel
+  module_name: rail.creation.degradation.lsst_error_model
+  name: lsst_error_model_test
+  nprocess: 1
+- classname: ColumnMapper
+  module_name: rail.core.utilStages
+  name: col_remapper_test
+  nprocess: 1
+- classname: TableConverter
+  module_name: rail.core.utilStages
+  name: table_conv_test
+  nprocess: 1
+- classname: Inform_BPZ_lite
+  module_name: rail.estimation.algos.bpz_lite
+  name: inform_bpz
+  nprocess: 1
+- classname: Inform_KNearNeighPDF
+  module_name: rail.estimation.algos.knnpz
+  name: inform_knn
+  nprocess: 1
+- classname: Inform_FZBoost
+  module_name: rail.estimation.algos.flexzboost
+  name: inform_FZBoost
+  nprocess: 1
+- classname: BPZ_lite
+  module_name: rail.estimation.algos.bpz_lite
+  name: estimate_bpz
+  nprocess: 1
+- classname: KNearNeighPDF
+  module_name: rail.estimation.algos.knnpz
+  name: estimate_knn
+  nprocess: 1
+- classname: FZBoost
+  module_name: rail.estimation.algos.flexzboost
+  name: test_FZBoost
+  nprocess: 1
+- classname: PointEstimateHist
+  module_name: rail.estimation.algos.pointEstimateHist
+  name: point_estimate_test
+  nprocess: 1
+- classname: NaiveStack
+  module_name: rail.estimation.algos.naiveStack
+  name: naive_stack_test
+  nprocess: 1
