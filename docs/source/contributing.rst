@@ -4,7 +4,7 @@ Contributing
 
 RAIL is a constellation of multiple packages developed publicly on GitHub and welcomes all interested developers, regardless of DESC membership or LSST data rights.
 
-If you’re interested in contributing, but don’t know where to start, take a look at the list of good first issues from all RAIL repositories` here <https://github.com/orgs/LSSTDESC/projects/6/views/20>`_.
+If you're interested in contributing, but don't know where to start, take a look at the list of good first issues from all RAIL repositories` here <https://github.com/orgs/LSSTDESC/projects/6/views/20>`_.
 Or, make an issue on TODO link to rail issues to suggest a change, and the team will route it to the appropriate repository.
 
 In addition to GitHub, the RAIL team uses the LSSTC Slack workspace for organization.
@@ -17,21 +17,23 @@ Where to contribute: RAIL packages
 
 RAIL functionality is split among several GitHub repositories to make it easier to manage ever-changing dependencies. 
 Most contain the few stages sharing a particular challenging dependency, with the exception of three meta-repositories.
-`rail` is the portal for users who want to access all of RAIL’s functionality across all the repositories. 
+`rail` is the portal for users who want to access all of RAIL's functionality across all the repositories. 
 `rail_base` is where the superclasses and underlying infrastructure used by all the standalone repositories are defined.
 `rail_pipelines` is a place for users to share the pipelines they build with RAIL so others can call them directly or adapt them to their needs.
 Overall, you may find yourself contributing to one or more of these repositories and/or making a new one.
 
 Similar to the installation process, depending on how you want to contribute to RAIL, you will be contributing to one or more of the RAIL packages.
 In all cases, begin by following the developer installation instructions TODO link and follow the contribution workflow instructions below: TODO link
+
+
 Contribution workflow
 ---------------------
 
 The rail and rail_<xxx> repositories use an issue-branch-review workflow, similar to the standard `GitHub Flow< https://docs.github.com/en/get-started/quickstart/github-flow>`_.
 
-Issue
+
 When you identify something that should be done, `make an issue <https://github.com/LSSTDESC/rail/issues/new>`_
-for it – the admins can move it to the appropriate repository if necessary, but if you know the specific rail_<xxx> package that the issue applies to, please do make the issue in that repository.
+for it -- the admins can move it to the appropriate repository if necessary, but if you know the specific rail_<xxx> package that the issue applies to, please do make the issue in that repository.
 
 We ask that, if applicable and you are comfortable doing so, you add labels to the issue to:
 mark what part of the code base it relates to
