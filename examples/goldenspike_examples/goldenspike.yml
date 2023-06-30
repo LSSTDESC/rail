@@ -85,7 +85,7 @@ stages:
   module_name: rail.estimation.algos.pointEstimateHist
   name: point_estimate_test
   nprocess: 1
-- classname: NaiveStack
-  module_name: rail.estimation.algos.naiveStack
+- classname: NaiveStackSummarizer
+  module_name: rail.estimation.algos.naive_stack
   name: naive_stack_test
   nprocess: 1
