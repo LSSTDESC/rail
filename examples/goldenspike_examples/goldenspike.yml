@@ -81,8 +81,8 @@ stages:
   module_name: rail.estimation.algos.flexzboost
   name: test_FZBoost
   nprocess: 1
-- classname: PointEstimateHist
-  module_name: rail.estimation.algos.pointEstimateHist
+- classname: PointEstHistSummarizer
+  module_name: rail.estimation.algos.point_est_hist
   name: point_estimate_test
   nprocess: 1
 - classname: NaiveStackSummarizer
