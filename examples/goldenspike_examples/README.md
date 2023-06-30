@@ -4,7 +4,10 @@ This directory contains an example notebook showing a simplified version of the 
 
 - `goldenspike.yml`, a pipeline file (plus `goldenspike_config.yml`, its associated config file).
 
-To run the pipeline file from the command line, you must:
-- Make sure you have [ceci](https://github.com/LSSTDESC/ceci) installed (run `pip install ceci`)
-- Point your shell to the root of your RAIL directory
-- Run `ceci examples/goldenspike_examples/goldenspike.yml`
+---
+ 
+  To run the pipeline file from the command line, you must:
+ - Point your shell to the root of your RAIL directory
+ - `pip install ceci` to install [ceci](https://github.com/LSSTDESC/ceci)
+ - `rail get-data` to download any required data from NERSC
+ - `ceci examples/goldenspike_examples/goldenspike.yml` to run the pipeline
