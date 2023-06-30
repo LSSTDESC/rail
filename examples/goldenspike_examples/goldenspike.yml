@@ -61,8 +61,8 @@ stages:
   module_name: rail.estimation.algos.bpz_lite
   name: inform_bpz
   nprocess: 1
-- classname: Inform_KNearNeighPDF
-  module_name: rail.estimation.algos.knnpz
+- classname: KNearNeighInformer
+  module_name: rail.estimation.algos.k_nearneigh
   name: inform_knn
   nprocess: 1
 - classname: Inform_FZBoost
@@ -73,8 +73,8 @@ stages:
   module_name: rail.estimation.algos.bpz_lite
   name: estimate_bpz
   nprocess: 1
-- classname: KNearNeighPDF
-  module_name: rail.estimation.algos.knnpz
+- classname: KNearNeighEstimator
+  module_name: rail.estimation.algos.k_nearneigh
   name: estimate_knn
   nprocess: 1
 - classname: FZBoost
