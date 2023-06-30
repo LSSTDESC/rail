@@ -65,24 +65,24 @@ The following example has all of the required pieces of a ``RailStage`` and almo
       
 The required pieces, in the order that they appear are:
 
-1.  The `ColumnMapper(RailStage):` defines a class called `ColumnMapper` and specifies that it inherits from `RailStage`.
+#. The ``ColumnMapper(RailStage):`` defines a class called ``ColumnMapper`` and specifies that it inherits from ``RailStage``.
 
-2.  The `name = ColumnMapper` is required, and should match the class name.
+#. The ``name = ColumnMapper`` is required, and should match the class name.
 
-3.  The `config_options` lines define the configuration parameters for this class, as well as their default values.  Note that here we are copying the configuration parameters from the `RailStage` as well as defining some new ones.
+#. The ``config_options`` lines define the configuration parameters for this class, as well as their default values.  Note that here we are copying the configuration parameters from the ``RailStage`` as well as defining some new ones.
 
-4.  The `inputs = [('input', PqHandle)]` and `outputs = [('output', PqHandle)]`  define the inputs and outputs, and the expected data types for those, in this case Parquet files.
+#. The ``inputs = [('input', PqHandle)]`` and ``outputs = [('output', PqHandle)]``  define the inputs and outputs, and the expected data types for those, in this case Parquet files.
 
-5.  The `__init__` method does any class-specific initialization.  In this case there isn't any and the method is superfluous.
+#. The ``__init__`` method does any class-specific initialization.  In this case there isn't any and the method is superfluous.
 
-6.  The `run()` method does the actual work, note that it doesn't take any arguments, that it uses methods `self.get_data()` and `self.add_data()` to access the input data and set the output data, and that it uses `self.config` to access the configuration parameters.
+#. The ``run()`` method does the actual work, note that it doesn't take any arguments, that it uses methods ``self.get_data()`` and ``self.add_data()`` to access the input data and set the output data, and that it uses ``self.config`` to access the configuration parameters.
 
-7.  The `__call__()` method provides an interface for interactive use.  It provide a way to pass in data (and in other cases configuration parameters) to the class so that they can be used in the run method.
+#. The ``__call__()`` method provides an interface for interactive use.  It provide a way to pass in data (and in other cases configuration parameters) to the class so that they can be used in the run method.
 
 Advanced Example
 ================
 
-Here is an example of a slightly more complicated `RailStage`.
+Here is an example of a slightly more complicated ``RailStage``.
 
 
 .. code-block:: python
@@ -123,13 +123,13 @@ Here is an example of a slightly more complicated `RailStage`.
            self.add_data('single_NZ', qp_d)
 
 
-The main difference with this new class is that it inherits from the `PZSummarizer` `RailStage` subclass.  A `PZSummarizer` will take an
-ensemble of p(z) distributions for many objects, and summarize them into a single `n(z)` distribution for that ensemble.
+The main difference with this new class is that it inherits from the ``PZSummarizer`` ``RailStage`` subclass.  A ``PZSummarizer`` will take an
+ensemble of p(z) distributions for many objects, and summarize them into a single ``n(z)`` distribution for that ensemble.
 
 A few things to note:
 
-1.   We copy the configuration parameters for `PZSummarizer` and then add additional ones.
+#. We copy the configuration parameters for ``PZSummarizer`` and then add additional ones.
 
-2.   The `run()` method is implemented here, but the function for interactive use `summarize()` is actually defined in `PZSummarizer`.
+#. The ``run()`` method is implemented here, but the function for interactive use ``summarize()`` is actually defined in ``PZSummarizer``.
 
-3.   While we define the `outputs` here, we just use the inputs as defined in `PZSummarizer`.
+#. While we define the ``outputs`` here, we just use the inputs as defined in ``PZSummarizer``.

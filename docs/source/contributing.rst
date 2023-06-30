@@ -1,5 +1,5 @@
 ************
-Contributing
+Overview
 ************
 
 RAIL is a constellation of multiple packages developed publicly on GitHub and 
@@ -47,13 +47,13 @@ In all cases, begin by following the developer installation instructions
 
 
 Contribution workflow
----------------------
+=====================
 
 The ``rail`` and ``rail_<xxx>`` repositories use an issue-branch-review workflow, 
 similar to the standard `GitHub Flow <https://docs.github.com/en/get-started/quickstart/github-flow>`_.
 
 Issue
-.....
+-----
 
 When you identify something that should be done, `make an issue <https://github.com/LSSTDESC/rail/issues/new>`_
 for it -- the admins can move it to the appropriate repository if necessary, but 
@@ -62,7 +62,7 @@ do make the issue in that repository.
 
 
 Branch
-......
+------
 
 See :ref:`Developer Installation` for installation instructions.
 
@@ -85,7 +85,7 @@ topic, or one of the core maintainers of rail.
 
 
 Merge
-.....
+-----
 
 Once the changes in your PR have been approved, these are your next steps:
 
@@ -94,7 +94,7 @@ Once the changes in your PR have been approved, these are your next steps:
 3. delete your branch using the button on the merged pull request.
 
 Reviewing a PR
-..............
+--------------
 
 To review a pull request, it's a good idea to start by pulling the changes and 
 running the unit tests locally. If the continuous integration tests have run 
@@ -113,13 +113,13 @@ such as adding a one-line comment before a clever block of code or including a
 demonstration of new functionality in the example notebooks.
 
 Naming conventions
-------------------
+==================
 
 We follow the `pep8 <https://peps.python.org/pep-0008/#descriptive-naming-styles>`_ 
 recommendations for naming new modules and ``RailStage`` classes within them.
 
 Modules
-.......
+-------
 
 Modules should use all lowercase, with underscores where it aids the readability
 of the module name. If the module performs only one of p(z) or n(z) calculations,
@@ -132,7 +132,7 @@ e.g.
 
 
 Stages
-......
+------
 
 RailStages are python classes and so should use CapWords convention. All rail 
 stages using the same algorithm should use the same short, descriptive prefix, 
@@ -155,34 +155,12 @@ Possible suffixes include:
 
 
 Contribution Types
-------------------
+==================
 
 We anticipate a few types of contributions, and provide separate instructions 
 for those workflows:
 
-* :ref:`Discrete Contributions` to the existing codebase
+* :ref:`Fix an Issue` in the codebase
 * :ref:`Adding a new Rail Stage` without new dependencies
 * :ref:`Adding a new algorithm` (new engine or package)
 * :ref:`Sharing a Rail Pipeline`
-
-
-Everything below here become new pages
-
-Discrete contributions
-======================
-
-To contribute:
-
-1. isolate `an issue <https://github.com/LSSTDESC/rail/issues>`_ to work on
-
-  1. If you would like to contribute and you don't have a specific issue in mind, 
-     take a look at the list of good first issues here: https://github.com/orgs/LSSTDESC/projects/6/views/20
-
-2. assign the issue to yourself
-
-3. leave a comment on the issue's discussion page to let others know you're working on it.
-
-Following the :ref:`Contribution workflow` guide, make a branch with a name like 
-``issue/[#]/brief-description`` and make changes in your branch.
-While developing in a branch, don't forget to pull from ``main`` regularly to
-make sure your work is compatible with other recent changes.Contribution workflow

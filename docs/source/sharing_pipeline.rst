@@ -46,25 +46,25 @@ Here is an example of the first part of the ``goldenspike`` pipeline definition.
 
 What this is doing is:
 
-1.  Defining a class ``GoldenspikePipeline`` to encapsulate the pipeline and setting up that pipeline.
+#. Defining a class ``GoldenspikePipeline`` to encapsulate the pipeline and setting up that pipeline.
 
-2.  Set up the rail ``DataStore`` for interactive use, allowing you to overwrite output files, (say if you re-run the pipeline in a notebook cell).
+#. Set up the rail ``DataStore`` for interactive use, allowing you to overwrite output files, (say if you re-run the pipeline in a notebook cell).
 
-3.  Defining some common parameters, e.g., ``bands``, ``bands_dict`` for the pipeline.
+#. Defining some common parameters, e.g., ``bands``, ``bands_dict`` for the pipeline.
 
-4.  Defining four stages, and adding them to the pipeline, note that for each stage the syntax is more or less the same.  We have to define,
+#. Defining four stages, and adding them to the pipeline, note that for each stage the syntax is more or less the same.  We have to define,
 
-   1.  The name of the stage, i.e., ``self.flow_engine_train`` will make a stage called ``flow_engine_train`` through some python cleverness.
+   * The name of the stage, i.e., ``self.flow_engine_train`` will make a stage called ``flow_engine_train`` through some python cleverness.
 
-   2.  The class of the stage, which is specified by which type of stage we ask to build, ``FlowEngine.build`` will make a ``FlowEngine`` stage.
+   * The class of the stage, which is specified by which type of stage we ask to build, ``FlowEngine.build`` will make a ``FlowEngine`` stage.
 
-   3.  Any configuration parameters, which are specified as keyword arguments, e.g., ``n_samples=50``.
+   * Any configuration parameters, which are specified as keyword arguments, e.g., ``n_samples=50``.
 
-   4.  Any input connections from other stages, e.g., ``connections=dict(input=self.flow_engine_train.io.output)``, 
-       in the ``self.lsst_error_model_train`` block will connect the ``output`` of ``self.flow_engine_train``
-       to the ``input`` of ``self.lsst_error_model_train``.  Later in that example we
-       can see how to connect multiple inputs, e.g., one named ``input`` and 
-       another named ``model``, as required for an estimator stage.
+   * Any input connections from other stages, e.g., ``connections=dict(input=self.flow_engine_train.io.output)``,
+     in the ``self.lsst_error_model_train`` block will connect the ``output`` of ``self.flow_engine_train``
+     to the ``input`` of ``self.lsst_error_model_train``.  Later in that example we
+     can see how to connect multiple inputs, e.g., one named ``input`` and 
+     another named ``model``, as required for an estimator stage.
 
-   5.  We use the ``namer`` class and enumerations to ensure that the data end up following our location conventions.
+   * We use the ``namer`` class and enumerations to ensure that the data end up following our location conventions.
 
