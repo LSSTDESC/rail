@@ -7,7 +7,6 @@ This directory contains an example notebook showing a simplified version of the 
 ---
  
   To run the pipeline file from the command line, you must:
- - Point your shell to the root of your RAIL directory
- - `pip install ceci` to install [ceci](https://github.com/LSSTDESC/ceci)
+ - `cd` to your `rail/` directory
  - `rail get-data` to download any required data from NERSC
  - `ceci examples/goldenspike_examples/goldenspike.yml` to run the pipeline
