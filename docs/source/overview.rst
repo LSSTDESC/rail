@@ -72,7 +72,7 @@ Methods that estimate per-galaxy PDFs directly from photometry are referred to a
 Individual estimation and summarization codes are "wrapped" as RAIL stages so that they can be run in a controlled way.  
 
 **base design**: 
-Estimators for several popular codes `BPZ_lite` (a slimmed down version of the popular template-based BPZ code), `FlexZBoost`, and delight `Delight` are included in rail/estimation, as are an estimator `PZFlowPDF` that uses the same normalizing flow employed in the creation module, and `KNearNeighEstimator` for a simple color-based nearest neighbor estimator.  
+Estimators for several popular codes `BPZ_lite` (a slimmed down version of the popular template-based BPZ code), `FlexZBoost`, and delight `Delight` are included in rail/estimation, as are an estimator `PZFlowEstimator` that uses the same normalizing flow employed in the creation module, and `KNearNeighEstimator` for a simple color-based nearest neighbor estimator.  
 The pathological `trainZ` estimator is also implemented.  
 Several very basic summarizers such as a histogram of point source estimates, the naive "stacking"/summing of PDFs, and a variational inference-based summarizer are also included in RAIL.
 

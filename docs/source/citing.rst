@@ -27,7 +27,7 @@ The following list provides the necessary references for external codes accessib
 
 | GPz: 
 
-| PZFlowPDF:
+| PZFlowEstimator:
 | J. F. Crenshaw et al (in prep)
 | `Zenodo link <https://zenodo.org/record/6369625#.Ylcpjy-cYW8>`_
 
