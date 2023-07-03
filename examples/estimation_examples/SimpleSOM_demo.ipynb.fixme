@@ -5,7 +5,7 @@
    "id": "08afaafe",
    "metadata": {},
    "source": [
-    "# SimpleSOMSummarizer demo"
+    "# MiniSOMSummarizer demo"
    ]
   },
   {
@@ -16,7 +16,7 @@
     "Author: Sam Schmidt <br>\n",
     "Last successfully run: April 26, 2023<br>\n",
     "\n",
-    "This notebook shows a quick demonstration of the use of the `SimpleSOMSummarizer` summarization module.  Algorithmically, this module is not very different from the NZDir estimator/summarizer.  NZDir operates by finding neighboring photometric points around spectroscopic objects.  SimpleSOMSummarizer takes a large training set of data in the `Inform_SimpleSOMSUmmarizer` stage and trains a self-organized map (SOM) (using code from the `minisom` package available at: https://github.com/JustGlowing/minisom).  Once the SOM is set up, the \"winning\"/best-fit cells are determined for both the photometric/unknown data and a set of spectroscopic data with known redshifts.  For each SOM cell, the algorithm constructs a histogram using the spectroscopic members mapped to that cell, and weights these by the number of photometric galaxies in that cell.  Both the photometric and spectroscopic datasets can also employ an optional weight per-galaxy. <br>\n",
+    "This notebook shows a quick demonstration of the use of the `MiniSOMSummarizer` summarization module.  Algorithmically, this module is not very different from the NZDir estimator/summarizer.  NZDir operates by finding neighboring photometric points around spectroscopic objects.  MiniSOMSummarizer takes a large training set of data in the `Inform_SimpleSOMSUmmarizer` stage and trains a self-organized map (SOM) (using code from the `minisom` package available at: https://github.com/JustGlowing/minisom).  Once the SOM is set up, the \"winning\"/best-fit cells are determined for both the photometric/unknown data and a set of spectroscopic data with known redshifts.  For each SOM cell, the algorithm constructs a histogram using the spectroscopic members mapped to that cell, and weights these by the number of photometric galaxies in that cell.  Both the photometric and spectroscopic datasets can also employ an optional weight per-galaxy. <br>\n",
     "\n",
     "The summarizer also identifies SOM cells that contain photometric data but do not contain and galaxies with a measured spec-z, and thus do not have an obvious redshift estimate.  It writes out the (raveled) SOM cell indices that contain \"uncovered\"/uncalibratable data to the file specified by the `uncovered_cell_file` option as a list of integers.  The cellIDs and galaxy/objIDs for all photometric galaxies will be written out to the file specified by the `cellid_output` parameter.  Any galaxies in these cells should really be removed, and thus some iteration may be necessary in defining bin membership by looking at the properties of objects in these uncovered cells before a final N(z) is estimated, as otherwise a bias may be present.<br>\n",
     "\n",
@@ -120,7 +120,7 @@
    "metadata": {},
    "outputs": [],
    "source": [
-    "from rail.estimation.algos.simpleSOM import Inform_SimpleSOMSummarizer"
+    "from rail.estimation.algos.minisom_som import MiniSOMInformer"
    ]
   },
   {
@@ -160,7 +160,7 @@
    "metadata": {},
    "outputs": [],
    "source": [
-    "inform_som = Inform_SimpleSOMSummarizer.make_stage(name='inform_som', **inform_dict)"
+    "inform_som = MiniSOMInformer.make_stage(name='inform_som', **inform_dict)"
    ]
   },
   {
@@ -391,7 +391,7 @@
    "metadata": {},
    "source": [
     "Note that we have removed the 'photometry' group, we will specify the `phot_groupname` as \"\" in the parameters below.<br>\n",
-    "As before, let us specify our initialization params for the SimpleSOMSummarizer stage, including:<br>\n",
+    "As before, let us specify our initialization params for the MiniSOMSummarizer stage, including:<br>\n",
     "`model`: name of the pickled model that we created, in this case \"output_SOM_model.pkl\"<br>\n",
     "`hdf5_groupname` (str): hdf5 group for our photometric data (in our case \"\")<br>\n",
     "`objid_name` (str): string specifying the name of the ID column, if present photom data, will be written out to cellid_output file<br>\n",
@@ -433,8 +433,8 @@
    "metadata": {},
    "outputs": [],
    "source": [
-    "from rail.estimation.algos.simpleSOM import SimpleSOMSummarizer\n",
-    "som_summarizer = SimpleSOMSummarizer.make_stage(name='SOM_summarizer', **summ_dict)"
+    "from rail.estimation.algos.minisom_som import MiniSOMSummarizer\n",
+    "som_summarizer = MiniSOMSummarizer.make_stage(name='SOM_summarizer', **summ_dict)"
    ]
   },
   {
@@ -502,7 +502,7 @@
     "                   uncovered_cell_file=\"BRIGHT_uncovered_cells.hdf5\",\n",
     "                   objid_name='id',\n",
     "                   cellid_output='BRIGHT_output_cellIDs.hdf5')\n",
-    "bright_summarizer = SimpleSOMSummarizer.make_stage(name='bright_summarizer', **bright_dict)"
+    "bright_summarizer = MiniSOMSummarizer.make_stage(name='bright_summarizer', **bright_dict)"
    ]
   },
   {
