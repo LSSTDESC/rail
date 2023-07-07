@@ -19,10 +19,18 @@ The RAIL source code is publically available at https://github.com/LSSTDESC/RAIL
 
    source/overview
    source/installation
-   source/contributing
    source/citing
-   
-   
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Contributing
+
+   source/contributing
+   source/fix_an_issue
+   source/new_rail_stage
+   source/new_algorithm
+   source/sharing_pipeline
+
 .. toctree::
    :maxdepth: 1
    :caption: Usage Demos
