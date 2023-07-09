@@ -192,10 +192,10 @@ However, the particular estimator `Delight` is built with `Cython` and uses `ope
 If you are installing RAIL on a Mac, as noted above the `DelightEstimator` estimator requires that your machine's `gcc` be set up to work with `openmp`. If you are installing on a Mac and do not plan on using `DelightEstimator`, then you can simply install RAIL with `pip install .[base]` rather than `pip install .[all]`, which will skip the Delight package.  If you are on a Mac and *do* expect to run `DelightEstimator`, then follow the instructions `here <https://github.com/LSSTDESC/Delight/blob/master/Mac_installation.md>`_ to install Delight before running `pip install .[all]`.
 
     
-Installing FZBoost
+Installing FlexZBoost
 ------------------
 
-For FZBoost, you should be able to just do
+For FlexZBoost, you should be able to just do
 
 .. code-block:: bash
 
@@ -229,7 +229,7 @@ Using GPU-optimization for pzflow
 Note that the Creation Module depends on pzflow, which has an optional GPU-compatible installation.
 For instructions, see the `pzflow Github repo <https://github.com/jfcrenshaw/pzflow/>`_.
 
-On some systems that are slightly out of date, e.g. an older version of python's `setuptools`, there can be some problems installing packages hosted on GitHub rather than PyPi.  We recommend that you update your system; however, some users have still reported problems with installation of subpackages necessary for `FZBoost` and `bpz_lite`.  If this occurs, try the following procedure:
+On some systems that are slightly out of date, e.g. an older version of python's `setuptools`, there can be some problems installing packages hosted on GitHub rather than PyPi.  We recommend that you update your system; however, some users have still reported problems with installation of subpackages necessary for `flexzboost` and `bpz_lite`.  If this occurs, try the following procedure:
 
 Once you have installed RAIL, you can import the package (via `import rail`) in any of your scripts and notebooks.
 For examples demonstrating how to use the different pieces, see the notebooks in the `examples/` directory.
