@@ -1,15 +1,16 @@
 # pz-rail-hub
 
-[![Template](https://img.shields.io/badge/Template-LINCC%20Frameworks%20Python%20Project%20Template-brightgreen)](https://lincc-ppt.readthedocs.io/en/latest/)
-[![codecov](https://codecov.io/gh/LSSTDESC/pz-rail-hub/branch/main/graph/badge.svg)](https://codecov.io/gh/LSSTDESC/pz-rail-hub)
-[![PyPI](https://img.shields.io/pypi/v/hub?color=blue&logo=pypi&logoColor=white)](https://pypi.org/project/hub/)
+[![Read the Docs](https://img.shields.io/readthedocs/qp-flexzboost)](https://lsstdescrail.readthedocs.io/en/latest/index.html)
+[![PyPI](https://img.shields.io/pypi/v/hub?color=blue&logo=pypi&logoColor=white)](https://pypi.org/project/pz-rail-hub/)
+[![codecov](https://codecov.io/gh/LSSTDESC/pz-rail-hub/branch/main/graph/badge.svg)](https://codecov.io/gh/LSSTDESC/rail)
 
-TODO - add more about your project here.
+[![Template](https://img.shields.io/badge/Template-LINCC%20Frameworks%20Python%20Project%20Template-brightgreen)](https://lincc-ppt.readthedocs.io/en/latest/)
+
 
 ## RAIL: Redshift Assessment Infrastructure Layers
 
 This package is part of the larger ecosystem of Photometric Redshifts
-in [RAIL](https://github.com/LSSTDESC/RAIL).
+in [RAIL](https://github.com/orgs/LSSTDESC/repositories?q=rail&sort=name).
 
 ### Citing RAIL
 
