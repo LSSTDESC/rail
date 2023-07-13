@@ -127,7 +127,7 @@ of the module name.
 
 For example:
 
-*  ``sklearn_neurnet`` is a module name for algorithms that use scikit-learn's simple neural network implementation to estimate p(z)
+*  ``skl_neurnet`` is a module name for algorithms that use scikit-learn's simple neural network implementation to estimate p(z)
 *  ``random_gauss`` is a module name for a p(z) estimation algorithm that assigns each galaxy a random Gaussian distribution
 
 It's good for the module name to specify the source of the implementation of a particularly common algorithm, e.g. ``minisom_som`` and ``somoclu_som`` are distinct.
