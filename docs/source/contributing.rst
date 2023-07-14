@@ -83,6 +83,8 @@ Once you are satisfied with your PR, request that other team members review and
 approve it. You could send the request to someone whom you've worked with on the 
 topic, or one of the core maintainers of rail.
 
+**TODO what to call branches goes here**
+
 
 Merge
 -----
@@ -92,6 +94,15 @@ Once the changes in your PR have been approved, these are your next steps:
 1. the author merges the change by selecting "Squash and merge" on the approved pull request
 2. enter ``closes #[#]`` in the comment field to close the resolved issue
 3. delete your branch using the button on the merged pull request.
+
+If you are making changes that affect multiple repositories, make a branch and PR on each one.
+The PRs should be merged and new releases made in the following order without long delays between steps:
+1. `rail_base`
+2. all per-algorithm repositories in any order
+3. `rail`
+4. `rail_pipelines`
+This will minimize the time when new installations from PyPI could be broken by conflicts.
+
 
 Reviewing a PR
 --------------
