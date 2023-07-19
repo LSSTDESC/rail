@@ -1,6 +1,6 @@
-************
-Overview
-************
+**********************
+Contribution Overview
+**********************
 
 RAIL is a constellation of multiple packages developed publicly on GitHub and 
 welcomes all interested developers, regardless of DESC membership or LSST data rights.
