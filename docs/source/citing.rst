@@ -27,7 +27,7 @@ The following list provides the necessary references for external codes accessib
 
 | GPz: 
 
-| PZFlowPDF:
+| PZFlowEstimator:
 | J. F. Crenshaw et al (in prep)
 | `Zenodo link <https://zenodo.org/record/6369625#.Ylcpjy-cYW8>`_
 
@@ -38,4 +38,4 @@ The following list provides the necessary references for external codes accessib
 | trainZ:
 | `Schmidt, Malz et al (2020) <https://ui.adsabs.harvard.edu/abs/2020MNRAS.499.1587S/abstract>`_
 
-| varInference: 
+| VarInfStackSummarizer: 

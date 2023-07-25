@@ -1,6 +1,6 @@
-************
-Overview
-************
+**********************
+Contribution Overview
+**********************
 
 RAIL is a constellation of multiple packages developed publicly on GitHub and 
 welcomes all interested developers, regardless of DESC membership or LSST data rights.
@@ -83,6 +83,8 @@ Once you are satisfied with your PR, request that other team members review and
 approve it. You could send the request to someone whom you've worked with on the 
 topic, or one of the core maintainers of rail.
 
+**TODO what to call branches goes here**
+
 
 Merge
 -----
@@ -92,6 +94,15 @@ Once the changes in your PR have been approved, these are your next steps:
 1. the author merges the change by selecting "Squash and merge" on the approved pull request
 2. enter ``closes #[#]`` in the comment field to close the resolved issue
 3. delete your branch using the button on the merged pull request.
+
+If you are making changes that affect multiple repositories, make a branch and PR on each one.
+The PRs should be merged and new releases made in the following order without long delays between steps:
+1. `rail_base`
+2. all per-algorithm repositories in any order
+3. `rail`
+4. `rail_pipelines`
+This will minimize the time when new installations from PyPI could be broken by conflicts.
+
 
 Reviewing a PR
 --------------
@@ -118,36 +129,39 @@ Naming conventions
 We follow the `pep8 <https://peps.python.org/pep-0008/#descriptive-naming-styles>`_ 
 recommendations for naming new modules and ``RailStage`` classes within them.
 
+
 Modules
 -------
 
 Modules should use all lowercase, with underscores where it aids the readability
-of the module name. If the module performs only one of p(z) or n(z) calculations,
-it is convenient to include that in the module name.
+of the module name. 
 
-e.g. 
+For example:
 
-*  ``simple_neurnet`` is a module name for algorithms that use simple neural networks from sklearn to compute p(z) or n(z)
-*  ``random_pz`` is an algorithm that computes p(z)
+*  ``skl_neurnet`` is a module name for algorithms that use scikit-learn's simple neural network implementation to estimate p(z)
+*  ``random_gauss`` is a module name for a p(z) estimation algorithm that assigns each galaxy a random Gaussian distribution
+
+It's good for the module name to specify the source of the implementation of a particularly common algorithm, e.g. ``minisom_som`` and ``somoclu_som`` are distinct.
+Note that these names should not be identical to the name of the package the algorithm came from, to avoid introducing namespace collisions for users who have imported the original package as well, i.e. ``pzflow_nf`` is a safer name than ``pzflow``.
 
 
 Stages
 ------
 
-RailStages are python classes and so should use CapWords convention. All rail 
-stages using the same algorithm should use the same short, descriptive prefix, 
-and the suffix is the type of stage.
+RailStages are python classes and so should use the CapWords convention. All 
+rail stages using the same algorithm should use the same short, descriptive 
+prefix, and the suffix is the type of stage.
 
 e.g.
 
-*  ``SimpleNNInformer`` is an informer using a simple neural network
-*  ``SimpleNNEstimator`` is an estimator using a simple neural network
+*  ``KNearNeighInformer`` is an informer using the k-nearest neighbors algorithm
+*  ``KNearNeighEstimator`` is an estimator using the k-nearest neighbors algorithm
 
 Possible suffixes include:
 
-* Summarizer
 * Informer
 * Estimator
+* Summarizer
 * Classifier
 * Creator
 * Degrader
@@ -164,3 +178,4 @@ for those workflows:
 * :ref:`Adding a new Rail Stage` without new dependencies
 * :ref:`Adding a new algorithm` (new engine or package)
 * :ref:`Sharing a Rail Pipeline`
+

@@ -57,35 +57,35 @@ stages:
   module_name: rail.core.utilStages
   name: table_conv_test
   nprocess: 1
-- classname: Inform_BPZ_lite
+- classname: BPZliteInformer
   module_name: rail.estimation.algos.bpz_lite
   name: inform_bpz
   nprocess: 1
-- classname: Inform_KNearNeighPDF
-  module_name: rail.estimation.algos.knnpz
+- classname: KNearNeighInformer
+  module_name: rail.estimation.algos.k_nearneigh
   name: inform_knn
   nprocess: 1
-- classname: Inform_FZBoost
+- classname: FlexZBoostInformer
   module_name: rail.estimation.algos.flexzboost
   name: inform_FZBoost
   nprocess: 1
-- classname: BPZ_lite
+- classname: BPZliteEstimator
   module_name: rail.estimation.algos.bpz_lite
   name: estimate_bpz
   nprocess: 1
-- classname: KNearNeighPDF
-  module_name: rail.estimation.algos.knnpz
+- classname: KNearNeighEstimator
+  module_name: rail.estimation.algos.k_nearneigh
   name: estimate_knn
   nprocess: 1
-- classname: FZBoost
+- classname: FlexZBoostEstimator
   module_name: rail.estimation.algos.flexzboost
   name: test_FZBoost
   nprocess: 1
-- classname: PointEstimateHist
-  module_name: rail.estimation.algos.pointEstimateHist
+- classname: PointEstHistSummarizer
+  module_name: rail.estimation.algos.point_est_hist
   name: point_estimate_test
   nprocess: 1
-- classname: NaiveStack
-  module_name: rail.estimation.algos.naiveStack
+- classname: NaiveStackSummarizer
+  module_name: rail.estimation.algos.naive_stack
   name: naive_stack_test
   nprocess: 1
