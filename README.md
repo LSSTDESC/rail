@@ -1,9 +1,10 @@
 # pz-rail
 
-[![PyPI](https://img.shields.io/pypi/v/hub?color=blue&logo=pypi&logoColor=white)](https://pypi.org/project/hub/)
+[![PyPI](https://img.shields.io/pypi/v/hub?color=blue&logo=pypi&logoColor=white)](https://pypi.org/project/pz-rail/)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7017551.svg)](https://doi.org/10.5281/zenodo.7017551)
-[![codecov](https://codecov.io/gh/LSSTDESC/pz-rail/branch/main/graph/badge.svg)](https://codecov.io/gh/LSSTDESC/pz-rail)
-[![Template](https://img.shields.io/badge/Template-LINCC%20Frameworks%20Python%20Project%20Template-brightgreen)](https://lincc-ppt.readthedocs.io/en/latest/)
+
+[![Template](https://img.shields.io/badge/Template-RAIL%20Python%20Project%20Template-brightgreen)](https://github.com/LSSTDESC/RAIL-project-template)
+[![Read the Docs](https://img.shields.io/readthedocs/rail-hub)](https://rail-hub.readthedocs.io/en/stable/index.html)
 
 # RAIL: Redshift Assessment Infrastructure Layers
 
