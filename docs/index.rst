@@ -45,4 +45,4 @@ The RAIL source code is publically available at https://github.com/LSSTDESC/RAIL
    Creation Notebooks <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/creation_notebooks.html>
    Estimation Notebooks <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/estimation_notebooks.html>
    Evaluation Notebooks <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/evaluation_notebooks.html>
-   Goldenspike <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/goldenspike.html>
+   Goldenspike <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/goldenspike_notebook.html>
