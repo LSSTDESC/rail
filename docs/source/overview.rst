@@ -2,22 +2,80 @@
 Overview
 ********
 
-RAIL enables stress-testing of multiple approaches to photo-z estimation at-scale 
-for LSST in the presence of realistically complex systematic imperfections in the 
-input photometry and prior information (such as template libraries and training sets) 
-under science-agnostic and science-specific metrics, with the expectation that once 
-a pipeline is validated through controlled experimentation, the exact same 
-estimation procedure could be applied to real data without loss of validity.
-To support such an ambitious goal, it has a highly modular structure encompassing 
-three aspects of this kind of experiment and is built upon a number of key types 
-of objects, however, the result is that RAIL is unavoidably complicated.
-This overview seeks to present the organizational philosophy, core dependencies, 
-basic structures, and an introduction to stages and pipelines in order to motivate 
-an exposition to the RAIL ecosystem.
+RAIL enables production of photo-z data products at-scale for LSST as well as 
+stress-testing of multiple estimation approaches in the presence of realistically 
+complex systematic imperfections in the input photometry and prior information 
+(such as template libraries and training sets) under science-agnostic and 
+science-specific metrics. By providing both functionalities in the same package, 
+the exact same estimation procedure validated through controlled experimentation 
+may be applied to real data without loss of validity. To support such an ambitious 
+goal, RAIL has a highly modular structure encompassing three aspects of this kind 
+of experiment, enabled by specialized object types, however, the result is that 
+RAIL is unavoidably complicated. This overview seeks to present the foundational
+structures that underlie RAIL's structure, the overarching organizational 
+philosophy, and the specific types of included functionality.
 
 
-Organization
-************
+Introduction to stages and pipelines
+************************************
+
+While all of RAIL's functionality is accessible through jupyter notebooks to 
+facilitate experimentation, RAIL's utility is in being able to run the code
+developed and validated under controlled conditions on real data at-scale by
+executing scripts on high-performance computing clusters (HPCs).
+The tool that RAIL uses to organize these scripts is 
+`ceci <https://ceci.readthedocs.io/en/latest/>`_, a workflow management 
+package specifically designed for running DESC analyses on HPCs, e.g. using 
+`TXPipe <https://github.com/LSSTDESC/TXPipe/>`_. At a very high level, a 
+workflow is a pipelines comprised of stages.
+
+**Stages**:
+A stage performs one unit of work, defined by its input(s) and output(s), its name, 
+and its stage-specific configuration parameters, that can be parallelized across 
+many processors, or even over many computing nodes. Stages produce output files in 
+the directory in which they are executed. The RAIL-iverse provides a plethora of 
+stages may be imported from the modules described below. 
+
+**Pipelines**:
+A pipeline is a directed acyclic graph of stages, defined by the guarantee that the 
+inputs to each stage either exist already or are produced as output of earlier stages
+in the pipeline. Pipelines are defined by a pair of `.yml` files, one specifying all 
+the configuration parameters for every stage in the pipeline, including each stage's 
+name and its inputs and outputs, and the other specifying the order in which the 
+stages are to be run. Execution of a pipeline entails an `initialize()` step, in 
+which `ceci` checks that each stage's inputs either exist or will be produced by an 
+earlier stage in the pipeline, followed by a `run()` step to actually perform the 
+specified calculations.
+
+
+Core data structures
+********************
+
+**TODO: DataHandle/DataStore should be explained here**
+
+**TODO: essential tables_io functionality should be introduced here**
+
+**`qp.Ensemble` objects**:
+Redshift data products may take many forms; probability density functions (PDFs) 
+characterizing the redshift distribution of a sample of galaxies or each galaxy 
+individually are defined by values of parameters under a choice of 
+parameterization. To enable parameterization-agnostic downstream analyses,
+the `qp <https://github.com/LSSTDESC/qp>`_ package provides a shared interface 
+to many parameterizations of univariate PDFs and utilities for performing 
+conversions, evaluating metrics, and executing at-scale input-output operations. 
+RAIL stages provide and/or ingest their photo-z data products as ``qp.Ensemble`` 
+objects, both for collections of individual galaxies and for the summarized 
+redshift distribution of samples of galaxies (such as members of a tomographic 
+bin or galaxy cluster members). The key features of a `qp.Ensemble` are the 
+`metadata` of the type of parameteriztion and defining parameters shared by the 
+entire ensemble, the `objdata` values unique to each row-wise member of the 
+ensemble that specify its PDF given the `metadata`, and the `ancil` information 
+associated to each row-wise member that isn't part of the parameterized PDF. 
+**TODO: confirm the syntax here and link to qp demos**
+
+
+Organizational philosophy and included functionality
+****************************************************
 
 An end-to-end experiment entails the creation of self-consistently forward-modeled, 
 realistically complex mock data for testing purposes, the estimation of individual 
@@ -29,24 +87,6 @@ The purpose of each piece of infrastructure is outlined below.
 For a working example illustrating all three components of RAIL, see the 
 `examples/goldenspike_examples/goldenspike.ipynb <https://github.com/LSSTDESC/RAIL/blob/main/examples/goldenspike_examples/goldenspike.ipynb>`_ 
 Jupyter notebook.
-
-
-Core DESC software dependencies
-*******************************
-
-The ``qp`` Ensemble format is the expected default storage format for redshift 
-information within DESC, and all redshift PDFs, for both individual galaxies and 
-galaxy samples (such as tomographic bin members or galaxy cluster members), will 
-be stored as ``qp`` Ensemble objects to be directly accessible to LSST-DESC pipelines, 
-such as `TXPipe <https://github.com/LSSTDESC/TXPipe/>`_.
-The use of a unified `qp` Ensemble as the output format enables a consistent 
-evaluation of redshift uncertainties.  See `the qp repository <https://github.com/LSSTDESC/qp>`_ 
-for more details, though in brief, ``qp`` enables transformation between different 
-PDF parameterizations, computation of many useful metrics, and easy fileIO.
-
-
-Basic structures
-****************
 
 `creation`
 ==========
@@ -202,25 +242,3 @@ metrics, and/or metrics related to computational requirements of the estimators.
 Within DESC, development of sophisticated metrics propagating photo-z uncertainties 
 through cosmological probe analysis pipelines is now underway as part of Dark Energy 
 Redshift Assessment Infrastructure Layers (DERAIL).
-
-
-Introduction to stages and pipelines
-************************************
-
-When running RAIL on larger dataset, generally we don't expect to use notebooks.
-Instead we generally expect users to execute scripts on computing clusters (HPCs).
-The tool that RAIL uses to organize these scripts is ceci. `Ceci <https://ceci.readthedocs.io/en/latest/>`_ 
-is a workflow orchestration package specifically designed for running DESC workflows 
-at HPCs. At a very high level, a workflow is comprised of two components - pipelines 
-and stages.
-
-**Stages**:
-A stage should be considered one unit of work that can be parallelized across many
-computing nodes. Typically a stage is comprised of one of the creation, estimation,
-or evaluation modules. As input is accepts a set of configurations as well as input
-and output files. 
-
-**Pipelines**:
-Pipelines are a collection of stages. Specifically, an acyclic directed graph of
-stages. Pipelines define a chain of stages such that the output of one stage can 
-be provided as input to the next. 
