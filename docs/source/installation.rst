@@ -25,29 +25,58 @@ Here we will be installing the source code from `rail <https://github.com/LSSTDE
 
 We have included an `environment.yml` that makes it easy to create a conda environment named "[env]" that uses conda to install some packages that have compiled libraries we have found that it is easier to install with conda.
 
-.. code-block:: bash
+.. tabs::
 
-    git clone https://github.com/LSSTDESC/rail.git
-    cd rail
-    conda env create -f environment.yml -n [env]  # or mamba env create, which is much faster
-    conda activate [env]
-    pip install .[dev]
+   .. group-tab:: General
+
+      .. code-block:: bash
+
+          git clone https://github.com/LSSTDESC/rail.git
+          cd rail
+          conda env create -f environment.yml -n [env]  # or mamba env create, which is much faster
+          conda activate [env]
+          pip install .[dev]
 
 
-If for some reason the `pip install .[dev]` fails (e.g.,because of a problem in building the dependencies for one of the algorithms) you can run a more fault-tolerant installation using a rail script:
+      If for some reason the `pip install .[dev]` fails (e.g.,because of a problem in building the dependencies for one of the algorithms) you can run a more fault-tolerant installation using a rail script:
 
-.. code-block:: bash
-		
-    pip install .
-    rail install --package-file rail_packages.yml
+      .. code-block:: bash
+            
+          pip install .
+          rail install --package-file rail_packages.yml
 
-		    
-At that point you should be able to run the demonstration notebooks, e.g.;
 
-.. code-block:: bash
+      At that point you should be able to run the demonstration notebooks, e.g.;
 
-    jupyter-notebook examples/estimation_examples/RAIL_estimation_demo.ipynb
+      .. code-block:: bash
 
+          jupyter-notebook examples/estimation_examples/RAIL_estimation_demo.ipynb
+
+
+   .. group-tab:: Mac M1+
+
+      .. code-block:: bash
+
+          git clone https://github.com/LSSTDESC/rail.git
+          cd rail
+          conda env create -f environment.yml -n [env]  # or mamba env create, which is much faster
+          conda activate [env]
+          pip install '.[dev]'
+
+
+      If for some reason the `pip install '.[dev]'` fails (e.g.,because of a problem in building the dependencies for one of the algorithms) you can run a more fault-tolerant installation using a rail script:
+
+      .. code-block:: bash
+            
+          pip install .
+          rail install --package-file rail_packages.yml
+
+                
+      At that point you should be able to run the demonstration notebooks, e.g.;
+
+      .. code-block:: bash
+
+          jupyter-notebook examples/estimation_examples/RAIL_estimation_demo.ipynb
 
 
 Production Installation
@@ -55,43 +84,87 @@ Production Installation
 
 Here we will be installing all of the RAIL algorithms into an existing conda environment "[env]".  To do this we recommend that you install `rail` from source, to be sure to get the latest version of the `conda-reqs.txt` file
 
-.. code-block:: bash
+.. tabs::
 
-    git clone https://github.com/LSSTDESC/rail.git
-    cd rail
-    conda activate [env]
-    conda install -n [env] -c conda-forge --file conda-reqs.txt  # or mamba install, which is much faster
-    pip install .[algos]
+   .. group-tab:: General
+
+      .. code-block:: bash
+  
+          git clone https://github.com/LSSTDESC/rail.git
+          cd rail
+          conda activate [env]
+          conda install -n [env] -c conda-forge --file conda-reqs.txt  # or mamba install, which is much faster
+          pip install .[algos]
 
 
-Again, if for some reason the `pip install .[algos]` fails (e.g.,because of a problem in building the dependencies for one of the algorithms) you can run a more fault-tolerant installation using a rail script:
+      Again, if for some reason the `pip install .[algos]` fails (e.g.,because of a problem in building the dependencies for one of the algorithms) you can run a more fault-tolerant installation using a rail script:
 
-.. code-block:: bash
-		
-    pip install .
-    rail install --package-file rail_packages.yml
+      .. code-block:: bash
+            
+          pip install .
+          rail install --package-file rail_packages.yml
 
-		
+
+   .. group-tab:: Mac M1+
+
+      .. code-block:: bash
+  
+          git clone https://github.com/LSSTDESC/rail.git
+          cd rail
+          conda activate [env]
+          conda install -n [env] -c conda-forge --file conda-reqs.txt  # or mamba install, which is much faster
+          pip install '.[algos]'
+
+
+      Again, if for some reason the `pip install '.[algos]'` fails (e.g.,because of a problem in building the dependencies for one of the algorithms) you can run a more fault-tolerant installation using a rail script:
+
+      .. code-block:: bash
+            
+          pip install .
+          rail install --package-file rail_packages.yml
+
 
 Algorithm Installation
 ----------------------   
 
 Here we will be a single RAIL algorithm (e.g., rail_som) into an existing conda environment "[env]".
 
-.. code-block:: bash
+.. tabs::
 
-    conda activate [env]
-    pip install pz-rail-som  # (note the name change)
+   .. group-tab:: General
+
+      .. code-block:: bash
+
+          conda activate [env]
+          pip install pz-rail-som  # (note the name change)
 
 
-Again, if for some reason that fails because of conflicting dependencies, then adding the dependencies with compiled libraries via conda might fix the issue.  We have included `conda-reqs.txt` file in each RAIL algorithm's repository to specify the dependencies of that algorithm that might best be installed using conda.
+      Again, if for some reason that fails because of conflicting dependencies, then adding the dependencies with compiled libraries via conda might fix the issue.  We have included `conda-reqs.txt` file in each RAIL algorithm's repository to specify the dependencies of that algorithm that might best be installed using conda.
 
-.. code-block:: bash
+      .. code-block:: bash
 
-    git clone https://github.com/LSSTDESC/rail_som.git
-    cd rail_som    
-    conda install -n [env] -c conda-forge --file conda-reqs.txt
-    pip install .		
+          git clone https://github.com/LSSTDESC/rail_som.git
+          cd rail_som    
+          conda install -n [env] -c conda-forge --file conda-reqs.txt
+          pip install .		
+
+
+   .. group-tab:: Mac M1+
+
+      .. code-block:: bash
+
+          conda activate [env]
+          pip install pz-rail-som  # (note the name change)
+
+
+      Again, if for some reason that fails because of conflicting dependencies, then adding the dependencies with compiled libraries via conda might fix the issue.  We have included `conda-reqs.txt` file in each RAIL algorithm's repository to specify the dependencies of that algorithm that might best be installed using conda.
+
+      .. code-block:: bash
+
+          git clone https://github.com/LSSTDESC/rail_som.git
+          cd rail_som    
+          conda install -n [env] -c conda-forge --file conda-reqs.txt
+          pip install .		
 
     
 Developer Installation
@@ -101,15 +174,33 @@ Here we will be installing the source code from `rail <https://github.com/LSSTDE
 
 We have included an `environment.yml` that makes it easy to create a conda environment named "[env]" that uses conda to install some packages that have compiled libraries we have found that it is easier to install with conda.
 
-.. code-block:: bash
+.. tabs::
 
-    git clone https://github.com/LSSTDESC/rail.git
-    cd rail
-    conda env create -f environment.yml -n [env]  # or mamba env create, which is much faster
-    conda activate [env]
-    pip install .
-    rail clone-source --package-file rail_packages.yml
-    rail install --package-file rail_packages.yml --from-source 
+   .. group-tab:: General
+
+      .. code-block:: bash
+
+          git clone https://github.com/LSSTDESC/rail.git
+          cd rail
+          conda env create -f environment.yml -n [env]  # or mamba env create, which is much faster
+          conda activate [env]
+          pip install . -e
+          rail clone-source --package-file rail_packages.yml
+          rail install --package-file rail_packages.yml --from-source 
+
+
+   .. group-tab:: Mac M1+
+
+      .. code-block:: bash
+
+          git clone https://github.com/LSSTDESC/rail.git
+          cd rail
+          conda env create -f environment.yml -n [env]  # or mamba env create, which is much faster
+          conda activate [env]
+          conda install healpy
+          pip install . -e
+          rail clone-source --package-file rail_packages.yml
+          rail install --package-file rail_packages.yml --from-source 
 
     
 
@@ -181,19 +272,32 @@ Algorithm / architecture specific issues
 Installing Delight
 ------------------
 
-For Delight you should be able to just do:
+.. tabs::
 
-.. code-block:: bash
+   .. group-tab:: General
 
-    pip install pz-rail-delight
+      For Delight you should be able to just do:
 
-However, the particular estimator `Delight` is built with `Cython` and uses `openmp`.  Mac has dropped native support for `openmp`, which will likely cause problems when trying to run the `DelightEstimator` estimation code in RAIL.  See the notes below for instructions on installing Delight if you wish to use this particular estimator.
+      .. code-block:: bash
 
-If you are installing RAIL on a Mac, as noted above the `DelightEstimator` estimator requires that your machine's `gcc` be set up to work with `openmp`. If you are installing on a Mac and do not plan on using `DelightEstimator`, then you can simply install RAIL with `pip install .[base]` rather than `pip install .[all]`, which will skip the Delight package.  If you are on a Mac and *do* expect to run `DelightEstimator`, then follow the instructions `here <https://github.com/LSSTDESC/Delight/blob/master/Mac_installation.md>`_ to install Delight before running `pip install .[all]`.
+          pip install pz-rail-delight
+          
+
+   .. group-tab:: Mac M1+
+
+      For Delight you should be able to just do:
+
+      .. code-block:: bash
+
+          pip install pz-rail-delight
+
+      However, the particular estimator `Delight` is built with `Cython` and uses `openmp`.  Mac has dropped native support for `openmp`, which will likely cause problems when trying to run the `DelightEstimator` estimation code in RAIL.  See the notes below for instructions on installing Delight if you wish to use this particular estimator.
+
+      If you are installing RAIL on a Mac, as noted above the `DelightEstimator` estimator requires that your machine's `gcc` be set up to work with `openmp`. If you are installing on a Mac and do not plan on using `DelightEstimator`, then you can simply install RAIL with `pip install .[base]` rather than `pip install .[all]`, which will skip the Delight package.  If you are on a Mac and *do* expect to run `DelightEstimator`, then follow the instructions `here <https://github.com/LSSTDESC/Delight/blob/master/Mac_installation.md>`_ to install Delight before running `pip install .[all]`.
 
     
 Installing FlexZBoost
-------------------
+---------------------
 
 For FlexZBoost, you should be able to just do
 

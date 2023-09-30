@@ -95,7 +95,9 @@ extensions = [
     'sphinx.ext.autosummary',
     'sphinx.ext.githubpages',
     'sphinx.ext.napoleon',
-    'sphinx.ext.autosectionlabel']
+    'sphinx.ext.autosectionlabel',
+    'sphinx_tabs.tabs',
+]
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -128,6 +130,10 @@ pygments_style = 'sphinx'
 # Allow NB to fail
 nbsphinx_allow_errors = True
 
+# By default, tabs can be closed by selecting the open tab. This
+# functionality can be disabled using the sphinx_tabs_disable_tab_closing
+# configuration option:
+sphinx_tabs_disable_tab_closing = True
 
 # -- Options for HTML output -------------------------------------------------
 
