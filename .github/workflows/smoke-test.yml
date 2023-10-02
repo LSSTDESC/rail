@@ -40,6 +40,7 @@ jobs:
       run: |
         rail render-nb examples/${{ matrix.notebook-dir }}_examples/*.ipynb
     - name: Send status to Slack app (RAIL CI Reporter)
+      if: ${{ failure() }}
       id: slack
       uses: slackapi/slack-github-action@v1.24.0
       with:
