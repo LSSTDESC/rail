@@ -10,16 +10,16 @@ science-specific metrics. By providing both functionalities in the same package,
 the exact same estimation procedure validated through controlled experimentation 
 may be applied to real data without loss of validity. To support such an ambitious 
 goal, RAIL has a highly modular structure encompassing three aspects of this kind 
-of experiment, enabled by specialized object types, however, the result is that 
+of experiment, enabled by specialized object types; however, the result is that 
 RAIL is unavoidably complicated. This overview seeks to present the foundational
-structures that underlie RAIL's structure, the overarching organizational 
+building blocks that underlie RAIL's structure, the overarching organizational 
 philosophy, and the specific types of included functionality.
 
 
 Introduction to stages and pipelines
 ************************************
 
-While all of RAIL's functionality is accessible through jupyter notebooks to 
+While all of RAIL's functionality is accessible through Jupyter notebooks to 
 facilitate experimentation, RAIL's utility is in being able to run the code
 developed and validated under controlled conditions on real data at-scale by
 executing scripts on high-performance computing clusters (HPCs).
@@ -27,11 +27,11 @@ The tool that RAIL uses to organize these scripts is
 `ceci <https://ceci.readthedocs.io/en/latest/>`_, a workflow management 
 package specifically designed for running DESC analyses on HPCs, e.g. using 
 `TXPipe <https://github.com/LSSTDESC/TXPipe/>`_. At a very high level, a 
-workflow is a pipelines comprised of stages.
+workflow is a pipeline comprised of stages.
 
 **Stages**:
 A stage performs one unit of work, defined by its input(s) and output(s), its name, 
-and its stage-specific configuration parameters, that can be parallelized across 
+and its stage-specific configuration parameters. It can be parallelized across 
 many processors, or even over many computing nodes. Stages produce output files in 
 the directory in which they are executed. The RAIL-iverse provides a plethora of 
 stages may be imported from the modules described below. 
@@ -67,7 +67,7 @@ RAIL stages provide and/or ingest their photo-z data products as ``qp.Ensemble``
 objects, both for collections of individual galaxies and for the summarized 
 redshift distribution of samples of galaxies (such as members of a tomographic 
 bin or galaxy cluster members). The key features of a `qp.Ensemble` are the 
-`metadata` of the type of parameteriztion and defining parameters shared by the 
+`metadata` of the type of parameterization and defining parameters shared by the 
 entire ensemble, the `objdata` values unique to each row-wise member of the 
 ensemble that specify its PDF given the `metadata`, and the `ancil` information 
 associated to each row-wise member that isn't part of the parameterized PDF. 
@@ -106,7 +106,7 @@ each galaxy, enabling novel metrics for individual galaxies that are not availab
 from traditionally simulated catalogs without a notion of inherent uncertainty.
 
 **Creation base design**: 
-To ensure the mutual consistency of RAIL's mock data with known physics but leaving 
+To ensure the mutual consistency of RAIL's mock data with known physics while leaving 
 open the possibility of surprises beyond current data, we make an interpolative 
 and extrapolative model beginning from input data of galaxy redshifts and photometry, 
 for example, the DC2 extragalactic catalog.
@@ -124,7 +124,7 @@ into mock data, which can be used to generate self-consistent photometric traini
 set pairs.
 The high-dimensional probability density outlined in the `creation` directory can 
 be modified to reproduce the realistic mismatches between training and test sets, 
-for example inclusion of photometric errors due to observing effects, spectroscopic 
+for example, inclusion of photometric errors due to observing effects, spectroscopic 
 incompleteness from specific surveys, incorrect assignment of spectroscopic redshift 
 due to line confusion, the effects of blending, etc.
 Training and test set data may be drawn from such probability spaces with systematics 
@@ -134,7 +134,7 @@ be built up.
 
 **Degradation base design**: 
 The base design for degraders in our current scheme is that degraders take in a 
-DataFrame (or a creator that can generate samples on the fly) and returns a modified 
+DataFrame (or a creator that can generate samples on the fly) and return a modified 
 dataframe with the effects of exactly one systematic degradation. 
 That is, each degrader module should model one isolated form of degradation of 
 the data, and more complex models are built by chaining degraders together. 
