@@ -202,6 +202,13 @@ We have included an `environment.yml` that makes it easy to create a conda envir
           rail clone-source --package-file rail_packages.yml
           rail install --package-file rail_packages.yml --from-source 
 
+To update all your rail packages, use the command line tool in the [env]:
+
+```
+rail update-source --package-file rail_packages.yml
+```
+from the root of rail. 
+
     
 
 RAIL packages
