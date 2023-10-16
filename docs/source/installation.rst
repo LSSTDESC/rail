@@ -1,4 +1,4 @@
-************
+y************
 Installation
 ************
 
@@ -53,7 +53,7 @@ We have included an `environment.yml` that makes it easy to create a conda envir
           jupyter-notebook examples/estimation_examples/RAIL_estimation_demo.ipynb
 
 
-   .. group-tab:: Mac M1+
+   .. group-tab:: zsh  (e.g., Mac M1+ default)
 
       .. code-block:: bash
 
@@ -105,7 +105,7 @@ Here we will be installing all of the RAIL algorithms into an existing conda env
           rail install --package-file rail_packages.yml
 
 
-   .. group-tab:: Mac M1+
+   .. group-tab:: zsh (e.g., Mac M1+ default)
 
       .. code-block:: bash
   
@@ -149,7 +149,7 @@ Here we will be a single RAIL algorithm (e.g., rail_som) into an existing conda 
           pip install .		
 
 
-   .. group-tab:: Mac M1+
+   .. group-tab:: zsh  (e.g., Mac M1+ default)
 
       .. code-block:: bash
 
@@ -184,12 +184,12 @@ We have included an `environment.yml` that makes it easy to create a conda envir
           cd rail
           conda env create -f environment.yml -n [env]  # or mamba env create, which is much faster
           conda activate [env]
-          pip install . -e
+          pip install -e .
           rail clone-source --package-file rail_packages.yml
           rail install --package-file rail_packages.yml --from-source 
 
 
-   .. group-tab:: Mac M1+
+   .. group-tab::  zsh  (e.g., Mac M1+ default) 
 
       .. code-block:: bash
 
@@ -198,7 +198,7 @@ We have included an `environment.yml` that makes it easy to create a conda envir
           conda env create -f environment.yml -n [env]  # or mamba env create, which is much faster
           conda activate [env]
           conda install healpy
-          pip install . -e
+          pip install -e .
           rail clone-source --package-file rail_packages.yml
           rail install --package-file rail_packages.yml --from-source 
 
@@ -290,7 +290,7 @@ Installing Delight
           pip install pz-rail-delight
           
 
-   .. group-tab:: Mac M1+
+   .. group-tab:: zsh  (e.g., Mac M1+ default) 
 
       For Delight you should be able to just do:
 
