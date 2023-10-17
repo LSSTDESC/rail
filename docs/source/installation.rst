@@ -53,7 +53,7 @@ We have included an `environment.yml` that makes it easy to create a conda envir
           jupyter-notebook examples/estimation_examples/RAIL_estimation_demo.ipynb
 
 
-   .. group-tab:: zsh  (e.g., Mac M1+ default)
+   .. group-tab:: zsh (e.g., Mac M1+ default)
 
       .. code-block:: bash
 
@@ -149,7 +149,7 @@ Here we will be a single RAIL algorithm (e.g., rail_som) into an existing conda 
           pip install .		
 
 
-   .. group-tab:: zsh  (e.g., Mac M1+ default)
+   .. group-tab:: zsh (e.g., Mac M1+ default)
 
       .. code-block:: bash
 
@@ -189,7 +189,7 @@ We have included an `environment.yml` that makes it easy to create a conda envir
           rail install --package-file rail_packages.yml --from-source 
 
 
-   .. group-tab::  zsh  (e.g., Mac M1+ default) 
+   .. group-tab:: zsh (e.g., Mac M1+ default) 
 
       .. code-block:: bash
 
@@ -289,7 +289,7 @@ Installing Delight
           pip install pz-rail-delight
           
 
-   .. tab::  Mac
+   .. tab:: Mac
 
       For Delight you should be able to just do:
 
