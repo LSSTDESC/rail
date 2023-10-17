@@ -197,7 +197,6 @@ We have included an `environment.yml` that makes it easy to create a conda envir
           cd rail
           conda env create -f environment.yml -n [env]  # or mamba env create, which is much faster
           conda activate [env]
-          conda install healpy
           pip install -e .
           rail clone-source --package-file rail_packages.yml
           rail install --package-file rail_packages.yml --from-source 
@@ -290,7 +289,7 @@ Installing Delight
           pip install pz-rail-delight
           
 
-   .. group-tab:: zsh  (e.g., Mac M1+ default) 
+   .. group-tab::  Mac M1+
 
       For Delight you should be able to just do:
 
