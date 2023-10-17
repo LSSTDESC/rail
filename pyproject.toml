@@ -35,6 +35,10 @@ dev = [
     "pz-rail-pipelines[full]",
     "jupyter",
     "seaborn",
+    "corner",
+    "pandas",
+    "h5py",
+    "matplotlib",
     "coverage",
     "pytest",
     "pytest-cov", # Used to report total code coverage
