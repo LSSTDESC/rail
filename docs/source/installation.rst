@@ -280,7 +280,7 @@ Installing Delight
 
 .. tabs::
 
-   .. group-tab:: General
+   .. tab:: General
 
       For Delight you should be able to just do:
 
@@ -289,7 +289,7 @@ Installing Delight
           pip install pz-rail-delight
           
 
-   .. group-tab::  Mac M1+
+   .. tab::  Mac
 
       For Delight you should be able to just do:
 
