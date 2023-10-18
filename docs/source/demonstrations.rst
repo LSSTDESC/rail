@@ -16,7 +16,7 @@ catalogs of photometric data.  It then uses that model to create sets of synthet
 estimators that compute p(z).  From there it trains and tests a few estimators using some common algorithms.   It then evaluates the 
 performance of those estimators.   Finally, it shows a few methods that converts p(z) for a set of objects to an ensemble distribution n(z).
 
-The `estimation <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/estimation_examples/RAIL_estimation_demo.html>'_ notebook 
+The `estimation <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/estimation_examples/RAIL_estimation_demo.html>`_ notebook 
 focus more on the estimation parts of the analysis, and demonstrates a few additional estimation algorithms.
 
 The `evaluation <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/evaluation_examples/demo.html>`_ of the estimator performance is described in more depth in its own notebook.
@@ -31,7 +31,7 @@ Deeper dives into synthetic data creation
 The notebooks in  `this <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/creation_notebooks.html>`_ directory demonstate how 
 how to generate synthetic photometric data, and also how "degrade" the synthetic data by applying various effects to the data.
 
-These notebooks demonstrate utilities that can be used to prepare data for analysis, e.g., by `converting fluxes to magnitudes and applying deredding <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/core_examples/FluxtoMag_and_Deredden_example.html>`_ and by `converting fluxes to hyperbolic magnitudes <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/core_examples/hyperbolic_magnitude_test.html>`_
+These notebooks demonstrate utilities that can be used to prepare data for analysis, e.g., by `converting fluxes to magnitudes and applying dereddening <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/core_examples/FluxtoMag_and_Deredden_example.html>`_ and by `converting fluxes to hyperbolic magnitudes <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/core_examples/hyperbolic_magnitude_test.html>`_
 
 
 
@@ -57,7 +57,7 @@ The two notebooks demonstrate how to `convert a notebook into a ceci analysis pi
 
 This notebook explains the concept of the `Data Store <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/core_examples/FileIO_DataStore.html>_` that keeps track of the data being used in an analysis pipeline, and which can be used to interactively access data.
 
-Finally, `this notebook <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/core_examples/Iterate_Tabular_Data.html>`_ demonstrate the mechanisms we use to iterate over tabular data, which is needed to avoid reading entire object catalogs into memory.
+Finally, `this notebook <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/core_examples/Iterate_Tabular_Data.html>`_ demonstrates the mechanisms we use to iterate over tabular data, which is needed to avoid reading entire object catalogs into memory.
 
 
 
