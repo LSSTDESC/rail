@@ -16,7 +16,7 @@ catalogs of photometric data.  It then uses that model to create sets of synthet
 estimators that compute p(z).  From there it trains and tests a few estimators using some common algorithms.   It then evaluates the 
 performance of those estimators.   Finally, it shows a few methods that converts p(z) for a set of objects to an ensemble distribution n(z).
 
-`This <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/estimation_examples/RAIL_estimation_demo.html>'_ notebook 
+The `estimation <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/estimation_examples/RAIL_estimation_demo.html>'_ notebook 
 focus more on the estimation parts of the analysis, and demonstrates a few additional estimation algorithms.
 
 The `evaluation <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/evaluation_examples/demo.html>`_ of the estimator performance is described in more depth in its own notebook.
