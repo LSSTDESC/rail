@@ -29,30 +29,22 @@ Deeper dives into synthetic data creation
 =========================================
 
 The notebooks in  `this <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/creation_notebooks.html>`_ directory demonstate how 
-how to generate synthetic photometric data, and also how "degrade" the 
+how to generate synthetic photometric data, and also how "degrade" the synthetic data by applying various effects to the data.
 
-https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/core_examples/FluxtoMag_and_Deredden_example.html
-
-https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/core_examples/hyperbolic_magnitude_test.html
-
-
+These notebooks demonstrate utilities that can be used to prepare data for analysis, e.g., by `converting fluxes to magnitudes and applying deredding <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/core_examples/FluxtoMag_and_Deredden_example.html>`_ and by `converting fluxes to hyperbolic magnitudes <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/core_examples/hyperbolic_magnitude_test.html>`_
 
 
 
 Examples of using specific estimators
 =====================================
 
-https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/estimation_examples/CMNN_Demo.html
+These three notebooks demonstrate specific p(z) estimators in more detail, specifically, the `CMNN <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/estimation_examples/CMNN_Demo.html>`_, `GPz <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/estimation_examples/GPz_Estimation_Example.html>`_ and `NZDIR 
+<https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/estimation_examples/NZDir.html>`_ algorithms.
 
-https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/estimation_examples/GPz_Estimation_Example.html
+The two notebooks demonstrate self-organizing map (SOM) based algorithms that estimate the ensemble n(z) distribution: `the first  <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/estimation_examples/somocluSOM_demo.html>`_ works with the SOM directly, 
+while `the second <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/estimation_examples/somocluSOMcluster_demo.html>`_ clusters the SOM cells to reduce statistical fluctuations.
 
-https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/estimation_examples/NZDir.html
-
-https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/estimation_examples/somocluSOM_demo.html
-
-https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/estimation_examples/somocluSOMcluster_demo.html
-
-https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/estimation_examples/test_sampled_summarizers.html
+Finally, `this notebook <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/estimation_examples/test_sampled_summarizers.html>`_ demonstrates converting collections of per-object p(z) estimates to ensemble n(z) estimates.
 
 
 
