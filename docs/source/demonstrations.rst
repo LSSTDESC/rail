@@ -52,7 +52,7 @@ Deeper explanations of rail concepts
 ====================================
 
 The two notebooks demonstrate how to `convert a notebook into a ceci analysis pipeline 
-<https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/core_examples/Build_Save_Load_Run_Pipeline.html>`_ and how 
+<https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/core_examples/Build_Save_Load_Run_Pipeline.html>`_ and how to
 `run an existing pipeline <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/core_examples/Run_Pipe.html>`_
 
 This notebook explains the concept of the `Data Store <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/core_examples/FileIO_DataStore.html>`_ that keeps track of the data being used in an analysis pipeline, and which can be used to interactively access data.
