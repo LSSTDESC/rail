@@ -29,7 +29,7 @@ Deeper dives into synthetic data creation
 =========================================
 
 The notebooks in  `this <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/creation_notebooks.html>`_ directory demonstrate how 
-how to generate synthetic photometric data, and also how "degrade" the synthetic data by applying various effects to the data.
+how to generate synthetic photometric data, and also how to "degrade" the synthetic data by applying various effects to the data.
 
 These notebooks demonstrate utilities that can be used to prepare data for analysis, e.g., by `converting fluxes to magnitudes and applying dereddening <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/core_examples/FluxtoMag_and_Deredden_example.html>`_ and by `converting fluxes to hyperbolic magnitudes <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/core_examples/hyperbolic_magnitude_test.html>`_
 
