@@ -17,7 +17,7 @@ estimators that compute p(z).  From there it trains and tests a few estimators u
 performance of those estimators.   Finally, it shows a few methods that converts p(z) for a set of objects to an ensemble distribution n(z).
 
 The `estimation <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/estimation_examples/RAIL_estimation_demo.html>`_ notebook 
-focus more on the estimation parts of the analysis, and demonstrates a few additional estimation algorithms.
+focuses more on the estimation parts of the analysis, and demonstrates a few additional estimation algorithms.
 
 The `evaluation <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/evaluation_examples/demo.html>`_ of the estimator performance is described in more depth in its own notebook.
 
