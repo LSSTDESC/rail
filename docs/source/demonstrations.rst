@@ -21,7 +21,7 @@ focuses more on the estimation parts of the analysis, and demonstrates a few add
 
 The `evaluation <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/evaluation_examples/demo.html>`_ of the estimator performance is described in more depth in its own notebook.
 
-Finally, we have collected demonstrates of `useful utilites <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/core_examples/Useful_Utilities.html>`_ to explore which packages and algorithms are available in the current RAIL installation.
+Finally, we have collected demonstrations of `useful utilites <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/core_examples/Useful_Utilities.html>`_ to explore which packages and algorithms are available in the current RAIL installation.
 
 
 
