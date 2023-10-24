@@ -39,6 +39,7 @@ To get involved, chime in on the issues in any of the RAIL repositories describe
    :maxdepth: 1
    :caption: Usage Demos
 
+   Overview of Demonstrations <source/demonstrations>
    Core Notebooks <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/core_notebooks.html>
    Creation Notebooks <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/creation_notebooks.html>
    Estimation Notebooks <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/estimation_notebooks.html>
