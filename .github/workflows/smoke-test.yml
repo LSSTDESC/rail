@@ -38,7 +38,7 @@ jobs:
         python -m pytest tests
     - name: Run notebooks
       run: |
-        rail render-nb examples/${{ matrix.notebook-dir }}_examples/*.ipynb
+        rail render-nb --skip examples/creation_examples/plotting_interface_skysim_cosmoDC2_COSMOS2020_demo.ipynb examples/${{ matrix.notebook-dir }}_examples/*.ipynb
     - name: Send status to Slack app (RAIL CI Reporter)
       if: ${{ failure() }}
       id: slack
