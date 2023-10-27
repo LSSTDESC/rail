@@ -51,6 +51,9 @@ Contribution workflow
 
 The ``rail`` and ``rail_<xxx>`` repositories use an issue-branch-review workflow, 
 similar to the standard `GitHub Flow <https://docs.github.com/en/get-started/quickstart/github-flow>`_.
+We typically use ``git`` as our version control tool, there are many resources
+available online, but here is a `nice cheat sheet <https://education.github.com/git-cheat-sheet-education.pdf>`_
+created by GitHub.
 
 Issue
 -----
