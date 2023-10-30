@@ -12,16 +12,12 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: ['3.8', '3.9', '3.10']
-
     steps:
     - uses: actions/checkout@v3
-    - name: Set up Python ${{ matrix.python-version }}
+    - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: ${{ matrix.python-version }}
+        python-version: '3.11'
     - name: Install dependencies
       run: |
         sudo apt-get update
@@ -33,5 +29,6 @@ jobs:
     - name: Analyze code with linter
       run: |
         pylint -rn -sn --recursive=y ./src
+        pylint -rn -sn --recursive=y ./tests
       # the following line allows the CI test to pass, even if pylint fails
       continue-on-error: true

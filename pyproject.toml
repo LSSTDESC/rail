@@ -1,5 +1,6 @@
 [project]
 name = "pz-rail"
+requires-python = ">=3.9"
 license = {file = "LICENSE"}
 readme = "README.md"
 authors = [
@@ -35,6 +36,10 @@ dev = [
     "pz-rail-pipelines[full]",
     "jupyter",
     "seaborn",
+    "corner",
+    "pandas",
+    "h5py",
+    "matplotlib",
     "coverage",
     "pytest",
     "pytest-cov", # Used to report total code coverage
@@ -59,11 +64,6 @@ build-backend = "setuptools.build_meta"
 
 [tool.setuptools_scm]
 write_to = "src/rail/hub/_version.py"
-
-[tools.setuptools.packages.find]
-where = ["."]
-include = ["rail"]
-namespaces = true
 
 [tool.pytest.ini_options]
 testpaths = [
