@@ -203,9 +203,8 @@ We have included an `environment.yml` that makes it easy to create a conda envir
 
 To update all your rail packages, use the command line tool in the [env]:
 
-```
-rail update-source --package-file rail_packages.yml
-```
+
+`rail update-source --package-file rail_packages.yml`
 from the root of rail. 
 
     
