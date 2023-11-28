@@ -1,7 +1,7 @@
 # This workflow will run daily at 06:45.
 # It will install Python dependencies and run tests with a variety of Python versions.
 
-name: Unit test smoke test
+name: Unit test smoke test on source install of HEAD
 
 on:
   schedule:
