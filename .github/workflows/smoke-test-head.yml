@@ -34,7 +34,7 @@ jobs:
     - name: Source install
       run: |
         rail clone-source --package-file rail_packages.yml
-	rail install --from-source --package-file rail_packages.yml
+        rail install --from-source --package-file rail_packages.yml
     - name: Run notebooks
       run: |
         rail render-nb --skip examples/creation_examples/plotting_interface_skysim_cosmoDC2_COSMOS2020_demo.ipynb examples/${{ matrix.notebook-dir }}_examples/*.ipynb
