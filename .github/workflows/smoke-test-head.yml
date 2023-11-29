@@ -1,0 +1,78 @@
+# This workflow will run daily at 06:45.
+# It will install Python dependencies and run tests with a variety of Python versions.
+
+name: Unit test smoke test on source install of HEAD
+
+on:
+  schedule:
+    - cron: 45 6 * * *
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.10']
+        notebook-dir: ['core', 'creation', 'estimation', 'evaluation', 'goldenspike']
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        python -m pip install --upgrade pip
+        pip install wheel numpy
+        pip install .[dev]
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    - name: Source install
+      run: |
+        rail clone-source --package-file rail_packages.yml
+        rail install --from-source --package-file rail_packages.yml
+    - name: Run notebooks
+      run: |
+        rail render-nb --skip examples/creation_examples/plotting_interface_skysim_cosmoDC2_COSMOS2020_demo.ipynb examples/${{ matrix.notebook-dir }}_examples/*.ipynb
+    - name: Send status to Slack app (RAIL CI Reporter)
+      if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
+      id: slack
+      uses: slackapi/slack-github-action@v1.24.0
+      with:
+        # For posting a rich message using Block Kit
+        payload: |
+          {
+            "blocks": [
+              {
+                "type": "header",
+                "text": {
+                  "type": "plain_text",
+                  "text": "${{ github.repository }}"
+                }
+              },
+              {
+                "type": "section",
+                "text": {
+                  "type": "mrkdwn",
+                  "text": "GitHub Action build result: *${{ job.status }}* :${{ job.status }}:"
+                }
+              },
+              {
+                "type": "divider"
+              },
+              {
+                "type": "section",
+                "text": {
+                  "type": "mrkdwn",
+                  "text": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+                }
+              }
+            ]
+          }
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
