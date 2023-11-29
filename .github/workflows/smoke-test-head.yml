@@ -35,6 +35,10 @@ jobs:
       run: |
         rail clone-source --package-file rail_packages.yml
         rail install --from-source --package-file rail_packages.yml
+    - name: Set up fsps
+      run: |
+        git clone "https://github.com/cconroy20/fsps.git" "/opt/hostedtoolcache/Python/fsps"
+        echo "SPS_HOME=/opt/hostedtoolcache/Python/fsps" >> $GITHUB_ENV
     - name: Run notebooks
       run: |
         rail render-nb --skip examples/creation_examples/plotting_interface_skysim_cosmoDC2_COSMOS2020_demo.ipynb examples/${{ matrix.notebook-dir }}_examples/*.ipynb
