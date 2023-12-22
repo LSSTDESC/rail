@@ -1,7 +1,7 @@
 # This workflow will run daily at 06:45.
 # It will install Python dependencies and run tests with a variety of Python versions.
 
-name: Unit test smoke test
+name: Unit test smoke test on source install of HEAD
 
 on:
   schedule:
@@ -29,12 +29,12 @@ jobs:
         sudo apt-get update
         python -m pip install --upgrade pip
         pip install wheel numpy
-        pip install .
         pip install .[dev]
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name: Run unit tests with pytest
+    - name: Source install
       run: |
-        python -m pytest tests
+        rail clone-source --package-file rail_packages.yml
+        rail install --from-source --package-file rail_packages.yml
     - name: Set up fsps
       run: |
         git clone "https://github.com/cconroy20/fsps.git" "/opt/hostedtoolcache/Python/fsps"
