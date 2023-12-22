@@ -17,6 +17,14 @@ There are several ways you might choose to install RAIL.
 3. `Algorithm Installation`_  install a single RAIL algorithm in an existing conda environment.
 4. `Developer Installation`_: install all of RAIL algorithms from source in "editable" mode.
 
+.. note::
+
+    Throughout the installation documentation we make reference to ``conda`` as
+    a tool for establishing a RAIL environment, however using ``mamba`` can be
+    significantly faster.
+
+    If you do not have ``mamba`` it can be installed with
+    ``conda install mamba -n base -c conda-forge``.
 
 Exploration Installation
 ------------------------
