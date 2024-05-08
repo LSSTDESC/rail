@@ -17,10 +17,10 @@ stages:
   name: lsst_error_model_test
   nprocess: 1
 - classname: ColumnMapper
-  module_name: rail.core.utilStages
+  module_name: rail.tools.table_tools
   name: col_remapper_test
   nprocess: 1
 - classname: TableConverter
-  module_name: rail.core.utilStages
+  module_name: rail.tools.table_tools
   name: table_conv_test
   nprocess: 1
