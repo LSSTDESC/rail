@@ -18,27 +18,27 @@ stages:
   name: flow_creator_train
   nprocess: 1
 - classname: LSSTErrorModel
-  module_name: rail.creation.degradation.lsst_error_model
+  module_name: rail.creation.degraders.lsst_error_model
   name: lsst_error_model_train
   nprocess: 1
 - classname: InvRedshiftIncompleteness
-  module_name: rail.creation.degradation.spectroscopic_degraders
+  module_name: rail.creation.degraders.spectroscopic_degraders
   name: inv_redshift
   nprocess: 1
 - classname: LineConfusion
-  module_name: rail.creation.degradation.spectroscopic_degraders
+  module_name: rail.creation.degraders.spectroscopic_degraders
   name: line_confusion
   nprocess: 1
 - classname: QuantityCut
-  module_name: rail.creation.degradation.quantityCut
+  module_name: rail.creation.degraders.quantityCut
   name: quantity_cut
   nprocess: 1
 - classname: ColumnMapper
-  module_name: rail.core.utilStages
+  module_name: rail.tools.table_tools
   name: col_remapper_train
   nprocess: 1
 - classname: TableConverter
-  module_name: rail.core.utilStages
+  module_name: rail.tools.table_tools
   name: table_conv_train
   nprocess: 1
 - classname: FlowCreator
@@ -46,15 +46,15 @@ stages:
   name: flow_creator_test
   nprocess: 1
 - classname: LSSTErrorModel
-  module_name: rail.creation.degradation.lsst_error_model
+  module_name: rail.creation.degraders.lsst_error_model
   name: lsst_error_model_test
   nprocess: 1
 - classname: ColumnMapper
-  module_name: rail.core.utilStages
+  module_name: rail.tools.table_tools
   name: col_remapper_test
   nprocess: 1
 - classname: TableConverter
-  module_name: rail.core.utilStages
+  module_name: rail.tools.table_tools
   name: table_conv_test
   nprocess: 1
 - classname: BPZliteInformer

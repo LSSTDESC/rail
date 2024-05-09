@@ -13,14 +13,14 @@ stages:
   name: flow_engine_test
   nprocess: 1
 - classname: LSSTErrorModel
-  module_name: rail.creation.degradation.lsst_error_model
+  module_name: rail.creation.degraders.lsst_error_model
   name: lsst_error_model_test
   nprocess: 1
 - classname: ColumnMapper
-  module_name: rail.core.utilStages
+  module_name: rail.tools.table_tools
   name: col_remapper_test
   nprocess: 1
 - classname: TableConverter
-  module_name: rail.core.utilStages
+  module_name: rail.tools.table_tools
   name: table_conv_test
   nprocess: 1
