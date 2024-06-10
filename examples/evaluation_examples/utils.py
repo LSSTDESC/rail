@@ -96,8 +96,6 @@ def plot_old_valid(photoz, ztrue, gals=None, colors=None, code=""):
     # sns.jointplot(data=df, x='z$_{true}$', y='z$_{phot}$', kind="kde")
     plt.plot(ztrue, photoz, 'k,', label=code)
     leg = ax.legend(fancybox=True, handlelength=0, handletextpad=0, loc="upper left")
-    for item in leg.legendHandles:
-        item.set_visible(False)
     if gals:
         if not colors:
             colors = ['r'] * len(gals)
@@ -224,8 +222,6 @@ def plot_pit_qq(pdfs, zgrid, ztrue, bins=None, title=None, code=None,
             ax1.set_ylabel('Number')
             ax1.hlines(y_uni, xmin=0, xmax=1, color='k')
     leg = ax0.legend(handlelength=0, handletextpad=0, fancybox=True)
-    for item in leg.legendHandles:
-        item.set_visible(False)
     if show_qq:
         ax2 = plt.subplot(gs[1])
         ax2.plot(sample.qq[0], (sample.qq[1] - sample.qq[0]), c='r', linestyle='-', linewidth=3)
