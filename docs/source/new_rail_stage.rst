@@ -35,8 +35,6 @@ The following example has all of the required pieces of a ``RailStage`` and almo
    inputs = [('input', PqHandle)]
        outputs = [('output', PqHandle)]
 
-       def __init__(self, args, comm=None):
-           RailStage.__init__(self, args, comm=comm)
 
        def run(self):
            data = self.get_data('input', allow_missing=True)
@@ -101,8 +99,8 @@ Here is an example of a slightly more complicated ``RailStage``.
        outputs = [('output', QPHandle),
                   ('single_NZ', QPHandle)]
 
-       def __init__(self, args, comm=None):
-           PZSummarizer.__init__(self, args, comm=comm)
+       def __init__(self, args, **kwargs):
+           super().__init__(self, args, **kwargs)
            self.zgrid = None
 
        def run(self):
