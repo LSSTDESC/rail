@@ -1,7 +1,4 @@
 col_remapper_test:
-  aliases:
-    input: output_lsst_error_model_test
-    output: output_col_remapper_test
   chunk_size: 100000
   columns:
     mag_g_lsst_err: mag_err_g_lsst
@@ -17,8 +14,6 @@ col_remapper_test:
   name: col_remapper_test
   output_mode: default
 flow_engine_test:
-  aliases:
-    output: output_flow_engine_test
   config: null
   model: ${FLOWDIR}/pretrained_flow.pkl
   n_samples: 50
@@ -36,9 +31,6 @@ lsst_error_model_test:
     y: 23.73
     z: 24.16
   airmass: 1.2
-  aliases:
-    input: output_flow_engine_test
-    output: output_lsst_error_model_test
   bandNames:
     g: mag_g_lsst
     i: mag_i_lsst
@@ -96,9 +88,6 @@ lsst_error_model_test:
     z: 0.69
   tvis: 30.0
 table_conv_test:
-  aliases:
-    input: output_col_remapper_test
-    output: output_table_conv_test
   config: null
   input: None
   name: table_conv_test
