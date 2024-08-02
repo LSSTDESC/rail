@@ -12,15 +12,26 @@ stages:
   module_name: rail.creation.engines.flowEngine
   name: flow_engine_test
   nprocess: 1
+  aliases:
+    output: output_flow_engine_test
 - classname: LSSTErrorModel
   module_name: rail.creation.degraders.lsst_error_model
   name: lsst_error_model_test
   nprocess: 1
+  aliases:
+    input: output_flow_engine_test
+    output: output_lsst_error_model_test
 - classname: ColumnMapper
   module_name: rail.tools.table_tools
   name: col_remapper_test
   nprocess: 1
+  aliases:
+    input: output_lsst_error_model_test
+    output: output_col_remapper_test
 - classname: TableConverter
   module_name: rail.tools.table_tools
   name: table_conv_test
   nprocess: 1
+  aliases:
+    input: output_col_remapper_test
+    output: output_table_conv_test
