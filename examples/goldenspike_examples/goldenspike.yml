@@ -18,7 +18,7 @@ stages:
   name: flow_creator_train
   nprocess: 1
 - classname: LSSTErrorModel
-  module_name: rail.creation.degraders.lsst_error_model
+  module_name: rail.creation.degraders.photometric_errors
   name: lsst_error_model_train
   nprocess: 1
 - classname: InvRedshiftIncompleteness
@@ -46,7 +46,7 @@ stages:
   name: flow_creator_test
   nprocess: 1
 - classname: LSSTErrorModel
-  module_name: rail.creation.degraders.lsst_error_model
+  module_name: rail.creation.degraders.photometric_errors
   name: lsst_error_model_test
   nprocess: 1
 - classname: ColumnMapper

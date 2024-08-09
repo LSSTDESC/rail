@@ -15,7 +15,7 @@ stages:
   aliases:
     output: output_flow_engine_test
 - classname: LSSTErrorModel
-  module_name: rail.creation.degraders.lsst_error_model
+  module_name: rail.creation.degraders.photometric_errors
   name: lsst_error_model_test
   nprocess: 1
   aliases:
