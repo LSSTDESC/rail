@@ -335,6 +335,12 @@ at the top of ``setup.py``.
 Algorithm / architecture specific issues
 ========================================
 
+Before installing a specific algorithm, please make sure to first install pz-rail-base via
+
+.. code-block:: bash
+
+    pip install pz-rail-base
+
 
 Installing Delight
 ------------------
