@@ -8,7 +8,6 @@ dependencies:
   - h5py>=2.9=*mpi_openmpi*
   - healpy
   - pandas
-  - fitsio
   - pyarrow
   - pytables
   - mpi4py
