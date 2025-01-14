@@ -27,6 +27,7 @@ jobs:
     - name: Install dependencies
       run: |
         sudo apt-get update
+        sudo apt install libbz2-dev
         python -m pip install --upgrade pip
         pip install wheel numpy
         pip install .[dev]
