@@ -18,7 +18,7 @@ dynamic = ["version"]
 
 dependencies = [
     #"pz-rail-base",
-    "pz-rail-base@git+https://github.com/LSSTDESC/rail_base,git#egg=172-package-requires-numpy20",
+    "pz-rail-base@git+https://github.com/LSSTDESC/rail_base.git#egg=172-package-requires-numpy20",
 ]
 
 # On a mac, install optional dependencies with `pip install '.[dev]'` (include the single quotes)
