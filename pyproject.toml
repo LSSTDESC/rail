@@ -18,7 +18,7 @@ dynamic = ["version"]
 
 dependencies = [
     #"pz-rail-base",
-    "pz-rail-base@git+https://github.com/LSSTDESC/rail_base@172-package-requires-numpy20",
+    "pz-rail-base@git+https://github.com/LSSTDESC/rail_base@test-remove-numpy20",
 ]
 
 # On a mac, install optional dependencies with `pip install '.[dev]'` (include the single quotes)
@@ -35,7 +35,7 @@ algos = [
     "pz-rail-sklearn",
     "pz-rail-som",
     "pz-rail-yaw",
-    "qp-prob@git+https://github.com/LSSTDESC/qp@237-package-requires-numpy20",
+    "qp-prob@git+https://github.com/LSSTDESC/qp",
 ]
 
 nb = [
