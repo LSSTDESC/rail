@@ -33,6 +33,7 @@ algos = [
     "pz-rail-pzflow",
     "pz-rail-sklearn",
     "pz-rail-som",
+    "pz-rail-yaw",
     "qp-prob[full]",
 ]
 

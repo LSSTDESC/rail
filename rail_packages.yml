@@ -11,3 +11,4 @@ rail_pzflow: pz-rail-pzflow
 rail_sklearn: pz-rail-sklearn
 rail_som: pz-rail-som
 rail_pipelines: pz-rail-pipelines
+rail_yaw: pz-rail-yaw
