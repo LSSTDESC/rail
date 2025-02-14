@@ -16,13 +16,24 @@ import os
 import subprocess
 import sys
 sys.path.insert(0, os.path.abspath('..'))
-import rail
+
+import rail.core
+import rail.cli
+import rail.interfaces
+import rail.stages
+import rail.utils
+import rail.creation
+import rail.estimation
+import rail.evaluation
+import rail.pipelines
+#import rail
+
 from rail.core import RailEnv
 
 for rail_path in rail.__path__:
     sys.path.insert(0, rail_path)
 
-print(sys.path)
+#print(sys.path)
     
 
 # Use unittest mock module to shield some modules away from docs building.
@@ -198,7 +209,11 @@ def run_apidoc(_):
     cur_dir = os.path.normpath(os.path.dirname(__file__))
     output_path = os.path.join(cur_dir, 'api')
 
+    
     for full_path in rail.__path__:
+        # skip rail_projects stuff
+        if full_path.find('rail_projects') >= 0:
+            continue
         paramlist = ['--separate', '--implicit-namespaces', '--no-toc', '-M', '-o', output_path, '-f', full_path]
         print(f"running {paramlist}")
         apidoc_main(paramlist)

@@ -8,8 +8,11 @@ rail_dsps: pz-rail-dsps
 rail_flexzboost: pz-rail-flexzboost
 rail_fsps: pz-rail-fsps
 rail_gpz_v1: pz-rail-gpz-v1
+rail_lephare: pz-rail-lephare
 rail_pzflow: pz-rail-pzflow
 rail_sklearn: pz-rail-sklearn
 rail_som: pz-rail-som
+rail_sompz: pz-rail-sompz
+rail_tpz: pz-rail-tpz
 rail_pipelines: pz-rail-pipelines
 rail_yaw: pz-rail-yaw
