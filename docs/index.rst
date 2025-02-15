@@ -20,6 +20,27 @@ To get involved, chime in on the issues in any of the RAIL repositories describe
    source/citing
 
 .. toctree::
+   :maxdepth: 2
+   :caption: Concepts
+
+   source/stages
+   source/data_handles
+   source/pipelines
+   source/catalog_tags
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Details
+
+   source/types_of_stages
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Usage
+
+   source/rail_cli
+   
+.. toctree::
    :maxdepth: 1
    :caption: Contributing
 

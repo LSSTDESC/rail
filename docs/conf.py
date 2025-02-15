@@ -17,16 +17,7 @@ import subprocess
 import sys
 sys.path.insert(0, os.path.abspath('..'))
 
-import rail.core
-import rail.cli
-import rail.interfaces
-import rail.stages
-import rail.utils
-import rail.creation
-import rail.estimation
-import rail.evaluation
-import rail.pipelines
-#import rail
+import rail
 
 from rail.core import RailEnv
 
@@ -108,6 +99,7 @@ extensions = [
     'sphinx.ext.napoleon',
     'sphinx.ext.autosectionlabel',
     'sphinx_tabs.tabs',
+    'sphinx_click',    
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -140,6 +132,9 @@ pygments_style = 'sphinx'
 
 # Allow NB to fail
 nbsphinx_allow_errors = True
+
+# use type hints in autodoc
+autodoc_typehints = "description"
 
 # By default, tabs can be closed by selecting the open tab. This
 # functionality can be disabled using the sphinx_tabs_disable_tab_closing
