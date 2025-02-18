@@ -2,20 +2,33 @@
 Data Handles and Data Store
 ***************************
 
+One particularity of `RAIL` is that we wrap data in
+:py:class:`rail.core.DataHandle` objects rather than
+passing the data directly to functions.  There are a few
+reasons for this.  
+    
 =============================
 Potentially large data volume
 =============================
-       
+
+One of the challenges that `RAIL` must address is the potentially
+very large datasets that we use.  At times we will be dealing
+with billions of objects, and will not be able to load the
+object tables into the memory of a single processor.
+
 ===================
 Parallel processing
 ===================
+
+
 
 ============
 Data Handles
 ============
 
 :py:class:`rail.core.DataHandle` is the class that lets users connect
-data to RAIL stages.
+data to RAIL.
+
 
 .. autoclass:: rail.core.DataHandle
     :noindex:
@@ -23,6 +36,10 @@ data to RAIL stages.
 =======================
 DatHandle Functionality
 =======================
+
+
+Basic file-like operations
+--------------------------
 
 
 .. automethod:: rail.core.DataHandle.open
@@ -37,6 +54,19 @@ DatHandle Functionality
 .. automethod:: rail.core.DataHandle.write
     :noindex:
 
+
+Operations for parallized access to data
+----------------------------------------
+
+.. automethod:: rail.core.DataHandle.iterator
+    :noindex:
+       
+.. automethod:: rail.core.DataHandle.size
+    :noindex:
+
+.. automethod:: rail.core.DataHandle.data_size
+    :noindex:
+       
 .. automethod:: rail.core.DataHandle.initialize_write
     :noindex:
 
@@ -52,9 +82,10 @@ DatHandle Functionality
 .. automethod:: rail.core.DataHandle.size
     :noindex:
 
-.. automethod:: rail.core.DataHandle.data_size
-    :noindex:
-
+       
+Functions for working with DataHandles 
+---------------------------------------
+       
 .. automethod:: rail.core.DataHandle.set_data
     :noindex:
        
