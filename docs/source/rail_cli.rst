@@ -1,7 +1,7 @@
 ********
 rail CLI
-*********
+********
 
-.. click:: rail.cli.rail:cli
+.. click:: rail.cli.rail.commands:cli
    :prog: rail
    :nested: none

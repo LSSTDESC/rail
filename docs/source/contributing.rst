@@ -6,9 +6,8 @@ RAIL is a constellation of multiple packages developed publicly on GitHub and
 welcomes all interested developers, regardless of DESC membership or LSST data rights.
 
 If you're interested in contributing, but don't know where to start, take a look 
-at the list of good first issues from all RAIL repositories 
-`here <https://github.com/orgs/LSSTDESC/projects/6/views/20>`_.
-Or, create a new issue `here <https://github.com/LSSTDESC/rail/issues/new>`_ to 
+at the list of `good first issues from all RAIL repositories <https://github.com/orgs/LSSTDESC/projects/6/views/20>`_.
+Or, `create a new issue <https://github.com/LSSTDESC/rail/issues/new>`_ to 
 suggest a change, and the team will route it to the appropriate repository.
 
 In addition to GitHub, the RAIL team uses the LSSTC Slack workspace for organization.
@@ -19,7 +18,7 @@ the `\#desc-pz-rail <https://lsstc.slack.com/archives/CQGKM0WKD>`_ channel on
 the LSSTC Slack workspace.
 
 Those without data rights who wish to gain access to the Slack channel should 
-`create an Issue <https://github.com/LSSTDESC/RAIL/issues/new>`_ to request that 
+`create an issue <https://github.com/LSSTDESC/RAIL/issues/new>`_ to request that 
 the team leads initiate the process for adding a DESC External Collaborator.
 
 
@@ -73,8 +72,7 @@ While developing in a branch, don't forget to pull from ``main`` regularly (at
 least daily) to make sure your work is compatible with other recent changes.
 
 When you're ready to merge your branch into the ``main`` branch, create a pull request
-("PR") in the rail repository you cloned from. GitHub has instructions 
-`here <https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request>`_.
+("PR") in the rail repository you cloned from. `GitHub has instructions <https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request>`_.
 
 Several continuous integration checks will be performed for new pull requests. 
 If any of these automatic processes find issues with the code, you should address 
@@ -133,8 +131,8 @@ We follow the `pep8 <https://peps.python.org/pep-0008/#descriptive-naming-styles
 recommendations for naming new modules and ``RailStage`` classes within them.
 
 
-Modules
--------
+Modules Names
+-------------
 
 Modules should use all lowercase, with underscores where it aids the readability
 of the module name. 
@@ -148,8 +146,8 @@ It's good for the module name to specify the source of the implementation of a p
 Note that these names should not be identical to the name of the package the algorithm came from, to avoid introducing namespace collisions for users who have imported the original package as well, i.e. ``pzflow_nf`` is a safer name than ``pzflow``.
 
 
-Stages
-------
+Stage Names
+-----------
 
 RailStages are python classes and so should use the CapWords convention. All 
 rail stages using the same algorithm should use the same short, descriptive 

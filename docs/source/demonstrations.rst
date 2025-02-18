@@ -44,7 +44,7 @@ These three notebooks demonstrate specific p(z) estimators in more detail, speci
 These two notebooks demonstrate self-organizing map (SOM) based algorithms that estimate the ensemble n(z) distribution: `the first  <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/estimation_examples/somocluSOM_demo.html>`_ works with the SOM directly, 
 while `the second <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/estimation_examples/somocluSOMcluster_demo.html>`_ clusters the SOM cells to reduce statistical fluctuations.
 
-Finally, `this notebook <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/estimation_examples/test_sampled_summarizers.html>`_ demonstrates converting collections of per-object p(z) estimates to ensemble n(z) estimates.
+Finally, the `test_sampled_summarizers <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/estimation_examples/test_sampled_summarizers.html>`_ demonstrates converting collections of per-object p(z) estimates to ensemble n(z) estimates.
 
 
 
@@ -57,7 +57,7 @@ The two notebooks demonstrate how to `convert a notebook into a ceci analysis pi
 
 This notebook explains the concept of the `Data Store <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/core_examples/FileIO_DataStore.html>`_ that keeps track of the data being used in an analysis pipeline, and which can be used to interactively access data.
 
-Finally, `this notebook <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/core_examples/Iterate_Tabular_Data.html>`_ demonstrates the mechanisms we use to iterate over tabular data, which is needed to avoid reading entire object catalogs into memory.
+Finally, `Iterate_Tabular_Data <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/core_examples/Iterate_Tabular_Data.html>`_ demonstrates the mechanisms we use to iterate over tabular data, which is needed to avoid reading entire object catalogs into memory.
 
 
 

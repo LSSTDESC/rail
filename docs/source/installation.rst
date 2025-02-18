@@ -35,8 +35,8 @@ There are several ways you might choose to install RAIL.
     significantly faster, but it is not as widely adopted in the community.
 
     If you would like to experiment with ``mamba`` it can be installed with
-    ``conda install mamba -n base -c conda-forge``. The ``mamba`` documentation
-    is `here <https://mamba.readthedocs.io/>`_.
+    ``conda install mamba -n base -c conda-forge``. The `mamba documentation
+    is here <https://mamba.readthedocs.io/>`_.
 
 Exploration Installation
 ------------------------
@@ -366,7 +366,7 @@ Installing Delight
 
       However, the particular estimator ``Delight`` is built with ``Cython`` and uses ``openmp``.  Mac has dropped native support for ``openmp``, which will likely cause problems when trying to run the ``DelightEstimator`` estimation code in RAIL.  See the notes below for instructions on installing Delight if you wish to use this particular estimator.
 
-      If you are installing RAIL on a Mac, as noted above the ``DelightEstimator`` estimator requires that your machine's ``gcc`` be set up to work with ``openmp``. If you are installing on a Mac and do not plan on using ``DelightEstimator``, then you can simply install RAIL with ``pip install .[base]`` rather than ``pip install .[all]``, which will skip the Delight package.  If you are on a Mac and *do* expect to run ``DelightEstimator``, then follow the instructions `here <https://github.com/LSSTDESC/Delight/blob/master/Mac_installation.md>`_ to install Delight before running ``pip install .[all]``.
+      If you are installing RAIL on a Mac, as noted above the ``DelightEstimator`` estimator requires that your machine's ``gcc`` be set up to work with ``openmp``. If you are installing on a Mac and do not plan on using ``DelightEstimator``, then you can simply install RAIL with ``pip install .[base]`` rather than ``pip install .[all]``, which will skip the Delight package.  If you are on a Mac and *do* expect to run ``DelightEstimator``, then `follow the instructions here <https://github.com/LSSTDESC/Delight/blob/master/Mac_installation.md>`_ to install Delight before running ``pip install .[all]``.
 
     
 Installing FlexZBoost

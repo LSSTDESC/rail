@@ -32,7 +32,7 @@ To get involved, chime in on the issues in any of the RAIL repositories describe
    :maxdepth: 2
    :caption: Details
 
-   source/types_of_stages
+   api/stage_types
 
 .. toctree::
    :maxdepth: 2
