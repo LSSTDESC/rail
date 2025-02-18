@@ -216,9 +216,9 @@ htmlhelp_basename = 'raildoc'
 
 def run_apidoc(_):
 
-    RailEnv.do_stage_type_api_rst()
-    if os.environ['RAIL_NO_REBUILD_API']:
+    if os.environ.get('RAIL_NO_REBUILD_API', False):
         return
+    RailEnv.do_stage_type_api_rst()    
     RailEnv.do_api_rst()
     
 
