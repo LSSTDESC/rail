@@ -26,6 +26,7 @@ algos = [
     "pz-rail-astro-tools",
     "pz-rail-bpz",
     "pz-rail-cmnn",
+    "pz-rail-dnf",
     "pz-rail-dsps",
     "pz-rail-flexzboost",
     "pz-rail-fsps",
@@ -33,6 +34,7 @@ algos = [
     "pz-rail-pzflow",
     "pz-rail-sklearn",
     "pz-rail-som",
+    "pz-rail-yaw",
     "qp-prob[full]",
 ]
 
