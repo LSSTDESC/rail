@@ -168,6 +168,32 @@ Possible suffixes include:
 * Degrader
 * Evaluator
 
+  
+
+RAIL Documentation
+==================
+
+All of the documentation on this site is built as part of the 
+`RAIL Package <https://github.com/lsstdesc/rail>`_, and the
+configuration and skeleton for the documenation live in the
+`rail/docs` directory.
+
+The documation skeleton is setup to work with whatever rail
+packages are installed, e.g., if you are just working on one
+of the algorithms, you can just install that algorithm in
+addition to `rail_base` and `rail` and when you generate the
+docs you will just get the docs for `rail_base` and that package.
+
+The documentation uses `sphinx
+<https://www.sphinx-doc.org/en/master/>`_
+to automatically generate some content from the source code,
+this requires being very careful with docstring formatting.   The rail_base package is pretty good about using the numpy docstring style, so I think we should migrate things towards that: https://numpydoc.readthedocs.io/en/latest/format.html
+the documentation uses some python cleverness to find all the rail code in your current python environment, this lives in: rail_base/src/rail/core/introspection.py 
+the rail package is linked to readthedocs so that anytime we push to main it will get pulled over to readthedocs. 
+
+
+  
+  
 
 Contribution Types
 ==================

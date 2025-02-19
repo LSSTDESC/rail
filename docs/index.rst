@@ -12,7 +12,7 @@ To get involved, chime in on the issues in any of the RAIL repositories describe
 
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 4
    :caption: Getting Started
 
    source/overview
@@ -20,7 +20,7 @@ To get involved, chime in on the issues in any of the RAIL repositories describe
    source/citing
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 4
    :caption: Concepts
 
    source/stages
@@ -29,19 +29,20 @@ To get involved, chime in on the issues in any of the RAIL repositories describe
    source/catalog_tags
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 4
    :caption: Details
 
+   source/documentation
    api/stage_types
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 4
    :caption: Usage
 
    source/rail_cli
    
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 4
    :caption: Contributing
 
    source/contributing
@@ -51,13 +52,13 @@ To get involved, chime in on the issues in any of the RAIL repositories describe
    source/sharing_pipeline
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 5
    :caption: API
 
    api
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 4
    :caption: Usage Demos
 
    Overview of Demonstrations <source/demonstrations>
