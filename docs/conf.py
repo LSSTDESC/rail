@@ -16,14 +16,14 @@ import os
 import subprocess
 import sys
 sys.path.insert(0, os.path.abspath('..'))
+
 import rail
+
 from rail.core import RailEnv
 
 for rail_path in rail.__path__:
     sys.path.insert(0, rail_path)
 
-print(sys.path)
-    
 
 # Use unittest mock module to shield some modules away from docs building.
 # This way one does not need to install them when dealing with the doc.
@@ -46,11 +46,14 @@ MOCK_MODULES = [
     'fsps',
     'dsps',
     'dsps.cosmology',
+    'lephare',
     'pzflow',
     'pzflow.bijectors',
     'sklearn',
     'sklearn.cluster',
     'sklearn.decomposition',
+    'sklearn.tree',
+    'sklearn.ensemble',
     'gal_pop_model_components',
     'qp_flexzboost',
 ]
@@ -97,6 +100,7 @@ extensions = [
     'sphinx.ext.napoleon',
     'sphinx.ext.autosectionlabel',
     'sphinx_tabs.tabs',
+    'sphinx_click',    
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -129,6 +133,25 @@ pygments_style = 'sphinx'
 
 # Allow NB to fail
 nbsphinx_allow_errors = True
+
+# use type hints in autodoc
+autodoc_typehints = "description"
+
+autodoc_type_aliases = {
+    'DataLike': 'rail.core.data.DataLike',
+    'FileLike': 'rail.core.data.FileLike',
+    'GroupLike': 'rail.core.data.GroupLike',
+    'ModelLike': 'rail.core.data.ModelLike',
+    'TableLike': 'rail.core.data.TableLike',
+}
+
+autodoc_class_signature = "separated"
+
+autodoc_default_options = {
+    'special-members': '__init__',
+    'undoc-members': True,
+    'exclude-members': 'config_options'
+}
 
 # By default, tabs can be closed by selecting the open tab. This
 # functionality can be disabled using the sphinx_tabs_disable_tab_closing
@@ -192,19 +215,12 @@ htmlhelp_basename = 'raildoc'
 # from sphinxcontrib.apidoc import main as apidoc_main
 
 def run_apidoc(_):
-    #os.system('ln -s ../examples')
 
-    from sphinx.ext.apidoc import main as apidoc_main
-    cur_dir = os.path.normpath(os.path.dirname(__file__))
-    output_path = os.path.join(cur_dir, 'api')
-
-    for full_path in rail.__path__:
-        paramlist = ['--separate', '--implicit-namespaces', '--no-toc', '-M', '-o', output_path, '-f', full_path]
-        print(f"running {paramlist}")
-        apidoc_main(paramlist)
-
+    if os.environ.get('RAIL_NO_REBUILD_API', False):
+        return
+    RailEnv.do_stage_type_api_rst()    
     RailEnv.do_api_rst()
-
+    
 
 def setup(app):
     app.connect('builder-inited', run_apidoc)
