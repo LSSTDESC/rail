@@ -578,9 +578,7 @@ class Sample(Ensemble):
     @property
     def pit(self):
         if self._pit is None:
-            pit_array = np.array(
-                [self[i].cdf(self.ztrue[i])[0][0] for i in range(len(self))]
-            )
+            pit_array = np.array([self[i].cdf(self.ztrue[i]) for i in range(len(self))])
             self._pit = pit_array
         return self._pit
 
