@@ -288,7 +288,7 @@ def ks_plot(pitobj, n_quant=100):
     uniform_yvals = np.array([np.full(n_quant, 1.0 / float(n_quant))])
     uniform_cdf = Ensemble(interp, data=dict(xvals=xvals, yvals=uniform_yvals)).cdf(
         xvals
-    )[0]
+    )
 
     plt.figure(figsize=[4, 4])
     plt.plot(xvals, uniform_cdf, "r-", label="uniform")
