@@ -284,7 +284,7 @@ def ks_plot(pitobj, n_quant=100):
     stat_and_pval = pitobj.evaluate_PIT_KS()
     xvals = np.linspace(0.0, 1.0, n_quant)
     yvals = np.array([np.histogram(pits, bins=len(xvals))[0]])
-    pit_cdf = Ensemble(interp, data=dict(xvals=xvals, yvals=yvals)).cdf(xvals)[0]
+    pit_cdf = Ensemble(interp, data=dict(xvals=xvals, yvals=yvals)).cdf(xvals)
     uniform_yvals = np.array([np.full(n_quant, 1.0 / float(n_quant))])
     uniform_cdf = Ensemble(interp, data=dict(xvals=xvals, yvals=uniform_yvals)).cdf(
         xvals
