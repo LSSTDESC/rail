@@ -35,7 +35,7 @@ algos = [
     "pz-rail-sklearn",
     "pz-rail-som",
     "pz-rail-yaw",
-    "qp-prob>=1.0.0",
+    "qp-prob[full]>=1.0.0",
 ]
 
 nb = [
