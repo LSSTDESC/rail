@@ -53,6 +53,12 @@ To get involved, chime in on the issues in any of the RAIL repositories describe
 
 .. toctree::
    :maxdepth: 5
+   :caption: Alogrithms
+
+   source/creation_algos
+
+.. toctree::
+   :maxdepth: 5
    :caption: API
 
    api
