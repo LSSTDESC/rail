@@ -35,6 +35,7 @@ algos = [
     "pz-rail-sklearn",
     "pz-rail-som",
     "pz-rail-yaw",
+    "pz-rail-lephare",
     "qp-prob[full]",
 ]
 
