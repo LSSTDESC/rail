@@ -7,24 +7,32 @@ from qp.metrics.pit import PIT
 from IPython.display import Markdown
 import h5py
 import os
-from qp.ensemble import Ensemble
+from qp import Ensemble
 from qp import interp
 
 
-def read_pz_output(pdfs_file, ztrue_file, pdfs_key="photoz_pdf", zgrid_key="zgrid",
-                   photoz_mode_key="photoz_mode", ztrue_key="redshift"):
+def read_pz_output(
+    pdfs_file,
+    ztrue_file,
+    pdfs_key="photoz_pdf",
+    zgrid_key="zgrid",
+    photoz_mode_key="photoz_mode",
+    ztrue_key="redshift",
+):
     _, ext = os.path.splitext(pdfs_file)
 
     if ext == ".hdf5":
-        with h5py.File(ztrue_file, 'r') as zf:
+        with h5py.File(ztrue_file, "r") as zf:
             try:
-                ztrue = np.array(zf['photometry'][ztrue_key])
+                ztrue = np.array(zf["photometry"][ztrue_key])
             except:
                 try:
                     ztrue = np.array(zf[ztrue_key])
                 except:
-                    raise ValueError('Invalid key for true redshift column in ztrue file.')
-        with h5py.File(pdfs_file, 'r') as pf:
+                    raise ValueError(
+                        "Invalid key for true redshift column in ztrue file."
+                    )
+        with h5py.File(pdfs_file, "r") as pf:
             pdfs = np.array(pf[pdfs_key])
             zgrid = np.array(pf[zgrid_key]).flatten()
             photoz_mode = np.array(pf[photoz_mode_key])
@@ -64,14 +72,16 @@ def plot_pdfs(sample, gals, show_ztrue=True, show_photoz_mode=False):
     for i, gal in enumerate(gals):
         peaks.append(sample.pdf(sample.photoz_mode[gal])[gal])
         if i == 0:
-            axes = sample.plot(key=gal, xlim=(0., 2.2), label=f"Galaxy {gal}")
+            axes = sample.plot(key=gal, xlim=(0.0, 2.2), label=f"Galaxy {gal}")
         else:
             _ = sample.plot(key=gal, axes=axes, label=f"Galaxy {gal}")
         colors.append(axes.get_lines()[-1].get_color())
         if show_ztrue:
-            axes.vlines(sample.ztrue[gal], ymin=0, ymax=100, colors=colors[-1], ls='--')
+            axes.vlines(sample.ztrue[gal], ymin=0, ymax=100, colors=colors[-1], ls="--")
         if show_photoz_mode:
-            axes.vlines(sample.photoz_mode[gal], ymin=0, ymax=100, colors=colors[-1], ls=':')
+            axes.vlines(
+                sample.photoz_mode[gal], ymin=0, ymax=100, colors=colors[-1], ls=":"
+            )
     plt.ylim(0, np.max(peaks) * 1.05)
     axes.figure.legend()
     return colors
@@ -88,29 +98,30 @@ def plot_old_valid(photoz, ztrue, gals=None, colors=None, code=""):
     colors: `list`, (optional)
         list of HTML codes for colors used in the plot highlighted points
     """
-    df = pd.DataFrame({'z$_{true}$': ztrue,
-                       'z$_{phot}$': photoz})
+    df = pd.DataFrame({"z$_{true}$": ztrue, "z$_{phot}$": photoz})
     fig = plt.figure(figsize=(10, 4), dpi=100)
-    #fig.suptitle(name, fontsize=16)
+    # fig.suptitle(name, fontsize=16)
     ax = plt.subplot(121)
     # sns.jointplot(data=df, x='z$_{true}$', y='z$_{phot}$', kind="kde")
-    plt.plot(ztrue, photoz, 'k,', label=code)
+    plt.plot(ztrue, photoz, "k,", label=code)
     leg = ax.legend(fancybox=True, handlelength=0, handletextpad=0, loc="upper left")
     if gals:
         if not colors:
-            colors = ['r'] * len(gals)
+            colors = ["r"] * len(gals)
         for i, gal in enumerate(gals):
-            plt.plot(ztrue[gal], photoz[gal], 'o', color=colors[i], label=f'Galaxy {gal}')
+            plt.plot(
+                ztrue[gal], photoz[gal], "o", color=colors[i], label=f"Galaxy {gal}"
+            )
     zmax = np.max(ztrue) * 1.01
     plt.xlim(0, zmax)
     plt.ylim(0, zmax)
-    plt.xlabel('z$_{true}$')
-    plt.ylabel('z$_{phot}$')
+    plt.xlabel("z$_{true}$")
+    plt.ylabel("z$_{phot}$")
     plt.subplot(122)
-    sns.kdeplot(ztrue, shade=True, label='z$_{true}$')
-    sns.kdeplot(photoz, shade=True, label='z$_{phot}$')
+    sns.kdeplot(ztrue, shade=True, label="z$_{true}$")
+    sns.kdeplot(photoz, shade=True, label="z$_{phot}$")
     plt.xlim(0, zmax)
-    plt.xlabel('z')
+    plt.xlabel("z")
     plt.legend()
     plt.tight_layout()
 
@@ -142,9 +153,18 @@ def old_metrics_table(photoz, ztrue, name="", show_dc1=True):
     return Markdown(table)
 
 
-def plot_pit_qq(pdfs, zgrid, ztrue, bins=None, title=None, code=None,
-                show_pit=True, show_qq=True,
-                pit_out_rate=None, savefig=False) -> str:
+def plot_pit_qq(
+    pdfs,
+    zgrid,
+    ztrue,
+    bins=None,
+    title=None,
+    code=None,
+    show_pit=True,
+    show_qq=True,
+    pit_out_rate=None,
+    savefig=False,
+) -> str:
     """Quantile-quantile plot
     Ancillary function to be used by class Metrics.
 
@@ -180,7 +200,6 @@ def plot_pit_qq(pdfs, zgrid, ztrue, bins=None, title=None, code=None,
     else:
         label = code + "\n"
 
-
     if pit_out_rate is not None:
         try:
             label += "PIT$_{out}$: "
@@ -194,9 +213,10 @@ def plot_pit_qq(pdfs, zgrid, ztrue, bins=None, title=None, code=None,
     sample = Sample(pdfs, zgrid, ztrue)
 
     if show_qq:
-        ax0.plot(sample.qq[0], sample.qq[1], c='r',
-                 linestyle='-', linewidth=3, label=label)
-        ax0.plot([0, 1], [0, 1], color='k', linestyle='--', linewidth=2)
+        ax0.plot(
+            sample.qq[0], sample.qq[1], c="r", linestyle="-", linewidth=3, label=label
+        )
+        ax0.plot([0, 1], [0, 1], color="k", linestyle="--", linewidth=2)
         ax0.set_ylabel("Q$_{data}$", fontsize=18)
         plt.ylim(-0.001, 1.001)
     plt.xlim(-0.001, 1.001)
@@ -213,23 +233,33 @@ def plot_pit_qq(pdfs, zgrid, ztrue, bins=None, title=None, code=None,
             y_uni = float(len(pit_vals)) / float(len(bins))
         if not show_qq:
             ax0.hist(pit_vals, bins=bins, alpha=0.7, label=label)
-            ax0.set_ylabel('Number')
-            ax0.hlines(y_uni, xmin=0, xmax=1, color='k')
-            plt.ylim(0, )  # -0.001, 1.001)
+            ax0.set_ylabel("Number")
+            ax0.hlines(y_uni, xmin=0, xmax=1, color="k")
+            plt.ylim(
+                0,
+            )  # -0.001, 1.001)
         else:
             ax1 = ax0.twinx()
             ax1.hist(pit_vals, bins=bins, alpha=0.7)
-            ax1.set_ylabel('Number')
-            ax1.hlines(y_uni, xmin=0, xmax=1, color='k')
+            ax1.set_ylabel("Number")
+            ax1.hlines(y_uni, xmin=0, xmax=1, color="k")
     leg = ax0.legend(handlelength=0, handletextpad=0, fancybox=True)
     if show_qq:
         ax2 = plt.subplot(gs[1])
-        ax2.plot(sample.qq[0], (sample.qq[1] - sample.qq[0]), c='r', linestyle='-', linewidth=3)
+        ax2.plot(
+            sample.qq[0],
+            (sample.qq[1] - sample.qq[0]),
+            c="r",
+            linestyle="-",
+            linewidth=3,
+        )
         plt.ylabel("$\Delta$Q", fontsize=18)
-        ax2.plot([0, 1], [0, 0], color='k', linestyle='--', linewidth=2)
+        ax2.plot([0, 1], [0, 0], color="k", linestyle="--", linewidth=2)
         plt.xlim(-0.001, 1.001)
-        plt.ylim(np.min([-0.12, np.min(sample.qq[1] - sample.qq[0]) * 1.05]),
-                 np.max([0.12, np.max(sample.qq[1] - sample.qq[0]) * 1.05]))
+        plt.ylim(
+            np.min([-0.12, np.min(sample.qq[1] - sample.qq[0]) * 1.05]),
+            np.max([0.12, np.max(sample.qq[1] - sample.qq[0]) * 1.05]),
+        )
     if show_pit:
         if show_qq:
             plt.xlabel("Q$_{theory}$ / PIT Value", fontsize=18)
@@ -239,8 +269,7 @@ def plot_pit_qq(pdfs, zgrid, ztrue, bins=None, title=None, code=None,
         if show_qq:
             plt.xlabel("Q$_{theory}$", fontsize=18)
     if savefig:
-        fig_filename = str("plot_pit_qq_" +
-                           f"{(code).replace(' ', '_')}.png")
+        fig_filename = str("plot_pit_qq_" + f"{(code).replace(' ', '_')}.png")
         plt.savefig(fig_filename)
     else:
         fig_filename = None
@@ -249,28 +278,32 @@ def plot_pit_qq(pdfs, zgrid, ztrue, bins=None, title=None, code=None,
 
 
 def ks_plot(pitobj, n_quant=100):
-    """ KS test illustration.
+    """KS test illustration.
     Ancillary function to be used by class KS."""
     pits = np.array(pitobj.pit_samps)
     stat_and_pval = pitobj.evaluate_PIT_KS()
-    xvals = np.linspace(0., 1., n_quant)
+    xvals = np.linspace(0.0, 1.0, n_quant)
     yvals = np.array([np.histogram(pits, bins=len(xvals))[0]])
-    pit_cdf = Ensemble(interp, data=dict(xvals=xvals, yvals=yvals)).cdf(xvals)[0]
+    pit_cdf = Ensemble(interp, data=dict(xvals=xvals, yvals=yvals)).cdf(xvals)
     uniform_yvals = np.array([np.full(n_quant, 1.0 / float(n_quant))])
-    uniform_cdf = Ensemble(interp, data=dict(xvals=xvals, yvals=uniform_yvals)).cdf(xvals)[0]
+    uniform_cdf = Ensemble(interp, data=dict(xvals=xvals, yvals=uniform_yvals)).cdf(
+        xvals
+    )
 
     plt.figure(figsize=[4, 4])
-    plt.plot(xvals, uniform_cdf, 'r-', label="uniform")
-    plt.plot(xvals, pit_cdf, 'b-', label="sample PIT")
+    plt.plot(xvals, uniform_cdf, "r-", label="uniform")
+    plt.plot(xvals, pit_cdf, "b-", label="sample PIT")
     bin_stat = np.argmax(np.abs(pit_cdf - uniform_cdf))
 
-    plt.vlines(x=xvals[bin_stat],
-               ymin=np.min([pit_cdf[bin_stat], uniform_cdf[bin_stat]]),
-               ymax=np.max([pit_cdf[bin_stat], uniform_cdf[bin_stat]]),
-               colors='k')
+    plt.vlines(
+        x=xvals[bin_stat],
+        ymin=np.min([pit_cdf[bin_stat], uniform_cdf[bin_stat]]),
+        ymax=np.max([pit_cdf[bin_stat], uniform_cdf[bin_stat]]),
+        colors="k",
+    )
     plt.plot(xvals[bin_stat], pit_cdf[bin_stat], "k.")
     plt.plot(xvals[bin_stat], uniform_cdf[bin_stat], "k.")
-    ymean = (pit_cdf[bin_stat] + uniform_cdf[bin_stat]) / 2.
+    ymean = (pit_cdf[bin_stat] + uniform_cdf[bin_stat]) / 2.0
     plt.text(xvals[bin_stat] + 0.05, ymean, "max", fontsize=16)
     plt.xlabel("PIT value")
     plt.ylabel("CDF(PIT)")
@@ -281,8 +314,6 @@ def ks_plot(pitobj, n_quant=100):
     plt.ylim(0, 1)
     plt.legend()
     plt.tight_layout()
-
-
 
 
 class EvaluatePointStats(object):
@@ -303,7 +334,7 @@ class EvaluatePointStats(object):
         """
         self.pzs = pzvec
         self.szs = szvec
-        ez = (pzvec - szvec) / (1. + szvec)
+        ez = (pzvec - szvec) / (1.0 + szvec)
         self.ez_all = ez
 
     def CalculateSigmaIQR(self):
@@ -315,7 +346,7 @@ class EvaluatePointStats(object):
         sigma_IQR_all float: width of ez distribution for full sample
         sigma_IQR_magcut float: width of ez distribution for magcut sample
         """
-        x75, x25 = np.percentile(self.ez_all, [75., 25.])
+        x75, x25 = np.percentile(self.ez_all, [75.0, 25.0])
         iqr_all = x75 - x25
         sigma_iqr_all = iqr_all / 1.349
         self.sigma_iqr_all = sigma_iqr_all
@@ -346,7 +377,7 @@ class EvaluatePointStats(object):
         num_all = len(self.ez_all)
         threesig_all = 3.0 * self.sigma_iqr_all
         cutcriterion_all = np.maximum(0.06, threesig_all)
-        mask_all = (self.ez_all > np.fabs(cutcriterion_all))
+        mask_all = self.ez_all > np.fabs(cutcriterion_all)
         outlier_all = np.sum(mask_all)
         frac_all = float(outlier_all) / float(num_all)
         return frac_all
@@ -370,27 +401,101 @@ class DC1:
 
     def __init__(self):
         # Reference values:
-        self.codes = ("ANNz2", "BPZ", "CMNN", "Delight", "EAZY", "FlexZBoost",
-                      "GPz", "LePhare", "METAPhoR", "SkyNet", "TPZ")
+        self.codes = (
+            "ANNz2",
+            "BPZ",
+            "CMNN",
+            "Delight",
+            "EAZY",
+            "FlexZBoost",
+            "GPz",
+            "LePhare",
+            "METAPhoR",
+            "SkyNet",
+            "TPZ",
+        )
         self.metrics = ("PIT out rate", "CDE loss", "KS", "CvM", "AD")
-        self.pit_out_rate = [0.0265, 0.0192, 0.0034, 0.0006, 0.0154, 0.0202,
-                             0.0058, 0.0486, 0.0229, 0.0001, 0.0130]
-        self.cde_loss = [-6.88, -7.82, -10.43, -8.33, -7.07, -10.60,
-                         -9.93, -1.66, -6.28, -7.89, -9.55]
-        self.ks = [0.0200, 0.0388, 0.0795, 0.08763, 0.0723, 0.0240,
-                   0.0241, 0.0663, 0.0438, 0.0747, 0.1138, 0.0047]
-        self.cvm = [52.25, 280.79, 1011.11, 1075.17, 1105.58, 68.83,
-                    66.80, 473.05, 298.56, 763.00, 1.16]
-        self.ad = [759.2, 1557.5, 6307.5, 6167.5, 4418.6, 478.8,
-                   670.9, 383.8, 715.5, 4216.4, 10565.7, 7.7]
+        self.pit_out_rate = [
+            0.0265,
+            0.0192,
+            0.0034,
+            0.0006,
+            0.0154,
+            0.0202,
+            0.0058,
+            0.0486,
+            0.0229,
+            0.0001,
+            0.0130,
+        ]
+        self.cde_loss = [
+            -6.88,
+            -7.82,
+            -10.43,
+            -8.33,
+            -7.07,
+            -10.60,
+            -9.93,
+            -1.66,
+            -6.28,
+            -7.89,
+            -9.55,
+        ]
+        self.ks = [
+            0.0200,
+            0.0388,
+            0.0795,
+            0.08763,
+            0.0723,
+            0.0240,
+            0.0241,
+            0.0663,
+            0.0438,
+            0.0747,
+            0.1138,
+            0.0047,
+        ]
+        self.cvm = [
+            52.25,
+            280.79,
+            1011.11,
+            1075.17,
+            1105.58,
+            68.83,
+            66.80,
+            473.05,
+            298.56,
+            763.00,
+            1.16,
+        ]
+        self.ad = [
+            759.2,
+            1557.5,
+            6307.5,
+            6167.5,
+            4418.6,
+            478.8,
+            670.9,
+            383.8,
+            715.5,
+            4216.4,
+            10565.7,
+            7.7,
+        ]
 
     @property
     def results(self):
-        results = {"PIT out rate": dict([(code, value) for code, value in zip(self.codes, self.pit_out_rate)]),
-                   "CDE loss": dict([(code, value) for code, value in zip(self.codes, self.cde_loss)]),
-                   "KS": dict([(code, value) for code, value in zip(self.codes, self.ks)]),
-                   "CvM": dict([(code, value) for code, value in zip(self.codes, self.cvm)]),
-                   "AD": dict([(code, value) for code, value in zip(self.codes, self.ad)])}
+        results = {
+            "PIT out rate": dict(
+                [(code, value) for code, value in zip(self.codes, self.pit_out_rate)]
+            ),
+            "CDE loss": dict(
+                [(code, value) for code, value in zip(self.codes, self.cde_loss)]
+            ),
+            "KS": dict([(code, value) for code, value in zip(self.codes, self.ks)]),
+            "CvM": dict([(code, value) for code, value in zip(self.codes, self.cvm)]),
+            "AD": dict([(code, value) for code, value in zip(self.codes, self.ad)]),
+        }
         return results
 
     @property
@@ -406,10 +511,12 @@ class DC1:
 
 
 class Sample(Ensemble):
-    """ Expand qp.Ensemble to append true redshifts
-    array, metadata, and specific plots. """
+    """Expand qp.Ensemble to append true redshifts
+    array, metadata, and specific plots."""
 
-    def __init__(self, pdfs, zgrid, ztrue, photoz_mode=None, code="", name="", n_quant=100):
+    def __init__(
+        self, pdfs, zgrid, ztrue, photoz_mode=None, code="", name="", n_quant=100
+    ):
         """Class constructor
 
         Parameters
@@ -438,7 +545,6 @@ class Sample(Ensemble):
         self._n_quant = n_quant
         self._pit = None
         self._qq = None
-
 
     @property
     def code(self):
@@ -472,13 +578,13 @@ class Sample(Ensemble):
     @property
     def pit(self):
         if self._pit is None:
-            pit_array = np.array([self[i].cdf(self.ztrue[i])[0][0] for i in range(len(self))])
+            pit_array = np.array([self[i].cdf(self.ztrue[i]) for i in range(len(self))])
             self._pit = pit_array
         return self._pit
 
     @property
     def qq(self, n_quant=100):
-        q_theory = np.linspace(0., 1., n_quant)
+        q_theory = np.linspace(0.0, 1.0, n_quant)
         q_data = np.quantile(self.pit, q_theory)
         self._qq = (q_theory, q_data)
         return self._qq
@@ -489,32 +595,53 @@ class Sample(Ensemble):
         return len(self._ztrue)
 
     def __str__(self):
-        code_str = f'Algorithm: {self._code}'
-        name_str = f'Sample: {self._name}'
-        line_str = '-' * (max(len(code_str), len(name_str)))
-        text = str(line_str + '\n' +
-                   name_str + '\n' +
-                   code_str + '\n' +
-                   line_str + '\n' +
-                   f'{len(self)} PDFs with {len(self.zgrid)} probabilities each \n' +
-                   f'qp representation: {self.gen_class.name} \n' +
-                   f'z grid: {len(self.zgrid)} z values from {np.min(self.zgrid)} to {np.max(self.zgrid)} inclusive')
+        code_str = f"Algorithm: {self._code}"
+        name_str = f"Sample: {self._name}"
+        line_str = "-" * (max(len(code_str), len(name_str)))
+        text = str(
+            line_str
+            + "\n"
+            + name_str
+            + "\n"
+            + code_str
+            + "\n"
+            + line_str
+            + "\n"
+            + f"{len(self)} PDFs with {len(self.zgrid)} probabilities each \n"
+            + f"qp representation: {self.gen_class.name} \n"
+            + f"z grid: {len(self.zgrid)} z values from {np.min(self.zgrid)} to {np.max(self.zgrid)} inclusive"
+        )
         return text
 
     def plot_pdfs(self, gals, show_ztrue=True, show_photoz_mode=False):
-        colors = plot_pdfs(self, gals, show_ztrue=show_ztrue,
-                                 show_photoz_mode=show_photoz_mode)
+        colors = plot_pdfs(
+            self, gals, show_ztrue=show_ztrue, show_photoz_mode=show_photoz_mode
+        )
         return colors
 
     def plot_old_valid(self, gals=None, colors=None):
         old_metrics_table = plot_old_valid(self, gals=gals, colors=colors)
         return old_metrics_table
 
-    def plot_pit_qq(self, bins=None, label=None, title=None, show_pit=True,
-                    show_qq=True, show_pit_out_rate=True, savefig=False):
+    def plot_pit_qq(
+        self,
+        bins=None,
+        label=None,
+        title=None,
+        show_pit=True,
+        show_qq=True,
+        show_pit_out_rate=True,
+        savefig=False,
+    ):
         """Make plot PIT-QQ as Figure 2 from Schmidt et al. 2020."""
-        fig_filename = plot_pit_qq(self, bins=bins, label=label, title=title,
-                                         show_pit=show_pit, show_qq=show_qq,
-                                         show_pit_out_rate=show_pit_out_rate,
-                                         savefig=savefig)
+        fig_filename = plot_pit_qq(
+            self,
+            bins=bins,
+            label=label,
+            title=title,
+            show_pit=show_pit,
+            show_qq=show_qq,
+            show_pit_out_rate=show_pit_out_rate,
+            savefig=savefig,
+        )
         return fig_filename
