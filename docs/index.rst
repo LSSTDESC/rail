@@ -27,6 +27,7 @@ To get involved, chime in on the issues in any of the RAIL repositories describe
    source/data_handles
    source/pipelines
    source/catalog_tags
+   api/stage_types
    
 .. toctree::
    :maxdepth: 4
@@ -34,13 +35,6 @@ To get involved, chime in on the issues in any of the RAIL repositories describe
    
    source/estimators
    source/summarizers
-
-.. toctree::
-   :maxdepth: 4
-   :caption: Details
-
-   source/documentation
-   api/stage_types
 
 .. toctree::
    :maxdepth: 4
@@ -57,6 +51,7 @@ To get involved, chime in on the issues in any of the RAIL repositories describe
    source/new_rail_stage
    source/new_algorithm
    source/sharing_pipeline
+   source/documentation
 
 .. toctree::
    :maxdepth: 5
