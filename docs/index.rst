@@ -33,6 +33,7 @@ To get involved, chime in on the issues in any of the RAIL repositories describe
    :caption: Algorithms
    
    source/estimators
+   source/summarizers
 
 .. toctree::
    :maxdepth: 4
