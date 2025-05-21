@@ -27,6 +27,12 @@ To get involved, chime in on the issues in any of the RAIL repositories describe
    source/data_handles
    source/pipelines
    source/catalog_tags
+   
+.. toctree::
+   :maxdepth: 4
+   :caption: Algorithms
+   
+   source/estimators
 
 .. toctree::
    :maxdepth: 4
