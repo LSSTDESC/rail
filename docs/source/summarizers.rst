@@ -22,7 +22,7 @@ Minisom informer and estimator:
 .. autoclass:: rail.estimation.algos.minisom_som.MiniSOMInformer
     :noindex:
 
-.. autoclass:: rail.estimation.algos.minisom_som.MiniSOMEstimator
+.. autoclass:: rail.estimation.algos.minisom_som.MiniSOMSummarizer
     :noindex:
 
 Somoclu informer and estimator:
@@ -30,7 +30,7 @@ Somoclu informer and estimator:
 .. autoclass:: rail.estimation.algos.somoclu_som.SOMocluInformer
     :noindex:
 
-.. autoclass:: rail.estimation.algos.somoclu_som.SOMocluEstimator
+.. autoclass:: rail.estimation.algos.somoclu_som.SOMocluSummarizer
     :noindex:
     
 Useful function for the SOMoclu (see SOM tutorial for example):
@@ -70,9 +70,9 @@ This wrapper consists of a number of stages that interface with all primary YAW 
     
     
 
-====================================
+==============
 Naive Stacking
-====================================
+==============
 
 RAIL Package: https://github.com/LSSTDESC/rail_base
 
@@ -89,9 +89,9 @@ Stack the PDF of the photo-z output and normalize as the n(z) distribution.
     :noindex:
     
 
-====================================
+==============================
 Variational Inference Stacking
-====================================
+==============================
 
 RAIL Package: https://github.com/LSSTDESC/rail_base
 
@@ -102,9 +102,9 @@ RAIL Package: https://github.com/LSSTDESC/rail_base
     :noindex:
     
 
-====================================
+========================
 Point Estimate Histogram
-====================================
+========================
 
 RAIL Package: https://github.com/LSSTDESC/rail_base
 

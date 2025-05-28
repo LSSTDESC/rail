@@ -32,7 +32,9 @@ To get involved, chime in on the issues in any of the RAIL repositories describe
 .. toctree::
    :maxdepth: 4
    :caption: Algorithms
-   
+
+   source/creation_engine_algos
+   source/creation_degrader_algos
    source/estimators
    source/summarizers
 
