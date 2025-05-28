@@ -54,6 +54,12 @@ RAIL Package: https://github.com/LSSTDESC/rail_delight
 
 [Leistedt et al. (2017)](https://ui.adsabs.harvard.edu/abs/2017ApJ...843...25L) introduced a novel approach to inferring photometric redshifts which combines some of the strengths of machine learning and template-fitting methods by implicitly constructing flexible template SEDs directly from the spectroscopic training data, called Delight. It is a method for calculating the posterior probability of redshift given a catalog of deep observations acting as a data-driven prior. The catalog can have observations in arbitrary bands and with arbitrary noise; Gaussian processes are used as a principled method to implicitly construct SEDs (capturing the effects of redshifts, bandpasses and noise). The hyperparameters of the Gaussian process can be optimized as a calibration step.
 
+.. autoclass:: rail.estimation.algos.delightPZ.DelightInformer
+    :noindex:
+
+.. autoclass:: rail.estimation.algos.delightPZ.DelightEstimator
+    :noindex:
+
 
 ======================================
 DNF (Directional Neighborhood Fitting)
@@ -193,6 +199,11 @@ TPZ
 
 RAIL Package: https://github.com/LSSTDESC/rail_tpz
 
+.. autoclass:: rail.estimation.algos.tpz_lite.TPZliteInformer
+    :noindex:
+
+.. autoclass:: rail.estimation.algos.tpz_lite.TPZliteEstimator
+    :noindex:
 
 
 ======
