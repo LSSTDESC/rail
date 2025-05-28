@@ -1,6 +1,6 @@
-**************************
-Creation.Engine Algorithms
-**************************
+****************
+Creation Engines
+****************
 
 Mock DESC data are important for systematically testing the performance of various photo-$z$ algorithms. 
 One of the lessons learned from DC1 is that it is desirable for the mock data to include not only true redshifts and LSST photometry (i.e., fluxes in the six LSST bands) but also true posterior PDFs, $p(z_t | \mathbf{p}_t)$, which are unavailable for spectroscopically confirmed data sets as well as traditional simulations.
