@@ -25,7 +25,7 @@ The `BPZliteEstimator` stage takes a `TableHandle` catalog of magnitudes and mag
 .. autoclass:: rail.estimation.algos.bpz_lite.BPZliteInformer
     :noindex:
 
-.. autoclass:: rail.estimation.algos.k_nearneigh.BPZliteEstimator
+.. autoclass:: rail.estimation.algos.bpz_lite.BPZliteEstimator
     :noindex:
 
 =====================================
@@ -46,18 +46,18 @@ Neighboring galaxies within a minimum Mahalanobis distance, defined via the perc
     :noindex:
 
 
-==================
+=======
 Delight
-==================
+=======
 
 RAIL Package: https://github.com/LSSTDESC/rail_delight
 
 [Leistedt et al. (2017)](https://ui.adsabs.harvard.edu/abs/2017ApJ...843...25L) introduced a novel approach to inferring photometric redshifts which combines some of the strengths of machine learning and template-fitting methods by implicitly constructing flexible template SEDs directly from the spectroscopic training data, called Delight. It is a method for calculating the posterior probability of redshift given a catalog of deep observations acting as a data-driven prior. The catalog can have observations in arbitrary bands and with arbitrary noise; Gaussian processes are used as a principled method to implicitly construct SEDs (capturing the effects of redshifts, bandpasses and noise). The hyperparameters of the Gaussian process can be optimized as a calibration step.
 
 
-==================
+======================================
 DNF (Directional Neighborhood Fitting)
-==================
+======================================
 
 RAIL Package: https://github.com/LSSTDESC/rail_dnf
 
@@ -74,9 +74,9 @@ To construct the PDF for photometric redshifts, `DNF` selects a set of nearest n
     :noindex:
 
 
-==================
+==========
 FlexZBoost
-==================
+==========
 
 RAIL Package: https://github.com/LSSTDESC/rail_flexzboost
 
@@ -90,9 +90,9 @@ RAIL Package: https://github.com/LSSTDESC/rail_flexzboost
     :noindex:
 
 
-==================
+===
 GPz
-==================
+===
 
 RAIL Package: https://github.com/LSSTDESC/rail_gpz_v1
 
@@ -119,9 +119,9 @@ The nearest-neighbor code estimates redshift PDFs as a Gaussian mixture model, w
 .. autoclass:: rail.estimation.algos.k_nearneigh.KNearNeighEstimator
     :noindex:
 
-==================
+=======
 LePhare
-==================
+=======
 
 RAIL Package: https://github.com/LSSTDESC/rail_lephare
 
@@ -140,9 +140,9 @@ This implementation adds functionality such as the estimation of stellar mass, s
 .. autoclass:: rail.estimation.algos.lephare.LephareEstimator
     :noindex:
 
-==================
+==============
 Neural Network
-==================
+==============
 
 RAIL Package: https://github.com/LSSTDESC/rail_sklearn
 
@@ -157,9 +157,9 @@ The network is set up using two hidden layers of size twelve, and a hyperbolic t
 .. autoclass:: rail.estimation.algos.sklearn_neurnet.SklNeurNetEstimator
     :noindex:
 
-==================
+======
 PZFlow
-==================
+======
 
 RAIL Package: https://github.com/LSSTDESC/rail_pzflow
 
@@ -172,9 +172,9 @@ RAIL Package: https://github.com/LSSTDESC/rail_pzflow
 .. autoclass:: rail.estimation.algos.pzflow_nf.PZFlowEstimator
     :noindex:
 
-==================
+===============
 Random Gaussian
-==================
+===============
 
 RAIL Package: https://github.com/LSSTDESC/rail_base
 
@@ -187,17 +187,17 @@ Benchmark algorithm.
     :noindex:
 
 
-==================
+===
 TPZ
-==================
+===
 
 RAIL Package: https://github.com/LSSTDESC/rail_tpz
 
 
 
-==================
+======
 TrainZ
-==================
+======
 
 RAIL Package: https://github.com/LSSTDESC/rail_base
 
