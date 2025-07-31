@@ -68,7 +68,7 @@ compiled libraries.
       .. code-block:: bash
             
           pip install -e .
-          rail install --package-file rail_packages.yml
+          rail dev install --package-file rail_packages.yml
 
 
       At that point you should be able to run the demonstration notebooks, e.g.;
@@ -96,7 +96,7 @@ compiled libraries.
       .. code-block:: bash
             
           pip install -e .
-          rail install --package-file rail_packages.yml
+          rail dev install --package-file rail_packages.yml
 
 
       At that point you should be able to run the demonstration notebooks, e.g.;
@@ -133,7 +133,7 @@ to be sure to get the latest version of the ``conda-reqs.txt`` file.
       .. code-block:: bash
             
           pip install .
-          rail install --package-file rail_packages.yml
+          rail dev install --package-file rail_packages.yml
 
 
    .. group-tab:: zsh (e.g., Mac M1+ default)
@@ -154,7 +154,7 @@ to be sure to get the latest version of the ``conda-reqs.txt`` file.
       .. code-block:: bash
             
           pip install .
-          rail install --package-file rail_packages.yml
+          rail dev install --package-file rail_packages.yml
 
 
 Algorithm Installation
@@ -231,8 +231,8 @@ compiled libraries.
           conda env create -f environment.yml -n [env]  # or mamba env create, which is much faster
           conda activate [env]
           pip install -e .
-          rail clone-source --package-file rail_packages.yml
-          rail install --package-file rail_packages.yml --from-source 
+          rail dev clone-source --package-file rail_packages.yml
+          rail dev install --package-file rail_packages.yml --from-source 
 
 
    .. group-tab:: zsh (e.g., Mac M1+ default) 
@@ -244,8 +244,8 @@ compiled libraries.
           conda env create -f environment.yml -n [env]  # or mamba env create, which is much faster
           conda activate [env]
           pip install -e .
-          rail clone-source --package-file rail_packages.yml
-          rail install --package-file rail_packages.yml --from-source 
+          rail dev clone-source --package-file rail_packages.yml
+          rail dev install --package-file rail_packages.yml --from-source 
 
 
 RAIL Command Line Utility
