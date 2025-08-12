@@ -34,7 +34,7 @@ Please consider also inviting the developers as co-authors on publications resul
 
 The following list provides the necessary references for external codes accessible through the RAIL ecosystem, which must be cited as follows if those methods are used in a publication:
 
-Creators:
+Creators and degraders:
 
 - **LSSTErrorModel** (Noisifier, rail-astro-tools):  
   Cite: `Ivezić et al. (2019) <https://ui.adsabs.harvard.edu/abs/2019ApJ...873..111I>`_,  
