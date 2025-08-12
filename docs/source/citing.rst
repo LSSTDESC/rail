@@ -2,9 +2,27 @@
 Citing RAIL
 ***********
 
-RAIL is open source and may be used according to the terms of its `LICENSE <https://github.com/LSSTDESC/RAIL/blob/main/LICENSE>`_ `(BSD 3-Clause) <https://opensource.org/licenses/BSD-3-Clause>`_.
-If you make use of the ideas or software here in any publication, you must cite this repository <https://github.com/LSSTDESC/RAIL> as "LSST-DESC PZ WG (in prep)" with the `Zenodo DOI <https://doi.org/10.5281/zenodo.7017551>`_.
-Please consider also inviting the developers as co-authors on publications resulting from your use of RAIL by `making an issue <https://github.com/LSSTDESC/RAIL/issues/new/choose>`_.
+RAIL is open source and may be used according to the terms of its [LICENSE](https://github.com/LSSTDESC/RAIL/blob/main/LICENSE) [(BSD 3-Clause)](https://opensource.org/licenses/BSD-3-Clause).
+If you used RAIL in your study, please cite this repository <https://github.com/LSSTDESC/RAIL>, and RAIL Team et al. (2025) <https://arxiv.org/abs/2505.02928>
+```
+@ARTICLE{2025arXiv250502928T,
+       author = {{The RAIL Team} and {van den Busch}, Jan Luca and {Charles}, Eric and {Cohen-Tanugi}, Johann and {Crafford}, Alice and {Crenshaw}, John Franklin and {Dagoret}, Sylvie and {De-Santiago}, Josue and {De Vicente}, Juan and {Hang}, Qianjun and {Joachimi}, Benjamin and {Joudaki}, Shahab and {Bryce Kalmbach}, J. and {Kannawadi}, Arun and {Liang}, Shuang and {Lynn}, Olivia and {Malz}, Alex I. and {Mandelbaum}, Rachel and {Merz}, Grant and {Moskowitz}, Irene and {Oldag}, Drew and {Ruiz-Zapatero}, Jaime and {Rahman}, Mubdi and {Rau}, Markus M. and {Schmidt}, Samuel J. and {Scora}, Jennifer and {Shirley}, Raphael and {St{\"o}lzner}, Benjamin and {Toribio San Cipriano}, Laura and {Tortorelli}, Luca and {Yan}, Ziang and {Zhang}, Tianqing and {the Dark Energy Science Collaboration}},
+        title = "{Redshift Assessment Infrastructure Layers (RAIL): Rubin-era photometric redshift stress-testing and at-scale production}",
+      journal = {arXiv e-prints},
+     keywords = {Instrumentation and Methods for Astrophysics, Cosmology and Nongalactic Astrophysics, Astrophysics of Galaxies},
+         year = 2025,
+        month = may,
+          eid = {arXiv:2505.02928},
+        pages = {arXiv:2505.02928},
+          doi = {10.48550/arXiv.2505.02928},
+archivePrefix = {arXiv},
+       eprint = {2505.02928},
+ primaryClass = {astro-ph.IM},
+       adsurl = {https://ui.adsabs.harvard.edu/abs/2025arXiv250502928T},
+      adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+```
+Please consider also inviting the developers as co-authors on publications resulting from your use of RAIL by [making an issue](https://github.com/LSSTDESC/rail/issues/new/choose).
 
 The following list provides the necessary references for external codes accessible through the RAIL ecosystem, which must be cited as follows if those methods are used in a publication:
 
