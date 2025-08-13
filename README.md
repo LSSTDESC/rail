@@ -1,7 +1,6 @@
 # pz-rail
 
 [![PyPI](https://img.shields.io/pypi/v/hub?color=blue&logo=pypi&logoColor=white)](https://pypi.org/project/pz-rail/)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7017551.svg)](https://doi.org/10.5281/zenodo.7017551)
 [![Template](https://img.shields.io/badge/Template-RAIL%20Python%20Project%20Template-brightgreen)](https://github.com/LSSTDESC/RAIL-project-template)
 [![Read the Docs](https://img.shields.io/readthedocs/rail-hub)](https://rail-hub.readthedocs.io/en/latest/index.html)
 
@@ -12,7 +11,7 @@ A detailed description of RAIL's modular structure is available in the [Overview
 
 RAIL serves as the infrastructure supporting many extragalactic applications of the Legacy Survey of Space and Time (LSST) on the Vera C. Rubin Observatory, including Rubin-wide commissioning activities. 
 RAIL was initiated by the Photometric Redshifts (PZ) Working Group (WG) of the LSST Dark Energy Science Collaboration (DESC) as a result of the lessons learned from the [Data Challenge 1 (DC1) experiment](https://academic.oup.com/mnras/article/499/2/1587/5905416) to enable the PZ WG Deliverables in [the LSST-DESC Science Roadmap (see Sec. 5.18)](https://lsstdesc.org/assets/pdf/docs/DESC_SRM_latest.pdf), aiming to guide the selection and implementation of redshift estimators in DESC analysis pipelines.
-RAIL is developed and maintained by a diverse team comprising DESC Pipeline Scientists (PSs), international in-kind contributors, LSST Interdisciplinary Collaboration for Computing (LINCC) Frameworks software engineers, and other volunteers, but all are welcome to join the team regardless of LSST data rights. 
+RAIL is developed and maintained by a diverse team comprising DESC Pipeline Scientists (PSs), international in-kind contributors, LSST Interdisciplinary Collaboration for Computing (LINCC) Frameworks software engineers, Sidrat Research, and other volunteers, but all are welcome to join the team regardless of LSST data rights. 
 
 ## Installation
 
@@ -25,7 +24,25 @@ The greatest strength of RAIL is its extensibility; those interested in contribu
 ## Citing RAIL
 
 RAIL is open source and may be used according to the terms of its [LICENSE](https://github.com/LSSTDESC/RAIL/blob/main/LICENSE) [(BSD 3-Clause)](https://opensource.org/licenses/BSD-3-Clause).
-If you make use of the ideas or software here in any publication, you must cite this repository <https://github.com/LSSTDESC/RAIL> as "LSST-DESC PZ WG (in prep)" with the [Zenodo DOI](https://doi.org/10.5281/zenodo.7017551).
+If you used RAIL in your study, please cite this repository <https://github.com/LSSTDESC/RAIL>, and RAIL Team et al. (2025) <https://arxiv.org/abs/2505.02928>
+```
+@ARTICLE{2025arXiv250502928T,
+       author = {{The RAIL Team} and {van den Busch}, Jan Luca and {Charles}, Eric and {Cohen-Tanugi}, Johann and {Crafford}, Alice and {Crenshaw}, John Franklin and {Dagoret}, Sylvie and {De-Santiago}, Josue and {De Vicente}, Juan and {Hang}, Qianjun and {Joachimi}, Benjamin and {Joudaki}, Shahab and {Bryce Kalmbach}, J. and {Kannawadi}, Arun and {Liang}, Shuang and {Lynn}, Olivia and {Malz}, Alex I. and {Mandelbaum}, Rachel and {Merz}, Grant and {Moskowitz}, Irene and {Oldag}, Drew and {Ruiz-Zapatero}, Jaime and {Rahman}, Mubdi and {Rau}, Markus M. and {Schmidt}, Samuel J. and {Scora}, Jennifer and {Shirley}, Raphael and {St{\"o}lzner}, Benjamin and {Toribio San Cipriano}, Laura and {Tortorelli}, Luca and {Yan}, Ziang and {Zhang}, Tianqing and {the Dark Energy Science Collaboration}},
+        title = "{Redshift Assessment Infrastructure Layers (RAIL): Rubin-era photometric redshift stress-testing and at-scale production}",
+      journal = {arXiv e-prints},
+     keywords = {Instrumentation and Methods for Astrophysics, Cosmology and Nongalactic Astrophysics, Astrophysics of Galaxies},
+         year = 2025,
+        month = may,
+          eid = {arXiv:2505.02928},
+        pages = {arXiv:2505.02928},
+          doi = {10.48550/arXiv.2505.02928},
+archivePrefix = {arXiv},
+       eprint = {2505.02928},
+ primaryClass = {astro-ph.IM},
+       adsurl = {https://ui.adsabs.harvard.edu/abs/2025arXiv250502928T},
+      adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+```
 Please consider also inviting the developers as co-authors on publications resulting from your use of RAIL by [making an issue](https://github.com/LSSTDESC/rail/issues/new/choose).
-Additionally, several of the codes accessible through the RAIL ecosystem must be cited if used in a publication.
 A convenient list of what to cite may be found under [Citing RAIL](https://rail-hub.readthedocs.io/en/latest/source/citing.html) on ReadTheDocs.
+Additionally, several of the codes accessible through the RAIL ecosystem must be cited if used in a publication.
