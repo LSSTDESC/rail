@@ -16,6 +16,11 @@ sub-classes we have made it simple configure `RAIL` to read data from
 a particular source, rather than having to edit the configurations
 for many different `RailStages`.
 
+When using a single stage (e.g. testing an algorithm in a Jupyter notebook), 
+it is also possible to overwrite the default settings for the input data. 
+In the `make_stage` step, simply specify catalog information. An simple example is 
+changing the band names of the input catalog from the default values to Gaap magnitudes, in `MyFavouriteEstimator`. This can be done by simply setting `MyFavouriteEstimator.make_stage(band = [f"{band}_gaap1p0Mag" for band in "ugrizy"])`. Note that typically a stage may require changes in multiple input parameters (e.g. `err_bands` and `ref_bands` needs to be changed accordingly.
+
 =================
 Shared Parameters
 =================
