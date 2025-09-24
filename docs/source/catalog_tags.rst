@@ -24,10 +24,10 @@ catalog may have band names like "{band}_gaap1p0Mag", which is different from th
 default values in RAIL. To set this in `MyFavouriteInformer`, do 
 `MyFavouriteEstimator.make_stage(band = [f"{band}_gaap1p0Mag" for band in "ugrizy"])`. 
 Note that typically a stage may require changes in multiple input parameters 
-(e.g. `err_bands` and `ref_bands` needs to be changed accordingly.
-Note also that if you want to run `MyFavouriteEstimator` next, you will need to repeat
-this for the `make_stage` for the estimator. This is why, in case you are running
-many stages, shared parameters below are preferred.
+(e.g. `err_bands` and `ref_bands` needs to be changed accordingly).
+Note also that if the user wants to run `MyFavouriteEstimator` next, they will need to repeat
+this for the `make_stage` for the estimator. This is why, in case the user is running
+many stages, using shared parameters below are preferred.
 
 =================
 Shared Parameters
