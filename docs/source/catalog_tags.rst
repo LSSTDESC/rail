@@ -17,9 +17,17 @@ a particular source, rather than having to edit the configurations
 for many different `RailStages`.
 
 When using a single stage (e.g. testing an algorithm in a Jupyter notebook), 
-it is also possible to overwrite the default settings for the input data. 
-In the `make_stage` step, simply specify catalog information. An simple example is 
-changing the band names of the input catalog from the default values to Gaap magnitudes, in `MyFavouriteEstimator`. This can be done by simply setting `MyFavouriteEstimator.make_stage(band = [f"{band}_gaap1p0Mag" for band in "ugrizy"])`. Note that typically a stage may require changes in multiple input parameters (e.g. `err_bands` and `ref_bands` needs to be changed accordingly.
+it is also possible to overwrite the default settings for the input data
+directly for the stage, without involving the shared parameters, by simply 
+specifying catalog information in the `make_stage` step. For example, your input
+catalog may have band names like "{band}_gaap1p0Mag", which is different from the 
+default values in RAIL. To set this in `MyFavouriteInformer`, do 
+`MyFavouriteEstimator.make_stage(band = [f"{band}_gaap1p0Mag" for band in "ugrizy"])`. 
+Note that typically a stage may require changes in multiple input parameters 
+(e.g. `err_bands` and `ref_bands` needs to be changed accordingly.
+Note also that if you want to run `MyFavouriteEstimator` next, you will need to repeat
+this for the `make_stage` for the estimator. This is why, in case you are running
+many stages, shared parameters below are preferred.
 
 =================
 Shared Parameters
