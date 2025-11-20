@@ -27,6 +27,7 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt install libbz2-dev
+        conda install -c conda-forge somoclu
         python -m pip install --upgrade pip
         pip install wheel numpy
         pip install .
