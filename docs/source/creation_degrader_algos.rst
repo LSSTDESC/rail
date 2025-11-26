@@ -143,6 +143,3 @@ While preliminary studies have addressed some aspects of blending on photo-z  (e
 
 .. autoclass:: rail.creation.degraders.unrec_bl_model.UnrecBlModel
    :noindex:
-
-
-

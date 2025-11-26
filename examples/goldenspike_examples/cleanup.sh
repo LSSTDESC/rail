@@ -32,4 +32,3 @@ else
    \rm -rf ${RAILDIR}/examples/goldenspike/single_NZ_naive_stack_test.hdf5
    \rm -rf ${RAILDIR}/examples/goldenspike/single_NZ_point_estimate_test.hdf5     
 fi
-

@@ -1,14 +1,14 @@
+import os
+
+import h5py
 import matplotlib.pyplot as plt
-from matplotlib import gridspec
 import numpy as np
 import pandas as pd
 import seaborn as sns
-from qp.metrics.pit import PIT
 from IPython.display import Markdown
-import h5py
-import os
-from qp import Ensemble
-from qp import interp
+from matplotlib import gridspec
+from qp import Ensemble, interp
+from qp.metrics.pit import PIT
 
 
 def read_pz_output(

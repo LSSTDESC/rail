@@ -58,6 +58,3 @@ The two notebooks demonstrate how to `convert a notebook into a ceci analysis pi
 This notebook explains the concept of the `Data Store <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/core_examples/FileIO_DataStore.html>`_ that keeps track of the data being used in an analysis pipeline, and which can be used to interactively access data.
 
 Finally, `Iterate_Tabular_Data <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/core_examples/Iterate_Tabular_Data.html>`_ demonstrates the mechanisms we use to iterate over tabular data, which is needed to avoid reading entire object catalogs into memory.
-
-
-
