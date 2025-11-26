@@ -9,6 +9,10 @@ run a single bit of analysis, and produce one or more output files.  The inputs,
 and configuration parameters are all defined in particular ways to allow ``RailStage``
 objects to be integrated into larger data analysis pipelines.
 
+``RailStage`` classes should include a property called ``entrypoint_function`` which
+gives the name of the method that should be called by an end user. These functions in
+particular should be well-typed and documented.
+
 Simple Example
 ==============
 
@@ -28,7 +32,8 @@ The following example has all of the required pieces of a ``RailStage`` and almo
 
        """
        name = 'ColumnMapper'
-  
+       entrypoint_function = "__call__" # the user-facing science function for this class
+
        config_options = RailStage.config_options.copy()
        config_options.update(chunk_size=100_000, columns=dict, inplace=False)
 
