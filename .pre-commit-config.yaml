@@ -31,32 +31,6 @@ repos:
       - id: validate-pyproject
         name: Validate pyproject.toml
         description: Verify that pyproject.toml adheres to the established schema.
-    # Analyze the src code style and report code that doesn't adhere.
-  - repo: local
-    hooks:
-      - id: pylint
-        name: pylint (python files in src/)
-        entry: pylint
-        language: system
-        types: [python]
-        files: ^src/
-        args: [
-            "-rn", # Only display messages
-            "-sn", # Don't display the score
-          ]
-    # Analyze the tests code style and report code that doesn't adhere.
-  - repo: local
-    hooks:
-      - id: pylint
-        name: pylint (python files in tests/)
-        entry: pylint
-        language: system
-        types: [python]
-        files: ^tests/
-        args: [
-            "-rn", # Only display messages
-            "-sn", # Don't display the score
-          ]
 
   # use the black code formatter
   - repo: https://github.com/psf/black-pre-commit-mirror
@@ -70,6 +44,35 @@ repos:
     rev: 7.0.0
     hooks:
       - id: isort
+        args: ["--profile", "black", "--filter-files"]
+
+    # Analyze the src code style and report code that doesn't adhere.
+  - repo: local
+    hooks:
+      - id: pylint
+        name: pylint (python files in src/)
+        entry: pylint
+        language: system
+        types: [python]
+        files: ^src/
+        args: [
+            "-rn", # Only display messages
+            "-sn", # Don't display the score
+          ]
+
+    # Analyze the tests code style and report code that doesn't adhere.
+  - repo: local
+    hooks:
+      - id: pylint
+        name: pylint (python files in tests/)
+        entry: pylint
+        language: system
+        types: [python]
+        files: ^tests/
+        args: [
+            "-rn", # Only display messages
+            "-sn", # Don't display the score
+          ]
 
     # Run unit tests, verify that they pass. Note that coverage is run against
     # the ./src directory here because that is what will be committed. In the

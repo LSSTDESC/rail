@@ -106,3 +106,6 @@ max-line-length = 110
 max-locals = 50
 max-branches = 25
 max-public-methods = 50
+
+[tool.isort]
+profile = "black"
