@@ -1,7 +1,6 @@
 fail_fast: true
 repos:
-
-    # Clear output from jupyter notebooks so that only the input cells are committed.
+  # Clear output from jupyter notebooks so that only the input cells are committed.
   - repo: local
     hooks:
       - id: jupyter-nb-clear-output
@@ -22,7 +21,7 @@ repos:
       - id: check-added-large-files
         name: Check for large files
         description: Prevent the user from committing very large files.
-        args: ['--maxkb=500']
+        args: ["--maxkb=500"]
 
     # verify that pyproject.toml is well formed
   - repo: https://github.com/abravalheri/validate-pyproject
@@ -40,8 +39,7 @@ repos:
         language: system
         types: [python]
         files: ^src/
-        args:
-          [
+        args: [
             "-rn", # Only display messages
             "-sn", # Don't display the score
           ]
@@ -54,14 +52,26 @@ repos:
         language: system
         types: [python]
         files: ^tests/
-        args:
-          [
+        args: [
             "-rn", # Only display messages
             "-sn", # Don't display the score
           ]
 
+  # use the black code formatter
+  - repo: https://github.com/psf/black-pre-commit-mirror
+    # Using this mirror lets us use mypyc-compiled black, which is about 2x faster
+    rev: 25.9.0
+    hooks:
+      - id: black
+
+  # use the isort code formatter
+  - repo: https://github.com/pycqa/isort
+    rev: 7.0.0
+    hooks:
+      - id: isort
+
     # Run unit tests, verify that they pass. Note that coverage is run against
-    # the ./src directory here because that is what will be committed. In the 
+    # the ./src directory here because that is what will be committed. In the
     # github workflow script, the coverage is run against the installed package
     # and uploaded to Codecov by calling pytest like so:
     # `python -m pytest --cov=<package_name> --cov-report=xml`
