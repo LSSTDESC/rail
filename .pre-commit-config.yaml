@@ -7,7 +7,7 @@ repos:
         name: Clear output from Jupyter notebooks
         description: Clear output from Jupyter notebooks.
         files: \.ipynb$
-        stages: [commit]
+        stages: [pre-commit]
         language: system
         entry: jupyter nbconvert --clear-output
 
@@ -22,6 +22,7 @@ repos:
         name: Check for large files
         description: Prevent the user from committing very large files.
         args: ["--maxkb=500"]
+      - id: end-of-file-fixer
 
     # verify that pyproject.toml is well formed
   - repo: https://github.com/abravalheri/validate-pyproject
