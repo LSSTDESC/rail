@@ -124,6 +124,15 @@ It is also considered good practice to make suggestions for optional improvement
 such as adding a one-line comment before a clever block of code or including a 
 demonstration of new functionality in the example notebooks.
 
+
+Code formatting
+==================
+
+We encourage the use of the `Black <https://black.readthedocs.io>`__ and `isort
+<https://pycqa.github.io/isort>`__ formatters for Python code, as well as the `pre-commit
+<https://pre-commit.com/>`__ Git hook system to enforce this.
+
+
 Naming conventions
 ==================
 
