@@ -17,6 +17,7 @@ classifiers = [
 dynamic = ["version"]
 
 dependencies = [
+    "wheel",
     "pz-rail-base",
 ]
 
@@ -32,6 +33,7 @@ algos = [
     "pz-rail-fsps",
     "pz-rail-gpz-v1",
     "pz-rail-pzflow",
+    "pz-rail-som",
     "pz-rail-sklearn",
     "pz-rail-yaw",
     "pz-rail-lephare",
