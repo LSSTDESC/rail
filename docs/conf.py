@@ -16,6 +16,8 @@ import os
 import subprocess
 import sys
 
+from rail.utils.interactive_api_utils import write_interactive_api_rst
+
 sys.path.insert(0, os.path.abspath(".."))
 
 from rail.core import RailEnv
@@ -231,6 +233,7 @@ def run_apidoc(_):
         return
     RailEnv.do_stage_type_api_rst()
     RailEnv.do_api_rst()
+    write_interactive_api_rst(".")
 
 
 def setup(app):
