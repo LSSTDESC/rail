@@ -16,7 +16,7 @@ import os
 import subprocess
 import sys
 
-from rail.utils.interactive_api_utils import write_interactive_api_rst
+from rail.utils.interactive.apidoc_utils import write_interactive_api_rst
 
 sys.path.insert(0, os.path.abspath(".."))
 
