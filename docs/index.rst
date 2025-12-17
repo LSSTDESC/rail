@@ -81,7 +81,7 @@ the issues in any of the RAIL repositories described in the Overview section.
    source/development/contribute_to_rail
    source/development/contributor_concepts
    source/development/developer_installation
-   source/development/rail_style_guide
+   source/development/style_guide
    source/development/add_pipeline
    source/development/add_stage
    source/development/documentation
