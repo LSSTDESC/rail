@@ -104,10 +104,10 @@ a principled method to implicitly construct SEDs (capturing the effects of redsh
 bandpasses and noise). The hyperparameters of the Gaussian process can be optimized as a
 calibration step.
 
-.. autoclass:: rail.estimation.algos.delightPZ.DelightInformer
+.. autoclass:: rail.estimation.algos.delight_hybrid.DelightInformer
     :noindex:
 
-.. autoclass:: rail.estimation.algos.delightPZ.DelightEstimator
+.. autoclass:: rail.estimation.algos.delight_hybrid.DelightEstimator
     :noindex:
 
 
