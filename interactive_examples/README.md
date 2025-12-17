@@ -10,3 +10,10 @@ These notebooks do not make sense in the interactive context, and so are omitted
 - core_examples/
   - 00_Useful_Utilities.ipynb
   - 01_FileIO_DataStore.ipynb
+  - 04_Iterate_Tabular_Data.ipynb
+  - 05_Build_Save_Load_Run_Pipeline.ipynb
+  - 06_Rail_Interfaces.ipynb
+- creation_examples/
+  - 04_Plotting_interface_skysim_cosmoDC2_COSMOS2020.ipynb
+- estimation_examples/
+  - 03_BPZ_lite_Custom_SEDs.ipynb - very complicated with lots of external data
