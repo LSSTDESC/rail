@@ -7,14 +7,17 @@ Creation
 .. quick summary: covers everything that you would skip if you had real data
 .. creating and modeling samples of photometric catalogs of galaxies and modifying them to add noise and biases
 
-=================
-Table of Contents
-=================
+Creation is a type of RAIL stage which creates and models samples of photometric
+catalogs of galaxies, and modifies them to add noise and biases.
 
-..
+.. flowchart
+
+.. contents:: Table of Contents
+   :backlinks: entry
+   :local:
 
 ==================
-Engines Background
+Creators
 ==================
 
 .. format and check
@@ -43,9 +46,9 @@ $p(z, \mathrm{photometry})$ joint probability space based on input parameters or
 data, and :py:class:`rail.creation.Creator` samples $(z, \mathrm{photometry})$
 from the forward model.
 
-===========
-Engines API
-===========
+.. ============
+.. Creators API
+.. ============
 
 .. format and check
 
@@ -61,7 +64,7 @@ Population Synthesis, Conroy et al. 2009, 2010). `FSPS` aims at generating
 realistic galaxy spectral energy distributions (SEDs) by modelling all the
 components that contribute to the light from a galaxy: stars, gas, dust and AGN.
 `FSPS` is widely used both for stellar population inference (Johnson et al.
-2021) and for forward modelling of galaxy SEDs (e.g., Alsing et al. 2023,
+1)    and for forward modelling of galaxy SEDs (e.g., Alsing et al. 2023,
 Tortorelli et al. 2024).
 
 `FSPS` provides substantial flexibility in terms of the prescription for
@@ -167,7 +170,7 @@ estimation.
     :noindex:
 
 ====================
-Degraders Background
+Degraders 
 ====================
 
 .. format and check
@@ -185,9 +188,9 @@ realistically complex noise and bias to the (𝑧, photometry) columns, and the
 selector superclass introduces biased selection on the sample to mimic, e.g., an
 incomplete spectroscopic training sample.
 
-=============
-Degraders API
-=============
+.. =============
+.. Degraders API
+.. =============
 
 .. format and check
 
