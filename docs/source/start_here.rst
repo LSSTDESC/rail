@@ -8,6 +8,13 @@ I've never used RAIL, what does it do?
 
 .. describe here
 
+RAIL is a software library providing tools to produce at-scale photometric
+redshift data products. With RAIL, users can:
+
+* create realistic sample photometric data
+* estimate photometric redshift distributions of any given input data
+* evaluate accuracy of redshift estimation
+
 ==============================
 How do I install RAIL quickly?
 ==============================
@@ -24,10 +31,13 @@ I've installed, now what?
 I want to learn more, where should I go next?
 =============================================
 
-.. point to multiple pages
+To learn more about RAIL and its stages, visit the RAIL Stages section, starting
+with the :ref:`rail-stages` page.
 
-=====================
-How do I credit RAIL?
-=====================
+To learn how to contribute, visit the :ref:`contributor-concepts` page.
 
-.. point to cite guide
+===================================
+I've used RAIL, how do I credit it?
+===================================
+
+To learn how to cite RAIL, visit the :ref:`citations` page.

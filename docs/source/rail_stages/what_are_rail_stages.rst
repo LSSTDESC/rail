@@ -1,9 +1,25 @@
+.. _rail-stages:
+
 *********************
 What Are RAIL Stages?
 *********************
 
 .. introduction
 .. flowchart: stages to other stages
+
+A RAIL Stage is a configurable process that performs a single operation in a
+reproducible way. Stages have defined inputs, outputs, and stage-specific
+configuration parameters. They can be parallelized across processors or computing
+nodes.
+
+There are three kinds of stages in RAIL:
+
+#. Creation: create sample photometric data
+#. Estimation: estimate photometric redshift from any input data
+#. Evaluation: evaluate the performance of estimations against known true values
+
+For further reading, visit their respective pages: :ref:`creation`,
+:ref:`estimation`, :ref:`evaluation`.
 
 ========
 Examples
