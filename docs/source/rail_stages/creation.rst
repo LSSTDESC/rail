@@ -8,7 +8,8 @@ Creation
 .. creating and modeling samples of photometric catalogs of galaxies and modifying them to add noise and biases
 
 Creation is a type of RAIL stage which creates and models samples of photometric
-catalogs of galaxies, and modifies them to add noise and biases.
+catalogs of galaxies, and modifies them to add noise and biases. Creation stages
+use creators to generate data, and degraders to add noise.
 
 .. flowchart
 

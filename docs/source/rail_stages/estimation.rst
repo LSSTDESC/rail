@@ -9,6 +9,9 @@ Estimation
 
 Estimation is a type of RAIL stage which uses photometric data to generate
 photometric redshift pdfs, both for individual galaxies and entire catalogs.
+Estimation stages use estimators to produce per-galaxy photo-z PDFs, summarizers
+to produce redshift distributions, and classifiers to produce per-galaxy IDs for
+tomographic binning.
 
 .. flowchart
 
@@ -390,18 +393,6 @@ Benchmark Algorithm.
     :noindex:
 
 ======================
-Classifiers 
-======================
-
-.. 
-
-.. ===============
-.. Classifiers API
-.. ===============
-
-.. 
-
-======================
 Summarizers 
 ======================
 
@@ -551,3 +542,15 @@ Use the point estimate histogram as n(z), baseline method.
 
 .. autoclass:: rail.estimation.algos.point_est_hist.PointEstHistMaskedSummarizer
     :noindex:
+
+======================
+Classifiers 
+======================
+
+Classifiers are something.
+
+.. ===============
+.. Classifiers API
+.. ===============
+
+.. 
