@@ -46,6 +46,14 @@ repos:
       - id: isort
         args: ["--profile", "black", "--filter-files"]
 
+  # run formatting on jupyter notebooks
+  - repo: https://github.com/nbQA-dev/nbQA
+    rev: 1.9.1
+    hooks:
+      - id: nbqa-black
+      - id: nbqa-isort
+        args: ["--float-to-top"]
+
     # Analyze the src code style and report code that doesn't adhere.
   - repo: local
     hooks:
