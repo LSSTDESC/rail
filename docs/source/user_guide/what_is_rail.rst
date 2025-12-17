@@ -7,6 +7,18 @@ Scientific Background
 =====================
 
 .. paragraph that describes what photometric redshifts are within the context of RAIL
+.. NOTE incomplete, add other aspects redshift relevant to RAIL
+
+Photometric redshift (photo-:math:`z`) is a measure of the redshift of
+astronomical objects. It uses photometry - the brightness of these objects
+through different passband filters - to estimate redshift, using various
+algorithms. Comparing to spectroscopic redshift, which matches source and rest
+spectra to determine redshift, photometric redshift is able to provide estimates
+for entire surveys of galaxies at a time, all while using less precise input
+information. There are many methods of photometric redshift estimation, each
+with their own constraints and cases. RAIL provides a framework to test these
+estimation algorithms on real or sample data, as well as evaluate their
+accuracy.
 
 ====
 RAIL

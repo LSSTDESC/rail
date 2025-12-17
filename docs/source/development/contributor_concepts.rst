@@ -1,3 +1,5 @@
+.. _contributor-concepts:
+
 ********************
 Contributor Concepts
 ********************
