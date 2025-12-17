@@ -33,8 +33,8 @@ If you used RAIL in your study, please cite `this repository
 
 
 Please consider also inviting the developers as co-authors on publications
-resulting from your use of RAIL by [making an
-issue](https://github.com/LSSTDESC/rail/issues/new/choose).
+resulting from your use of RAIL by `making an
+issue <https://github.com/LSSTDESC/rail/issues/new/choose>`_.
 
 The following list provides the necessary references for external codes
 accessible through the RAIL ecosystem, which must be cited as follows if those

@@ -4,7 +4,7 @@ Installation
 
 .. do we want to keep this intro?
 
-RAIL is actually distributed as several software packages.   However, depending
+RAIL is actually distributed as several software packages. However, depending
 on your use case it is likely that you will be working directly with one of the
 packages.
 
@@ -12,9 +12,9 @@ Some of the RAIL algorithms have dependencies that are sensitive to out-of-date
 code versions, therefore it is strongly recommended that you create a new
 dedicated virtual environment for RAIL to avoid problems with pip/conda failing
 to update some packages that you have previously installed during installation
-of RAIL.  Also, having multiple version of RAIL in your path can cause difficult
+of RAIL.  Also, having multiple versions of RAIL in your path can cause difficult
 to diagnose problems, so we encourage you to make sure that you don't have an
-existing version of RAIL installed in your `.local` area or in your base conda
+existing version of RAIL installed in your ``.local`` area or in your base conda
 environment.
 
 .. note::
@@ -60,7 +60,7 @@ Exploration
 
 Here we will be installing the source code from `rail
 <https://github.com/LSSTDESC/rail>`_ to access all of the demonstration
-notebooks, and use that to install all of the other algorithms.
+notebooks, and use that to install all of the other algorithms. 
 
 We have included an ``environment.yml`` that makes it easy to create a virtual
 environment named "[env]" that uses conda to install some packages that have

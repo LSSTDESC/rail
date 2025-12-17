@@ -3,6 +3,7 @@ Pipeline Mode Notebooks
 ***********************
 
 .. link to legacy notebook structure
+.. fix notebook links once Eric gets back to me about how they're generated etc 
 
 RAIL comes with several notebooks that demonstrate how to use it to analyze data in a
 number of different ways.
@@ -42,9 +43,9 @@ to explore which packages and algorithms are available in the current RAIL insta
 Deeper dives into synthetic data creation
 =========================================
 
-The notebooks in  `this
+The notebooks in  `the creation directory
 <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/creation_notebooks.html>`_
-directory demonstrate how how to generate synthetic photometric data, and also how to
+ demonstrate how how to generate synthetic photometric data, and also how to
 "degrade" the synthetic data by applying various effects to the data.
 
 These notebooks demonstrate utilities that can be used to prepare data for analysis,
@@ -74,7 +75,7 @@ works with the SOM directly, while `the second
 <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/estimation_examples/somocluSOMcluster_demo.html>`_
 clusters the SOM cells to reduce statistical fluctuations.
 
-Finally, the `test_sampled_summarizers
+Finally, the `test_sampled_summarizers notebook
 <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/estimation_examples/test_sampled_summarizers.html>`_
 demonstrates converting collections of per-object p(z) estimates to ensemble n(z)
 estimates.
@@ -94,7 +95,7 @@ This notebook explains the concept of the `Data Store
 that keeps track of the data being used in an analysis pipeline, and which can be used
 to interactively access data.
 
-Finally, `Iterate_Tabular_Data
+Finally, `Iterate_Tabular_Data notebook
 <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/core_examples/Iterate_Tabular_Data.html>`_
 demonstrates the mechanisms we use to iterate over tabular data, which is needed to
 avoid reading entire object catalogs into memory.

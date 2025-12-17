@@ -50,17 +50,17 @@ Pipeline Mode
 
 :py:class:`rail.core.RailStage` is the main user facing class.  It serves as the
 base class for all the classes that implement parts of an analysis, and sets of
-`RailStage` can be combined into a :py:class:`rail.core.RailPipeline` to perform
+``RailStage`` can be combined into a :py:class:`rail.core.RailPipeline` to perform
 a complete analysis.
 
-In short, any `RailStage` does a single operation in a reproducible way. It can
+In short, any ``RailStage`` does a single operation in a reproducible way. It can
 be thought of as a way to wrap a single function so as to make it both
 configurable and reproducible.
 
-This presents a few constraints and limitations, basically, the `RailStage`
+This presents a few constraints and limitations, basically, the ``RailStage``
 needs use a save configuration to set any parameters it uses, and it needs to
 get input from specified locations and write to a specified location.
-`RailStage` provides mechanism to do all of these things, sub-classes must
+``RailStage``` provides mechanism to do all of these things, sub-classes must
 implement the actually work of the stage.
 
 
@@ -79,7 +79,7 @@ Running a rail stage
     :noindex:
 
 
-Note that subclass of `RailStage` each implement a method that wraps
+Note that subclasses of ``RailStage`` each implement a method that wraps
 :py:func:`rail.core.RailStage.run`, taking input data and properly attaching it
 to the stage, and wrapping the output data produced by the stage.
 
