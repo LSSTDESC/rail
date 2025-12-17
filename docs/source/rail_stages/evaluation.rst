@@ -15,10 +15,10 @@ Table of Contents
 Evaluators Background
 =====================
 
-.. copy from creation engines page
+.. 
 
 ==============
 Evaluators API
 ==============
 
-.. copy from creation engines page
+.. 

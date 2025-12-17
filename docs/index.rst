@@ -25,11 +25,13 @@ the issues in any of the RAIL repositories described in the Overview section.
 
 
 .. toctree::
+   :hidden:
    :maxdepth: 4
 
    source/start_here
 
 .. toctree::
+   :hidden:
    :maxdepth: 4
    :caption: User Guide
 
@@ -40,6 +42,7 @@ the issues in any of the RAIL repositories described in the Overview section.
    source/user_guide/citations
 
 .. toctree::
+   :hidden:
    :maxdepth: 4
    :caption: RAIL Stages
 
@@ -50,24 +53,28 @@ the issues in any of the RAIL repositories described in the Overview section.
    source/rail_stages/tools
 
 .. toctree::
+   :hidden:
    :maxdepth: 4
    :caption: Interactive Mode Notebooks
 
    source/interactive_notebooks/index
 
 .. toctree::
+   :hidden:
    :maxdepth: 4
    :caption: Pipeline Mode Notebooks
 
    source/pipeline_notebooks/index
 
 .. toctree::
+   :hidden:
    :maxdepth: 5
    :caption: API
 
    api
 
 .. toctree::
+   :hidden:
    :maxdepth: 4
    :caption: Development
 

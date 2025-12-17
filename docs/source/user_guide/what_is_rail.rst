@@ -28,9 +28,9 @@ overview seeks to present the foundational building blocks that underlie RAIL's
 structure, the overarching organizational philosophy, and the specific types of
 included functionality.
 
-
+------------------------------------
 Introduction to stages and pipelines
-************************************
+------------------------------------
 
 While all of RAIL's functionality is accessible through Jupyter notebooks to
 facilitate experimentation, RAIL's utility is in being able to run the code
@@ -60,9 +60,9 @@ stage's inputs either exist or will be produced by an earlier stage in the
 pipeline, followed by a `run()` step to actually perform the specified
 calculations.
 
-
+--------------------
 Core data structures
-********************
+--------------------
 
 **TODO: DataHandle/DataStore should be explained here**
 
@@ -86,9 +86,9 @@ that specify its PDF given the `metadata`, and the `ancil` information
 associated to each row-wise member that isn't part of the parameterized PDF.
 **TODO: confirm the syntax here and link to qp demos**
 
-
+----------------------------------------------------
 Organizational philosophy and included functionality
-****************************************************
+----------------------------------------------------
 
 An end-to-end experiment entails the creation of self-consistently
 forward-modeled, realistically complex mock data for testing purposes, the
@@ -101,8 +101,9 @@ components of RAIL, see the `examples/goldenspike_examples/goldenspike.ipynb
 <https://github.com/LSSTDESC/RAIL/blob/main/examples/goldenspike_examples/goldenspike.ipynb>`_
 Jupyter notebook.
 
+----------
 `creation`
-==========
+----------
 
 The creation subpackage has two main components enabling forward-modeling of
 realistically complex mock data. The creation modules provide a joint
@@ -182,8 +183,9 @@ density, and will likely not be possible with a single training set. All effects
 will also need to be implemented for SED libraries in order to test
 template-fitting codes.
 
+------------
 `estimation`
-============
+------------
 
 The estimation subpackage enables the automatic execution of arbitrary redshift
 estimation codes in a common computing environment. Each photo-z method usually
@@ -222,8 +224,9 @@ spatial clustering redshift estimator, a SOM or tree-based method, and a
 hierarchical inference, the simplest of which is `chippr
 <https://github.com/aimalz/chippr>`_.
 
+------------
 `evaluation`
-============
+------------
 
 The evaluation module contains metrics for assessing the performance of redshift
 estimation codes. This can be done for "true" redshift draws from a distribution

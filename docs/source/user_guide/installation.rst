@@ -4,16 +4,18 @@ Installation
 
 .. do we want to keep this intro?
 
-RAIL is actually distributed as several software packages.   However, depending on your
-use case it is likely that you will be working directly with one of the packages.
+RAIL is actually distributed as several software packages.   However, depending
+on your use case it is likely that you will be working directly with one of the
+packages.
 
-Some of the RAIL algorithms have dependencies that are sensitive to out-of-date code
-versions, therefore it is strongly recommended that you create a new dedicated virtual
-environment for RAIL to avoid problems with pip/conda failing to update some packages
-that you have previously installed during installation of RAIL.  Also, having multiple
-version of RAIL in your path can cause difficult to diagnose problems, so we encourage
-you to make sure that you don't have an existing version of RAIL installed in your
-`.local` area or in your base conda environment.
+Some of the RAIL algorithms have dependencies that are sensitive to out-of-date
+code versions, therefore it is strongly recommended that you create a new
+dedicated virtual environment for RAIL to avoid problems with pip/conda failing
+to update some packages that you have previously installed during installation
+of RAIL.  Also, having multiple version of RAIL in your path can cause difficult
+to diagnose problems, so we encourage you to make sure that you don't have an
+existing version of RAIL installed in your `.local` area or in your base conda
+environment.
 
 .. note::
     In the following instructions you will see the use of both ``pip`` and ``conda``.
@@ -21,8 +23,8 @@ you to make sure that you don't have an existing version of RAIL installed in yo
     and installing packages that have compiled libraries. Thus we prefer it over
     ``pip`` and ``venv`` for those purposes.
 
-    Additionally, we use ``pip`` to build and install RAIL code from source because
-    ``conda`` does not provide that functionality.
+    Additionally, we use ``pip`` to build and install RAIL code from source
+    because ``conda`` does not provide that functionality.
 
 .. tip::
     Throughout the installation documentation we make reference to ``conda`` as a tool
@@ -30,9 +32,9 @@ you to make sure that you don't have an existing version of RAIL installed in yo
     acknowledge that it can be potentially very slow. Using ``mamba`` can be
     significantly faster, but it is not as widely adopted in the community.
 
-    If you would like to experiment with ``mamba`` it can be installed with ``conda
-    install mamba -n base -c conda-forge``. The `mamba documentation is here
-    <https://mamba.readthedocs.io/>`_.
+    If you would like to experiment with ``mamba`` it can be installed with
+    ``conda install mamba -n base -c conda-forge``. The `mamba documentation is
+    here <https://mamba.readthedocs.io/>`_.
 
 ============
 Easy Install
@@ -57,12 +59,12 @@ Exploration
 .. format and check content
 
 Here we will be installing the source code from `rail
-<https://github.com/LSSTDESC/rail>`_ to access all of the demonstration notebooks, and
-use that to install all of the other algorithms.
+<https://github.com/LSSTDESC/rail>`_ to access all of the demonstration
+notebooks, and use that to install all of the other algorithms.
 
 We have included an ``environment.yml`` that makes it easy to create a virtual
-environment named "[env]" that uses conda to install some packages that have compiled
-libraries.
+environment named "[env]" that uses conda to install some packages that have
+compiled libraries.
 
 .. tabs::
 
@@ -70,9 +72,11 @@ libraries.
 
       .. code-block:: bash
 
-          git clone https://github.com/LSSTDESC/rail.git cd rail conda env create -f
-          environment.yml -n [env]  # or mamba env create, which is much faster conda
-          activate [env] pip install -e .[dev]
+          git clone https://github.com/LSSTDESC/rail.git
+          cd rail
+          conda env create -f environment.yml -n [env]  # or mamba env create, which is much faster
+          conda activate [env]
+          pip install -e .[dev]
 
 
       If for some reason the ``pip install .[dev]`` fails (e.g.,because of a problem in
@@ -96,9 +100,11 @@ libraries.
 
       .. code-block:: bash
 
-          git clone https://github.com/LSSTDESC/rail.git cd rail conda env create -f
-          environment.yml -n [env]  # or mamba env create, which is much faster conda
-          activate [env] pip install -e '.[dev]'
+          git clone https://github.com/LSSTDESC/rail.git
+          cd rail
+          conda env create -f environment.yml -n [env]  # or mamba env create, which is much faster
+          conda activate [env]
+          pip install -e '.[dev]'
 
 
       If for some reason the ``pip install '.[dev]'`` fails (e.g.,because of a problem
@@ -124,8 +130,8 @@ Production
 .. format and check content
 
 Here we will be installing all of the RAIL algorithms into an existing virtual
-environment "[env]". To do this we recommend that you install ``rail`` from source, to
-be sure to get the latest version of the ``conda-reqs.txt`` file.
+environment "[env]". To do this we recommend that you install ``rail`` from
+source, to be sure to get the latest version of the ``conda-reqs.txt`` file.
 
 .. tabs::
 
@@ -133,9 +139,11 @@ be sure to get the latest version of the ``conda-reqs.txt`` file.
 
       .. code-block:: bash
 
-          git clone https://github.com/LSSTDESC/rail.git cd rail conda activate [env]
-          conda install -n [env] -c conda-forge --file conda-reqs.txt  # or mamba
-          install, which is much faster pip install .[algos]
+          git clone https://github.com/LSSTDESC/rail.git
+          cd rail
+          conda activate [env]
+          conda install -n [env] -c conda-forge --file conda-reqs.txt  # or mamba install, which is much faster
+          pip install .[algos]
 
 
       Again, if for some reason the ``pip install .[algos]`` fails (e.g.,because of a
@@ -152,9 +160,11 @@ be sure to get the latest version of the ``conda-reqs.txt`` file.
 
       .. code-block:: bash
 
-          git clone https://github.com/LSSTDESC/rail.git cd rail conda activate [env]
-          conda install -n [env] -c conda-forge --file conda-reqs.txt  # or mamba
-          install, which is much faster pip install '.[algos]'
+          git clone https://github.com/LSSTDESC/rail.git
+          cd rail
+          conda activate [env]
+          conda install -n [env] -c conda-forge --file conda-reqs.txt  # or mamba install, which is much faster
+          pip install '.[algos]'
 
 
       Again, if for some reason the `pip install '.[algos]'` fails (e.g.,because of a
