@@ -180,7 +180,7 @@ html_theme = "sphinx_rtd_theme"
 # html_theme_options = {}
 html_theme_options = {
     "prev_next_buttons_location": None,
-    "collapse_navigation": False,
+    "collapse_navigation": True,
     "titles_only": False,
 }
 

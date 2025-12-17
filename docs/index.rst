@@ -26,36 +26,40 @@ the issues in any of the RAIL repositories described in the Overview section.
 
 .. toctree::
    :maxdepth: 4
-   :caption: Getting Started
 
-   source/overview source/installation source/citing
-
-.. toctree::
-   :maxdepth: 4
-   :caption: Concepts
-
-   source/stages source/data_handles source/pipelines source/catalog_tags
-   api/stage_types
+   source/start_here
 
 .. toctree::
    :maxdepth: 4
-   :caption: Algorithms
+   :caption: User Guide
 
-   source/creation_engine_algos source/creation_degrader_algos source/estimators
-   source/summarizers
-
-.. toctree::
-   :maxdepth: 4
-   :caption: Usage
-
-   source/rail_cli
+   source/user_guide/what_is_rail
+   source/user_guide/installation
+   source/user_guide/interactive_usage
+   source/user_guide/pipeline_usage
+   source/user_guide/citations
 
 .. toctree::
    :maxdepth: 4
-   :caption: Contributing
+   :caption: RAIL Stages
 
-   source/contributing source/fix_an_issue source/new_rail_stage source/new_algorithm
-   source/sharing_pipeline source/documentation
+   source/rail_stages/what_are_rail_stages
+   source/rail_stages/creation
+   source/rail_stages/estimation
+   source/rail_stages/evaluation
+   source/rail_stages/tools
+
+.. toctree::
+   :maxdepth: 4
+   :caption: Interactive Mode Notebooks
+
+   source/interactive_notebooks/index
+
+.. toctree::
+   :maxdepth: 4
+   :caption: Pipeline Mode Notebooks
+
+   source/pipeline_notebooks/index
 
 .. toctree::
    :maxdepth: 5
@@ -65,15 +69,12 @@ the issues in any of the RAIL repositories described in the Overview section.
 
 .. toctree::
    :maxdepth: 4
-   :caption: Usage Demos
+   :caption: Development
 
-   Overview of Demonstrations <source/demonstrations> Core Notebooks
-   <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/core_notebooks.html>
-   Creation Notebooks
-   <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/creation_notebooks.html>
-   Estimation Notebooks
-   <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/estimation_notebooks.html>
-   Evaluation Notebooks
-   <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/evaluation_notebooks.html>
-   Goldenspike
-   <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/goldenspike_notebook.html>
+   source/development/contribute_to_rail
+   source/development/contributor_concepts
+   source/development/developer_installation
+   source/development/rail_style_guide
+   source/development/add_pipeline
+   source/development/add_stage
+   source/development/documentation
