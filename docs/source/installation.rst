@@ -66,9 +66,11 @@ libraries.
 
       .. code-block:: bash
 
-          git clone https://github.com/LSSTDESC/rail.git cd rail conda env create -f
-          environment.yml -n [env]  # or mamba env create, which is much faster conda
-          activate [env] pip install -e .[dev]
+          git clone https://github.com/LSSTDESC/rail.git
+          cd rail
+          conda env create -f environment.yml -n [env]  # or mamba env create, which is much faster
+          conda activate [env]
+          pip install -e .[dev]
 
 
       If for some reason the ``pip install .[dev]`` fails (e.g.,because of a problem in
@@ -92,9 +94,11 @@ libraries.
 
       .. code-block:: bash
 
-          git clone https://github.com/LSSTDESC/rail.git cd rail conda env create -f
-          environment.yml -n [env]  # or mamba env create, which is much faster conda
-          activate [env] pip install -e '.[dev]'
+          git clone https://github.com/LSSTDESC/rail.git
+          cd rail
+          conda env create -f environment.yml -n [env]  # or mamba env create, which is much faster
+          conda activate [env]
+          pip install -e '.[dev]'
 
 
       If for some reason the ``pip install '.[dev]'`` fails (e.g.,because of a problem
@@ -127,9 +131,11 @@ be sure to get the latest version of the ``conda-reqs.txt`` file.
 
       .. code-block:: bash
 
-          git clone https://github.com/LSSTDESC/rail.git cd rail conda activate [env]
-          conda install -n [env] -c conda-forge --file conda-reqs.txt  # or mamba
-          install, which is much faster pip install .[algos]
+          git clone https://github.com/LSSTDESC/rail.git
+          cd rail
+          conda activate [env]
+          conda install -n [env] -c conda-forge --file conda-reqs.txt  # or mamba install, which is much faster
+          pip install .[algos]
 
 
       Again, if for some reason the ``pip install .[algos]`` fails (e.g.,because of a
@@ -146,9 +152,11 @@ be sure to get the latest version of the ``conda-reqs.txt`` file.
 
       .. code-block:: bash
 
-          git clone https://github.com/LSSTDESC/rail.git cd rail conda activate [env]
-          conda install -n [env] -c conda-forge --file conda-reqs.txt  # or mamba
-          install, which is much faster pip install '.[algos]'
+          git clone https://github.com/LSSTDESC/rail.git
+          cd rail
+          conda activate [env]
+          conda install -n [env] -c conda-forge --file conda-reqs.txt  # or mamba install, which is much faster
+          pip install '.[algos]'
 
 
       Again, if for some reason the `pip install '.[algos]'` fails (e.g.,because of a
@@ -173,7 +181,8 @@ virtual environment "[env]".
 
       .. code-block:: bash
 
-          conda activate [env] pip install pz-rail-som  # (note the name change)
+          conda activate [env]
+          pip install pz-rail-som  # (note the name change)
 
 
       Again, if for some reason that fails because of conflicting dependencies, then
@@ -184,8 +193,10 @@ virtual environment "[env]".
 
       .. code-block:: bash
 
-          git clone https://github.com/LSSTDESC/rail_som.git cd rail_som conda install
-          -n [env] -c conda-forge --file conda-reqs.txt pip install -e .
+          git clone https://github.com/LSSTDESC/rail_som.git
+          cd rail_som
+          conda install -n [env] -c conda-forge --file conda-reqs.txt
+          pip install -e .
 
 
    .. group-tab:: zsh (e.g., Mac M1+ default)
@@ -203,8 +214,10 @@ virtual environment "[env]".
 
       .. code-block:: bash
 
-          git clone https://github.com/LSSTDESC/rail_som.git cd rail_som conda install
-          -n [env] -c conda-forge --file conda-reqs.txt pip install -e .
+          git clone https://github.com/LSSTDESC/rail_som.git
+          cd rail_som
+          conda install -n [env] -c conda-forge --file conda-reqs.txt
+          pip install -e .
 
 
 Developer Installation
@@ -224,22 +237,26 @@ libraries.
 
       .. code-block:: bash
 
-          git clone https://github.com/LSSTDESC/rail.git cd rail conda env create -f
-          environment.yml -n [env]  # or mamba env create, which is much faster conda
-          activate [env] pip install -e . rail dev clone-source --package-file
-          rail_packages.yml rail dev install --package-file rail_packages.yml
-          --from-source
+          git clone https://github.com/LSSTDESC/rail.git
+          cd rail
+          conda env create -f environment.yml -n [env]  # or mamba env create, which is much faster
+          conda activate [env]
+          pip install -e .
+          rail dev clone-source --package-file rail_packages.yml
+          rail dev install --package-file rail_packages.yml --from-source
 
 
    .. group-tab:: zsh (e.g., Mac M1+ default)
 
       .. code-block:: bash
 
-          git clone https://github.com/LSSTDESC/rail.git cd rail conda env create -f
-          environment.yml -n [env]  # or mamba env create, which is much faster conda
-          activate [env] pip install -e . rail dev clone-source --package-file
-          rail_packages.yml rail dev install --package-file rail_packages.yml
-          --from-source
+          git clone https://github.com/LSSTDESC/rail.git
+          cd rail
+          conda env create -f environment.yml -n [env]  # or mamba env create, which is much faster
+          conda activate [env]
+          pip install -e .
+          rail dev clone-source --package-file rail_packages.yml
+          rail dev install --package-file rail_packages.yml --from-source
 
 
 RAIL Command Line Utility
