@@ -6,20 +6,50 @@ Pipeline Usage
 .. e.g. 'for use on hpc, we rec pipeline mode, here's how to use, but for exploratory mode, link to interactive'
 .. link to ceci docs
 
-A key concept in `rail` are ceci `Pipelines`, which run a series of `RailStages`
-using the `ceci` framework.
+This page details the usage of RAIL in pipeline mode. A RAIL pipeline is an
+ordered arrangement of RAIL stages, with defined inputs, outputs, and
+configurations. Like with stages, running RAIL via pipelines is configurable and
+reproducible.
+
+To learn more about RAIL stages, visit the :ref:`rail-stages` page.
 
 ===============================================================
-Why would you want to make a pipeline? What does a pipeline do?
+What does a pipeline do? Why would you want to make a pipeline?
 ===============================================================
 
 .. things that you need to take care of when making a pipeline, e.g. IO
+
+A RAIL pipeline is a directed acyclic graph of RAIL stages, defined by the
+guarantee that the inputs to each stage either exist already or are produced as
+output of earlier stages in the pipeline. A pipeline is defined by two ``.yml``
+files, containing:
+
+1. All the configuration parameters for every stage in the pipeline, including
+   each stage's name and its inputs and outputs
+2. The order in which the stages are to be run
+
+With pipelines, a user can reproduce workflows and outputs. Pipelines allow a
+user to detail the order of stages to be run, as well as the inputs, outputs,
+and settings of each stage, prior to execution. Pipelines can also be
+parallelized. Thus, an example use case would be running RAIL on HPC systems,
+where the configuration method and parallelization are suited for that workflow.
+
+To run RAIL in an exploratory environment, visit the :ref:`interactive usage`
+page.
 
 ============
 Pipeline API
 ============
 
 .. format and check
+
+RAIL Pipelines are run via the ``ceci``` framework. Execution of a pipeline
+entails an ``initialize()`` step, in which ``ceci`` checks that each stage's
+inputs either exist or will be produced by an earlier stage in the pipeline,
+followed by a ``run()`` step to actually perform the specified calculations.
+
+To learn more about ``ceci``, visit the `ceci documentation
+<https://ceci.readthedocs.io/en/latest/>`_.
 
 :py:class:`rail.core.RailPipeline` is the base class for all RAIL pipelines.
 Subclasses can build particular types of analysis pipelines subject to some
@@ -110,20 +140,21 @@ What this is doing is:
 #. Defining some common parameters, e.g., ``bands``, ``bands_dict`` for the
    pipeline.
 #. Defining four stages, and adding them to the pipeline, note that for each
-   stage the syntax is more or less the same.  We have to define, * The name of
-   the stage, i.e., ``self.flow_engine_train`` will make a stage
-     called ``flow_engine_train`` through some python cleverness.
-   * The class of the stage, which is specified by which type of stage we ask to
-     build, ``FlowEngine.build`` will make a ``FlowEngine`` stage.
-   * Any configuration parameters, which are specified as keyword arguments,
-     e.g., ``n_samples=50``.
-   * Any input connections from other stages, e.g.,
-     ``connections=dict(input=self.flow_engine_train.io.output)``, in the
-     ``self.lsst_error_model_train`` block will connect the ``output`` of
-     ``self.flow_engine_train`` to the ``input`` of
-     ``self.lsst_error_model_train``. Later in that example we can see how to
-     connect multiple inputs, e.g., one named ``input`` and  another named
-     ``model``, as required for an estimator stage.
+   stage the syntax is more or less the same. We have to define, 
+
+* The name of the stage, i.e., ``self.flow_engine_train`` will make a stage
+  called ``flow_engine_train`` through some python cleverness. 
+* The class of the stage, which is specified by which type of stage we ask to
+  build, ``FlowEngine.build`` will make a ``FlowEngine`` stage. 
+* Any configuration parameters, which are specified as keyword arguments, e.g.,
+  ``n_samples=50``.
+* Any input connections from other stages, e.g.,
+  ``connections=dict(input=self.flow_engine_train.io.output)``, in the
+  ``self.lsst_error_model_train`` block will connect the ``output`` of
+  ``self.flow_engine_train`` to the ``input`` of
+  ``self.lsst_error_model_train``. Later in that example we can see how to
+  connect multiple inputs, e.g., one named ``input`` and  another named
+  ``model``, as required for an estimator stage.
 
 ------------------------------
 Making a configurable Pipeline
@@ -207,7 +238,7 @@ The main differences with the previous example are that:
 Making Pipelines with YAML
 ==========================
 
-.. to be filled out by RAIL people
+.. TODO: by RAIL team
 
 ============
 Data Handles
