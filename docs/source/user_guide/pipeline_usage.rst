@@ -9,7 +9,11 @@ Pipeline Usage
 This page details the usage of RAIL in pipeline mode. A RAIL pipeline is an
 ordered arrangement of RAIL stages, with defined inputs, outputs, and
 configurations. Like with stages, running RAIL via pipelines is configurable and
-reproducible.
+reproducible. It is the recommended mode of usage for:
+
+* well-defined workflows
+* operating on large data sets
+* workflows that make use of parallelization
 
 To learn more about RAIL stages, visit the :ref:`rail-stages` page.
 
@@ -34,8 +38,8 @@ and settings of each stage, prior to execution. Pipelines can also be
 parallelized. Thus, an example use case would be running RAIL on HPC systems,
 where the configuration method and parallelization are suited for that workflow.
 
-To run RAIL in an exploratory environment, visit the :ref:`interactive usage`
-page.
+To learn how to run RAIL in an exploratory environment, visit the
+:ref:`interactive usage` page.
 
 ============
 Pipeline API
@@ -43,7 +47,7 @@ Pipeline API
 
 .. format and check
 
-RAIL Pipelines are run via the ``ceci``` framework. Execution of a pipeline
+RAIL Pipelines are run via the ``ceci`` framework. Execution of a pipeline
 entails an ``initialize()`` step, in which ``ceci`` checks that each stage's
 inputs either exist or will be produced by an earlier stage in the pipeline,
 followed by a ``run()`` step to actually perform the specified calculations.
