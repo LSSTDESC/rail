@@ -13,7 +13,7 @@ on photometry, catalogs, and more.
 .. flowchart
 
 .. contents:: Table of Contents
-   :backlinks: entry
+   :backlinks: top
    :local:
 
 =========

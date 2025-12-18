@@ -16,7 +16,7 @@ tomographic binning.
 .. flowchart
 
 .. contents:: Table of Contents
-   :backlinks: entry
+   :backlinks: top
    :local:
 
 =====================

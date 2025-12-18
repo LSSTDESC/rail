@@ -14,7 +14,7 @@ use creators to generate data, and degraders to add noise.
 .. flowchart
 
 .. contents:: Table of Contents
-   :backlinks: entry
+   :backlinks: top
    :local:
 
 ==================
