@@ -14,7 +14,7 @@ estimation algorithm.
 .. flowchart
 
 .. contents:: Table of Contents
-   :backlinks: entry
+   :backlinks: top
    :local:
 
 =====================

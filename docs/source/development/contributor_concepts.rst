@@ -6,11 +6,58 @@ Contributor Concepts
 
 .. introduction
 
+Some concepts in RAIL are only exposed in development, and their purpose and
+usage are detailed below.
+
+.. contents:: Table of Contents
+   :backlinks: top
+   :local:
+   :depth: 2
+
 =============
 Data Concepts
 =============
 
-.. introduction
+In developing RAIL, data is used and exposed in structures that aren't
+available to the user-facing usage of RAIL (interactive and pipeline modes).
+These data structures are described below.
+
+---------
+tables_io
+---------
+
+``tables_io`` provides an interface for working with table data from a variety
+of non-ASCII file formats, including `fits`, `hdf5`, `parquet`, and tabular
+formats from `astropy`, `pandas`, `pyarrow`, and `numpy`. It allows for chunked
+reading of some file formats for large data.
+
+For further reading, visit the `tables_io documentation
+<https://tables-io.readthedocs.io/en/latest/index.html>`_.
+
+-----------
+qp Ensemble
+-----------
+
+Redshift data products may take many forms; probability density functions (PDFs)
+characterizing the redshift distribution of a sample of galaxies or each galaxy
+individually are defined by values of parameters under a choice of
+parameterization. To enable parameterization-agnostic downstream analyses, the
+`qp <https://github.com/LSSTDESC/qp>`_ package provides a shared interface to
+many parameterizations of univariate PDFs and utilities for performing
+conversions, evaluating metrics, and executing at-scale input-output operations.
+RAIL stages provide and/or ingest their photo-z data products as ``qp.Ensemble``
+objects, both for collections of individual galaxies and for the summarized
+redshift distribution of samples of galaxies (such as members of a tomographic
+bin or galaxy cluster members). The key features of a ``qp.Ensemble`` are the
+`metadata` of the type of parameterization and defining parameters shared by the
+entire ensemble, the `objdata` values unique to each row-wise member of the
+ensemble that specify its PDF given the `metadata`, and the `ancil` information
+associated to each row-wise member that isn't part of the parameterized PDF.
+
+For further reading, visit the `qp documentation
+<https://qp.readthedocs.io/en/main/>`_.
+
+.. TODO: confirm the syntax here and link to qp demos (written by RAIL team)
 
 ------------
 Data Handles
@@ -20,7 +67,7 @@ Data Handles
 
 One particularity of `RAIL` is that we wrap data in
 :py:class:`rail.core.DataHandle` objects rather than passing the data directly
-to functions.  There are a few reasons for this.
+to functions. There are a few reasons for this.
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Potentially large data volume
@@ -35,7 +82,7 @@ processor.
 Parallel processing
 ^^^^^^^^^^^^^^^^^^^
 
-.. section left blank by rail team
+.. section left blank by RAIL team
 
 ^^^^^^^^^^^^^^^^
 DataHandle Class
@@ -140,7 +187,6 @@ Shared Parameters
 -----------------
 
 .. format and check content
-
 
 `RAIL` is designed to be used with a variety of different data.  Depending on
 the data in question, things like the names of the columns associated to the
