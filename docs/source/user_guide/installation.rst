@@ -181,3 +181,128 @@ Developer Install
 =================
 
 .. link to actual content in contributing section
+
+
+=============================
+Adding your kernel to jupyter
+=============================
+
+If you want to use the kernel that you have just created to run RAIL example demos, then
+you may need to explicitly add an ipython kernel. You may need to first install
+ipykernel with ``conda install ipykernel``. You can then add your kernel with the
+following command, making sure that you have the conda environment that you wish to add
+activated. From your environment, execute the command: ``python -m ipykernel install
+--user --name [name_to_call_new_kernel]`` (you may or may not need to prepend ``sudo``
+depending on your permissions). When you next start up Jupyter you should see a kernel
+with your new name as an option, including using the Jupyter interface at NERSC.
+
+
+=========================================================
+Troubleshooting: Algorithm / architecture specific issues
+=========================================================
+
+Before installing a specific algorithm, please make sure to first install pz-rail-base
+via
+
+.. code-block:: bash
+
+    pip install pz-rail-base
+
+
+Installing Delight
+------------------
+
+.. tabs::
+
+   .. tab:: General
+
+      For Delight you should be able to just do:
+
+      .. code-block:: bash
+
+          pip install pz-rail-delight
+
+
+   .. tab:: Mac
+
+      For Delight you should be able to just do:
+
+      .. code-block:: bash
+
+          pip install pz-rail-delight
+
+      However, the particular estimator ``Delight`` is built with ``Cython`` and uses
+      ``openmp``.  Mac has dropped native support for ``openmp``, which will likely
+      cause problems when trying to run the ``DelightEstimator`` estimation code in
+      RAIL.  See the notes below for instructions on installing Delight if you wish to
+      use this particular estimator.
+
+      If you are installing RAIL on a Mac, as noted above the ``DelightEstimator``
+      estimator requires that your machine's ``gcc`` be set up to work with ``openmp``.
+      If you are installing on a Mac and do not plan on using ``DelightEstimator``, then
+      you can simply install RAIL with ``pip install .[base]`` rather than ``pip install
+      .[all]``, which will skip the Delight package.  If you are on a Mac and *do*
+      expect to run ``DelightEstimator``, then `follow the instructions here
+      <https://github.com/LSSTDESC/Delight/blob/master/Mac_installation.md>`_ to install
+      Delight before running ``pip install .[all]``.
+
+
+Installing FlexZBoost
+---------------------
+
+For FlexZBoost, you should be able to just do
+
+.. code-block:: bash
+
+    pip install pz-rail-flexzboost
+
+But if you run into problems you might need to:
+
+- install ``xgboost`` with the command ``pip install xgboost==0.90.0``
+- install FlexCode with ``pip install FlexCode[all]``
+
+
+Installing bpz_lite
+-------------------
+
+For bpz_lite, you should be able to just do
+
+.. code-block:: bash
+
+    pip install pz-rail-bpz
+
+But if you run into problems you might need to:
+
+- cd to a directory where you wish to clone the DESC_BPZ package and run ``git clone
+  https://github.com/LSSTDESC/DESC_BPZ.git``
+- cd to the DESC_BPZ directory and run ``python setup.py install`` (add ``--user`` if
+  you are on a shared system such as NERSC)
+- try ``pip install pz-rail-bpz`` again.
+
+
+Using GPU-optimization for pzflow
+---------------------------------
+
+Note that the Creation Module depends on pzflow, which has an optional GPU-compatible
+installation. For instructions, see the `pzflow Github repo
+<https://github.com/jfcrenshaw/pzflow/>`_.
+
+On some systems that are slightly out of date, e.g. an older version of python's
+``setuptools``, there can be some problems installing packages hosted on GitHub rather
+than PyPi. We recommend that you update your system; however, some users have still
+reported problems with installation of subpackages necessary for ``flexzboost`` and
+``bpz_lite``. If this occurs, try the following procedure:
+
+Once you have installed RAIL, you can import the package (via ``import rail``) in any of
+your scripts and notebooks. For examples demonstrating how to use the different pieces,
+see the notebooks in the ``examples/`` directory.
+
+
+
+..  LocalWords:  jupyter environment.yml rail_packages.yml pypi numpy
+..  LocalWords:  conda-reqs.txt conda-forge pz-rail-som pz-rail-base
+..  LocalWords:  scipy rail_bpz rail_flexzboost pz-rail alogrithm bpz
+..  LocalWords:  setup.py pz-rail-delight Cython openmp openmp pzflow
+..  LocalWords:  pz-rail-flexzboost xgboost xgboost bpz_lite ipython
+..  LocalWords:  pz-rail-bpz Goldenspike bpz_lite.py setuptools
+..  LocalWords:  subpackages ipykernel ipykernel nametocallnewkernel
