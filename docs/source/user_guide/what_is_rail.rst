@@ -2,9 +2,9 @@
 What is RAIL?
 *************
 
-=====================
-Scientific Background
-=====================
+==========
+Background
+==========
 
 .. paragraph that describes what photometric redshifts are within the context of RAIL
 .. NOTE incomplete, add other aspects redshift relevant to RAIL
@@ -24,7 +24,6 @@ accuracy.
 RAIL
 ====
 
-
 RAIL (Redshift Assessment Infrastructure Layers) is a flexible open-source software 
 library built around photometric redshift PDFs. Its two primary functions are: 
 
@@ -39,14 +38,18 @@ made available within RAIL as sub-packages.
 There are three main steps, or stages, that are used within RAIL to provide the 
 above functionalities. These are:
 
-* generating photometric catalogs of galaxies and modifying them to add noise and 
-  biases (:ref:`creation stage <Creation>`, which can be skipped if you already have 
-  real data)
-* using that photometric data to generate photometric redshift PDFs, both for 
-  individual galaxies and entire catalogs (:ref:`estimation stage <Estimation>`)
-* comparing the generated photometric redshift PDFs to known true values, in order 
-  to assess the performance of the estimation algorithm 
-  (:ref:`evaluation stage <Evaluation>`)
++-------------------+-----------------------------------------------------------------------------------------+
+| Stage             | Description                                                                             |
++===================+=========================================================================================+
+| :ref:`creation`   | generating photometric catalogs of galaxies and modifying them to add noise and biases, |
+|                   | which can be skipped if you already have real data                                      |
++-------------------+-----------------------------------------------------------------------------------------+
+| :ref:`estimation` | using that photometric data to generate photometric redshift PDFs, both for individual  |
+|                   | galaxies and entire catalogs                                                            |
++-------------------+-----------------------------------------------------------------------------------------+
+| :ref:`evaluation` | comparing the generated photometric redshift PDFs to known true values, in order to     |
+|                   | assess the performance of the estimation algorithm                                      |
++-------------------+-----------------------------------------------------------------------------------------+
 
 For a more in-depth explanation of what these stages are and how they work, 
 take a look at :ref:`What are RAIL stages?`. To get started with using RAIL 
