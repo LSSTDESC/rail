@@ -34,7 +34,7 @@ I want to learn more, where should I go next?
 To learn more about RAIL and its stages, visit the RAIL Stages section, starting
 with the :ref:`rail-stages` page.
 
-To learn how to contribute, visit the :ref:`contributor-concepts` page.
+To learn how to contribute, visit the :ref:`contributor concepts` page.
 
 ===================================
 I've used RAIL, how do I credit it?

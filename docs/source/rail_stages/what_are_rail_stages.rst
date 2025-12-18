@@ -63,7 +63,7 @@ done via specific command calls.
 To learn about the commands, visit the :ref:`interactive-api`.
 
 To see more examples of using stages interactively, visit the
-:ref:`interactive-notebooks`.
+:ref:`interactive mode notebooks`.
 
 -------------
 Pipeline Mode

@@ -1,5 +1,3 @@
-.. _evaluation:
-
 **********
 Evaluation
 **********

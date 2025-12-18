@@ -1,5 +1,3 @@
-.. _estimation:
-
 **********
 Estimation
 **********
