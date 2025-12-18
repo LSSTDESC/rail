@@ -16,6 +16,8 @@ import os
 import subprocess
 import sys
 
+from rail.utils.interactive.apidoc_utils import write_interactive_api_rst
+
 sys.path.insert(0, os.path.abspath(".."))
 
 from rail.core import RailEnv
@@ -134,6 +136,7 @@ exclude_patterns = [
     "setup.rst",
     "source/index_body.rst",
     "api/rail.rst",
+    "source/interactive_api_content",  # these are built into the api docs by custom modules
 ]
 
 # The name of the Pygments (syntax highlighting) style to use.
@@ -231,6 +234,7 @@ def run_apidoc(_):
         return
     RailEnv.do_stage_type_api_rst()
     RailEnv.do_api_rst()
+    write_interactive_api_rst(".")
 
 
 def setup(app):
