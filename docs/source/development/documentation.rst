@@ -25,7 +25,7 @@ in your current python environment.  :py:mod:`rail.core.introspection`.
 Building the RAIL documentation locally
 =======================================
 
-Once you have installed ``rail``` from source you can build all the documentation
+Once you have installed ``rail`` from source you can build all the documentation
 locally very easily. Note that this will also build the documentation for any
 and all installed ``rail_algorithms`` packages.
 
