@@ -34,13 +34,13 @@ to manage ever-changing dependencies.  Most contain the few stages sharing a
 particular challenging dependency, with the exception of three
 meta-repositories:
 
-* ``rail`` is the portal for users who want to access all of RAIL's
+* `rail <https://github.com/LSSTDESC/rail>`_ is the portal for users who want to access all of RAIL's
   functionality across all the repositories.
 
-* ``rail_base`` is where the superclasses and underlying infrastructure used by
+* `rail_base <https://github.com/LSSTDESC/rail_base>`_ is where the superclasses and underlying infrastructure used by
   all the standalone repositories are defined.
 
-* ``rail_pipelines`` is a place for users to share the pipelines they build with
+* `rail_pipelines <https://github.com/LSSTDESC/rail_pipelines>`_ is a place for users to share the pipelines they build with
   RAIL so others can call them directly or adapt them to their needs.
 
 Overall, you may find yourself contributing to one or more of these repositories
@@ -49,9 +49,8 @@ and/or making a new one.
 Similar to the installation process, depending on how you want to contribute to
 RAIL, you will be contributing to one or more of the RAIL packages.
 
-In all cases, begin by following the developer installation instructions
-:ref:`Developer Installation` and follow the contribution workflow instructions
-below.
+In all cases, begin by following the :ref:`developer installation instructions <Developer Installation>` 
+and follow the contribution workflow instructions below.
 
 
 Contribution workflow
@@ -112,9 +111,14 @@ Once the changes in your PR have been approved, these are your next steps:
 
 If you are making changes that affect multiple repositories, make a branch and
 PR on each one.  The PRs should be merged and new releases made in the following
-order without long delays between steps: 1. `rail_base` 2. all per-algorithm
-repositories in any order 3. `rail` 4. `rail_pipelines` This will minimize the
-time when new installations from PyPI could be broken by conflicts.
+order without long delays between steps: 
+
+1. ``rail_base`` 
+2. all per-algorithm repositories in any order 
+3. ``rail`` 
+4. ``rail_pipelines`` 
+
+This will minimize the time when new installations from PyPI could be broken by conflicts.
 
 
 Reviewing a PR

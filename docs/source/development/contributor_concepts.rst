@@ -18,7 +18,7 @@ Data Handles
 
 .. format and check content
 
-One particularity of `RAIL` is that we wrap data in
+One particularity of RAIL is that we wrap data in
 :py:class:`rail.core.DataHandle` objects rather than passing the data directly
 to functions.  There are a few reasons for this.
 
@@ -26,7 +26,7 @@ to functions.  There are a few reasons for this.
 Potentially large data volume
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-One of the challenges that `RAIL` must address is the potentially very large
+One of the challenges that RAIL must address is the potentially very large
 datasets that we use.  At times we will be dealing with billions of objects, and
 will not be able to load the object tables into the memory of a single
 processor.
@@ -105,10 +105,9 @@ Functions for working with DataHandles
 Ephemeral Data Stores
 ---------------------
 
-.. format and check content
-
-:py:class:`rail.core.DataStore` is the class that lets users import data into
-RAIL.
+:py:class:`rail.core.DataStore` is the class that is used by RAIL stages to 
+keep track of data within a stage. Each stage should have its own DataStore, 
+and other stages cannot access that DataStore.
 
 .. autoclass:: rail.core.DataStore
     :noindex:
@@ -139,29 +138,31 @@ DataStore Functionality
 Shared Parameters
 -----------------
 
-.. format and check content
 
-
-`RAIL` is designed to be used with a variety of different data.  Depending on
+RAIL is designed to be used with a variety of different data.  Depending on
 the data in question, things like the names of the columns associated to the
 particular quantities like the true redshift of a simulated object, or the names
 of the columns with the various observed magnitudes in different filters, will
 vary.  By enforcing consistency in naming conventions between different
-`RailStage` sub-classes we have made it simple configure `RAIL` to read data
+``RailStage`` sub-classes we have made it simple to configure RAIL to read data
 from a particular source, rather than having to edit the configurations for many
-different `RailStages`.
+different ``RailStages``.
 
 When using a single stage (e.g. testing an algorithm in a Jupyter notebook), it
 is also possible to overwrite the default settings for the input data directly
 for the stage, without involving the shared parameters, by simply specifying
-catalog information in the `make_stage` step. For example, your input catalog
+catalog information in the ``make_stage`` step. For example, your input catalog
 may have band names like "{band}_gaap1p0Mag", which is different from the
-default values in RAIL. To set this in `MyFavouriteInformer`, do
-`MyFavouriteEstimator.make_stage(band = [f"{band}_gaap1p0Mag" for band in
-"ugrizy"])`.  Note that typically a stage may require changes in multiple input
-parameters (e.g. `err_bands` and `ref_bands` needs to be changed accordingly).
-Note also that if the user wants to run `MyFavouriteEstimator` next, they will
-need to repeat this for the `make_stage` for the estimator. This is why, in case
+default values in RAIL. To set this in ``MyFavouriteInformer``, do:
+
+.. code-block:: python
+    
+    MyFavouriteEstimator.make_stage(band = [f"{band}_gaap1p0Mag" for band in "ugrizy"])
+
+Note that typically a stage may require changes in multiple input
+parameters (e.g. ``err_bands`` and ``ref_bands`` needs to be changed accordingly).
+Note also that if the user wants to run ``MyFavouriteEstimator`` next, they will
+need to repeat this for the ``make_stage`` for the estimator. This is why, in case
 the user is running many stages, using shared parameters below are preferred.
 
 .. autoclass:: rail.core.common_params.SharedParams
@@ -175,7 +176,7 @@ Catalog Tags
 
 .. format and check content
 
-:py:class:`rail.util.catalog_utils.CatalogConfigBase` provides an interface to
+:py:class:`rail.utils.catalog_utils.CatalogConfigBase` provides an interface to
 switch between different input catalogs.
 
 .. autoclass:: rail.utils.catalog_utils.CatalogConfigBase
