@@ -98,7 +98,7 @@ extensions = [
     "sphinx.ext.ifconfig",
     "sphinx.ext.mathjax",
     "nbsphinx",
-    "sphinx.ext.viewcode",
+    # "sphinx.ext.viewcode", # Disabling viewcode due to bug: https://github.com/sphinx-doc/sphinx/issues/13095
     "sphinx.ext.autosummary",
     "sphinx.ext.githubpages",
     "sphinx.ext.napoleon",
