@@ -7,19 +7,10 @@ What Are RAIL Stages?
 .. introduction
 .. flowchart: stages to other stages
 
-A RAIL Stage is a configurable process that performs a single operation in a
+A RAIL stage is a configurable process that performs a single operation in a
 reproducible way. Stages have defined inputs, outputs, and stage-specific
 configuration parameters. They can be parallelized across processors or computing
 nodes.
-
-There are three kinds of stages in RAIL:
-
-#. Creation: create sample photometric data
-#. Estimation: estimate photometric redshift from any input data
-#. Evaluation: evaluate the performance of estimations against known true values
-
-For further reading, visit their respective pages: :ref:`creation`,
-:ref:`estimation`, :ref:`evaluation`.
 
 ========
 Examples
@@ -45,18 +36,34 @@ Notebooks
 
 .. link to notebooks
 
-======
-Stages
-======
+===============
+Types of Stages
+===============
 
 .. list each stage, i.e. creation, estimation, evaluation, explain each is known as a RAIL stage
 .. include tool "stages"
+
+There are three main types of stages in RAIL. For further reading, visit their
+pages by clicking on their respective links.
+
+#. :ref:`Creation <creation>`: create sample photometric data
+#. :ref:`Estimation <estimation>`: estimate photometric redshift from any input data
+#. :ref:`Evaluation <evaluation>`: evaluate the performance of estimations against known true values
+#. :ref:`Tools <tools>`: "pseudo-stage" providing utilities and tools for running stages
 
 ----------------
 Interactive Mode
 ----------------
 
 .. link to interactive mode API
+
+RAIL stages can be run interactively, such as in a Jupyter notebook. This is
+done via specific command calls. 
+
+To learn about the commands, visit the :ref:`interactive-api`.
+
+To see more examples of using stages interactively, visit the
+:ref:`interactive-notebooks`.
 
 -------------
 Pipeline Mode
