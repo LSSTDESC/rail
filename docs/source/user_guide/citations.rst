@@ -1,5 +1,3 @@
-.. _citations:  
-  
 *********
 Citations
 *********
