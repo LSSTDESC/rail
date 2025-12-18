@@ -6,9 +6,6 @@ Add a new algorithm / RAIL stage
 New Algorithm
 =============
 
-.. format and check content
-.. maybe merge into appropriate section in page
-
 To add new functionality that adds a new dependency, you should create a new package
 that users will access through RAIL's common API.
 
