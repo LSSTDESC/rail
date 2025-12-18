@@ -24,31 +24,39 @@ accuracy.
 RAIL
 ====
 
-.. there's a lot here, I've written a short intro to what RAIL is but not sure what else to summarize/what to leave 
 
-RAIL (Redshift Assessment Infrastructure Layers) is a flexible open-source software library 
-built around the testing and generation of photometric redshift PDFs. Its main features are: 
-* generating photometric catalogs of galaxies and modifying them to add noise and biases 
-(:ref:`creation stage <Creation>`)
-* using photometric data to generate photometric redshift PDFs, both for individual galaxies 
-and entire catalogs (:ref:`estimation stage <Estimation>`)
-* comparing the estimated photometric redshifts to known true values, in order to assess the 
-performance of the estimation algorithm (:ref:`evaluation stage <Evaluation>`)
+RAIL (Redshift Assessment Infrastructure Layers) is a flexible open-source software 
+library built around photometric redshift PDFs. Its two primary functions are: 
 
+1. Production of photo-z data products at-scale for LSST
+2. Stress-testing of multiple photo-z estimation approaches
 
-RAIL enables production of photo-z data products at-scale for LSST as well as
-stress-testing of multiple estimation approaches in the presence of
-realistically complex systematic imperfections in the input photometry and prior
-information (such as template libraries and training sets) under
-science-agnostic and science-specific metrics. By providing both functionalities
-in the same package, the exact same estimation procedure validated through
-controlled experimentation may be applied to real data without loss of validity.
-To support such an ambitious goal, RAIL has a highly modular structure
-encompassing three aspects of this kind of experiment, enabled by specialized
-object types; however, the result is that RAIL is unavoidably complicated. This
-overview seeks to present the foundational building blocks that underlie RAIL's
-structure, the overarching organizational philosophy, and the specific types of
-included functionality.
+By providing both functionalities in the same package, the exact same estimation 
+procedure validated through controlled experimentation may be easily applied to 
+real data. A number of these photo-z estimation procedures (or algorithms) are 
+made available within RAIL as sub-packages. 
+
+There are three main steps, or stages, that are used within RAIL to provide the 
+above functionalities. These are:
+
+* generating photometric catalogs of galaxies and modifying them to add noise and 
+  biases (:ref:`creation stage <Creation>`, which can be skipped if you already have 
+  real data)
+* using that photometric data to generate photometric redshift PDFs, both for 
+  individual galaxies and entire catalogs (:ref:`estimation stage <Estimation>`)
+* comparing the generated photometric redshift PDFs to known true values, in order 
+  to assess the performance of the estimation algorithm 
+  (:ref:`evaluation stage <Evaluation>`)
+
+For a more in-depth explanation of what these stages are and how they work, 
+take a look at :ref:`What are RAIL stages?`. To get started with using RAIL 
+interactively in Jupyter notebooks and Python scripts, take a look at 
+:ref:`Interactive usage`. For use on large datasets in parallel, particularly 
+for use on HPC, take a look at :ref:`Pipeline Usage`. 
+
+.. do we explain pipelines vs interactive usage quickly here as well?
+
+.. at the moment everything below this can be moved to other locations 
 
 ------------------------------------
 Introduction to stages and pipelines
@@ -82,31 +90,6 @@ stage's inputs either exist or will be produced by an earlier stage in the
 pipeline, followed by a ``run()`` step to actually perform the specified
 calculations.
 
---------------------
-Core data structures
---------------------
-
-**TODO: DataHandle/DataStore should be explained here**
-
-**TODO: essential tables_io functionality should be introduced here**
-
-``qp.Ensemble`` **objects**: Redshift data products may take many forms;
-probability density functions (PDFs) characterizing the redshift distribution of
-a sample of galaxies or each galaxy individually are defined by values of
-parameters under a choice of parameterization. To enable
-parameterization-agnostic downstream analyses, the `qp
-<https://github.com/LSSTDESC/qp>`_ package provides a shared interface to many
-parameterizations of univariate PDFs and utilities for performing conversions,
-evaluating metrics, and executing at-scale input-output operations. RAIL stages
-provide and/or ingest their photo-z data products as ``qp.Ensemble`` objects,
-both for collections of individual galaxies and for the summarized redshift
-distribution of samples of galaxies (such as members of a tomographic bin or
-galaxy cluster members). The key features of a ``qp.Ensemble`` are the `metadata`
-of the type of parameterization and defining parameters shared by the entire
-ensemble, the `objdata` values unique to each row-wise member of the ensemble
-that specify its PDF given the `metadata`, and the `ancil` information
-associated to each row-wise member that isn't part of the parameterized PDF.
-**TODO: confirm the syntax here and link to qp demos**
 
 ----------------------------------------------------
 Organizational philosophy and included functionality
