@@ -2,7 +2,21 @@
 Installation
 ************
 
-.. do we want to keep this intro?
+============
+Easy Install
+============
+
+.. python script
+
+================
+Docker Container
+================
+
+.. 
+
+==============
+Manual Install
+==============
 
 RAIL is actually distributed as several software packages. However, depending
 on your use case it is likely that you will be working directly with one of the
@@ -35,22 +49,6 @@ environment.
     If you would like to experiment with ``mamba`` it can be installed with
     ``conda install mamba -n base -c conda-forge``. The `mamba documentation is
     here <https://mamba.readthedocs.io/>`_.
-
-============
-Easy Install
-============
-
-.. python script
-
-================
-Docker Container
-================
-
-.. 
-
-==============
-Manual Install
-==============
 
 -----------
 Exploration
