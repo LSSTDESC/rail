@@ -19,9 +19,9 @@ Naming conventions
 We follow the `pep8 <https://peps.python.org/pep-0008/#descriptive-naming-styles>`_
 recommendations for naming new modules and ``RailStage`` classes within them.
 
--------------
-Modules Names
--------------
+------------
+Module Names
+------------
 
 Modules should use all lowercase, with underscores where it aids the readability of the
 module name.

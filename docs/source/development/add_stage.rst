@@ -33,9 +33,12 @@ almost nothing else.
 
        """
        name = 'ColumnMapper'
-
+       entrypoint_function = "__call__"  # the user-facing science function for this class
        config_options = RailStage.config_options.copy()
-       config_options.update(chunk_size=100_000, columns=dict, inplace=False)
+       config_options.update(
+        columns=Param(dict, required=True, msg="Map of columns to rename"),
+        inplace=Param(bool, default=False, msg="Update file in place"),
+    )
 
    inputs = [('input', PqHandle)]
        outputs = [('output', PqHandle)]
@@ -70,28 +73,15 @@ The required pieces, in the order that they appear are:
 
 #. The ``ColumnMapper(RailStage):`` defines a class called ``ColumnMapper`` and
    specifies that it inherits from ``RailStage``.
-#. The ``ColumnMapper(RailStage):`` defines a class called ``ColumnMapper`` and
-   specifies that it inherits from ``RailStage``.
+#. The ``entrypoint_function`` line provides the name of the main function that 
+   the user should call to use this class as a string, for use in the ``interactive`` 
+   module.
 #. The ``config_options`` lines define the configuration parameters for this
    class, as well as their default values.  Note that here we are copying the
    configuration parameters from the ``RailStage`` as well as defining some new
    ones.
-#. The ``config_options`` lines define the configuration parameters for this
-   class, as well as their default values.  Note that here we are copying the
-   configuration parameters from the ``RailStage`` as well as defining some new
-   ones.
-#. The ``config_options`` lines define the configuration parameters for this
-   class, as well as their default values.  Note that here we are copying the
-   configuration parameters from the ``RailStage`` as well as defining some new
-   ones.
-#. The ``run()`` method does the actual #. The ``config_options`` lines define
-   the configuration parameters for this class, as well as their default values.
-   Note that here we are copying the configuration parameters from the
-   ``RailStage`` as well as defining some new ones.
-#. The ``config_options`` lines define the configuration parameters for this
-   class, as well as their default values.  Note that here we are copying the
-   configuration parameters from the ``RailStage`` as well as defining some new
-   ones.
+#. The ``run()`` method does the actual work.
+
 
 ================
 Advanced Example
@@ -107,10 +97,11 @@ Here is an example of a slightly more complicated ``RailStage``.
        """
 
        name = 'NaiveStack'
+       entrypoint_function = "inform"  # the user-facing science function for this class
        config_options = PZSummarizer.config_options.copy()
-       config_options.update(zmin=Param(float, 0.0, msg="The minimum redshift of the z grid"),
-                             zmax=Param(float, 3.0, msg="The maximum redshift of the z grid"),
-                             nzbins=Param(int, 301, msg="The number of gridpoints in the z grid"),
+       config_options.update(zmin=SharedParams.copy_param("zmin"),
+                             zmax=SharedParams.copy_param("zmax"),
+                             nzbins=SharedParams.copy_param("nzbins"),
                              seed=Param(int, 87, msg="random seed"),
                              nsamples=Param(int, 1000, msg="Number of sample distributions to create"))
        outputs = [('output', QPHandle),
@@ -146,7 +137,11 @@ single ``n(z)`` distribution for that ensemble.
 A few things to note:
 
 #. We copy the configuration parameters for ``PZSummarizer`` and then add
-   additional ones.
+   additional ones. In particular, some of the configuration parameters are copied 
+   from the ``SHARED_PARAMS`` dictionary using the ``SharedParams`` class. This 
+   copies over the existing Parameter including its default value and message.
+   See :ref:`Shared Parameters` for a list of the existing Shared Parameters and 
+   more information on them.  
 #. The ``run()`` method is implemented here, but the function for interactive
    use ``summarize()`` is actually defined in ``PZSummarizer``.
 #. While we define the ``outputs`` here, we just use the inputs as defined in

@@ -195,6 +195,7 @@ vary.  By enforcing consistency in naming conventions between different
 from a particular source, rather than having to edit the configurations for many
 different ``RailStages``.
 
+
 When using a single stage (e.g. testing an algorithm in a Jupyter notebook), it
 is also possible to overwrite the default settings for the input data directly
 for the stage, without involving the shared parameters, by simply specifying
@@ -221,7 +222,6 @@ the user is running many stages, using shared parameters below are preferred.
 Catalog Tags
 ------------
 
-.. format and check content
 
 :py:class:`rail.utils.catalog_utils.CatalogConfigBase` provides an interface to
 switch between different input catalogs.
