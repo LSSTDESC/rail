@@ -27,44 +27,44 @@ RAIL Namespaces
 
 .. namespace explanation in a table, copy and paste in different places
 
-The RAIL codebase uses namespaces to organize objects and algorithms. A
-namespace is a subpackage of the RAIL package. A namespace package's modules and
-content belong to the same section of functionality, and serve the same purpose.
-For example, the ``estimation.algos`` namespace contains modules of different
-estimation algorithms. The following namespaces are in RAIL.
+A RAIL namespace is a subpackage of the RAIL package, used to organize objects
+and algorithms. A namespace package's modules and content belong to the same
+section of functionality, and serve the same purpose. For example, the
+``estimation.algos`` namespace contains modules of different estimation
+algorithms. The following namespaces are in RAIL.
 
 .. table
 .. TODO: rail_calib package
 
-+-----------------------+---------+
-| Namespace             | Purpose |
-+=======================+=========+
-| creation              |         |
-+-----------------------+---------+
-| creation.engines      |         |
-+-----------------------+---------+
-| creation.degraders    |         |
-+-----------------------+---------+
-| estimation            |         |
-+-----------------------+---------+
-| estimation.algos      |         |
-+-----------------------+---------+
-| evaluation            |         |
-+-----------------------+---------+
-| evaluation.metrics    |         |
-+-----------------------+---------+
-| utils                 |         |
-+-----------------------+---------+
-| tools                 |         |
-+-----------------------+---------+
-| pipelines             |         |
-+-----------------------+---------+
-| pipelines.degradation |         |
-+-----------------------+---------+
-| pipelines.estimation  |         |
-+-----------------------+---------+
-| cli                   |         |
-+-----------------------+---------+
++-----------------------+----------------------------------------------------------------+
+| Namespace             | Description                                                    |
++=======================+================================================================+
+| creation              | create and degrade synthetic photometric data                  |
++-----------------------+----------------------------------------------------------------+
+| creation.engines      | algorithms to generate synthetic photometric data              |
++-----------------------+----------------------------------------------------------------+
+| creation.degraders    | algorithms to apply degradations to synthetic photometric data |
++-----------------------+----------------------------------------------------------------+
+| estimation            | derive redshift information from photometric data              |
++-----------------------+----------------------------------------------------------------+
+| estimation.algos      | algorithms to estimate per-galaxy photo-z PDFs                 |
++-----------------------+----------------------------------------------------------------+
+| evaluation            | evaluate photo-z estimator performance                         |
++-----------------------+----------------------------------------------------------------+
+| evaluation.metrics    | metrics for evaluation of redshift estimation                  |
++-----------------------+----------------------------------------------------------------+
+| utils                 | utility functions, e.g. catalog, testing                       |
++-----------------------+----------------------------------------------------------------+
+| tools                 | utility stages, e.g. photometry, tables                        |
++-----------------------+----------------------------------------------------------------+
+| pipelines             | create 'mini runner' pipelines                                 |
++-----------------------+----------------------------------------------------------------+
+| pipelines.degradation | pre-defined degradation pipelines                              |
++-----------------------+----------------------------------------------------------------+
+| pipelines.estimation  | pre-defined estimation pipelines                               |
++-----------------------+----------------------------------------------------------------+
+| cli                   | utility functions for the command line                         |
++-----------------------+----------------------------------------------------------------+
 
 For the API documentation, refer to the :ref:`namespaces` page.
 
