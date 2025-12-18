@@ -18,4 +18,77 @@ on photometry, catalogs, and more.
 Tools API
 =========
 
-.. 
+.. template 
+
+------
+Single
+------
+
+RAIL Package: https://github.com/LSSTDESC/rail_base
+
+.. autoclass:: rail.evaluation.single_evaluator.SingleEvaluator
+    :noindex:
+
+
+------------
+ColumnMapper
+------------
+
+RAIL Package: https://github.com/LSSTDESC/rail_base
+
+.. autoclass:: rail.tools.table_tools.ColumnMapper
+    :noindex:
+
+-----------
+RowSelector
+-----------
+
+RAIL Package: https://github.com/LSSTDESC/rail_base
+
+.. autoclass:: rail.tools.table_tools.RowSelector
+    :noindex:
+
+------------
+TableConverter
+------------
+
+RAIL Package: https://github.com/LSSTDESC/rail_base
+
+.. autoclass:: rail.tools.table_tools.TableConverter
+    :noindex:
+
+------------
+
+------------
+
+RAIL Package: https://github.com/LSSTDESC/rail_base
+
+.. autoclass:: rail.tools.table_tools.ColumnMapper
+    :noindex:
+
+------------
+
+------------
+
+RAIL Package: https://github.com/LSSTDESC/rail_base
+
+.. autoclass:: rail.tools.table_tools.ColumnMapper
+    :noindex:
+
+------------
+
+------------
+
+RAIL Package: https://github.com/LSSTDESC/rail_base
+
+.. autoclass:: rail.tools.table_tools.ColumnMapper
+    :noindex:
+
+------------
+
+------------
+
+RAIL Package: https://github.com/LSSTDESC/rail_base
+
+.. autoclass:: rail.tools.table_tools.ColumnMapper
+    :noindex:

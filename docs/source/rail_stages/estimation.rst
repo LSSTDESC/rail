@@ -21,8 +21,6 @@ tomographic binning.
 Estimators 
 =====================
 
-.. format and check 
-
 `rail.estimation` encompasses all methods that derive redshift information from
 photometry, as either an estimate of per-galaxy photo-z PDFs, a summary of the
 redshift distribution $n(z)$ for an ensemble of galaxies, or tomographic bin
@@ -47,12 +45,6 @@ input a photometric galaxy catalog with magnitudes; `PZInformer`,
 photo-z PDFs; and `SZPZSummarizer` takes as input both a spectroscopic galaxy
 catalog and a `qp.ensemble` of per-galaxy photo-z PDFs. Specific algorithms,
 which are detailed below, are implemented as subclasses of these parent classes.
-
-.. ==============
-.. Estimators API
-.. ==============
-
-.. format and check
 
 ------------------------------------
 BPZ (Bayesian Photometric Redshifts)
@@ -110,13 +102,11 @@ calculated by computing the standard deviation of all galaxies in the minimum
 distance subset. When there are less than $n_{\rm min}$ galaxies in the subset,
 the redshift will fail and an error flag is assigned to the galaxy.
 
-
 .. autoclass:: rail.estimation.algos.cmnn.CMNNInformer
     :noindex:
 
 .. autoclass:: rail.estimation.algos.cmnn.CMNNEstimator
     :noindex:
-
 
 -------
 Delight
@@ -141,7 +131,6 @@ calibration step.
 
 .. autoclass:: rail.estimation.algos.delight_hybrid.DelightEstimator
     :noindex:
-
 
 --------------------------------------
 DNF (Directional Neighborhood Fitting)
@@ -180,7 +169,6 @@ uncertainties.
 .. autoclass:: rail.estimation.algos.dnf.DNFEstimator
     :noindex:
 
-
 ----------
 FlexZBoost
 ----------
@@ -210,13 +198,11 @@ a set of $\alpha$ values. The resultant photo-z PDF distributions can be stored
 as `qp.Ensembles` either in their native basis function representation or as a
 linearly interpolated grid.
 
-
 .. autoclass:: rail.estimation.algos.flexzboost.FlexZBoostInformer
     :noindex:
 
 .. autoclass:: rail.estimation.algos.flexzboost.FlexZBoostEstimator
     :noindex:
-
 
 ---
 GPz
@@ -234,7 +220,6 @@ linear combination of basis functions, learning the parameters for these basis
 functions via a Gaussian process. The method can make several assumptions about
 the covariance between these basis functions, controlled via the configuration
 parameter `gpz_method` as outlined in the `rail` documentation.
-
 
 .. autoclass:: rail.estimation.algos.gpz.GPzInformer
     :noindex:
@@ -291,7 +276,6 @@ values is available in the public version of the LePHARE code.
 This implementation adds functionality such as the estimation of stellar mass,
 star-formation rate, and best-fitting model.
 
-
 .. autoclass:: rail.estimation.algos.lephare.LephareInformer
     :noindex:
 
@@ -341,7 +325,6 @@ this probability over a grid of redshifts and normalizing the posterior to unit
 probability. See [Crenshaw et al. (2024)](https://arxiv.org/abs/2405.04740) for
 more details.
 
-
 .. autoclass:: rail.estimation.algos.pzflow_nf.PZFlowInformer
     :noindex:
 
@@ -362,7 +345,6 @@ Benchmark algorithm.
 .. autoclass:: rail.estimation.algos.random_gauss.RandomGaussEstimator
     :noindex:
 
-
 ---
 TPZ
 ---
@@ -374,7 +356,6 @@ RAIL Package: https://github.com/LSSTDESC/rail_tpz
 
 .. autoclass:: rail.estimation.algos.tpz_lite.TPZliteEstimator
     :noindex:
-
 
 ------
 TrainZ
@@ -394,19 +375,11 @@ Benchmark Algorithm.
 Summarizers 
 ======================
 
-.. format and check
-
 The summarizers summarize the redshift distribution of an ensemble, whether
 based on photo-z or on other dataset such as spectroscopic redshift, or both.
 The calibration modules, which make adjustments globally to photo-z based on
 extra information from other datasets, usually reference samples of a
 spectroscopic survey, also are also among the summarizers.
-
-.. ===============
-.. Summarizers API
-.. ===============
-
-.. format and check
 
 ------------------------------------------
 Self Organizing Maps (minisom and somoclu)
@@ -490,8 +463,6 @@ functionality:
 .. autoclass:: rail.estimation.algos.cc_yaw.YawSummarize
     :noindex:
 
-
-
 --------------
 Naive Stacking
 --------------
@@ -499,7 +470,6 @@ Naive Stacking
 RAIL Package: https://github.com/LSSTDESC/rail_base
 
 Stack the PDF of the photo-z output and normalize as the n(z) distribution.
-
 
 .. autoclass:: rail.estimation.algos.naive_stack.NaiveStackInformer
     :noindex:
@@ -509,7 +479,6 @@ Stack the PDF of the photo-z output and normalize as the n(z) distribution.
 
 .. autoclass:: rail.estimation.algos.naive_stack.NaiveStackMaskedSummarizer
     :noindex:
-
 
 ------------------------------
 Variational Inference Stacking
@@ -522,7 +491,6 @@ RAIL Package: https://github.com/LSSTDESC/rail_base
 
 .. autoclass:: rail.estimation.algos.var_inf.VarInfStackSummarizer
     :noindex:
-
 
 ------------------------
 Point Estimate Histogram
@@ -545,10 +513,40 @@ Use the point estimate histogram as n(z), baseline method.
 Classifiers 
 ======================
 
-Classifiers are something.
+Classifiers assign classes to catalog-like tables. Classifier uses a generic
+“model”, the details of which depends on the sub-class. The model inputs either
+a table or qp ensemble, and outputs tabular data which can be appended to the
+estimation catalog.
 
-.. ===============
-.. Classifiers API
-.. ===============
+-----------
+Equal Count
+-----------
 
-.. 
+RAIL Package: https://github.com/LSSTDESC/rail_base
+
+Assign tomographic bins based on a point estimate according to SRD.
+
+.. autoclass:: rail.estimation.algos.equal_count.EqualCountClassifier
+    :noindex:
+
+-------------
+Random Forest
+-------------
+
+RAIL Package: https://github.com/LSSTDESC/rail_sklearn
+
+Assign tomographic bins based on the random forest method.
+
+.. autoclass:: rail.estimation.algos.random_forest.RandomForestClassifier
+    :noindex:
+
+---------------
+Uniform Binning
+---------------
+
+RAIL Package: https://github.com/LSSTDESC/rail_base
+
+Assign tomographic bins based on a point estimate according to SRD.
+
+.. autoclass:: rail.estimation.algos.uniform_binning.UniformBinningClassifier
+    :noindex:
