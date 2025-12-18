@@ -10,27 +10,27 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Set up Python 3.10
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.10'
-    - name: Install dependencies
-      run: |
-        sudo apt-get update
-        python -m pip install --upgrade pip
-        pip install wheel numpy
-        pip install .
-        pip install .[dev]
-        pip install .[docs]
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name: Install notebook requirements
-      run: |
-        sudo apt-get install pandoc
-    - name: Build docs
-      run: |
-        sphinx-build -T -E -b html -d docs/build/doctrees ./docs docs/build/html
+      - uses: actions/checkout@v3
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          python -m pip install --upgrade pip
+          pip install wheel numpy
+          pip install .
+          pip install .[dev]
+          pip install .[docs]
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      - name: Install notebook requirements
+        run: |
+          sudo apt-get install pandoc
+      - name: Build docs
+        run: |
+          cd docs
+          sphinx-build -T -E -b html -d build/doctrees . build/html
