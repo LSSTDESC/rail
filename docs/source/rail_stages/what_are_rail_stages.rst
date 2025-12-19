@@ -6,10 +6,10 @@ What Are RAIL Stages?
 
 .. flowchart: stages to other stages
 
-A RAIL stage is a single algorithm that can be run in a reproducible way. Each stage has
-a specific goal, but can be configured through the use of paremeters.  They are the
-basic building blocks of a larger pipeline and can be parallelized across processors or
-computing nodes.
+A RAIL stage is a single algorithm that can be run in a reproducible way. Each
+stage has a specific goal, but can be configured through the use of parameters.
+They are the basic building blocks of a larger pipeline and can be parallelized
+across processors or computing nodes.
 
 ===============
 Types of Stages
@@ -21,6 +21,11 @@ There are three main types of stages in RAIL:
 #. :ref:`Estimation <estimation>`: estimate photometric redshift from any input data
 #. :ref:`Evaluation <evaluation>`: evaluate the performance of estimations against known true values
 #. :ref:`Tools <tools>`: "pseudo-stage" providing utilities and tools for running stages
+
+These stages generate data products that can be used independently, or as input
+for other stages.
+
+.. image:: /images/stages_detailed.png
 
 ========
 Examples

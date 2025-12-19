@@ -45,6 +45,11 @@ above functionalities. These are:
 |                   | assess the performance of the estimation algorithm                                      |
 +-------------------+-----------------------------------------------------------------------------------------+
 
+These stages are used to generate data products, which can be used independently
+or as input for other stages.
+
+.. image:: /images/stages_simple.png
+
 * For a more in-depth explanation of what these stages are and how they work, take a
   look at :ref:`What are RAIL stages?`
 * To get started with using RAIL interactively in Jupyter notebooks and Python scripts,

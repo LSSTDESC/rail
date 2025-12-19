@@ -38,6 +38,10 @@ and settings of each stage, prior to execution. Pipelines can also be
 parallelized. Thus, an example use case would be running RAIL on HPC systems,
 where the configuration method and parallelization are suited for that workflow.
 
+This is an example of how RAIL stages are arranged in a RAIL pipeline.
+
+.. image:: /images/pipeline_example.png
+
 To learn how to run RAIL in an exploratory environment, visit the
 :ref:`interactive usage` page.
 

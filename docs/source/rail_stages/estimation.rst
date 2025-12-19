@@ -11,7 +11,7 @@ Estimation stages use estimators to produce per-galaxy photo-z PDFs, summarizers
 to produce redshift distributions, and classifiers to produce per-galaxy IDs for
 tomographic binning.
 
-.. flowchart
+.. image:: /images/estimation.png
 
 .. contents:: Table of Contents
    :backlinks: top

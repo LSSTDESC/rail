@@ -9,7 +9,7 @@ Evaluation is a type of RAIL stage which compares estimated photometric
 redshifts to known true values, in order to assess the performance of the
 estimation algorithm.
 
-.. flowchart
+.. image:: /images/evaluation.png
 
 .. contents:: Table of Contents
    :backlinks: top
