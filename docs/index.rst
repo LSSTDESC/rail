@@ -6,6 +6,89 @@ RAIL is a flexible open-source software library providing tools to produce at-sc
 photometric redshift data products, including uncertainties and summary statistics, and
 stress-test them under realistically complex systematics.
 
+
+.. _cards-clickable: 
+
+.. grid:: 2
+    :gutter: 3
+    :margin: 5 5 0 0
+    :padding: 0
+
+    .. grid-item-card::
+        :link: source/start_here
+        :link-type: doc 
+        :link-alt: start-here
+        :text-align: center 
+
+
+        :fas:`fa-solid fa-bullseye; fa-5x`
+
+
+        **Start Here**
+        
+        If it's your first time using RAIL, this is where to go for the basics.
+
+
+    .. grid-item-card::
+        :link: source/user_guide/what_is_rail
+        :link-type: doc
+        :link-alt: what-is-rail
+        :text-align: center
+
+        :fas:`fa-solid fa-circle-question; fa-5x`
+
+        **User guide**
+
+        The basics of how RAIL works and what you should know. 
+     
+    .. grid-item-card::
+        :link: source/user_guide/interactive_usage
+        :link-type: doc
+        :link-alt: interactive-usage
+        :text-align: center
+
+        :fas:`fa-solid fa-keyboard; fa-5x`
+
+        **Interactive Usage**
+
+        How to interactively use RAIL on your own computer 
+
+    .. grid-item-card::
+        :link: source/user_guide/pipeline_usage
+        :link-type: doc
+        :link-alt: pipeline-usage
+        :text-align: center
+
+        :fas:`fa-solid fa-gears; fa-5x`
+
+        **Pipeline Usage**
+
+        How to build RAIL pipelines for use on larger computer systems 
+
+    .. grid-item-card::
+        :link: source/interactive_notebooks/index
+        :link-type: doc
+        :link-alt: interactive-notebooks
+        :text-align: center
+
+        :fas:`fa-solid fa-book; fa-5x`
+
+        **Interactive Example Notebooks**
+
+        Example Jupyter notebooks for using RAIL in interactive mode 
+
+    .. grid-item-card::
+        :link: source/pipeline_notebooks/index
+        :link-type: doc
+        :link-alt: pipeline-notebooks
+        :text-align: center
+
+        :fas:`fa-solid fa-book-atlas; fa-5x`
+
+        **Pipeline Example Notebooks**
+
+        Example Jupyter notebooks for using RAIL in pipeline mode 
+
 RAIL serves as the infrastructure supporting many extragalactic applications of `the
 Legacy Survey of Space and Time (LSST) <https://www.lsst.org/>`_ on `the Vera C. Rubin
 Observatory <https://rubinobservatory.org/>`_, including Rubin-wide commissioning

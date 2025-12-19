@@ -69,7 +69,7 @@ sys.modules["flexcode"].loss_functions.cde_loss = MagicMock
 # -- Project information -----------------------------------------------------
 
 project = "RAIL"
-copyright = "2019-2021, LSST DESC RAIL Contributors"
+copyright = "2019-2025, LSST DESC RAIL Contributors"
 author = "LSST DESC RAIL Contributors"
 
 # The short X.Y version
@@ -105,6 +105,7 @@ extensions = [
     "sphinx.ext.autosectionlabel",
     "sphinx_tabs.tabs",
     "sphinx_click",
+    "sphinx_design",
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -197,8 +198,9 @@ html_static_path = ["_static"]
 # or fully qualified paths (eg. https://...)
 html_css_files = [
     "css/notebooks.css",
+       "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
 ]
-
+ 
 # Custom sidebar templates, must be a dictionary that maps document names
 # to template names.
 #

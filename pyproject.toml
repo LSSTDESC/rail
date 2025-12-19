@@ -62,6 +62,7 @@ docs = [
     "sphinx-autoapi>=3.6.1",    # Used to automatically generate api documentation
     "sphinx-tabs",              # Used to create tabbed content within the docs
     "sphinx-click",
+    "sphinx-design",
 ]
 
 [build-system]
