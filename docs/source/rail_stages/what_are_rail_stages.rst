@@ -53,13 +53,22 @@ To do this with RAIL, you would:
 .. TBD: links to notebooks
 For a worked example of a case like this, see...
 
-------
-Case 2
-------
+-------------------------------------
+Comparing Data Degradation Algorithms
+-------------------------------------
 
-..
-.. e.g. test how well estimation algorithms work under different degraders
+As another example, you may wish to find what kind of data is best estimated by
+a given redshift estimation algorithm. 
 
+To do this with RAIL, you would:
+
+#. Select an estimation algorithm and the evaluator stage that assesses its
+   performance.
+#. Use several different *creator* and *degrader* algorithms to determine which
+   data creation and noise / bias algorithms generate datasets *best* estimated
+   by the selected estimation algorithm.
+
+For a worked example of a case like this, see...
 
 =======================
 Methods of Running RAIL
