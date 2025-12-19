@@ -67,8 +67,6 @@ environment.
 Exploration
 -----------
 
-.. format and check content
-
 Here we will be installing the source code from `rail
 <https://github.com/LSSTDESC/rail>`_ to access all of the demonstration
 notebooks, and use that to install all of the other algorithms.
@@ -138,8 +136,6 @@ compiled libraries.
 Production
 ----------
 
-.. format and check content
-
 Here we will be installing all of the RAIL algorithms into an existing virtual
 environment "[env]". To do this we recommend that you install ``rail`` from
 source, to be sure to get the latest version of the ``conda-reqs.txt`` file.
@@ -191,8 +187,8 @@ source, to be sure to get the latest version of the ``conda-reqs.txt`` file.
 Developer Install
 =================
 
-.. link to actual content in contributing section
-
+To install RAIL for development, refer to the :ref:`developer installation
+instructions` page.
 
 =============================
 Adding your kernel to jupyter
