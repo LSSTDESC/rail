@@ -31,7 +31,7 @@ installed ``rail`` from source you can build all the documentation locally very
 easily. Note that this will also build the documentation for any and all
 installed ``rail_algorithms`` packages.
 
-You may have to install the documentation requirements in RAIL first by running 
+You may have to install the documentation requirements in RAIL first by running
 the following in the ``rail`` directory:
 
 .. code-block:: bash
@@ -42,7 +42,7 @@ To make the documentation, run the following:
 
 .. code-block:: bash
 
-    cd rail/docs 
+    cd rail/docs
     make html
 
 This will generate the documentation tree in ``rail/docs/_build/html``.
@@ -101,12 +101,15 @@ Functions to explore the RAIL environment
 .. automethod:: rail.core.RailEnv.print_rail_stage_dict
     :noindex:
 
--------------------------------------------------------
-Functions to build table of contents for sphinx autodoc
--------------------------------------------------------
+-----------------------------------------------------------
+Functions to build the API rst files read by sphinx autodoc
+-----------------------------------------------------------
 
 .. automethod:: rail.core.RailEnv.do_api_rst
     :noindex:
 
 .. automethod:: rail.core.RailEnv.do_stage_type_api_rst
+    :noindex:
+
+.. automethod:: rail.utils.interactive.apidoc_utils.write_interactive_api_rst
     :noindex:

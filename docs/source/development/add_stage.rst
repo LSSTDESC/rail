@@ -1,3 +1,5 @@
+.. _page-add-stage:
+
 ********************************
 Add a new algorithm / RAIL stage
 ********************************
@@ -101,13 +103,15 @@ almost nothing else.
            return self.get_handle('output')
 
 
+.. _term-entrypoint-function:
+
 The required pieces, in the order that they appear are:
 
 #. The ``ColumnMapper (RailStage):`` defines a class called ``ColumnMapper`` and
    specifies that it inherits from ``RailStage``.
 #. The ``name`` attribute is used for Pipeline Mode, to interface with ``ceci``, and
    must match exactly the defined name of the class (for ``rail.interactive``)
-#. The ``entrypoint_function`` line provides the name of the main function that
+#.  The ``entrypoint_function`` line provides the name of the main function that
    the user should call to use this class as a string, for use in the interactive
    module. This should be the *only* function required in order to perform this stage,
    after ``make_stage`` (inherited from ``RailStage``).

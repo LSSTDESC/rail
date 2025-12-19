@@ -2,7 +2,6 @@
 Style Guide
 ***********
 
-.. format and check content
 
 ===============
 Code formatting

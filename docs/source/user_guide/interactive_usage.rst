@@ -15,11 +15,12 @@ usage for:
 * integrating other code bases
 
 To see examples of how to use RAIL in interactive mode, visit the
-:ref:`interactive mode notebooks` page.
+:ref:`interactive mode notebooks`.
 
-To see the interactive mode API reference, visit the :ref:`page-interactive-api` page.
+To see the interactive mode API reference, visit the
+:ref:`page-interactive-api<Interactve API>`.
 
-To learn how to run RAIL in pipeline mode, visit the :ref:`pipeline usage` page.
+To learn how to run RAIL in pipeline mode, visit :ref:`pipeline usage`.
 
 .. note::
     When using the interactive module in certain code editors, tab completion may

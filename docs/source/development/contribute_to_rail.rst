@@ -123,10 +123,11 @@ conflicts.
 
 .. note::
     The addition of any ``RailStage`` subclasses, or changes to docstrings of these
-    subclasses or their entrypoint functions (see: TO BE WRITTEN SECTION ON EPFS),
-    requires a PR to be made against ``rail_base``. This is because ``rail_base``
-    contains the stub files for ``rail.interactive`` which provide docstrings and
-    hinting to users.
+    subclasses or their entrypoint functions (see the documentation on
+    :ref:`elements of a RAIL stage<term-entrypoint-function>` for  information on
+    entrypoint functions), requires a PR to be made against ``rail_base``. This is
+    because ``rail_base`` contains the stub files for ``rail.interactive`` which
+    provide docstrings and hinting to users.
 
     The changes made in this PR will be (in addition to any others needed for your
     update) the results of running the ``create_interactive_structure.py`` script
@@ -152,3 +153,16 @@ to adhere to the naming conventions, etc.
 It is also considered good practice to make suggestions for optional
 improvements, such as adding a one-line comment before a clever block of code or
 including a demonstration of new functionality in the example notebooks.
+
+
+
+Testing
+=======
+
+The RAIL project makes use of tests on both the local side (during development) and when
+new features are merged in to existing packages.
+
+Local tests can be run manually at any time with `pytest
+<https://docs.pytest.org/en/stable/>`__, but it is also recommended to use `pre-commit
+<https://pre-commit.com/>`__ to ensure that tests (as well as linting and formatting)
+are done automatically, on every commit.

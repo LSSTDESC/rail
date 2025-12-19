@@ -72,8 +72,8 @@ Interactive Mode
 RAIL stages can be run interactively, such as in a Jupyter notebook. This is done via
 specific function calls.
 
-To learn about the available functions, visit the :ref:`page-interactive-api<Interactive
-API>`.
+To learn about the available functions, visit the :ref:`Interactive
+API<page-interactive-api>`.
 
 To see examples of using stages interactively, visit the :ref:`interactive mode
 notebooks`.
@@ -112,7 +112,7 @@ Running a rail stage
 .. automethod:: rail.core.RailStage.run
     :noindex:
 
-.. 
+..
 Note that subclasses of ``RailStage`` each implement a method that wraps
 :py:func:`rail.core.RailStage.run`, taking input data and properly attaching it
 to the stage, and wrapping the output data produced by the stage.
