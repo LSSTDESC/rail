@@ -20,22 +20,16 @@ with their own constraints and cases. RAIL provides a framework to test these
 estimation algorithms on real or sample data, as well as evaluate their
 accuracy.
 
-====
-RAIL
-====
+============
+How it works
+============
 
-RAIL (Redshift Assessment Infrastructure Layers) is a flexible open-source software 
-library built around photometric redshift PDFs. Its two primary functions are: 
+The goals achieved by running RAIL are:
 
-1. Production of photo-z data products at-scale for LSST
-2. Stress-testing of multiple photo-z estimation approaches
+1. Producing photo-z data products at-scale for LSST
+2. Stress-testing multiple photo-z estimation approaches
 
-By providing both functionalities in the same package, the exact same estimation 
-procedure validated through controlled experimentation may be easily applied to 
-real data. A number of these photo-z estimation procedures (or algorithms) are 
-made available within RAIL as sub-packages. 
-
-There are three main steps, or stages, that are used within RAIL to provide the 
+There are three main steps, or stages, that are used within RAIL to provide the
 above functionalities. These are:
 
 +-------------------+-----------------------------------------------------------------------------------------+
@@ -51,15 +45,16 @@ above functionalities. These are:
 |                   | assess the performance of the estimation algorithm                                      |
 +-------------------+-----------------------------------------------------------------------------------------+
 
-For a more in-depth explanation of what these stages are and how they work, 
-take a look at :ref:`What are RAIL stages?`. To get started with using RAIL 
-interactively in Jupyter notebooks and Python scripts, take a look at 
-:ref:`Interactive usage`. For use on large datasets in parallel, particularly 
-for use on HPC, take a look at :ref:`Pipeline Usage`. 
+* For a more in-depth explanation of what these stages are and how they work, take a
+  look at :ref:`What are RAIL stages?`
+* To get started with using RAIL interactively in Jupyter notebooks and Python scripts,
+  take a look at :ref:`Interactive usage`.
+* For use on large datasets in parallel, particularly for use on HPC systems, take a
+  look at :ref:`Pipeline Usage`.
 
 .. do we explain pipelines vs interactive usage quickly here as well?
 
-.. at the moment everything below this can be moved to other locations 
+.. at the moment everything below this can be moved to other locations
 
 ------------------------------------
 Introduction to stages and pipelines
@@ -160,7 +155,7 @@ form of degradation of the data, and more complex models are built by chaining
 degraders together. While the real Universe is usually not so compartmentalized
 in how systematic uncertainties arise, realistically complex effects should
 still be testable when a series of chained degraders are applied. RAIL has
-several degraders currently included: a (point-source-based) :ref:`LSST Error Model`, 
+several degraders currently included: a (point-source-based) :ref:`LSST Error Model`,
 spectroscopic redshift :ref:`LineConfusion` misassignment, a simple
 redshift-based incompleteness, and generic :ref:`QuantityCut` degrader that lets the
 user cut on any single quantity.

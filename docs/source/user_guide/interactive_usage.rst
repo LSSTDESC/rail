@@ -22,32 +22,24 @@ To see the interactive mode API reference, visit the :ref:`page-interactive-api`
 To learn how to run RAIL in pipeline mode, visit the :ref:`pipeline usage` page.
 
 .. note::
-    When using the interactive module, tab completion may suggest that functions and
-    submodules are present which cannot actually be used. This is due to the inclusion
-    of documentation for *all* RAIL packages within the RAIL base package. If you
-    encounter a function which you would like to run, but find yourself unable, use the
-    information in the docstring to identify which RAIL package defines the related
-    RailStage, and install it.
+    When using the interactive module in certain code editors, tab completion may
+    suggest that functions and submodules are present which cannot actually be used.
 
-===============
-RAIL Namespaces
-===============
+    If you encounter a function which you would like to run, but find yourself unable,
+    use the information in the docstring to identify which RAIL package defines the
+    related RailStage, and install it.
 
-The interactive module mirrors the same import structure as Pipeline Mode RAIL, but with
-'interactive' inserted into the path. Thus a RailStage typically imported from
-``rail.estimation.algos.random_gauss`` will have an interactive function defined in
-``rail.interactive.estimation.algos.random_gauss``.
+============================
+Finding your way around RAIL
+============================
 
-.. namespace explanation in a table, copy and paste in different places
+The below table shows the large-scale structure of the RAIL package.
 
-A RAIL namespace is a subpackage of the RAIL package, used to organize objects
-and algorithms. A namespace package's modules and content belong to the same
-section of functionality, and serve the same purpose. For example, the
-``estimation.algos`` namespace contains modules of different estimation
-algorithms. The following namespaces are in RAIL.
+These hierarchical namespaces used to organize objects and algorithms. A namespace
+package's modules and content belong to the same section of functionality, and serve the
+same purpose. For example, the ``estimation.algos`` namespace contains modules of
+different estimation algorithms.
 
-.. table
-.. TODO: rail_calib package
 
 +-----------------------+----------------------------------------------------------------+
 | Namespace             | Description                                                    |
@@ -79,7 +71,11 @@ algorithms. The following namespaces are in RAIL.
 | cli                   | utility functions for the command line                         |
 +-----------------------+----------------------------------------------------------------+
 
-For the API documentation, refer to the :ref:`namespaces` page.
+
+The interactive module mirrors the same import structure as Pipeline Mode RAIL, but with
+'interactive' inserted into the path. Thus a RailStage typically imported from
+``rail.estimation.algos.random_gauss`` will have an interactive function defined in
+``rail.interactive.estimation.algos.random_gauss``.
 
 ========
 Cookbook

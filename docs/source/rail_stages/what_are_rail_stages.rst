@@ -29,9 +29,9 @@ Examples
 Here we link the RAIL stages as listed above, with how they can be used to answer
 specific scientific questions.
 
-------
-Case 1
-------
+-----------------------------
+Comparing Redshift Algorithms
+-----------------------------
 
 As one example, you may wish to examine which method of calculating photometric
 redshifts is most appropriate for your dataset and final use case.
@@ -91,6 +91,7 @@ output to specified locations. While the ``RailStage`` class provides mechanism 
 all of these things, sub-classes must implement the actual computational work of the
 stage.
 
+Below we give the API documentation for a few key elements of a ``RailStage``.
 
 ^^^^^^^^^^^^^^^^
 RailStage basics
@@ -106,7 +107,7 @@ Running a rail stage
 .. automethod:: rail.core.RailStage.run
     :noindex:
 
-
+.. 
 Note that subclasses of ``RailStage`` each implement a method that wraps
 :py:func:`rail.core.RailStage.run`, taking input data and properly attaching it
 to the stage, and wrapping the output data produced by the stage.
