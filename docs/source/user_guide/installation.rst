@@ -63,6 +63,8 @@ environment.
     ``conda install mamba -n base -c conda-forge``. The `mamba documentation is
     here <https://mamba.readthedocs.io/>`_.
 
+    .. this is NO LONGER the recommended way to install mamba, nor has it been for a while (added 2025)
+
 -----------
 Exploration
 -----------

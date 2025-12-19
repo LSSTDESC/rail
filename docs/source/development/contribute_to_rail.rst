@@ -49,7 +49,7 @@ and/or making a new one.
 Similar to the installation process, depending on how you want to contribute to
 RAIL, you will be contributing to one or more of the RAIL packages.
 
-In all cases, begin by following the :ref:`developer installation instructions <Developer Installation>` 
+In all cases, begin by following the :ref:`developer installation instructions <Developer Installation>`
 and follow the contribution workflow instructions below.
 
 
@@ -111,14 +111,27 @@ Once the changes in your PR have been approved, these are your next steps:
 
 If you are making changes that affect multiple repositories, make a branch and
 PR on each one.  The PRs should be merged and new releases made in the following
-order without long delays between steps: 
+order without long delays between steps:
 
-1. ``rail_base`` 
-2. all per-algorithm repositories in any order 
-3. ``rail`` 
-4. ``rail_pipelines`` 
+1. ``rail_base``
+2. all per-algorithm repositories in any order
+3. ``rail``
+4. ``rail_pipelines``
 
-This will minimize the time when new installations from PyPI could be broken by conflicts.
+This will minimize the time when new installations from PyPI could be broken by
+conflicts.
+
+.. note::
+    The addition of any ``RailStage`` subclasses, or changes to docstrings of these
+    subclasses or their entrypoint functions (see: TO BE WRITTEN SECTION ON EPFS),
+    requires a PR to be made against ``rail_base``. This is because ``rail_base``
+    contains the stub files for ``rail.interactive`` which provide docstrings and
+    hinting to users.
+
+    The changes made in this PR will be (in addition to any others needed for your
+    update) the results of running the ``create_interactive_structure.py`` script
+    present in ``rail_base``. This script updates the stub files and thus docstrings
+    available to users of the interactive module.
 
 
 Reviewing a PR
