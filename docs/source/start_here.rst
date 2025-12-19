@@ -21,20 +21,17 @@ How do I install RAIL quickly?
 
 .. direct to Docker container, point to installation page
 
-There are two methods of installing RAIL quickly. 
+There are two methods of installing RAIL quickly.
 
 The first method is via the easy install script, which can be found in `the
 releases page of the RAIL setup repository
-<https://github.com/LSSTDESC/rail_setup/releases>`_. Download the assets, and
-move them into a working directory. Then, navigate into that directory and run
-the python script to install.
+<https://github.com/LSSTDESC/rail_setup/releases>`_. Download and run the Python script,
+which will do an interactive question-based installation.
 
 .. code-block:: bash
 
-    mkdir [dir]
-    mv install_rail.py conda-linux-64.lock conda-osx-arm64.lock [dir]
-    cd [dir]
-    python install_rail.py --verbose
+    wget https://github.com/sidratresearch/rail_setup/releases/latest/download/install_rail.py
+    python install_rail.py
 
 Follow the prompts for installation. This script installs RAIL in a conda
 environment ``[env]`` (the name you enter when prompted), which is activated via
@@ -44,9 +41,10 @@ environment ``[env]`` (the name you enter when prompted), which is activated via
     conda activate [env]
 
 The second method is via running within a Docker container with RAIL installed.
-The RAIL image can be found in `the packages page of the LSSTDESC organization
-<https://github.com/orgs/LSSTDESC/packages>`_. Pull the image, then build and
-run your container.
+The RAIL image can be found on the `LSSTDESC packages page
+<https://github.com/LSSTDESC/rail_setup/pkgs/container/desc-rail>`_.
+Pull the image, then build and run your container.
+
 
 For more detailed instructions, visit the :ref:`installation` page.
 
