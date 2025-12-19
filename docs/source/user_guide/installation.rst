@@ -6,13 +6,25 @@ Installation
 Easy Install
 ============
 
-.. python script
+For a basic user installation, we provide the RAIL setup script. This script can be
+downloaded from the `RAIL
+Setup <https://github.com/lsstdesc/rail_setup/releases/latest>`_ repository.
+
+This script will create a new virtual environment on your machine, and install the
+mininum set of required packages to use RAIL, along with any additional RAIL packages
+you specify.
+
+Note that even with this script, some RAIL algorithm packages may require additional
+setup steps. See the :ref:`section-installation-troubleshooting` section for more details.
 
 ================
 Docker Container
 ================
 
-.. 
+If you wish to run RAIL in a containerized environment, we provide a Docker image in the
+`LSSTDESC Container Repository <https://github.com/orgs/LSSTDESC/packages>`_. This Docker
+image provides a pre-activated Mamba (Conda) environment with all RAIL packages
+pre-installed, along with some other useful software such as Jupyter.
 
 ==============
 Manual Install
@@ -58,7 +70,7 @@ Exploration
 
 Here we will be installing the source code from `rail
 <https://github.com/LSSTDESC/rail>`_ to access all of the demonstration
-notebooks, and use that to install all of the other algorithms. 
+notebooks, and use that to install all of the other algorithms.
 
 We have included an ``environment.yml`` that makes it easy to create a virtual
 environment named "[env]" that uses conda to install some packages that have
@@ -194,9 +206,10 @@ activated. From your environment, execute the command: ``python -m ipykernel ins
 depending on your permissions). When you next start up Jupyter you should see a kernel
 with your new name as an option, including using the Jupyter interface at NERSC.
 
+.. _section-installation-troubleshooting:
 
 =========================================================
-Troubleshooting: Algorithm / architecture specific issues
+Troubleshooting: Algorithm / Architecture Specific Issues
 =========================================================
 
 Before installing a specific algorithm, please make sure to first install pz-rail-base
@@ -205,6 +218,24 @@ via
 .. code-block:: bash
 
     pip install pz-rail-base
+
+
+Installing bpz_lite
+-------------------
+
+For bpz_lite, you should be able to just do
+
+.. code-block:: bash
+
+    pip install pz-rail-bpz
+
+But if you run into problems you might need to:
+
+- cd to a directory where you wish to clone the DESC_BPZ package and run ``git clone
+  https://github.com/LSSTDESC/DESC_BPZ.git``
+- cd to the DESC_BPZ directory and run ``python setup.py install`` (add ``--user`` if
+  you are on a shared system such as NERSC)
+- try ``pip install pz-rail-bpz`` again.
 
 
 Installing Delight
@@ -259,24 +290,16 @@ But if you run into problems you might need to:
 - install ``xgboost`` with the command ``pip install xgboost==0.90.0``
 - install FlexCode with ``pip install FlexCode[all]``
 
+Installing fsps
+---------------
 
-Installing bpz_lite
--------------------
+The fsps package available on PyPI does not include the Fortran-based libraries that are
+actually needed. After you install `pz-rail-fsps`, upon running any fsps-based
+algorithms for the first time, you will see a message indicating the specific
+instructions for properly setting up fsps.
 
-For bpz_lite, you should be able to just do
-
-.. code-block:: bash
-
-    pip install pz-rail-bpz
-
-But if you run into problems you might need to:
-
-- cd to a directory where you wish to clone the DESC_BPZ package and run ``git clone
-  https://github.com/LSSTDESC/DESC_BPZ.git``
-- cd to the DESC_BPZ directory and run ``python setup.py install`` (add ``--user`` if
-  you are on a shared system such as NERSC)
-- try ``pip install pz-rail-bpz`` again.
-
+The cause of this is the use of Git submodules in the `python-fsps` package, which are
+not handled by `pip`.
 
 Using GPU-optimization for pzflow
 ---------------------------------
