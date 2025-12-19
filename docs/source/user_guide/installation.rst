@@ -10,6 +10,21 @@ For a basic user installation, we provide the RAIL setup script. This script can
 downloaded from the `RAIL
 Setup <https://github.com/lsstdesc/rail_setup/releases/latest>`_ repository.
 
+Run the following: 
+
+.. code-block:: bash
+
+    wget https://github.com/LSSTDESC/rail_setup/releases/latest/download/install_rail.py
+    python install_rail.py
+
+Follow the prompts for installation. This script installs RAIL in a conda
+environment ``[env]`` (the name you enter when prompted), which is activated via
+
+.. code-block:: bash
+
+    conda activate [env]
+
+
 This script will create a new virtual environment on your machine, and install the
 mininum set of required packages to use RAIL, along with any additional RAIL packages
 you specify.
@@ -26,6 +41,13 @@ If you wish to run RAIL in a containerized environment, we provide a `Docker ima
 Container Repository. This Docker image provides a pre-activated Mamba (Conda)
 environment with all RAIL packages pre-installed, along with some other useful software
 such as Jupyter.
+
+To pull the Docker image, run the following:
+
+.. code-block:: bash 
+
+    docker pull ghcr.io/lsstdesc/desc-rail:latest
+
 
 ==============
 Manual Install
