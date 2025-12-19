@@ -17,3 +17,6 @@ These notebooks do not make sense in the interactive context, and so are omitted
   - 04_Plotting_interface_skysim_cosmoDC2_COSMOS2020.ipynb
 - estimation_examples/
   - 03_BPZ_lite_Custom_SEDs.ipynb - very complicated with lots of external data
+  - 08_NZDir_pipeline.ipynb
+  - 10_YAW.ipynb - due to ongoing issues with YAW missing from interactive
+  - 12_SomocluSOM_Quality_Control.ipynb - same as 03
