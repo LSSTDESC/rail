@@ -66,11 +66,13 @@ the issues in any of the RAIL repositories described in the Overview section.
 
    source/pipeline_notebooks/index
 
+
 .. toctree::
    :hidden:
    :maxdepth: 5
-   :caption: API
+   :caption: API Documentation
 
+   api_interactive
    api
 
 .. toctree::
