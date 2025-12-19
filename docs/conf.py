@@ -137,6 +137,7 @@ exclude_patterns = [
     "source/index_body.rst",
     "api/rail.rst",
     "source/interactive_api_content",  # these are built into the api docs by custom modules
+    "source/_legacy",  # previous documentation versions
 ]
 
 # The name of the Pygments (syntax highlighting) style to use.
