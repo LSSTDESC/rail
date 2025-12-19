@@ -4,87 +4,92 @@
 What Are RAIL Stages?
 *********************
 
-.. introduction
 .. flowchart: stages to other stages
 
-A RAIL stage is a configurable process that performs a single operation in a
-reproducible way. Stages have defined inputs, outputs, and stage-specific
-configuration parameters. They can be parallelized across processors or computing
-nodes.
-
-========
-Examples
-========
-
-.. provide example use cases
-
-------------------
-Example Use Case 1
-------------------
-
-.. e.g. test how well estimation algorithms work under different degraders
-
-------------------
-Example Use Case 2
-------------------
-
-.. 
-
----------
-Notebooks
----------
-
-.. link to notebooks
+A RAIL stage is a single algorithm that can be run in a reproducible way. Each stage has
+a specific goal, but can be configured through the use of paremeters.  They are the
+basic building blocks of a larger pipeline and can be parallelized across processors or
+computing nodes.
 
 ===============
 Types of Stages
 ===============
 
-.. list each stage, i.e. creation, estimation, evaluation, explain each is known as a RAIL stage
-.. include tool "stages"
-
-There are three main types of stages in RAIL. For further reading, visit their
-pages by clicking on their respective links.
+There are three main types of stages in RAIL:
 
 #. :ref:`Creation <creation>`: create sample photometric data
 #. :ref:`Estimation <estimation>`: estimate photometric redshift from any input data
 #. :ref:`Evaluation <evaluation>`: evaluate the performance of estimations against known true values
 #. :ref:`Tools <tools>`: "pseudo-stage" providing utilities and tools for running stages
 
+========
+Examples
+========
+
+Here we link the RAIL stages as listed above, with how they can be used to answer
+specific scientific questions.
+
+------
+Case 1
+------
+
+As one example, you may wish to examine which method of calculating photometric
+redshifts is most appropriate for your dataset and final use case.
+
+To do this with RAIL, you would:
+
+#. Gather the data (either from an external source, or by generating it with RAIL)
+#. Use several different *estimation* algorithms (stages available under the
+   ``rail.estimation.algos`` namespace), to estimate photometric redshift values for the
+   galaxies.
+#. *Evaluate* the photometric redshift values, either by your own methods, or by using
+   the *evaluators* and available *metrics* from the ``rail.evaluation`` namepace.
+
+.. TBD: links to notebooks
+For a worked example of a case like this, see...
+
+------
+Case 2
+------
+
+..
+.. e.g. test how well estimation algorithms work under different degraders
+
+
+=======================
+Methods of Running RAIL
+=======================
+
 ----------------
 Interactive Mode
 ----------------
 
-.. link to interactive mode API
+RAIL stages can be run interactively, such as in a Jupyter notebook. This is done via
+specific function calls.
 
-RAIL stages can be run interactively, such as in a Jupyter notebook. This is
-done via specific command calls. 
+To learn about the available functions, visit the :ref:`page-interactive-api<Interactive
+API>`.
 
-To learn about the commands, visit the :ref:`interactive-api`.
-
-To see more examples of using stages interactively, visit the
-:ref:`interactive mode notebooks`.
+To see examples of using stages interactively, visit the :ref:`interactive mode
+notebooks`.
 
 -------------
 Pipeline Mode
 -------------
 
-.. format and check
-
-:py:class:`rail.core.RailStage` is the main user facing class.  It serves as the
-base class for all the classes that implement parts of an analysis, and sets of
-``RailStage`` can be combined into a :py:class:`rail.core.RailPipeline` to perform
-a complete analysis.
+:py:class:`rail.core.RailStage` is the main class.  It serves as the base class for all
+the classes that implement parts of an analysis, and sets of ``RailStage`` can be
+combined into a :py:class:`rail.core.RailPipeline` to perform a complete analysis.
 
 In short, any ``RailStage`` does a single operation in a reproducible way. It can
 be thought of as a way to wrap a single function so as to make it both
 configurable and reproducible.
 
-This presents a few constraints and limitations, basically, the ``RailStage``
-needs use a save configuration to set any parameters it uses, and it needs to
-get input from specified locations and write to a specified location.
-``RailStage``` provides mechanism to do all of these things, sub-classes must
-implement the actually work of the stage.
+This presents a few constraints and limitations: the ``RailStage`` needs to save the
+configuration of any parameters it uses, and it needs to get input from as well as write
+output to specified locations. While the ``RailStage`` class provides mechanism to do
+all of these things, sub-classes must implement the actual computational work of the
+stage.
 
 
 ^^^^^^^^^^^^^^^^
