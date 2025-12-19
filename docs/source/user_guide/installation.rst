@@ -21,10 +21,11 @@ setup steps. See the :ref:`section-installation-troubleshooting` section for mor
 Docker Container
 ================
 
-If you wish to run RAIL in a containerized environment, we provide a Docker image in the
-`LSSTDESC Container Repository <https://github.com/orgs/LSSTDESC/packages>`_. This Docker
-image provides a pre-activated Mamba (Conda) environment with all RAIL packages
-pre-installed, along with some other useful software such as Jupyter.
+If you wish to run RAIL in a containerized environment, we provide a `Docker image
+<https://github.com/LSSTDESC/rail_setup/pkgs/container/desc-rail>`_ in the LSSTDESC
+Container Repository. This Docker image provides a pre-activated Mamba (Conda)
+environment with all RAIL packages pre-installed, along with some other useful software
+such as Jupyter.
 
 ==============
 Manual Install
