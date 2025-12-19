@@ -17,9 +17,9 @@ tomographic binning.
    :backlinks: top
    :local:
 
-=====================
+==========
 Estimators 
-=====================
+==========
 
 `rail.estimation` encompasses all methods that derive redshift information from
 photometry, as either an estimate of per-galaxy photo-z PDFs, a summary of the
@@ -304,7 +304,6 @@ Gaussian PDF, which is scaled by (1+z) to increase with redshift, since the
 uncertainty in wavelength, which directly translates to photo-z uncertainty,
 scales with (1+z).
 
-
 .. autoclass:: rail.estimation.algos.sklearn_neurnet.SklNeurNetInformer
     :noindex:
 
@@ -371,9 +370,9 @@ Benchmark Algorithm.
 .. autoclass:: rail.estimation.algos.train_z.TrainZEstimator
     :noindex:
 
-======================
+===========
 Summarizers 
-======================
+===========
 
 The summarizers summarize the redshift distribution of an ensemble, whether
 based on photo-z or on other dataset such as spectroscopic redshift, or both.
@@ -425,9 +424,9 @@ Useful function for the SOMoclu (see SOM tutorial for example):
 .. automethod:: rail.estimation.algos.somoclu_som.plot_som
     :noindex:
 
------------------
+----------------
 Yet Another Wizz
------------------
+----------------
 
 RAIL Package: https://github.com/LSSTDESC/rail_yaw
 
@@ -509,9 +508,9 @@ Use the point estimate histogram as n(z), baseline method.
 .. autoclass:: rail.estimation.algos.point_est_hist.PointEstHistMaskedSummarizer
     :noindex:
 
-======================
+===========
 Classifiers 
-======================
+===========
 
 Classifiers assign classes to catalog-like tables. Classifier uses a generic
 “model”, the details of which depends on the sub-class. The model inputs either
@@ -529,17 +528,6 @@ Assign tomographic bins based on a point estimate according to SRD.
 .. autoclass:: rail.estimation.algos.equal_count.EqualCountClassifier
     :noindex:
 
--------------
-Random Forest
--------------
-
-RAIL Package: https://github.com/LSSTDESC/rail_sklearn
-
-Assign tomographic bins based on the random forest method.
-
-.. autoclass:: rail.estimation.algos.random_forest.RandomForestClassifier
-    :noindex:
-
 ---------------
 Uniform Binning
 ---------------
@@ -549,4 +537,15 @@ RAIL Package: https://github.com/LSSTDESC/rail_base
 Assign tomographic bins based on a point estimate according to SRD.
 
 .. autoclass:: rail.estimation.algos.uniform_binning.UniformBinningClassifier
+    :noindex:
+    
+-------------
+Random Forest
+-------------
+
+RAIL Package: https://github.com/LSSTDESC/rail_sklearn
+
+Assign tomographic bins based on the random forest method.
+
+.. autoclass:: rail.estimation.algos.random_forest.RandomForestClassifier
     :noindex:

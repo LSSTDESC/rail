@@ -22,9 +22,9 @@ Evaluators
 Evaluators evaluate the performance of a photo-z estimator against reference
 point estimate.
 
-------------
-Dist to Dist
-------------
+----------------------------
+Distribution to Distribution
+----------------------------
 
 RAIL Package: https://github.com/LSSTDESC/rail_base
 
@@ -33,9 +33,9 @@ Evaluate the performance of a photo-z estimator against reference PDFs.
 .. autoclass:: rail.evaluation.dist_to_dist_evaluator.DistToDistEvaluator
     :noindex:
     
--------------
-Dist to Point
--------------
+---------------------
+Distribution to Point
+---------------------
 
 RAIL Package: https://github.com/LSSTDESC/rail_base
 

@@ -15,9 +15,9 @@ use creators to generate data, and degraders to add noise.
    :backlinks: top
    :local:
 
-==================
+========
 Creators
-==================
+========
 
 .. format and check
 
@@ -95,7 +95,6 @@ filters should be within the SED observed-frame wavelength ranges. A default set
 of filters is implemented in :py:`rail.fsps`, containing the Rubin LSST filters
 among others.
 
-
 .. autoclass:: rail.fsps.FSPSSedModeler
     :noindex:
 
@@ -168,9 +167,9 @@ estimation.
 .. autoclass:: rail.pzflow.FlowPosterior
     :noindex:
 
-====================
+=========
 Degraders 
-====================
+=========
 
 .. format and check
 
@@ -186,12 +185,6 @@ precursor data sets. Specifically, the noisifier superclass imposes
 realistically complex noise and bias to the (𝑧, photometry) columns, and the
 selector superclass introduces biased selection on the sample to mimic, e.g., an
 incomplete spectroscopic training sample.
-
-.. =============
-.. Degraders API
-.. =============
-
-.. format and check
 
 ----------------
 LSST Error Model
@@ -294,7 +287,6 @@ shorter than the true wavelength).
 .. autoclass:: rail.astro_tools.InvRedshiftIncompleteness
    :noindex:
 
-
 -----------
 QuantityCut
 -----------
@@ -367,7 +359,6 @@ success ratio grids appropriate for other surveys.
 SOMSpecSelector
 ---------------
 
-
 While ``GridSelection`` defines a selection mask in two dimensions, ``SOMSpecSelector``
 can take any number of input features with which to define a spectroscopic selection.
 This selector takes an initial complete sample (which we will call the input sample) and
@@ -383,15 +374,12 @@ cell has more specz objects than are available in the input catalog, then it ret
 that are available. By matching the number of objects cell by cell the selector
 naturally mimics the features of the specz sample.
 
-
 .. autoclass:: rail.creation.degraders.specz_som.SOMSpecSelector
    :noindex:
-
 
 -----------------
 Blending Degrader
 -----------------
-
 
 This degrader creates mock unrecognized blends based on source density. Unrecognized
 blends are sources overlapping too closely in projection and are detected as one object
@@ -441,7 +429,6 @@ While preliminary studies have addressed some aspects of blending on photo-z  (e
 Nourbakhsh et al. 2022), a thorough quantitative exploration of this topic will be
 important to develop a deeper understanding of the issue and its impacts on various
 science cases.
-
 
 .. autoclass:: rail.creation.degraders.unrec_bl_model.UnrecBlModel
    :noindex:

@@ -18,77 +18,101 @@ on photometry, catalogs, and more.
 Tools API
 =========
 
-.. template 
-
-------
-Single
-------
-
-RAIL Package: https://github.com/LSSTDESC/rail_base
-
-.. autoclass:: rail.evaluation.single_evaluator.SingleEvaluator
-    :noindex:
-
-
-------------
-ColumnMapper
-------------
+-------------
+Column Mapper
+-------------
 
 RAIL Package: https://github.com/LSSTDESC/rail_base
 
 .. autoclass:: rail.tools.table_tools.ColumnMapper
     :noindex:
 
------------
-RowSelector
------------
+------------
+Row Selector
+------------
 
 RAIL Package: https://github.com/LSSTDESC/rail_base
 
 .. autoclass:: rail.tools.table_tools.RowSelector
     :noindex:
 
-------------
-TableConverter
-------------
+---------------
+Table Converter
+---------------
 
 RAIL Package: https://github.com/LSSTDESC/rail_base
 
 .. autoclass:: rail.tools.table_tools.TableConverter
     :noindex:
 
-------------
+--------
+Reddener
+--------
 
-------------
+RAIL Package: https://github.com/LSSTDESC/rail_astro_tools
 
-RAIL Package: https://github.com/LSSTDESC/rail_base
-
-.. autoclass:: rail.tools.table_tools.ColumnMapper
+.. autoclass:: rail.tools.photometry_tools.Reddener
     :noindex:
 
-------------
+----------
+Dereddener
+----------
 
-------------
+RAIL Package: https://github.com/LSSTDESC/rail_astro_tools
 
-RAIL Package: https://github.com/LSSTDESC/rail_base
-
-.. autoclass:: rail.tools.table_tools.ColumnMapper
+.. autoclass:: rail.tools.photometry_tools.Dereddener
     :noindex:
 
-------------
+-------------
+Dust Map Base
+-------------
 
-------------
+RAIL Package: https://github.com/LSSTDESC/rail_astro_tools
 
-RAIL Package: https://github.com/LSSTDESC/rail_base
-
-.. autoclass:: rail.tools.table_tools.ColumnMapper
+.. autoclass:: rail.tools.photometry_tools.DustMapBase
     :noindex:
 
-------------
+---------------------
+Hyperbolic Magnitudes
+---------------------
 
-------------
+RAIL Package: https://github.com/LSSTDESC/rail_astro_tools
 
-RAIL Package: https://github.com/LSSTDESC/rail_base
+.. autoclass:: rail.tools.photometry_tools.HyperbolicMagnitudes
+    :noindex:
 
-.. autoclass:: rail.tools.table_tools.ColumnMapper
+--------------------
+Hyperbolic Smoothing
+--------------------
+
+RAIL Package: https://github.com/LSSTDESC/rail_astro_tools
+
+.. autoclass:: rail.tools.photometry_tools.HyperbolicSmoothing
+    :noindex:
+
+--------------------------------
+LSST Flux To Magnitude Converter
+--------------------------------
+
+RAIL Package: https://github.com/LSSTDESC/rail_astro_tools
+
+.. autoclass:: rail.tools.photometry_tools.LSSTFluxToMagConverter
+    :noindex:
+
+----------------------
+Photometry Manipulator
+----------------------
+
+RAIL Package: https://github.com/LSSTDESC/rail_astro_tools
+
+.. autoclass:: rail.tools.photometry_tools.PhotometryManipulator
+    :noindex:
+
+-----------
+Flow Handle
+-----------
+
+RAIL Package: https://github.com/LSSTDESC/rail_pzflow
+
+.. autoclass:: rail.tools.flow_handle.FlowHandle
     :noindex:
