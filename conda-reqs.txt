@@ -10,3 +10,4 @@ hdf5=*=*mpi_openmpi*
 jax
 jaxlib
 somoclu
+fitsio
