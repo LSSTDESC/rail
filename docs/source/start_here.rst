@@ -52,7 +52,9 @@ For more detailed instructions, visit the :ref:`installation` page.
 I've installed, now what?
 =========================
 
-.. highlight two examples
+Take a look at some of the examples to play with in the :ref:`interactive-notebooks`, 
+including how to estimate the photometric redshift of a galaxy with known photometry 
+across multiple photo-z codes.
 
 =============================================
 I want to learn more, where should I go next?
