@@ -17,13 +17,26 @@ usage for:
 To see examples of how to use RAIL in interactive mode, visit the
 :ref:`interactive mode notebooks` page.
 
-To see the interactive mode API reference, visit the :ref:`interactive api` page.
+To see the interactive mode API reference, visit the :ref:`page-interactive-api` page.
 
 To learn how to run RAIL in pipeline mode, visit the :ref:`pipeline usage` page.
+
+.. note::
+    When using the interactive module, tab completion may suggest that functions and
+    submodules are present which cannot actually be used. This is due to the inclusion
+    of documentation for *all* RAIL packages within the RAIL base package. If you
+    encounter a function which you would like to run, but find yourself unable, use the
+    information in the docstring to identify which RAIL package defines the related
+    RailStage, and install it.
 
 ===============
 RAIL Namespaces
 ===============
+
+The interactive module mirrors the same import structure as Pipeline Mode RAIL, but with
+'interactive' inserted into the path. Thus a RailStage typically imported from
+``rail.estimation.algos.random_gauss`` will have an interactive function defined in
+``rail.interactive.estimation.algos.random_gauss``.
 
 .. namespace explanation in a table, copy and paste in different places
 
