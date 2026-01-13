@@ -29,6 +29,7 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y libbz2-dev build-essential
         python -m pip install "numpy<2" cython wheel
+        python -m pip install --upgrade --no-binary=mpi4py mpi4py
         python -m pip install --no-build-isolation somoclu
         python -m pip install --upgrade pip
         pip install wheel numpy
