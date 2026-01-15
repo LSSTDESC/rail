@@ -24,10 +24,20 @@ jobs:
       uses: actions/setup-python@v4
       with:
         python-version: ${{ matrix.python-version }}
-    - name: Install dependencies
+    - name: System deps (MPI + build)
       run: |
         sudo apt-get update
-        sudo apt install libbz2-dev
+        sudo apt-get install -y --no-install-recommends \
+        build-essential libbz2-dev \
+        openmpi-bin libopenmpi-dev
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip setuptools wheel
+        # sudo apt-get update
+        # sudo apt-get install -y libbz2-dev build-essential
+        python -m pip install "numpy<2" cython
+        python -m pip install --upgrade --no-binary=mpi4py mpi4py
+        python -m pip install --no-build-isolation somoclu
         python -m pip install --upgrade pip
         pip install wheel numpy
         pip install .[dev]
@@ -42,7 +52,7 @@ jobs:
         echo "SPS_HOME=/opt/hostedtoolcache/Python/fsps" >> $GITHUB_ENV
     - name: Run notebooks
       run: |
-        rail render-nb --skip examples/creation_examples/07_DSPS_SED.ipynb  --skip examples/creation_examples/04_Plotting_interface_skysim_cosmoDC2_COSMOS2020.ipynb examples/${{ matrix.notebook-dir }}_examples/*.ipynb
+        rail render-nb --skip examples/core_examples/00_Useful_Utilities.ipynb --skip examples/core_examples/05_Build_Save_Load_Run_Pipeline.ipynb --skip examples/creation_examples/10_SOM_Spectroscopic_Selector.ipynb --skip examples/creation_examples/07_DSPS_SED.ipynb  --skip examples/creation_examples/04_Plotting_interface_skysim_cosmoDC2_COSMOS2020.ipynb examples/${{ matrix.notebook-dir }}_examples/*.ipynb  --skip examples/estimation_examples/11_SomocluSOM.ipynb --skip examples/estimation_examples/12_SomocluSOM_Quality_Control.ipynb
     - name: Send status to Slack app (RAIL CI Reporter)
       if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
       id: slack
