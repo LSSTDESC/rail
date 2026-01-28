@@ -1,0 +1,266 @@
+*************
+What is RAIL?
+*************
+
+==========
+Background
+==========
+
+.. paragraph that describes what photometric redshifts are within the context of RAIL
+.. NOTE incomplete, add other aspects redshift relevant to RAIL
+
+Photometric redshift (photo-:math:`z`) is a measure of the redshift of
+astronomical objects. It uses photometry - the brightness of these objects
+through different passband filters - to estimate redshift, using various
+algorithms. Comparing to spectroscopic redshift, which matches source and rest
+spectra to determine redshift, photometric redshift is able to provide estimates
+for entire surveys of galaxies at a time, all while using less precise input
+information. There are many methods of photometric redshift estimation, each
+with their own constraints and cases. RAIL provides a framework to test these
+estimation algorithms on real or sample data, as well as evaluate their
+accuracy.
+
+============
+How it works
+============
+
+The goals achieved by running RAIL are:
+
+1. Producing photo-z data products at-scale for LSST
+2. Stress-testing multiple photo-z estimation approaches
+
+There are three main steps, or stages, that are used within RAIL to provide the
+above functionalities. These are:
+
++-------------------+-----------------------------------------------------------------------------------------+
+| Stage             | Description                                                                             |
++===================+=========================================================================================+
+| :ref:`creation`   | generating photometric catalogs of galaxies and modifying them to add noise and biases, |
+|                   | which can be skipped if you already have real data                                      |
++-------------------+-----------------------------------------------------------------------------------------+
+| :ref:`estimation` | using that photometric data to generate photometric redshift PDFs, both for individual  |
+|                   | galaxies and entire catalogs                                                            |
++-------------------+-----------------------------------------------------------------------------------------+
+| :ref:`evaluation` | comparing the generated photometric redshift PDFs to known true values, in order to     |
+|                   | assess the performance of the estimation algorithm                                      |
++-------------------+-----------------------------------------------------------------------------------------+
+
+These stages are used to generate data products, which can be used independently
+or as input for other stages.
+
+.. image:: /images/stages_simple.png
+
+* For a more in-depth explanation of what these stages are and how they work, take a
+  look at :ref:`What are RAIL stages?`
+* To get started with using RAIL interactively in Jupyter notebooks and Python scripts,
+  take a look at :ref:`Interactive usage`.
+* For use on large datasets in parallel, particularly for use on HPC systems, take a
+  look at :ref:`Pipeline Usage`.
+
+.. do we explain pipelines vs interactive usage quickly here as well?
+
+.. at the moment everything below this can be moved to other locations
+
+------------------------------------
+Introduction to stages and pipelines
+------------------------------------
+
+While all of RAIL's functionality is accessible through Jupyter notebooks to
+facilitate experimentation, RAIL's utility is in being able to run the code
+developed and validated under controlled conditions on real data at-scale by
+executing scripts on high-performance computing clusters (HPCs). The tool that
+RAIL uses to organize these scripts is `ceci
+<https://ceci.readthedocs.io/en/latest/>`_, a workflow management package
+specifically designed for running DESC analyses on HPCs, e.g. using `TXPipe
+<https://github.com/LSSTDESC/TXPipe/>`_. At a very high level, a workflow is a
+pipeline comprised of stages.
+
+**Stages**: A stage performs one unit of work, defined by its input(s) and
+output(s), its name, and its stage-specific configuration parameters. It can be
+parallelized across many processors, or even over many computing nodes. Stages
+produce output files in the directory in which they are executed. The
+RAIL-iverse provides a plethora of stages that may be imported from the modules
+described below (:ref:`Organizational philosophy and included functionality`).
+
+**Pipelines**: A pipeline is a directed acyclic graph of stages, defined by the
+guarantee that the inputs to each stage either exist already or are produced as
+output of earlier stages in the pipeline. Pipelines are defined by a pair of
+``.yml`` files, one specifying all the configuration parameters for every stage in
+the pipeline, including each stage's name and its inputs and outputs, and the
+other specifying the order in which the stages are to be run. Execution of a
+pipeline entails an ``initialize()`` step, in which ``ceci`` checks that each
+stage's inputs either exist or will be produced by an earlier stage in the
+pipeline, followed by a ``run()`` step to actually perform the specified
+calculations.
+
+
+----------------------------------------------------
+Organizational philosophy and included functionality
+----------------------------------------------------
+
+An end-to-end experiment entails the creation of self-consistently
+forward-modeled, realistically complex mock data for testing purposes, the
+estimation of individual galaxy and/or galaxy sample redshift uncertainties, and
+the evaluation of the resulting photo-z data products by informative metrics.
+RAIL includes subpackages for each, providing a flexible framework for accessing
+implementations of approaches under each umbrella. The purpose of each piece of
+infrastructure is outlined below. For a working example illustrating all three
+components of RAIL, see the `examples/goldenspike_examples/Goldenspike.ipynb
+<https://github.com/LSSTDESC/RAIL/blob/main/examples/goldenspike_examples/Goldenspike.ipynb>`_
+Jupyter notebook.
+
+----------
+`creation`
+----------
+
+The creation subpackage has two main components enabling forward-modeling of
+realistically complex mock data. The creation modules provide a joint
+probability space of redshift and photometry, and the degradation modules
+introduce systematic imperfections into galaxy catalogs, which can be used to
+stress-test photo-z estimators.
+
+**Creation modules**: This code enables the generation of mock photometry
+corresponding to a fully self-consistent forward model of the joint probability
+space of redshift and photometry. Beyond simply drawing samples of redshift and
+photometry defining galaxy catalogs, this forward model-based approach can
+provide a true posterior and likelihood for each galaxy, enabling novel metrics
+for individual galaxies that are not available from traditionally simulated
+catalogs without a notion of inherent uncertainty.
+
+**Creation base design**: To ensure the mutual consistency of RAIL's mock data
+with known physics while leaving open the possibility of surprises beyond
+current data, we make an interpolative and extrapolative model beginning from
+input data of galaxy redshifts and photometry, for example, the DC2
+extragalactic catalog. While multiple generating engines are possible and
+desired, our initial implementation utilizes a normalizing flow via the `pzflow
+package <https://github.com/jfcrenshaw/pzflow>`_. The normalizing flow model
+fits the joint distribution of redshift and photometry (and any other parameters
+that are supplied as inputs), and galaxy redshifts and photometry drawn from
+that joint probability density will have a true likelihood and a true posterior.
+
+**Degradation modules**: Degraders build upon the creator models of the
+probability space of redshift and photometry to emulate realistically complex
+imperfections, such as physical systematics, into mock data, which can be used
+to generate self-consistent photometric training/test set pairs. The
+high-dimensional probability density outlined in the ``creation`` directory can be
+modified to reproduce the realistic mismatches between training and test sets,
+for example, inclusion of photometric errors due to observing effects,
+spectroscopic incompleteness from specific surveys, incorrect assignment of
+spectroscopic redshift due to line confusion, the effects of blending, etc.
+Training and test set data may be drawn from such probability spaces with
+systematics applied in isolation, which preserves the existence of true
+likelihoods and posteriors, though applying multiple degraders in series enables
+more complex selections to be built up.
+
+**Degradation base design**: The base design for degraders in our current scheme
+is that degraders take in a DataFrame (or a creator that can generate samples on
+the fly) and return a modified DataFrame with the effects of exactly one
+systematic degradation. That is, each degrader module should model one isolated
+form of degradation of the data, and more complex models are built by chaining
+degraders together. While the real Universe is usually not so compartmentalized
+in how systematic uncertainties arise, realistically complex effects should
+still be testable when a series of chained degraders are applied. RAIL has
+several degraders currently included: a (point-source-based) :ref:`LSST Error Model`,
+spectroscopic redshift :ref:`LineConfusion` misassignment, a simple
+redshift-based incompleteness, and generic :ref:`QuantityCut` degrader that lets the
+user cut on any single quantity.
+
+
+**Usage**: The ``examples/creation_examples`` directory provides notebooks
+demonstrating degradation:
+
+* `creation_examples/00_Quick_Start_in_Creation.ipynb
+  <https://github.com/LSSTDESC/RAIL/blob/main/examples/creation_examples/00_Quick_Start_in_Creation.ipynb>`_
+* `creation_examples/05_True_Posterior.ipynb
+  <https://github.com/LSSTDESC/RAIL/blob/main/examples/creation_examples/05_True_Posterior.ipynb>`_
+
+**Creation future extensions**: In the future, we may need to consider a
+probability space with more data dimensions, such as galaxy images and/or
+positions in order to consider codes that infer redshifts using, e.g.
+morphological, positional, or other sources of information. Similarly, to
+evaluate template-fitting codes, we will need to construct the joint probability
+space of redshifts and photometry from a mock data set of SEDs and redshifts,
+which could include complex effects like emission lines.
+
+**Degradation future extensions**: Building up a library of degraders that can
+be applied to mock data in order to model the complex systematics that we will
+encounter is the first step of extending functionality. Some systematics that we
+would like to investigate, such as incorrect values in the training set and
+blended galaxies, are in essence a form of model misspecification, which may be
+nontrivial to implement in the space of redshift and photometry probability
+density, and will likely not be possible with a single training set. All effects
+will also need to be implemented for SED libraries in order to test
+template-fitting codes.
+
+------------
+`estimation`
+------------
+
+The estimation subpackage enables the automatic execution of arbitrary redshift
+estimation codes in a common computing environment. Each photo-z method usually
+has both an ``inform`` method that trains a model based on a dataset with known
+redshifts or ingests template information, and an ``estimate`` method that
+executes the particular estimation method. There are two types of quantities
+that RAIL can estimate: redshift PDFs for individual objects and overall PDFs
+for ensembles of objects, one obvious use case being tomographic redshift bins
+commonly used in cosmological analyses. Methods that estimate per-galaxy PDFs
+directly from photometry are referred to as Estimators, while those that produce
+a summary PDF and associated uncertainty of an ensemble of galaxies are referred
+to as Summarizers. Individual estimation and summarization codes are "wrapped"
+as RAIL stages so that they can be run in a controlled way.
+
+**base design**: Estimators for several popular codes: :ref:`BPZliteEstimator <BPZ (Bayesian Photometric Redshifts)>` (a
+slimmed down version of the popular template-based BPZ code),
+:ref:`FlexZBoostEstimator <FlexZBoost>`, and :ref:`DelightEstimator <Delight>` are included in
+rail/estimation, as are an estimator :ref:`PZFlowEstimator<PZFlow>` that uses the same
+normalizing flow employed in the creation module, and :ref:`KNearNeighEstimator <k-Nearest Neighbor>`
+for a simple color-based nearest neighbor estimator. The pathological
+:ref:`TrainZEstimator <TrainZ>` estimator is also implemented. Several very basic
+summarizers such as a histogram of point source estimates, the naive
+"stacking"/summing of PDFs, and a variational inference-based summarizer are
+also included in RAIL.
+
+**Usage**: The ``examples/estimation_examples`` directory provides notebooks
+demonstrating estimation. Note that estimation codes can also be run as ceci
+modules with variables stored in a yaml file.
+
+* `estimation_examples/00_Quick_Start_in_Estimation.ipynb
+  <https://github.com/LSSTDESC/RAIL/blob/main/examples/estimation_examples/00_Quick_Start_in_Estimation.ipynb>`_
+
+**Immediate next steps**: More wrapped estimator and summarizer codes are always
+welcome for inclusion in upcoming comparison challenges, including at least one
+spatial clustering redshift estimator, a SOM or tree-based method, and a
+hierarchical inference, the simplest of which is `chippr
+<https://github.com/aimalz/chippr>`_.
+
+------------
+`evaluation`
+------------
+
+The evaluation module contains metrics for assessing the performance of redshift
+estimation codes. This can be done for "true" redshift draws from a distribution
+or catalog, or by comparing the marginalized "true" redshift likelihoods or
+posteriors from the creation module to the estimated PDFs.
+
+**Base design**: The starting point for the evaluation module is to include
+metrics employed in the PZ DC1 paper `Schmidt & Malz et al. 2020
+<https://ui.adsabs.harvard.edu/abs/2020MNRAS.499.1587S/abstract>`_. Some simple
+evaluation metrics will employ aspects of the `qp
+<https://github.com/LSSTDESC/qp>`_ codebase (e.g. computing CDF values for
+Probability Integral Transform, aka PIT, distributions).
+
+**Usage**: The ``examples/evaluation_examples`` directory provides the following
+demonstration notebooks:
+
+* `evaluation_examples/00_Single_Evaluation.ipynb
+  <https://github.com/LSSTDESC/RAIL/blob/main/examples/evaluation_examples/00_Single_Evaluation.ipynb>`_.
+* `evaluation_examples/01_Evaluation_by_Type.ipynb
+  <https://github.com/LSSTDESC/RAIL/blob/main/examples/evaluation_examples/01_Evaluation_by_Type.ipynb>`_.
+
+**Future extensions**: We aim to greatly expand the library of available metrics
+and welcome input from the community in doing so. An immediate extension would
+propagate estimated redshift posteriors to science-motivated metrics, and/or
+metrics related to computational requirements of the estimators. Within DESC,
+development of sophisticated metrics propagating photo-z uncertainties through
+cosmological probe analysis pipelines is now underway as part of Dark Energy
+Redshift Assessment Infrastructure Layers (DERAIL).

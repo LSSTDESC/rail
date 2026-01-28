@@ -10,4 +10,3 @@ else
    \rm -rf ${RAILDIR}/examples/estimation/demo_FZB_model.pkl
    \rm -rf ${RAILDIR}/examples/estimation/demo_knn.pkl   
 fi
-

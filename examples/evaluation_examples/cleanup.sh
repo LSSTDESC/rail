@@ -4,4 +4,3 @@ if [[ -z "${RAILDIR}" ]] then;
 else
    \rm -rf ${RAILDIR}/examples/evaluation/output_*.hdf5
 fi
-
