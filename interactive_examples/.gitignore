@@ -1,0 +1,6 @@
+results
+*.hdf5
+*.fits
+*.pq
+*.out
+*.pkl
