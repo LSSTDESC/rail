@@ -240,7 +240,7 @@ via
 
     pip install pz-rail-base
 
-
+-------------------
 Installing bpz_lite
 -------------------
 
@@ -258,7 +258,7 @@ But if you run into problems you might need to:
   you are on a shared system such as NERSC)
 - try ``pip install pz-rail-bpz`` again.
 
-
+------------------
 Installing Delight
 ------------------
 
@@ -296,7 +296,7 @@ Installing Delight
       <https://github.com/LSSTDESC/Delight/blob/master/Mac_installation.md>`_ to install
       Delight before running ``pip install .[all]``.
 
-
+---------------------
 Installing FlexZBoost
 ---------------------
 
@@ -311,6 +311,7 @@ But if you run into problems you might need to:
 - install ``xgboost`` with the command ``pip install xgboost==0.90.0``
 - install FlexCode with ``pip install FlexCode[all]``
 
+---------------
 Installing fsps
 ---------------
 
@@ -322,6 +323,7 @@ instructions for properly setting up fsps.
 The cause of this is the use of Git submodules in the `python-fsps` package, which are
 not handled by `pip`.
 
+---------------------------------
 Using GPU-optimization for pzflow
 ---------------------------------
 
