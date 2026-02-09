@@ -86,3 +86,12 @@ Cookbook
 
 This cookbook contains tutorials for a variety of interactive mode RAIL use
 cases.
+
+
+----------------------------------------
+Running RAIL with different column names
+----------------------------------------
+
+>>> print("hello")
+hello 
+
