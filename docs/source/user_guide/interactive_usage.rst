@@ -17,8 +17,7 @@ usage for:
 To see examples of how to use RAIL in interactive mode, visit the
 :ref:`interactive mode notebooks`.
 
-To see the interactive mode API reference, visit the
-:ref:`page-interactive-api<Interactve API>`.
+To see the interactive mode API reference, visit the :ref:`Interactive API <page-interactive-api>`.
 
 To learn how to run RAIL in pipeline mode, visit :ref:`pipeline usage`.
 
@@ -92,25 +91,39 @@ cases.
 Running a RAIL algorithm in interactive mode
 --------------------------------------------
 
->>> import rail.interactive as ri
->>> import tables_io
->>> from rail.utils.path_utils import find_rail_file
->>> training_data_file = find_rail_file("examples_data/testdata/test_dc2_training_9816.hdf5")
->>> training_data = tables_io.read(calibration_data_file)
->>> ri.estimation.algos.k_nearneigh.k_near_neigh_informer(training_data=training_data)
+To run a RAIL stage in interactive mode, you just run that interactive function. The interactive function 
+names correspond to the stage names. Here's an example of running the *inform* stage of the 
+`K-Nearest Neighbours <http://localhost:5500/docs/_build/html/source/rail_stages/estimation.html#k-nearest-neighbor>`_ 
+estimation algorithm: 
 
+>>> import rail.interactive as ri # import all rail interactive functions
+>>> import tables_io # for reading and writing data 
+>>> from rail.utils.path_utils import find_rail_file # for getting our training data 
+>>> training_data_file = find_rail_file("examples_data/testdata/test_dc2_training_9816.hdf5")
+>>> training_data = tables_io.read(calibration_data_file) # read in training data file 
+>>> knn_model = ri.estimation.algos.k_nearneigh.k_near_neigh_informer(training_data=training_data)
+>>> print(knn_model) # output is returned as a dictionary
+{'model': {'kdtree': <sklearn.neighbors._kd_tree.KDTree object at 0x5d6fbc75d130>, 
+    'bestsig': np.float64(0.023333333333333334), 'nneigh': 7, 
+    'truezs': array([0.02043499, 0.01936132, 0.03672067, ..., 2.97927326, 2.98694714,
+    2.97646626], shape=(10225,)), 'only_colors': False}}
+
+The stages give you back any outputs from that stage as a dictionary. 
 
 ----------------------------------------
 Running RAIL with different column names
 ----------------------------------------
 
-RAIL stages typically expect a certain default set of column names for photometry and error columns. These are just supplied by 
-default arguments to some common configuration parameters, and can be easily overridden by providing your own arguments to those 
-parameters to tell the code to expect the columns that your data has. Depending on the stage, you may only need some of these values,
-but often supplying all of these values to every stage will not provide issues, as additional unnecessary arguments are just ignored. 
+RAIL stages typically expect a certain default set of column names for photometry and error columns. 
+These are just supplied by default arguments to some common configuration parameters, and can be easily 
+overridden by providing your own arguments to those parameters to tell the code to expect the columns 
+that your data has. Depending on the stage, you may only need some of these values, but often supplying 
+all of these values to every stage will not provide issues, as additional unnecessary arguments are just 
+ignored. 
 
-For example, if you are using a data table that is a Pandas dataframe with the following column names: ``["u", "g", "r", "i", "z", "y", "J", "H"]``, 
-then you need to provide the following parameters as shown in the example below.
+For example, if you are using a data table that is a pandas DataFrame with the following column names: 
+``["u", "g", "r", "i", "z", "y", "J", "H"]``, then you need to provide the following parameters as 
+shown in the example below.
 
 * ``hdf5_groupname``
 * ``bands``
@@ -139,18 +152,22 @@ Now that we have these set up, we can put them into a dictionary with the other 
 >>> columns_dict = dict(hdf5_groupname="", bands=bands, err_bands=errbands, 
 >>>                     mag_limits=maglims, ref_band="i")
 {'hdf5_groupname': '', 'bands': ['u', 'g', 'r', 'i', 'z', 'y', 'J', 'H'], 
-'err_bands': ['u_err', 'g_err', 'r_err', 'i_err', 'z_err', 'y_err', 'J_err', 'H_err'], 
-'mag_limits': {'u': 27.8, 'g': 29.0, 'r': 29.1, 'i': 28.6, 'z': 28.0, 'y': 27.0, 'J': 26.4, 'H': 26.4}, 
-'ref_band': 'i'}
+    'err_bands': ['u_err', 'g_err', 'r_err', 'i_err', 'z_err', 'y_err', 'J_err', 'H_err'], 
+    'mag_limits': {'u': 27.8, 'g': 29.0, 'r': 29.1, 'i': 28.6, 'z': 28.0, 'y': 27.0, 'J': 26.4, 
+    'H': 26.4}, 'ref_band': 'i'}
 
-Now we can pass this dictionary into any of the RAIL stages (using ``**columns_dict`` as the last argument), and it should allow you to run the stage without issue. 
+Now we can pass this dictionary into any of the RAIL stages (using ``**columns_dict`` as the last argument), 
+and it should allow you to run the stage without issue:
+
+>>> ri.estimation.algos.k_nearneigh.k_near_neigh_informer(training_data=training_data, **columns_dict)
 
 
 ----------------
 Renaming columns 
 ----------------
 
-RAIL also has a utility for renaming the columns in your table, which you could use to make your column names match the expected versions, for example:
+RAIL also has a utility for renaming the columns in your table, which you could use to make 
+your column names match the expected versions, for example:
 
 >>> rename_dict = {band: f"mag_{band}_lsst" for band in bands}
 >>> print(rename_dict)
@@ -163,8 +180,9 @@ RAIL also has a utility for renaming the columns in your table, which you could 
  'J': 'mag_J_lsst',
  'H': 'mag_H_lsst'}
 
-You can then use this dictionary to rename the columns in your Pandas dataframe or Parquet file:
->>> train_data_pq = ri.tools.table_tools.column_mapper(data=train_data_cut["output"], columns=rename_dict)
+You can then use this dictionary to rename the columns in your pandas DataFrame:
+
+>>> train_data_pq = ri.tools.table_tools.column_mapper(data=train_data["output"], columns=rename_dict)
 >>> print(train_data_pq["output"].columns)
 Index(['mag_u_lsst', 'mag_g_lsst', 'mag_r_lsst', 'mag_i_lsst', 'mag_z_lsst',
        'mag_y_lsst', 'mag_J_lsst', 'mag_H_lsst'],
@@ -175,24 +193,46 @@ Index(['mag_u_lsst', 'mag_g_lsst', 'mag_r_lsst', 'mag_i_lsst', 'mag_z_lsst',
 Converting tables to other formats 
 ----------------------------------
 
->>> train_data = ri.tools.table_tools.table_converter(data=train_data_pq["output"], output_format="numpyDict")
+RAIL has a stage that converts tabular RAIL data to different formats. This will 
+not work on data in Ensemble format, or on models. The formats are those supported 
+by `tables_io`, and you can see the `supported tabular formats <https://tables-io.readthedocs.io/en/latest/quickstart.html#supported-tabular-formats>`_ 
+table for a list of the options. Just provide the "Tabular format name" to the 
+function as shown here:
+
+>>> train_data = ri.tools.table_tools.table_converter(data=train_data_pq["output"], 
+>>>              output_format="numpyDict")
 >>> type(train_data["output"])
 collections.OrderedDict
 
+In this case, "numpyDict" refers to an OrderedDict of numpy arrays, and we can see here 
+that the data has in fact been converted to that format. 
 
 ------------------------------------
 Saving the outputs of stages to file 
 ------------------------------------
 
-Inform stages typically output 'models', which can be different kinds of objects depending on the algorithm. If you want to save these to a file to speed up later workflows, 
+Inform stages typically output 'models', which can be different kinds of objects depending on 
+the algorithm. If you want to save these to a file to speed up later workflows, 
 we recommend pickling them. For example: 
 
 >>> import pickle
 >>> with open("./knn_model.pkl", "wb") as fout:
 >>>    pickle.dump(obj=knn_inform["model"], file=fout, protocol=pickle.HIGHEST_PROTOCOL)
 
-Most estimate stages output qp `Ensembles`, which have their own write and read methods:
+You can then provide the name of the file to the interactive functions.
+
+Most estimate stages output qp Ensembles, which have their own write and read methods. 
+The following will write an Ensemble to an HDF5 file:
 
 >>> import qp
->>> ens = qp.hist.create_ensemble()
->>> ens.write_to("output_ensemble.hdf5")
+>>> estimate_output["output"].write_to("output_ensemble.hdf5")
+
+To read the Ensemble back in, you can also use qp:
+
+>>> import qp
+>>> estimate_ens = qp.read("output_ensemble.hdf5")
+>>> estimate_ens
+Ensemble(the_class=hist,shape=(2, 50))
+
+For more details about how qp stores Ensembles in files, take a look at the notebook 
+on `Exploring the structure of an Ensemble file <https://qp.readthedocs.io/en/main/user_guide/cookbook/datamanipulation.html#exploring-the-structure-of-an-ensemble-file>`_
