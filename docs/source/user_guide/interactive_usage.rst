@@ -91,18 +91,19 @@ cases.
 Running a RAIL algorithm in interactive mode
 --------------------------------------------
 
-To run a RAIL stage in interactive mode, you just run that interactive function. The interactive function 
-names correspond to the stage names. Here's an example of running the *inform* stage of the 
+To run a RAIL stage in interactive mode, you run the corresponding interactive function.
+ Here's an example of running the *inform* stage of the 
 `K-Nearest Neighbours <http://localhost:5500/docs/_build/html/source/rail_stages/estimation.html#k-nearest-neighbor>`_ 
-estimation algorithm: 
+estimation algorithm, while using `tables_io <https://tables-io.readthedocs.io/en/latest/index.html>` 
+to read in the input data file we need:
 
->>> import rail.interactive as ri # import all rail interactive functions
->>> import tables_io # for reading and writing data 
->>> from rail.utils.path_utils import find_rail_file # for getting our training data 
+>>> import rail.interactive as ri #import all rail interactive functions
+>>> import tables_io #for reading and writing data 
+>>> from rail.utils.path_utils import find_rail_file #for getting our training data 
 >>> training_data_file = find_rail_file("examples_data/testdata/test_dc2_training_9816.hdf5")
->>> training_data = tables_io.read(calibration_data_file) # read in training data file 
+>>> training_data = tables_io.read(calibration_data_file) #read in training data file 
 >>> knn_model = ri.estimation.algos.k_nearneigh.k_near_neigh_informer(training_data=training_data)
->>> print(knn_model) # output is returned as a dictionary
+>>> print(knn_model) #output is returned as a dictionary
 {'model': {'kdtree': <sklearn.neighbors._kd_tree.KDTree object at 0x5d6fbc75d130>, 
     'bestsig': np.float64(0.023333333333333334), 'nneigh': 7, 
     'truezs': array([0.02043499, 0.01936132, 0.03672067, ..., 2.97927326, 2.98694714,
