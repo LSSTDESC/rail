@@ -43,8 +43,8 @@ Deeper dives into synthetic data creation
 =========================================
 
 The notebooks in  `the creation directory
-<https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/creation_notebooks.html>`_
- demonstrate how how to generate synthetic photometric data, and also how to
+<https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/creation_notebooks.html>`_ 
+demonstrate how how to generate synthetic photometric data, and also how to
 "degrade" the synthetic data by applying various effects to the data.
 
 These notebooks demonstrate utilities that can be used to prepare data for analysis,
