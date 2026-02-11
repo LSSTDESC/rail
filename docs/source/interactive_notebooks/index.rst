@@ -6,6 +6,10 @@ Interactive Mode Notebooks
 
 We present some notebooks demonstrating usage of RAIL in interactive mode. 
 
+===============
+Getting Started
+===============
+
 There are two recommended starting points:
 
 1. If you just want to get some photometric redshifts, then `Using Photometry to Estimate Photometric Redshifts <>`_ should cover most of of what you need. 
@@ -15,6 +19,10 @@ If you'd like to go even more in-depth into creating data, take a look at `Explo
 For a less-detailed overview of a full RAIL workflow, there's the `Goldenspike
 <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/goldenspike_examples/goldenspike.html>`_
 notebook. 
+
+=================
+Exploring Further
+=================
 
 There are many more notebooks that you can explore, if you're looking for 
 something specific. They are split up into four main categories:
