@@ -134,11 +134,11 @@ shown in the example below.
 
 First we set up the ``bands``, ``err_bands``, and ``mag_limits`` parameters, which all rely on each other:
 
->>> bands = ["u", "g", "r", "i", "z", "y", "J", "H"]
->>> errbands = []
+>>> bands = ["u", "g", "r", "i", "z", "y", "J", "H"] #the column names of our photometry bands
+>>> errbands = [] 
 >>> maglims = {}
->>> limvals = [27.8, 29.0, 29.1, 28.6, 28.0, 27.0, 26.4, 26.4]
->>> for band, limval in zip(bands, limvals):
+>>> limvals = [27.8, 29.0, 29.1, 28.6, 28.0, 27.0, 26.4, 26.4] #magnitude limits for the bands
+>>> for band, limval in zip(bands, limvals): #populate the empty errbands and maglims 
 >>>     errbands.append(f"{band}_err")
 >>>     maglims[band] = limval
 >>> print(bands)
@@ -148,7 +148,10 @@ First we set up the ``bands``, ``err_bands``, and ``mag_limits`` parameters, whi
 ['u_err', 'g_err', 'r_err', 'i_err', 'z_err', 'y_err', 'J_err', 'H_err']
 {'u': 27.8, 'g': 29.0, 'r': 29.1, 'i': 28.6, 'z': 28.0, 'y': 27.0, 'J': 26.4, 'H': 26.4}
 
-Now that we have these set up, we can put them into a dictionary with the other two parameters we need:
+Now that we have these set up, we can put them into a dictionary with the other two parameters we need.
+``hdf5_groupname`` tells the code what key it needs to access the data table from a dictionary, or if there is 
+no key needed, just give it an empty string. The ``ref_band`` parameter identifies one of the photometry bands 
+to use as a reference, so you just need to provide it with the column name of that band:
 
 >>> columns_dict = dict(hdf5_groupname="", bands=bands, err_bands=errbands, 
 >>>                     mag_limits=maglims, ref_band="i")
