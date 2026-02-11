@@ -3,7 +3,6 @@ Pipeline Mode Notebooks
 ***********************
 
 .. link to legacy notebook structure
-.. fix notebook links once Eric gets back to me about how they're generated etc 
 
 RAIL comes with several notebooks that demonstrate how to use it to analyze data in a
 number of different ways.
@@ -26,16 +25,16 @@ performance of those estimators.   Finally, it shows a few methods that converts
 for a set of objects to an ensemble distribution n(z).
 
 The `estimation
-<https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/estimation_examples/RAIL_estimation_demo.html>`_
+<https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/estimation_examples/00_Quick_Start_in_Estimation.html>`_
 notebook focuses more on the estimation parts of the analysis, and demonstrates a few
 additional estimation algorithms.
 
 The `evaluation
-<https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/evaluation_examples/demo.html>`_
+<https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/evaluation_examples/01_Evaluation_by_Type.html>`_
 of the estimator performance is described in more depth in its own notebook.
 
 Finally, we have collected demonstrations of `useful utilites
-<https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/core_examples/Useful_Utilities.html>`_
+<https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/core_notebooks.html>`_
 to explore which packages and algorithms are available in the current RAIL installation.
 
 
@@ -50,22 +49,23 @@ The notebooks in  `the creation directory
 
 These notebooks demonstrate utilities that can be used to prepare data for analysis,
 e.g., by `converting fluxes to magnitudes and applying dereddening
-<https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/core_examples/FluxtoMag_and_Deredden_example.html>`_
+<https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/core_examples/02_FluxtoMag_and_Deredden.html>`_
 and by `converting fluxes to hyperbolic magnitudes
-<https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/core_examples/hyperbolic_magnitude_test.html>`_
+<https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/core_examples/03_Hyperbolic_Magnitude.html>`_
 
 
 =====================================
 Examples of using specific estimators
 =====================================
 
-These three notebooks demonstrate specific p(z) estimators in more detail, specifically,
+The notebooks in `this directory <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/estimation_notebooks.html>`_ 
+demonstrate specific p(z) estimators in more detail. For example,
 the `CMNN
-<https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/estimation_examples/CMNN_Demo.html>`_,
+<https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/estimation_examples/04_CMNN.html>`_,
 `GPz
-<https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/estimation_examples/GPz_Estimation_Example.html>`_
+<https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/estimation_examples/06_GPz.html>`_
 and `NZDIR
-<https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/estimation_examples/NZDir.html>`_
+<https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/estimation_examples/07_NZDir.html>`_
 algorithms.
 
 These two notebooks demonstrate self-organizing map (SOM) based algorithms that estimate
@@ -76,7 +76,7 @@ works with the SOM directly, while `the second
 clusters the SOM cells to reduce statistical fluctuations.
 
 Finally, the `test_sampled_summarizers notebook
-<https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/estimation_examples/test_sampled_summarizers.html>`_
+<https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/estimation_examples/13_Sampled_Summarizers.html>`_
 demonstrates converting collections of per-object p(z) estimates to ensemble n(z)
 estimates.
 
@@ -90,12 +90,13 @@ The two notebooks demonstrate how to `convert a notebook into a ceci analysis pi
 and how to `run an existing pipeline
 <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/core_examples/Run_Pipe.html>`_
 
-This notebook explains the concept of the `Data Store
-<https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/core_examples/FileIO_DataStore.html>`_
-that keeps track of the data being used in an analysis pipeline, and which can be used
-to interactively access data.
+.. Removed because of updates to the DataStore that no longer require user interaction
+.. This notebook explains the concept of the `Data Store
+.. <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/core_examples/FileIO_DataStore.html>`_
+.. that keeps track of the data being used in an analysis pipeline, and which can be used
+.. to interactively access data.
 
 Finally, `Iterate_Tabular_Data notebook
-<https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/core_examples/Iterate_Tabular_Data.html>`_
+<https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/core_examples/04_Iterate_Tabular_Data.html>`_
 demonstrates the mechanisms we use to iterate over tabular data, which is needed to
 avoid reading entire object catalogs into memory.
