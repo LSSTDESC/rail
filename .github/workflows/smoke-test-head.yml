@@ -52,7 +52,7 @@ jobs:
         echo "SPS_HOME=/opt/hostedtoolcache/Python/fsps" >> $GITHUB_ENV
     - name: Run notebooks
       run: |
-        rail render-nb --skip pipeline_examples/core_examples/00_Useful_Utilities.ipynb --skip pipeline_examples/core_examples/05_Build_Save_Load_Run_Pipeline.ipynb --skip pipeline_examples/creation_examples/10_SOM_Spectroscopic_Selector.ipynb --skip pipeline_examples/creation_examples/07_DSPS_SED.ipynb  --skip pipeline_examples/creation_examples/04_Plotting_interface_skysim_cosmoDC2_COSMOS2020.ipynb pipeline_examples/${{ matrix.notebook-dir }}_examples/*.ipynb  --skip pipeline_examples/estimation_examples/11_SomocluSOM.ipynb --skip pipeline_examples/estimation_examples/12_SomocluSOM_Quality_Control.ipynb
+        rail render-nb --skip pipeline_examples/core_examples/00_Useful_Utilities.ipynb --skip pipeline_examples/core_examples/01_FileIO_DataStore.ipynb --skip pipeline_examples/core_examples/05_Build_Save_Load_Run_Pipeline.ipynb --skip pipeline_examples/creation_examples/10_SOM_Spectroscopic_Selector.ipynb --skip pipeline_examples/creation_examples/07_DSPS_SED.ipynb  --skip pipeline_examples/creation_examples/04_Plotting_interface_skysim_cosmoDC2_COSMOS2020.ipynb pipeline_examples/${{ matrix.notebook-dir }}_examples/*.ipynb  --skip pipeline_examples/estimation_examples/11_SomocluSOM.ipynb --skip pipeline_examples/estimation_examples/12_SomocluSOM_Quality_Control.ipynb
     - name: Send status to Slack app (RAIL CI Reporter)
       if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
       id: slack

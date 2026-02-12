@@ -92,9 +92,9 @@ Running a RAIL algorithm in interactive mode
 --------------------------------------------
 
 To run a RAIL stage in interactive mode, you run the corresponding interactive function.
- Here's an example of running the *inform* stage of the 
-`K-Nearest Neighbours <http://localhost:5500/docs/_build/html/source/rail_stages/estimation.html#k-nearest-neighbor>`_ 
-estimation algorithm, while using `tables_io <https://tables-io.readthedocs.io/en/latest/index.html>` 
+Here's an example of running the *inform* stage of the 
+`K-Nearest Neighbours <https://rail-hub.readthedocs.io/en/latest/source/rail_stages/estimation.html#k-nearest-neighbor>`_ 
+estimation algorithm. First we use ``find_rail_file`` and `tables_io <https://tables-io.readthedocs.io/en/latest/index.html>`_ 
 to read in the input data file we need:
 
 >>> import rail.interactive as ri #import all rail interactive functions
@@ -102,6 +102,11 @@ to read in the input data file we need:
 >>> from rail.utils.path_utils import find_rail_file #for getting our training data 
 >>> training_data_file = find_rail_file("examples_data/testdata/test_dc2_training_9816.hdf5")
 >>> training_data = tables_io.read(calibration_data_file) #read in training data file 
+
+Then we can just run the ``k_near_neigh_informer`` function, giving it the required ``training_data`` argument
+(we've not included the output from the actual function running since it's a bit long). We'll take 
+a look at the output it returns:
+
 >>> knn_model = ri.estimation.algos.k_nearneigh.k_near_neigh_informer(training_data=training_data)
 >>> print(knn_model) #output is returned as a dictionary
 {'model': {'kdtree': <sklearn.neighbors._kd_tree.KDTree object at 0x5d6fbc75d130>, 
@@ -109,7 +114,14 @@ to read in the input data file we need:
     'truezs': array([0.02043499, 0.01936132, 0.03672067, ..., 2.97927326, 2.98694714,
     2.97646626], shape=(10225,)), 'only_colors': False}}
 
-The stages give you back any outputs from that stage as a dictionary. 
+In general, these functions return outputs as a dictionary, with the relevant data tables or objects as 
+values in the dictionary. 
+
+.. tip::
+
+    If you'd like a more detailed example of using RAIL interactive functions, take a look at the 
+    `introduction to RAIL interactive notebook <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/interactive_examples/rendered/core_examples/Estimating_Redshifts_and_Comparing_Results_for_Different_Parameters.html>`_
+
 
 ----------------------------------------
 Running RAIL with different column names
@@ -160,10 +172,17 @@ to use as a reference, so you just need to provide it with the column name of th
     'mag_limits': {'u': 27.8, 'g': 29.0, 'r': 29.1, 'i': 28.6, 'z': 28.0, 'y': 27.0, 'J': 26.4, 
     'H': 26.4}, 'ref_band': 'i'}
 
-Now we can pass this dictionary into any of the RAIL stages (using ``**columns_dict`` as the last argument), 
-and it should allow you to run the stage without issue:
+Now we can pass this dictionary into any of the RAIL stages, along with any of the required parameters. 
+Here we're assuming that we have a data table with the column names in ``columns_dict`` called ``training_data``:
 
 >>> ri.estimation.algos.k_nearneigh.k_near_neigh_informer(training_data=training_data, **columns_dict)
+
+The function should run as normal, and return to you any output with the same column names as what you input. 
+
+.. tip::
+
+    Take a look at the `Running with different data notebook <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/interactive_examples/latest/rendered/estimation_examples/16_Running_with_different_data.html>`_ 
+    for a bit more detailed example of this.
 
 
 ----------------
@@ -192,6 +211,11 @@ Index(['mag_u_lsst', 'mag_g_lsst', 'mag_r_lsst', 'mag_i_lsst', 'mag_z_lsst',
        'mag_y_lsst', 'mag_J_lsst', 'mag_H_lsst'],
       dtype='object')
 
+.. tip::
+
+    Check out the `introduction to RAIL interactive notebook <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/interactive_examples/rendered/core_examples/Estimating_Redshifts_and_Comparing_Results_for_Different_Parameters.html>`_ 
+    to see this RAIL utility being used in an example RAIL workflow. 
+
 
 ----------------------------------
 Converting tables to other formats 
@@ -211,6 +235,11 @@ collections.OrderedDict
 In this case, "numpyDict" refers to an OrderedDict of numpy arrays, and we can see here 
 that the data has in fact been converted to that format. 
 
+.. tip::
+
+    Check out the `Goldenspike notebook <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/interactive_examples/rendered/goldenspike_examples/Goldenspike.html>`_ 
+    to see this RAIL utility used in an example workflow. 
+
 ------------------------------------
 Saving the outputs of stages to file 
 ------------------------------------
@@ -225,6 +254,11 @@ we recommend pickling them. For example:
 
 You can then provide the name of the file to the interactive functions.
 
+.. tip::
+
+    Take a look at the `Using Photometry to Estimate Photmetric Redshifts notebook <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/interactive_examples/rendered/estimation_examples/Using_Photometry_to_Estimate_Photometric_Redshifts.html>`_ 
+    to see more details and how saving a model file can be useful in a RAIL workflow.
+
 Most estimate stages output qp Ensembles, which have their own write and read methods. 
 The following will write an Ensemble to an HDF5 file:
 
@@ -238,5 +272,10 @@ To read the Ensemble back in, you can also use qp:
 >>> estimate_ens
 Ensemble(the_class=hist,shape=(2, 50))
 
-For more details about how qp stores Ensembles in files, take a look at the notebook 
-on `Exploring the structure of an Ensemble file <https://qp.readthedocs.io/en/main/user_guide/cookbook/datamanipulation.html#exploring-the-structure-of-an-ensemble-file>`_
+.. tip::
+
+    Take a look at the `Using Photometry to Estimate Photmetric Redshifts notebook <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/interactive_examples/rendered/estimation_examples/Using_Photometry_to_Estimate_Photometric_Redshifts.html>`_ 
+    for an introduction to Ensembles in RAIL and to see them being saved in a RAIL workflow. 
+
+    For more details about how qp stores Ensembles in files, take a look at the notebook 
+    on `Exploring the structure of an Ensemble file <https://qp.readthedocs.io/en/main/user_guide/cookbook/datamanipulation.html#exploring-the-structure-of-an-ensemble-file>`_
