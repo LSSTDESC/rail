@@ -15,9 +15,9 @@ There are two recommended starting points:
 1. If you just want to get some photometric redshifts, then `Using Photometry to Estimate Photometric Redshifts <>`_ should cover most of of what you need. 
 2. If you are looking for a more general introduction to all of RAIL, start with `Estimating Photometric Redshifts with RAIL Stages and Comparing Results for Different Parameters <>`_.
 
-If you'd like to go even more in-depth into creating data, take a look at `Exploring the Effects of Degraders <>`_. 
+If you'd like to go even more in-depth into creating data, take a look at `Exploring the Effects of Degraders <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/interactive_examples/rendered/creation_examples/Exploring_the_Effects_of_Degraders.html>`_. 
 For a less-detailed overview of a full RAIL workflow, there's the `Goldenspike
-<https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/rendered/goldenspike_examples/goldenspike.html>`_
+<https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/interactive_examples/rendered/goldenspike_examples/Goldenspike.html>`_
 notebook. 
 
 =================

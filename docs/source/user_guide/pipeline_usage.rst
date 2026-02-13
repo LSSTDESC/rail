@@ -138,7 +138,7 @@ Here is an example of the first part of the ``goldenspike`` pipeline definition.
 
 What this is doing is:
 
-#. Finding the pretrained model `flow_file` to use to generate data.
+#. Finding the pretrained model ``flow_file`` to use to generate data.
 #. Defining a class ``GoldenspikePipeline`` to encapsulate the pipeline and
    setting up that pipeline.
 #. Defining some common parameters, e.g., ``bands``, ``bands_dict`` for the
@@ -230,9 +230,9 @@ The main differences with the previous example are that:
 
 * We pass in a dict that gives the names of all the algorithms to include, as
   well as information on how to load the stages in question.
-* Instead of using `build` we use `make_and_connect` followed by `add_stage`.
+* Instead of using ``build`` we use ``make_and_connect`` followed by ``add_stage``.
   This is because we are making several stages of the same type, but with
-  different names, inside a loop, so the cleverness behind the `build` mechanism
+  different names, inside a loop, so the cleverness behind the ``build`` mechanism
   would not work here.
 
 ==========================
