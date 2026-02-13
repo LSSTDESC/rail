@@ -279,3 +279,9 @@ Ensemble(the_class=hist,shape=(2, 50))
 
     For more details about how qp stores Ensembles in files, take a look at the notebook 
     on `Exploring the structure of an Ensemble file <https://qp.readthedocs.io/en/main/user_guide/cookbook/datamanipulation.html#exploring-the-structure-of-an-ensemble-file>`_
+
+
+.. note::
+
+    If you have any examples that you think should be added to this list, you can open an `issue <https://github.com/LSSTDESC/rail/issues/new/choose>`_ 
+    in RAIL, or if you are a part of DESC, send a message in the ``desc-pz-rail`` channel! 
