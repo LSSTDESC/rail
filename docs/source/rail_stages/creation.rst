@@ -273,8 +273,8 @@ it. The probability that a redshift :math:`z` galaxy is kept is:
 where :math:`z_\mathrm{th}` is the threshold redshift.
 
 The other degrader is ``LineConfusion``, which simulates redshift errors due to the
-confusion of emission lines. For example, if the OII line at :math:`3727 \mathring{\mathrm{A}}` was
-misidentified as the OIII line at :math:`5007 \mathring{\mathrm{A}}`, the assigned spectroscopic redshift
+confusion of emission lines. For example, if the OII line at :math:`3727~\mathring{\mathrm{A}}` was
+misidentified as the OIII line at :math:`5007~\mathring{\mathrm{A}}`, the assigned spectroscopic redshift
 would be greater than the true redshift (Newman et al. 2013). The inputs of this
 degrader are a `true` and `wrong` redshift, and an error rate. The degrader then
 randomly simulates line confusion, ignoring galaxies for which the misidentification

@@ -284,4 +284,5 @@ Ensemble(the_class=hist,shape=(2, 50))
 .. note::
 
     If you have any examples that you think should be added to this list, you can open an `issue <https://github.com/LSSTDESC/rail/issues/new/choose>`_ 
-    in RAIL, or if you are a part of DESC, send a message in the "desc-pz-rail" Slack channel! 
+    in RAIL, or if you are a part of the LSST Slack, send a message in the `\#desc-pz-rail
+    <https://lsstc.slack.com/archives/CQGKM0WKD>`_ Slack channel! 
