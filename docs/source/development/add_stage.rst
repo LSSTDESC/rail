@@ -23,11 +23,9 @@ Once you have created a new package that is released through PyPI (don't worry -
 packaging is included in the template), you should create a PR against the ``rail``
 package to add your package as a dependency. Include your new package name in `the rail
 packages config <https://github.com/LSSTDESC/rail/blob/main/rail_packages.yml>`_. You should also 
-run the ``create_interactive_structure.py`` script, which will add in the necessary ``*.pyi`` files 
-so that the interactive mode will see your new algorithm.
+run the ``create_interactive_structure.py`` script in ``rail_base`` and do a PR. This will add in the necessary 
+``*.pyi`` files so that the interactive mode will see your new algorithm.
 
-
-**TODO: add demo then continue to adding a new rail stage section above**
 
 ==============
 New RAIL Stage

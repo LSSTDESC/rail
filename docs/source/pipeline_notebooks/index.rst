@@ -70,9 +70,9 @@ algorithms.
 
 These two notebooks demonstrate self-organizing map (SOM) based algorithms that estimate
 the ensemble n(z) distribution: `the first
-<https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/pipeline_examples/rendered/estimation_examples/somocluSOM_demo.html>`_
+<https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/pipeline_examples/rendered/estimation_examples/11_SomocluSOM.html>`_
 works with the SOM directly, while `the second
-<https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/pipeline_examples/rendered/estimation_examples/somocluSOMcluster_demo.html>`_
+<https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/pipeline_examples/rendered/estimation_examples/12_SomocluSOM_Quality_Control.html>`_
 clusters the SOM cells to reduce statistical fluctuations.
 
 Finally, the `test_sampled_summarizers notebook
@@ -85,10 +85,8 @@ estimates.
 Deeper explanations of rail concepts
 ====================================
 
-The two notebooks demonstrate how to `convert a notebook into a ceci analysis pipeline
-<https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/pipeline_examples/rendered/core_examples/Build_Save_Load_Run_Pipeline.html>`_
-and how to `run an existing pipeline
-<https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/pipeline_examples/rendered/core_examples/Run_Pipe.html>`_
+This notebook demonstrates how to `convert a notebook into a ceci analysis pipeline
+<https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/pipeline_examples/rendered/core_examples/05_Build_Save_Load_Run_Pipeline.html>`_.
 
 .. Removed because of updates to the DataStore that no longer require user interaction
 .. This notebook explains the concept of the `Data Store
@@ -96,7 +94,7 @@ and how to `run an existing pipeline
 .. that keeps track of the data being used in an analysis pipeline, and which can be used
 .. to interactively access data.
 
-Finally, `Iterate_Tabular_Data notebook
+Additionally, `Iterate_Tabular_Data notebook
 <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/pipeline_examples/rendered/core_examples/04_Iterate_Tabular_Data.html>`_
 demonstrates the mechanisms we use to iterate over tabular data, which is needed to
 avoid reading entire object catalogs into memory.

@@ -1,6 +1,6 @@
 # Interactive Example Notebooks
 
-(For now) this folder follows the structure of `rail/examples`. Notebooks are added as
+(For now) this folder follows the structure of `rail/pipeline_examples`. Notebooks are added as
 they are ported to work with the interactive module of rail.
 
 ## Intentionally Absent Notebooks

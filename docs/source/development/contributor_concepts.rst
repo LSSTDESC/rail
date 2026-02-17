@@ -25,8 +25,8 @@ tables_io
 ---------
 
 ``tables_io`` provides an interface for working with table data from a variety
-of non-ASCII file formats, including `fits`, `hdf5`, `parquet`, and tabular
-formats from `astropy`, `pandas`, `pyarrow`, and `numpy`. It allows for chunked
+of non-ASCII file formats, including ``fits``, ``hdf5``, ``parquet``, and tabular
+formats from ``astropy``, ``pandas``, ``pyarrow``, and ``numpy``. It allows for chunked
 reading of some file formats for large data.
 
 For further reading, visit the `tables_io documentation
@@ -47,9 +47,9 @@ RAIL stages provide and/or ingest their photo-z data products as ``qp.Ensemble``
 objects, both for collections of individual galaxies and for the summarized
 redshift distribution of samples of galaxies (such as members of a tomographic
 bin or galaxy cluster members). The key features of a ``qp.Ensemble`` are the
-`metadata` of the type of parameterization and defining parameters shared by the
-entire ensemble, the `objdata` values unique to each row-wise member of the
-ensemble that specify its PDF given the `metadata`, and the `ancil` information
+``metadata`` of the type of parameterization and defining parameters shared by the
+entire ensemble, the ``objdata`` values unique to each row-wise member of the
+ensemble that specify its PDF given the ``metadata``, and the ``ancil`` information
 associated to each row-wise member that isn't part of the parameterized PDF.
 
 For further reading, visit the `qp documentation
