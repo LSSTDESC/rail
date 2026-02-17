@@ -27,7 +27,7 @@ To learn how to run RAIL in pipeline mode, visit :ref:`pipeline usage`.
 
     If you encounter a function which you would like to run, but find yourself unable,
     use the information in the docstring to identify which RAIL package defines the
-    related RailStage, and install it.
+    related ``RailStage``, and install it.
 
 ============================
 Finding your way around RAIL
@@ -41,41 +41,41 @@ same purpose. For example, the ``estimation.algos`` namespace contains modules o
 different estimation algorithms.
 
 
-+-----------------------+----------------------------------------------------------------+
-| Namespace             | Description                                                    |
-+=======================+================================================================+
-| creation              | create and degrade synthetic photometric data                  |
-+-----------------------+----------------------------------------------------------------+
-| creation.engines      | algorithms to generate synthetic photometric data              |
-+-----------------------+----------------------------------------------------------------+
-| creation.degraders    | algorithms to apply degradations to synthetic photometric data |
-+-----------------------+----------------------------------------------------------------+
-| estimation            | derive redshift information from photometric data              |
-+-----------------------+----------------------------------------------------------------+
-| estimation.algos      | algorithms to estimate per-galaxy photo-z PDFs                 |
-+-----------------------+----------------------------------------------------------------+
-| evaluation            | evaluate photo-z estimator performance                         |
-+-----------------------+----------------------------------------------------------------+
-| evaluation.metrics    | metrics for evaluation of redshift estimation                  |
-+-----------------------+----------------------------------------------------------------+
-| utils                 | utility functions, e.g. catalog, testing                       |
-+-----------------------+----------------------------------------------------------------+
-| tools                 | utility stages, e.g. photometry, tables                        |
-+-----------------------+----------------------------------------------------------------+
-| pipelines             | create 'mini runner' pipelines                                 |
-+-----------------------+----------------------------------------------------------------+
-| pipelines.degradation | pre-defined degradation pipelines                              |
-+-----------------------+----------------------------------------------------------------+
-| pipelines.estimation  | pre-defined estimation pipelines                               |
-+-----------------------+----------------------------------------------------------------+
-| cli                   | utility functions for the command line                         |
-+-----------------------+----------------------------------------------------------------+
++---------------------------------+-------------------------------------------------------------------------+
+| Namespace                       | Description                                                             |
++=================================+=========================================================================+
+| :py:mod:`creation`              | create and degrade synthetic photometric data                           |
++---------------------------------+-------------------------------------------------------------------------+
+| :py:mod:`creation.engines`      | algorithms to generate synthetic photometric data                       |
++---------------------------------+-------------------------------------------------------------------------+
+| :py:mod:`creation.degraders`    | algorithms to apply degradations to synthetic photometric data          |
++---------------------------------+-------------------------------------------------------------------------+
+| :py:mod:`estimation`            | derive redshift information from photometric data                       |
++---------------------------------+-------------------------------------------------------------------------+
+| :py:mod:`estimation.algos`      | algorithms to estimate per-galaxy photo-z PDFs                          |
++---------------------------------+-------------------------------------------------------------------------+
+| :py:mod:`evaluation`            | evaluate photo-z estimator performance                                  |
++---------------------------------+-------------------------------------------------------------------------+
+| :py:mod:`evaluation.metrics`    | metrics for evaluation of redshift estimation                           |
++---------------------------------+-------------------------------------------------------------------------+
+| :py:mod:`utils`                 | utility functions, e.g. catalog, testing                                |
++---------------------------------+-------------------------------------------------------------------------+
+| :py:mod:`tools`                 | utility stages, e.g. photometry, tables                                 |
++---------------------------------+-------------------------------------------------------------------------+
+| :py:mod:`pipelines`             | create 'mini runner' pipelines                                          |
++---------------------------------+-------------------------------------------------------------------------+
+| :py:mod:`pipelines.degradation` | pre-defined degradation pipelines                                       |
++---------------------------------+-------------------------------------------------------------------------+
+| :py:mod:`pipelines.estimation`  | pre-defined estimation pipelines                                        |
++---------------------------------+-------------------------------------------------------------------------+
+| :py:mod:`cli`                   | utility functions for the command line                                  |
++---------------------------------+-------------------------------------------------------------------------+
 
 
 The interactive module mirrors the same import structure as Pipeline Mode RAIL, but with
-'interactive' inserted into the path. Thus a RailStage typically imported from
-``rail.estimation.algos.random_gauss`` will have an interactive function defined in
-``rail.interactive.estimation.algos.random_gauss``.
+'interactive' inserted into the path. Thus a ``RailStage`` typically imported from
+:py:mod:`rail.estimation.algos.random_gauss`` will have an interactive function defined in
+:py:func:`rail.interactive.estimation.algos.random_gauss`.
 
 ========
 Cookbook
@@ -284,4 +284,4 @@ Ensemble(the_class=hist,shape=(2, 50))
 .. note::
 
     If you have any examples that you think should be added to this list, you can open an `issue <https://github.com/LSSTDESC/rail/issues/new/choose>`_ 
-    in RAIL, or if you are a part of DESC, send a message in the ``desc-pz-rail`` Slack channel! 
+    in RAIL, or if you are a part of DESC, send a message in the "desc-pz-rail" Slack channel! 

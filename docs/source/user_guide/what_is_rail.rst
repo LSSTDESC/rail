@@ -32,18 +32,13 @@ The goals achieved by running RAIL are:
 There are three main steps, or stages, that are used within RAIL to provide the
 above functionalities. These are:
 
-+-------------------+-----------------------------------------------------------------------------------------+
-| Stage             | Description                                                                             |
-+===================+=========================================================================================+
-| :ref:`creation`   | generating photometric catalogs of galaxies and modifying them to add noise and biases, |
-|                   | which can be skipped if you already have real data                                      |
-+-------------------+-----------------------------------------------------------------------------------------+
-| :ref:`estimation` | using that photometric data to generate photometric redshift PDFs, both for individual  |
-|                   | galaxies and entire catalogs                                                            |
-+-------------------+-----------------------------------------------------------------------------------------+
-| :ref:`evaluation` | comparing the generated photometric redshift PDFs to known true values, in order to     |
-|                   | assess the performance of the estimation algorithm                                      |
-+-------------------+-----------------------------------------------------------------------------------------+
+* :ref:`Creation: <creation>` generating photometric catalogs of galaxies and modifying 
+  them to add noise and biases, which can be skipped if you already have real data 
+* :ref:`Estimation: <estimation>` using that photometric data to generate photometric 
+  redshift PDFs, both for individual galaxies and entire catalogs
+* :ref:`Evaluation: <evaluation>` comparing the generated photometric redshift PDFs 
+  to known true values, in order to assess the performance of the estimation algorithm
+
 
 These stages are used to generate data products, which can be used independently
 or as input for other stages.
@@ -161,7 +156,7 @@ degraders together. While the real Universe is usually not so compartmentalized
 in how systematic uncertainties arise, realistically complex effects should
 still be testable when a series of chained degraders are applied. RAIL has
 several degraders currently included: a (point-source-based) :ref:`LSST Error Model`,
-spectroscopic redshift :ref:`SpectroscopicDegraders` misassignment, a simple
+spectroscopic redshift :ref:`Spectroscopic Degraders` misassignment, a simple
 redshift-based incompleteness, and generic :ref:`QuantityCut` degrader that lets the
 user cut on any single quantity.
 

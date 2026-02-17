@@ -52,13 +52,13 @@ BPZ (Bayesian Photometric Redshifts)
 
 RAIL Package: https://github.com/LSSTDESC/rail_bpz
 
-:py:mod:`BPZ` is a template-based estimator developed by [Benitez et al
+``BPZ`` is a template-based estimator developed by [Benitez et al
 (2000)](https://ui.adsabs.harvard.edu/abs/2000ApJ...536..571B).  Like many
 template-based codes, it operates by computing synthetic fluxes for an input set
 of SEDs by integrating the products of the SEDs and the filter bandpass curves
 for a particular survey.
 
-The :py:class:`BPZliteEstimator` stage takes a :py:class:`TableHandle` catalog of magnitudes and
+The ``BPZliteEstimator`` stage takes a :py:class:`TableHandle` catalog of magnitudes and
 magnitude errors as input, and returns an interpolated grid :py:class:`qp.Ensemble` of
 posterior PDFs.  As the likelihood values are computed on a grid, the mode
 values for each galaxy as measured on the grid are also returned by default.
@@ -83,7 +83,7 @@ CMNN (Color-Matched Nearest Neighbor)
 
 RAIL Package: https://github.com/LSSTDESC/rail_sklearn
 
-:py:class:`CMNN`, short for *Color-Matched Nearest Neighbor*, is a method introduced in
+``CMNN``, short for *Color-Matched Nearest Neighbor*, is a method introduced in
 [Graham et al. (2018)](https://ui.adsabs.harvard.edu/abs/2018AJ....155....1G).
 The algorithm identifies nearest neighbors based on the Mahalanobis distance in
 color space from a set of galaxies with known spectroscopic redshifts with the
@@ -114,7 +114,7 @@ Delight
 
 RAIL Package: https://github.com/LSSTDESC/rail_delight
 
-[Leistedt et al. (2017)](https://ui.adsabs.harvard.edu/abs/2017ApJ...843...25L)
+`Leistedt et al. (2017) <https://ui.adsabs.harvard.edu/abs/2017ApJ...843...25L>`_
 introduced a novel approach to inferring photometric redshifts which combines
 some of the strengths of machine learning and template-fitting methods by
 implicitly constructing flexible template SEDs directly from the spectroscopic
@@ -138,26 +138,26 @@ DNF (Directional Neighborhood Fitting)
 
 RAIL Package: https://github.com/LSSTDESC/rail_dnf
 
-:py:class:`DNF` (Directional Neighborhood Fitting) is a photometric redshift estimation
-method described by [De Vicente et al.
-(2016)](https://ui.adsabs.harvard.edu/abs/2016MNRAS.459.3078D). The algorithm
+``DNF`` (Directional Neighborhood Fitting) is a photometric redshift estimation
+method described by `De Vicente et al.
+(2016) <https://ui.adsabs.harvard.edu/abs/2016MNRAS.459.3078D>`_. The algorithm
 estimates the photo-z of each galaxy from the hyperplane that best fits its
-directional neighborhood in the training sample. :py:class:`DNF` supports three main
-distance metrics: `ENF` (Euclidean Neighborhood Fitting), `ANF` (Angular
-Neighborhood Fitting), and a combination of both (`DNF`). `ENF` relies on the
+directional neighborhood in the training sample. ``DNF`` supports three main
+distance metrics: ``ENF`` (Euclidean Neighborhood Fitting), ``ANF`` (Angular
+Neighborhood Fitting), and a combination of both (``DNF``). ``ENF`` relies on the
 Euclidean distance, making it a straightforward and commonly used approach in
-k-Nearest Neighbors (`kNN`) methods. `ANF` uses a normalized inner product,
+k-Nearest Neighbors (``kNN``) methods. ``ANF`` uses a normalized inner product,
 which provides the most accurate redshift predictions, particularly in data sets
 with fluxes in more than four bands and sufficiently high signal-to-noise
-ratios. Finally, :py:class:`DNF` combines the Euclidean and angular metrics, improving
+ratios. Finally, ``DNF`` combines the Euclidean and angular metrics, improving
 accuracy in cases of few bands and low signal-to-noise conditions.
 
-:py:class:`DNF` provides two photometric redshift estimates: `DNF_Z`, which is computed as
+``DNF`` provides two photometric redshift estimates: ``DNF_Z``, which is computed as
 the weighted average or hyperplane fit of a set of neighbors determined by a
-specific metric, and `DNF_ZN`, which corresponds to the redshift of the closest
+specific metric, and ``DNF_ZN``, which corresponds to the redshift of the closest
 neighbor and can be used for estimating the sample redshift distribution.
 
-To construct the PDF for photometric redshifts, :py:class:`DNF` selects a set of nearest
+To construct the PDF for photometric redshifts, ``DNF`` selects a set of nearest
 neighbors based on one of these distance metrics and assigns weights to them.
 The PDF is computed by estimating the redshift distribution of the selected
 neighbors and applying a Gaussian smoothing function to account for
@@ -175,17 +175,17 @@ FlexZBoost
 
 RAIL Package: https://github.com/LSSTDESC/rail_flexzboost
 
-:py:class:`FlexZBoost` (`Izbicki & Lee,
+``FlexZBoost`` (`Izbicki & Lee,
 2017 <https://academic.oup.com/mnras/article/499/2/1587/5905416>`_, `Dalmasso et
 al., 2020 <https://academic.oup.com/mnras/article/499/2/1587/5905416>`_) is an
-algorithm based on conditional density estimation that uses the :py:class:`FlexCode`
+algorithm based on conditional density estimation that uses the ``FlexCode``
 package (available at
 `https://github.com/lee-group-cmu/FlexCode <https://github.com/lee-group-cmu/FlexCode>`_).
 The package parameterizes the PDF as a linear combination of orthonormal basis
 functions (a set of unit vectors in the color space that are orthogonal to each
 other), where the basis function coefficients can be determined by regression.
-The RAIL implementation uses :py:class:`xgboost` (`Chen & Guestrin,
-2016 <https://arxiv.org/abs/1603.02754>`) to perform the regression. The basis
+The RAIL implementation uses ``xgboost`` (`Chen & Guestrin,
+2016 <https://arxiv.org/abs/1603.02754>`_) to perform the regression. The basis
 function representation of the photo-z PDF of a galaxy can lead to small-scale
 residual "bumps". In the course of training the density estimate, an optimal
 threshold (configuration parameter `bump_thresh`) below which small-scale
@@ -210,16 +210,16 @@ GPz
 
 RAIL Package: https://github.com/LSSTDESC/rail_gpz_v1
 
-:py:class:`GPz` is an algorithm based on sparse Gaussian Processes, introduced by
+``GPz`` is an algorithm based on sparse Gaussian Processes, introduced by
 `Almosallam et al. (2016) <https://arxiv.org/abs/1604.03593>`_. The current RAIL
-implementation of :py:class:`GPz` is a preliminary version; it predicts a single Gaussian
+implementation of ``GPz`` is a preliminary version; it predicts a single Gaussian
 PDF rather than the more sophisticated multimodal PDFs implemented in newer
-versions of :py:class:`GPz` (`Stylianou et al., 2022 <https://arxiv.org/abs/2202.12775>`_).
-:py:class:`GPz` models both the mean and standard deviation of the Gaussian PDF as a
+versions of ``GPz`` (`Stylianou et al., 2022 <https://arxiv.org/abs/2202.12775>`_).
+``GPz`` models both the mean and standard deviation of the Gaussian PDF as a
 linear combination of basis functions, learning the parameters for these basis
 functions via a Gaussian process. The method can make several assumptions about
 the covariance between these basis functions, controlled via the configuration
-parameter `gpz_method` as outlined in the RAIL documentation.
+parameter ``gpz_method`` as outlined in the RAIL documentation.
 
 .. autoclass:: rail.estimation.algos.gpz.GPzInformer
     :noindex:
@@ -238,9 +238,9 @@ where the number of Gaussians, M, is determined during the inform stage, as are
 the width of the Gaussians. This is done by setting aside a fraction of the
 training data as a validation set and minimizing the Conditional Density
 Estimate (CDE) Loss of the PDFs versus the true values for that set.
-:py:class:`KNearNeighInformer` uses :py:class:`sklearn.neighbors.KDTree` to build a tree from the
+``KNearNeighInformer`` uses :py:class:`sklearn.neighbors.KDTree` to build a tree from the
 colors, or colors plus a reference band magnitude, of the training data.
-:py:class:`KNearNeighEstimator`  then searches the tree for the `M` closest neighbors, and
+``KNearNeighEstimator``  then searches the tree for the `M` closest neighbors, and
 constructs a PDF with `M` Gaussians centered at each of the corresponding
 nearest neighbor redshifts.
 
@@ -292,14 +292,14 @@ The neural network estimator is an unsophisticated implementation and is not
 meant to be a competitive algorithm. Instead, it is used as a simple example
 code and a baseline against which to test. This method constructs a model using
 :py:class:`sklearn.neural_network.MLPRegressor` to build a neural network trained on one
-magnitude (set by the `ref_band` configuration parameter) and all of the colors
+magnitude (set by the ``ref_band`` configuration parameter) and all of the colors
 from the training data, though it first regularizes the data using
 :py:func:`sklearn.preprocessing.StandardScaler.transform`.
 
 The network is set up using two hidden layers of size twelve, and a hyperbolic
 tangent activation function. The estimation stage produces a Gaussian redshift
 PDF by running the :py:class:`MLPRegressor`'s :py:func:`predict` method to estimate the mean
-redshift. A configuration parameter, `width` is used to set the width of the
+redshift. A configuration parameter, ``width`` is used to set the width of the
 Gaussian PDF, which is scaled by :math:`(1+z)` to increase with redshift, since the
 uncertainty in wavelength, which directly translates to photo-z uncertainty,
 scales with :math:`(1+z)`.
@@ -316,7 +316,7 @@ PZFlow
 
 RAIL Package: https://github.com/LSSTDESC/rail_pzflow
 
-:py:class:`PZFlow` is a photometric redshift estimation algorithm that utilizes
+``PZFlow`` is a photometric redshift estimation algorithm that utilizes
 normalizing flows. It takes a catalog of galaxy colors and redshifts and learns
 a differentiable mapping from the data space to a simple latent space, such as a
 Normal distribution. A photo-z posterior can then be estimated by evaluating
@@ -386,12 +386,12 @@ Self Organizing Maps (minisom and somoclu)
 
 RAIL Package: https://github.com/LSSTDESC/rail_som
 
-:py:class:`rail_som` contains two implementations of SOM-based calibration: :py:class:`minisom_som`,
+``rail_som`` contains two implementations of SOM-based calibration: :py:class:`minisom_som`,
 based on the light minimalistic SOM package
 `minisom <https://pypi.org/project/MiniSom/>`_, and :py:class:`somoclu_som` using the
 `somoclu <https://somoclu.readthedocs.io/en/stable/>`_ package.
 
-:py:class:`somoclu` is a parallelized package capable of constructing SOMs on large
+``somoclu`` is a parallelized package capable of constructing SOMs on large
 datasets. It supports rectangular and hexagonal SOM cells, planar and toroidal
 topologies, and random or principal component analysis initialization.
 
@@ -437,7 +437,7 @@ in a single bin of radial distance between the two samples at a fixed physical
 scale — is implemented in
 `yet_another_wizz <https://github.com/jlvdb/yet_another_wizz>`_ (YAW; `van den
 Busch et al., 2020 <https://ui.adsabs.harvard.edu/abs/2020A%26A...642A.200V>`_).
-We provide a wrapper in `cc_yaw`.
+We provide a wrapper in ``cc_yaw``.
 
 This wrapper consists of a number of stages that interface with all primary YAW
 functionality:

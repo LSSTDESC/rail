@@ -57,21 +57,21 @@ FSPS (Flexible Stellar Population Synthesis)
 
 RAIL Package: https://github.com/LSSTDESC/rail_fsps
 
-:py:mod:`FSPS` is a RAIL module that creates an interface to the `Python` bindings of
-the popular stellar population synthesis (SPS) code :py:class:`FSPS` (Flexible Stellar
-Population Synthesis, Conroy et al. 2009, 2010). :py:class:`FSPS` aims at generating
+``FSPS`` is a RAIL module that creates an interface to the `Python` bindings of
+the popular stellar population synthesis (SPS) code ``FSPS`` (Flexible Stellar
+Population Synthesis, Conroy et al. 2009, 2010). ``FSPS`` aims at generating
 realistic galaxy spectral energy distributions (SEDs) by modelling all the
 components that contribute to the light from a galaxy: stars, gas, dust and AGN.
-:py:class:`FSPS` is widely used both for stellar population inference (Johnson et al.
+``FSPS`` is widely used both for stellar population inference (Johnson et al.
 1)    and for forward modelling of galaxy SEDs (e.g., Alsing et al. 2023,
 Tortorelli et al. 2024).
 
-:py:mod:`FSPS` provides substantial flexibility in terms of the prescription for
+``FSPS`` provides substantial flexibility in terms of the prescription for
 modelling each of the mentioned components. It also requires physical properties
 of galaxies as input, such as star formation histories (SFHs), metallicities and
 redshift, in order to generate their SEDs. We maintained this flexibility in the
 interface we implemented in RAIL, allowing the user to change every possible
-:py:mod:`FSPS` parameter. The code has been parallelized to make efficient use of the
+``FSPS`` parameter. The code has been parallelized to make efficient use of the
 multiprocessing capabilities of CPUs.
 
 The interface is integrated in the RAIL workflow, requiring as input a catalog
@@ -81,14 +81,14 @@ ionization parameters (defined as the ratio of ionizing photons to the total
 hydrogen density), dust attenuation and emission parameters, and star-formation
 histories.
 
-:py:mod:`FSPS` follows the structure of `engines`. The :py:class:`Modeler` class requires galaxy
+``FSPS`` follows the structure of `engines`. The :py:class:`Modeler` class requires galaxy
 physical properties as input and produces as output an :py:class:`Hdf5Handle` that
-contains the :py:mod:`FSPS`-generated rest-frame SED for each galaxy and the common
+contains the ``FSPS``-generated rest-frame SED for each galaxy and the common
 rest-frame wavelength grid. The user can choose the units of the output
 rest-frame SEDs by setting the appropriate keyword value. The default behavior
 is to output the SEDs in a wavelength grid.
 
-The output rest-frame SEDs constitute the input for the :py:mod:`FSPS` :py:class:`Creator` class.
+The output rest-frame SEDs constitute the input for the ``FSPS`` :py:class:`Creator` class.
 The latter computes apparent AB magnitudes for a set of user-defined
 waveband filters. Notice that the wavelength range spanned by the waveband
 filters should be within the SED observed-frame wavelength ranges. A default set
@@ -107,19 +107,19 @@ DSPS (Differentiable Stellar Population Synthesis)
 
 RAIL Package: https://github.com/LSSTDESC/rail_dsps
 
-:py:mod:`dsps` is a module that creates an interface in RAIL to the code :py:mod:`DSPS`
-(Differentiable Stellar Population Synthesis, Hearin et al. 2023). :py:mod:`DSPS` is
+``dsps`` is a module that creates an interface in RAIL to the code DSPS
+(Differentiable Stellar Population Synthesis, Hearin et al. 2023). DSPS is
 implemented natively in the JAX library as its main aim is to produce
 differentiable predictions for the SED of a galaxy based on SPS. The
-implementation in JAX allows :py:mod:`DSPS` to be a factor of 5 faster than standard SPS
-codes, such as :py:mod:`FSPS`, and more than 300 times faster, if run on a modern GPU.
-:py:mod:`DSPS` does not come with stellar population templates; they must be provided by
+implementation in JAX allows DSPS to be a factor of 5 faster than standard SPS
+codes, such as FSPS, and more than 300 times faster, if run on a modern GPU.
+DSPS does not come with stellar population templates; they must be provided by
 the user. The code contains a series of convenience functions that allow the
-user to generate stellar population templates with :py:mod:`FSPS`. If no templates are
+user to generate stellar population templates with FSPS. If no templates are
 supplied, the implementation in RAIL automatically downloads a set of
-:py:mod:`FSPS`-generated stellar population templates.
+FSPS-generated stellar population templates.
 
-The :py:class:`Modeler` class of :py:mod:`dsps` requires as input a catalog of galaxy physical
+The :py:class:`Modeler` class of ``dsps`` requires as input a catalog of galaxy physical
 properties in the form of :py:class:`Hdf5Handles`. In particular, the user provides, for
 each galaxy, a star-formation history, a grid of Universe age over which the
 stellar mass build-up takes place, and a value for the mean and scatter of the
@@ -127,10 +127,10 @@ stellar metallicity distribution. The output is an :py:class:`Hdf5Handle` that c
 galaxy rest-frame SEDs, produced over the stellar population template wavelength
 grid.
 
-The :py:class:`Creator` class of :py:mod:`dsps` uses the output rest-frame SEDs to compute
+The :py:class:`Creator` class of dsps uses the output rest-frame SEDs to compute
 apparent and rest-frame AB magnitudes for a set of user-defined filters.
 Rubin-LSST filters are present in the default filter suite. The magnitudes are
-computed using the appropriate functions implemented in :py:mod:`DSPS` that, much like
+computed using the appropriate functions implemented in DSPS that, much like
 the SED generation, can take advantage of multiprocessing capabilities.
 
 .. autoclass:: rail.dsps.DSPSSingleSedModeler
@@ -148,7 +148,7 @@ PZFlow Engine
 
 RAIL Package: https://github.com/LSSTDESC/rail_pzflow
 
-:py:mod:`PZFlow` is a generative model that simulates galaxy catalogs using normalizing
+``PZFlow`` is a generative model that simulates galaxy catalogs using normalizing
 flows. Normalizing flows learn differentiable mappings between complex data
 distributions and a simple latent distribution, for example, a Normal
 distribution, hence the name *normalizing* flow.  In the creation module, a
@@ -158,7 +158,7 @@ simulated by sampling from the latent distribution and applying the inverse flow
 to the samples.  In addition, because the samples are generated by sampling from
 a distribution we have direct access to, there is a natural notion of a *true*
 redshift distribution for each galaxy in the catalog.  For more information, see
-Crenshaw et al. 2024. Note that :py:mod:`PZFlow` is also used to perform photo-z
+Crenshaw et al. 2024. Note that ``PZFlow`` is also used to perform photo-z
 estimation.
 
 .. autoclass:: rail.pzflow.FlowModeler
@@ -190,8 +190,8 @@ incomplete spectroscopic training sample.
 LSST Error Model
 ----------------
 
-The :py:mod:`LSSTErrorModel` is a wrapper of the PhotErr photometric error model (Crenshaw et
-al. 2024). :py:mod:`PhotErr` is a generalization of the error model described in Ivezić et al.
+The ``LSSTErrorModel`` is a wrapper of the ``PhotErr`` photometric error model (Crenshaw et
+al. 2024). ``PhotErr`` is a generalization of the error model described in Ivezić et al.
 (2019) that includes multiple methods for modeling photometric errors, non-detections,
 and extended source errors. In addition to photometric error model for LSST, we also
 include models for Euclid (Euclid Collaboration et al. 2022) and Nancy Grace Roman
@@ -243,11 +243,11 @@ assigned survey conditions corresponding to their ``HEALPix`` pixel, either base
 their coordinates in the original catalog, or randomly if only photometry is available
 (e.g., generated from the engines). In the latter case, a weight map can be specified to
 adjust the number of galaxies assigned to each pixel. A key input for
-:py:mod:`ObservingConditionDegrader` is ``map_dict``. This is a dictionary containing keys
-with the same names as parameters for LSSTErrorModel. Under each key, one can pass a
+``ObservingConditionDegrader`` is ``map_dict``. This is a dictionary containing keys
+with the same names as parameters for ``LSSTErrorModel``. Under each key, one can pass a
 series of paths for the survey condition maps for each band, or, if any quantity is held
 constant throughout the footprint, one can also pass a float number. The degrader then
-calls PhotErr to compute noisy magnitudes for each galaxy in each ``HEALPix`` pixel. The
+calls ``PhotErr`` to compute noisy magnitudes for each galaxy in each ``HEALPix`` pixel. The
 output of this module is a table containing degraded magnitudes, magnitude errors, RA,
 Dec, and the ``HEALPix`` pixel index of each galaxy.
 
@@ -258,11 +258,11 @@ Dec, and the ``HEALPix`` pixel index of each galaxy.
 Spectroscopic Degraders
 -----------------------
 
-:py:mod:`SpectroscopicDegraders` contains two simple degraders that simulate systematic errors
+``SpectroscopicDegraders`` contains two simple degraders that simulate systematic errors
 associated with the presence of spectroscopic redshifts in spectroscopic training
 catalogs.
 
-The first is :py:mod:`InvRedshiftIncompleteness`. It is a toy model for redshift
+The first is ``InvRedshiftIncompleteness``. It is a toy model for redshift
 incompleteness -- i.e., the failure of a particular spectrograph to obtain a redshift
 estimate for a particular set of galaxies. It takes an input catalog and keeps all the
 galaxies below a configurable redshift threshold while randomly removing galaxies above
@@ -272,7 +272,7 @@ it. The probability that a redshift :math:`z` galaxy is kept is:
 
 where :math:`z_\mathrm{th}` is the threshold redshift.
 
-The other degrader is :py:mod:`LineConfusion`, which simulates redshift errors due to the
+The other degrader is ``LineConfusion``, which simulates redshift errors due to the
 confusion of emission lines. For example, if the OII line at :math:`3727 \mathring{\mathrm{A}}` was
 misidentified as the OIII line at :math:`5007 \mathring{\mathrm{A}}`, the assigned spectroscopic redshift
 would be greater than the true redshift (Newman et al. 2013). The inputs of this
@@ -308,7 +308,7 @@ intersection of selected samples of each cut will be kept in the output.
 Spectroscopic Selectors
 -----------------------
 
-The :py:mod:`SpectroscopicSelection` degrader applies the selection for a spectroscopic
+The ``SpectroscopicSelection`` degrader applies the selection for a spectroscopic
 survey. It provides tailored catalogs that match a particular spectroscopic survey for
 subsequent calibration steps. It can also be used to generate selected mock catalogs
 used as realistic reference samples. The selection criteria are cuts on magnitudes or
@@ -322,7 +322,7 @@ appropriate fraction of samples from the input data and return an incomplete sam
 Additional redshift cuts based on percentile can be applied when using a color-based
 redshift cut.
 
-Similar functionality is provided by :py:mod:`GridSelection` (Moskowitz et al. 2024), which
+Similar functionality is provided by ``GridSelection`` (Moskowitz et al. 2024), which
 can be used to model spectroscopic success rates for the training sets used for the
 second data release of the Hyper Suprime Cam Subaru Strategic Program (HSC; Aihara et
 al. 2019). Given a 2-dimensional grid of spectroscopic success ratio as a function of
@@ -359,7 +359,7 @@ success ratio grids appropriate for other surveys.
 SOMSpecSelector
 ---------------
 
-While :py:mod:`GridSelection` defines a selection mask in two dimensions, :py:mod:`SOMSpecSelector`
+While ``GridSelection`` defines a selection mask in two dimensions, ``SOMSpecSelector``
 can take any number of input features with which to define a spectroscopic selection.
 This selector takes an initial complete sample (which we will call the input sample) and
 return a subset that approximately matches the properties of an incomplete sample (we
