@@ -246,7 +246,8 @@ Saving the outputs of stages to file
 
 Inform stages typically output 'models', which can be different kinds of objects depending on 
 the algorithm. If you want to save these to a file to speed up later workflows, 
-we recommend pickling them. For example: 
+we recommend pickling them. For example, assuming that you've just run an *inform* stage 
+and gotten ``knn_inform`` as the returned output dictionary: 
 
 >>> import pickle
 >>> with open("./knn_model.pkl", "wb") as fout:
@@ -260,7 +261,8 @@ You can then provide the name of the file to the interactive functions.
     to see more details and how saving a model file can be useful in a RAIL workflow.
 
 Most estimate stages output qp Ensembles, which have their own write and read methods. 
-The following will write an Ensemble to an HDF5 file:
+The following will write an Ensemble to an HDF5 file, assuming that you have just run 
+an *estimate* stage and gotten ``estimate_output`` as the return dictionary:
 
 >>> import qp
 >>> estimate_output["output"].write_to("output_ensemble.hdf5")
@@ -272,10 +274,20 @@ To read the Ensemble back in, you can also use qp:
 >>> estimate_ens
 Ensemble(the_class=hist,shape=(2, 50))
 
+If you'd like to convert the above Ensemble to a more typical array, you can do the following to get an array of PDF values at a set of redshift grid points: 
+
+>>> import numpy as np
+>>> zgrid = np.linspace(0,3,200)
+>>> output_photoz_pdf_values = estimate_output["output"].pdf(zgrid)
+>>> print(output_photoz_pdf_values.shape)
+(2, 200)
+
+You can now turn the array into a table or save it to a file directly using your preferred method. 
+
 .. tip::
 
     Take a look at the `Using Photometry to Estimate Photmetric Redshifts notebook <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/interactive_examples/rendered/estimation_examples/Using_Photometry_to_Estimate_Photometric_Redshifts.html>`_ 
-    for an introduction to Ensembles in RAIL and to see them being saved in a RAIL workflow. 
+    for an introduction to Ensembles in RAIL and to see them being saved and converted in a RAIL workflow. 
 
     For more details about how qp stores Ensembles in files, take a look at the notebook 
     on `Exploring the structure of an Ensemble file <https://qp.readthedocs.io/en/main/user_guide/cookbook/datamanipulation.html#exploring-the-structure-of-an-ensemble-file>`_
