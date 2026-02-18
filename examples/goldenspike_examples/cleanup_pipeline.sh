@@ -12,4 +12,3 @@ else
    \rm -rf ${RAILDIR}/*.pkl
    \rm -rf ${RAILDIR}/*.out
 fi
-

@@ -73,6 +73,7 @@ instance/
 docs/_build/
 docs/api
 docs/api.rst
+docs/api_interactive.rst
 _readthedocs/
 docs/*_examples/*.html
 
