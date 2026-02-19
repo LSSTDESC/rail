@@ -155,6 +155,15 @@ improvements, such as adding a one-line comment before a clever block of code or
 including a demonstration of new functionality in the example notebooks.
 
 
+Creating releases
+-----------------
+
+When creating a new release for the ``rail`` repository, to make sure that the 
+docker image updates to match the new RAIL release, you need to `create a new 
+release <https://github.com/LSSTDESC/rail_setup/releases/new>`_ for the 
+`rail_setup <https://github.com/LSSTDESC/rail_setup>`_ repository as well. 
+
+
 
 Testing
 =======
