@@ -50,8 +50,8 @@ To do this with RAIL, you would:
 #. *Evaluate* the photometric redshift values, either by your own methods, or by using
    the *evaluators* and available *metrics* from the ``rail.evaluation`` namepace.
 
-.. TBD: links to notebooks
-For a worked example of a case like this, see...
+For a worked example of a case like this, see the `Goldenspike notebook
+<https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/pipeline_examples/rendered/goldenspike_examples/goldenspike.html>`_.
 
 -------------------------------------
 Comparing Data Degradation Algorithms
@@ -68,7 +68,8 @@ To do this with RAIL, you would:
    data creation and noise / bias algorithms generate datasets *best* estimated
    by the selected estimation algorithm.
 
-For a worked example of a case like this, see...
+For a worked example of a case like this, see `Exploring the Effects of Degraders <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/interactive_examples/rendered/creation_examples/Exploring_the_Effects_of_Degraders.html>`_ 
+which explores how differently degraded training data sets affect how well the estimation algorithm works. 
 
 =======================
 Methods of Running RAIL

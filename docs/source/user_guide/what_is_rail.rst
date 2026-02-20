@@ -32,18 +32,13 @@ The goals achieved by running RAIL are:
 There are three main steps, or stages, that are used within RAIL to provide the
 above functionalities. These are:
 
-+-------------------+-----------------------------------------------------------------------------------------+
-| Stage             | Description                                                                             |
-+===================+=========================================================================================+
-| :ref:`creation`   | generating photometric catalogs of galaxies and modifying them to add noise and biases, |
-|                   | which can be skipped if you already have real data                                      |
-+-------------------+-----------------------------------------------------------------------------------------+
-| :ref:`estimation` | using that photometric data to generate photometric redshift PDFs, both for individual  |
-|                   | galaxies and entire catalogs                                                            |
-+-------------------+-----------------------------------------------------------------------------------------+
-| :ref:`evaluation` | comparing the generated photometric redshift PDFs to known true values, in order to     |
-|                   | assess the performance of the estimation algorithm                                      |
-+-------------------+-----------------------------------------------------------------------------------------+
+* :ref:`Creation: <creation>` generating photometric catalogs of galaxies and modifying 
+  them to add noise and biases, which can be skipped if you already have real data 
+* :ref:`Estimation: <estimation>` using that photometric data to generate photometric 
+  redshift PDFs, both for individual galaxies and entire catalogs
+* :ref:`Evaluation: <evaluation>` comparing the generated photometric redshift PDFs 
+  to known true values, in order to assess the performance of the estimation algorithm
+
 
 These stages are used to generate data products, which can be used independently
 or as input for other stages.
@@ -105,8 +100,8 @@ the evaluation of the resulting photo-z data products by informative metrics.
 RAIL includes subpackages for each, providing a flexible framework for accessing
 implementations of approaches under each umbrella. The purpose of each piece of
 infrastructure is outlined below. For a working example illustrating all three
-components of RAIL, see the `examples/goldenspike_examples/Goldenspike.ipynb
-<https://github.com/LSSTDESC/RAIL/blob/main/examples/goldenspike_examples/Goldenspike.ipynb>`_
+components of RAIL, see the `pipeline_examples/goldenspike_examples/Goldenspike.ipynb
+<https://github.com/LSSTDESC/RAIL/blob/main/pipeline_examples/goldenspike_examples/Goldenspike.ipynb>`_
 Jupyter notebook.
 
 ----------
@@ -161,18 +156,18 @@ degraders together. While the real Universe is usually not so compartmentalized
 in how systematic uncertainties arise, realistically complex effects should
 still be testable when a series of chained degraders are applied. RAIL has
 several degraders currently included: a (point-source-based) :ref:`LSST Error Model`,
-spectroscopic redshift :ref:`LineConfusion` misassignment, a simple
+spectroscopic redshift :ref:`Spectroscopic Degraders` misassignment, a simple
 redshift-based incompleteness, and generic :ref:`QuantityCut` degrader that lets the
 user cut on any single quantity.
 
 
-**Usage**: The ``examples/creation_examples`` directory provides notebooks
+**Usage**: The ``pipeline_examples/creation_examples`` directory provides notebooks
 demonstrating degradation:
 
 * `creation_examples/00_Quick_Start_in_Creation.ipynb
-  <https://github.com/LSSTDESC/RAIL/blob/main/examples/creation_examples/00_Quick_Start_in_Creation.ipynb>`_
+  <https://github.com/LSSTDESC/RAIL/blob/main/pipeline_examples/creation_examples/00_Quick_Start_in_Creation.ipynb>`_
 * `creation_examples/05_True_Posterior.ipynb
-  <https://github.com/LSSTDESC/RAIL/blob/main/examples/creation_examples/05_True_Posterior.ipynb>`_
+  <https://github.com/LSSTDESC/RAIL/blob/main/pipeline_examples/creation_examples/05_True_Posterior.ipynb>`_
 
 **Creation future extensions**: In the future, we may need to consider a
 probability space with more data dimensions, such as galaxy images and/or
@@ -220,12 +215,12 @@ summarizers such as a histogram of point source estimates, the naive
 "stacking"/summing of PDFs, and a variational inference-based summarizer are
 also included in RAIL.
 
-**Usage**: The ``examples/estimation_examples`` directory provides notebooks
+**Usage**: The ``pipeline_examples/estimation_examples`` directory provides notebooks
 demonstrating estimation. Note that estimation codes can also be run as ceci
 modules with variables stored in a yaml file.
 
 * `estimation_examples/00_Quick_Start_in_Estimation.ipynb
-  <https://github.com/LSSTDESC/RAIL/blob/main/examples/estimation_examples/00_Quick_Start_in_Estimation.ipynb>`_
+  <https://github.com/LSSTDESC/RAIL/blob/main/pipeline_examples/estimation_examples/00_Quick_Start_in_Estimation.ipynb>`_
 
 **Immediate next steps**: More wrapped estimator and summarizer codes are always
 welcome for inclusion in upcoming comparison challenges, including at least one
@@ -249,13 +244,13 @@ evaluation metrics will employ aspects of the `qp
 <https://github.com/LSSTDESC/qp>`_ codebase (e.g. computing CDF values for
 Probability Integral Transform, aka PIT, distributions).
 
-**Usage**: The ``examples/evaluation_examples`` directory provides the following
+**Usage**: The ``pipeline_examples/evaluation_examples`` directory provides the following
 demonstration notebooks:
 
 * `evaluation_examples/00_Single_Evaluation.ipynb
-  <https://github.com/LSSTDESC/RAIL/blob/main/examples/evaluation_examples/00_Single_Evaluation.ipynb>`_.
+  <https://github.com/LSSTDESC/RAIL/blob/main/pipeline_examples/evaluation_examples/00_Single_Evaluation.ipynb>`_.
 * `evaluation_examples/01_Evaluation_by_Type.ipynb
-  <https://github.com/LSSTDESC/RAIL/blob/main/examples/evaluation_examples/01_Evaluation_by_Type.ipynb>`_.
+  <https://github.com/LSSTDESC/RAIL/blob/main/pipeline_examples/evaluation_examples/01_Evaluation_by_Type.ipynb>`_.
 
 **Future extensions**: We aim to greatly expand the library of available metrics
 and welcome input from the community in doing so. An immediate extension would

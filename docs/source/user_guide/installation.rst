@@ -198,7 +198,7 @@ source, to be sure to get the latest version of the ``conda-reqs.txt`` file.
           pip install '.[algos]'
 
 
-      Again, if for some reason the `pip install '.[algos]'` fails (e.g.,because of a
+      Again, if for some reason the ``pip install '.[algos]'`` fails (e.g.,because of a
       problem in building the dependencies for one of the algorithms) you can run a more
       fault-tolerant installation using a rail script:
 
@@ -240,7 +240,7 @@ via
 
     pip install pz-rail-base
 
-
+-------------------
 Installing bpz_lite
 -------------------
 
@@ -258,7 +258,7 @@ But if you run into problems you might need to:
   you are on a shared system such as NERSC)
 - try ``pip install pz-rail-bpz`` again.
 
-
+------------------
 Installing Delight
 ------------------
 
@@ -296,7 +296,7 @@ Installing Delight
       <https://github.com/LSSTDESC/Delight/blob/master/Mac_installation.md>`_ to install
       Delight before running ``pip install .[all]``.
 
-
+---------------------
 Installing FlexZBoost
 ---------------------
 
@@ -311,17 +311,19 @@ But if you run into problems you might need to:
 - install ``xgboost`` with the command ``pip install xgboost==0.90.0``
 - install FlexCode with ``pip install FlexCode[all]``
 
+---------------
 Installing fsps
 ---------------
 
 The fsps package available on PyPI does not include the Fortran-based libraries that are
-actually needed. After you install `pz-rail-fsps`, upon running any fsps-based
+actually needed. After you install ``pz-rail-fsps``, upon running any fsps-based
 algorithms for the first time, you will see a message indicating the specific
 instructions for properly setting up fsps.
 
-The cause of this is the use of Git submodules in the `python-fsps` package, which are
-not handled by `pip`.
+The cause of this is the use of Git submodules in the ``python-fsps`` package, which are
+not handled by ``pip``.
 
+---------------------------------
 Using GPU-optimization for pzflow
 ---------------------------------
 
