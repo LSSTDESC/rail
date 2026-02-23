@@ -74,7 +74,7 @@ different estimation algorithms.
 
 The interactive module mirrors the same import structure as Pipeline Mode RAIL, but with
 'interactive' inserted into the path. Thus a ``RailStage`` typically imported from
-:py:mod:`rail.estimation.algos.random_gauss`` will have an interactive function defined in
+:py:mod:`rail.estimation.algos.random_gauss` will have an interactive function defined in
 :py:func:`rail.interactive.estimation.algos.random_gauss`.
 
 ========
