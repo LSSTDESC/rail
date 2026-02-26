@@ -56,7 +56,7 @@ dev = [
 
 docs = [
     "nbsphinx",
-    "sphinx>=7.4.0",            # Used to automatically generate documentation
+    "sphinx>=7.4.0, <9.0",            # Used to automatically generate documentation
     "sphinx-autodoc-typehints",
     "sphinx_rtd_theme>=3.0.2",  # Used to render documentation
     "sphinx-autoapi>=3.6.1",    # Used to automatically generate api documentation
