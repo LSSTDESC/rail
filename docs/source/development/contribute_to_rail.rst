@@ -159,8 +159,11 @@ Creating releases
 -----------------
 
 When creating a new release for the ``rail`` repository, to make sure that the 
-docker image updates to match the new RAIL release, you need to `create a new 
-release <https://github.com/LSSTDESC/rail_setup/releases/new>`_ for the 
+docker image updates to match the new RAIL release, you need to update the version
+in `install_rail.py <https://github.com/LSSTDESC/rail_setup/blob/main/install_rail.py>`_,
+then `create a new 
+release <https://github.com/LSSTDESC/rail_setup/releases/new>`_ with the corresponding 
+version for the 
 `rail_setup <https://github.com/LSSTDESC/rail_setup>`_ repository as well. 
 
 
