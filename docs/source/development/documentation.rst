@@ -21,6 +21,18 @@ The documentation tools are configured to use the `numpy docstring style
 The documentation uses ``RAIL`` introspection tooling to find all the ``RAIL`` code
 in your current python environment.  :py:mod:`rail.core.introspection`.
 
+================================
+Creating a new tutorial notebook
+================================
+
+To create a new tutorial notebook, you can start by duplicating the 
+`template notebook <https://github.com/LSSTDESC/rail/blob/main/interactive_examples/New_Tutorial_Notebook_template.ipynb>`_ 
+provided in the ``rail`` repository. Then all you need to to is replace the template 
+text and code with your own, and place the new notebook in one of the existing folders 
+of notebooks. As long as you place the notebook inside one of the ``core_examples/``, ``creation_examples/``, 
+``estimation_examples/``, ``evaluation_examples/``, or ``goldenspike_examples/`` folders, 
+it should be rendered and uploaded to the RAIL documentation. 
+
 =======================================
 Building the RAIL documentation locally
 =======================================

@@ -110,8 +110,6 @@ Here is an example of the first part of the ``goldenspike`` pipeline definition.
        def __init__(self):
            RailPipeline.__init__(self)
 
-           DS = RailStage.data_store
-           DS.__class__.allow_overwrite = True
            bands = ['u','g','r','i','z','y']
            band_dict = {band:f'mag_{band}_lsst' for band in bands}
            rename_dict = {f'mag_{band}_lsst_err':f'mag_err_{band}_lsst' for band in bands}
@@ -140,11 +138,9 @@ Here is an example of the first part of the ``goldenspike`` pipeline definition.
 
 What this is doing is:
 
-#. Finding the pretrained model `flow_file` to use to generate data.
+#. Finding the pretrained model ``flow_file`` to use to generate data.
 #. Defining a class ``GoldenspikePipeline`` to encapsulate the pipeline and
    setting up that pipeline.
-#. Set up the rail ``DataStore`` for interactive use, allowing you to overwrite
-   output files, (say if you re-run the pipeline in a notebook cell).
 #. Defining some common parameters, e.g., ``bands``, ``bands_dict`` for the
    pipeline.
 #. Defining four stages, and adding them to the pipeline, note that for each
@@ -195,9 +191,6 @@ to include in the pipeline.
         def __init__(self, algorithms: dict|None=None):
             RailPipeline.__init__(self)
 
-            DS = RailStage.data_store
-            DS.__class__.allow_overwrite = True
-
             if algorithms is None:
                 algorithms = PZ_ALGORITHMS
 
@@ -237,9 +230,9 @@ The main differences with the previous example are that:
 
 * We pass in a dict that gives the names of all the algorithms to include, as
   well as information on how to load the stages in question.
-* Instead of using `build` we use `make_and_connect` followed by `add_stage`.
+* Instead of using ``build`` we use ``make_and_connect`` followed by ``add_stage``.
   This is because we are making several stages of the same type, but with
-  different names, inside a loop, so the cleverness behind the `build` mechanism
+  different names, inside a loop, so the cleverness behind the ``build`` mechanism
   would not work here.
 
 ==========================
@@ -247,6 +240,7 @@ Making Pipelines with YAML
 ==========================
 
 .. TODO: by RAIL team
+Coming soon
 
 ============
 Data Handles
