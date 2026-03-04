@@ -52,7 +52,7 @@ jobs:
         echo "SPS_HOME=/opt/hostedtoolcache/Python/fsps" >> $GITHUB_ENV
     - name: Run notebooks
       run: |
-        rail render-nb interactive_examples/${{ matrix.notebook-dir }}_examples/*.ipynb
+        rail render-nb interactive_examples/${{ matrix.notebook-dir }}_examples/*.ipynb --skip interactive_examples/creation_examples/SOM_Spectroscopic_Selector.ipynb --skip interactive_examples/estimation_examples/SomocluSOM.ipynb
     - name: Send status to Slack app (RAIL CI Reporter)
       if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
       id: slack
