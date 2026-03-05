@@ -46,6 +46,7 @@ jobs:
       run: |
         rail clone-source --package-file rail_packages.yml
         rail install --from-source --package-file rail_packages.yml
+        conda install -c conda-forge openmpi mpi4py
     - name: Set up fsps
       run: |
         git clone "https://github.com/cconroy20/fsps.git" "/opt/hostedtoolcache/Python/fsps"
