@@ -181,7 +181,7 @@ The function should run as normal, and return to you any output with the same co
 
 .. tip::
 
-    Take a look at the `Running with different data notebook <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/interactive_examples/latest/rendered/estimation_examples/16_Running_with_different_data.html>`_ 
+    Take a look at the `Running with different data notebook <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/interactive_examples/latest/rendered/estimation_examples/Running_with_different_data.html>`_ 
     for a bit more detailed example of this.
 
 
