@@ -14,8 +14,7 @@ the data.
 Starting out, overview notebooks
 ================================
 
-We recommend starting with the `Goldenspike
-<https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/pipeline_examples/rendered/goldenspike_examples/goldenspike.html>`_
+We recommend starting with the `Goldenspike <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/pipeline_examples/rendered/goldenspike_examples/Goldenspike.html>`_ 
 notebook, which demonstrates a relatively simple end-to-end analysis.  This analysis
 starts off by making a model that can be used to generate synthetic catalogs of
 photometric data.  It then uses that model to create sets of synthetic data to train and
