@@ -15,6 +15,8 @@ There are two recommended starting points:
 1. If you just want to get some photometric redshifts, then `Using Photometry to Estimate Photometric Redshifts <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/interactive_examples/rendered/estimation_examples/Using_Photometry_to_Estimate_Photometric_Redshifts.html>`_ should cover most of of what you need. 
 2. If you are looking for a more general introduction to all of RAIL, start with `Estimating Photometric Redshifts with RAIL Stages and Comparing Results for Different Parameters <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/interactive_examples/rendered/estimation_examples/Estimating_Redshifts_and_Comparing_Results_for_Different_Parameters.html>`_.
 
+For a walkthrough of some of the basics of RAIL interactive, and some of the steps covered in `Using Photometry to Estimate Photometric Redshifts <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/interactive_examples/rendered/estimation_examples/Using_Photometry_to_Estimate_Photometric_Redshifts.html>`_, 
+watch this `tutorial recording. <https://discovery-alliance.slack.com/files/U2N50LSP8/F0AJ0ULM2JD/fw__meeting_assets_for_desc_pz_are_ready_?origin_team=T06D204F2&origin_channel=Vall_threads>`_
 If you'd like to go even more in-depth into creating data, take a look at `Exploring the Effects of Degraders <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/interactive_examples/rendered/creation_examples/Exploring_the_Effects_of_Degraders.html>`_. 
 For a less-detailed overview of a full RAIL workflow, there's the `Goldenspike
 <https://rail-hub.readthedocs.io/projects/rail-notebooks/en/latest/interactive_examples/rendered/goldenspike_examples/Goldenspike.html>`_
