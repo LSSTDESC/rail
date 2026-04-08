@@ -135,7 +135,10 @@ conflicts.
     available to users of the interactive module. This script must be run in 
     a clean environment (i.e. with packages pip installed and only updated to their latest 
     release). One easy way to do this is to use the `RAIL docker image
-    <https://github.com/LSSTDESC/rail_setup/pkgs/container/desc-rail>`_.  
+    <https://github.com/LSSTDESC/rail_setup/pkgs/container/desc-rail>`_. When doing a PR, the 
+    `create_interactive_structure` workflow will run the script and compare it to the files in 
+    your PR. If they don't match, the last few lines will list the files that have been modified, 
+    which are the the files that are causing the issues. 
 
 
 Reviewing a PR
