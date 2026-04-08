@@ -132,7 +132,10 @@ conflicts.
     The changes made in this PR will be (in addition to any others needed for your
     update) the results of running the ``create_interactive_structure.py`` script
     present in ``rail_base``. This script updates the stub files and thus docstrings
-    available to users of the interactive module.
+    available to users of the interactive module. This script must be run in 
+    a clean environment (i.e. with packages pip installed and only updated to their latest 
+    release). One easy way to do this is to use the `RAIL docker image
+    <https://github.com/LSSTDESC/rail_setup/pkgs/container/desc-rail>`_.  
 
 
 Reviewing a PR
