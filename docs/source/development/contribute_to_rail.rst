@@ -49,7 +49,7 @@ and/or making a new one.
 Similar to the installation process, depending on how you want to contribute to
 RAIL, you will be contributing to one or more of the RAIL packages.
 
-In all cases, begin by following the :ref:`developer installation instructions <Developer Installation>`
+In all cases, begin by following the :ref:`developer installation instructions <Developer Installation Instructions>`
 and follow the contribution workflow instructions below.
 
 
@@ -77,7 +77,7 @@ that repository.
 Branch
 ------
 
-See :ref:`Developer Installation` for installation instructions.
+See :ref:`Developer Installation Instructions` for installation instructions.
 
 While developing in a branch, don't forget to pull from ``main`` regularly (at
 least daily) to make sure your work is compatible with other recent changes.
