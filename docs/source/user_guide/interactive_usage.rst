@@ -313,4 +313,4 @@ Additionally, it is possible that the algorithm packages on your machine differ 
 1. Ensure that you have the latest release version of pz-rail-base installed
 2. If you have a specific package whose docstrings are incorrect, try upgrading to the latest released version of that package (or possibly downgrading, if you've installed via git clone.)
 
-If you are still having issues, please notify #pz-rail. You can also use the documentation of the corresponding class-based RAIL stage to identify the correct parameters.
+If you are still having issues, please notify the RAIL team. You can also use the documentation of the corresponding class-based RAIL stage to identify the correct parameters.
