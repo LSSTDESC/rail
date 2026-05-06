@@ -248,7 +248,7 @@ will have ``__init__.py`` files created within the interactive directory.
 Instead, modifications should be made either to that creation script, or to the
 functions in the utility folder ``rail_base/src/rail/utils/interactive``.
 
-All subclasses of RailStage are considered valid candidates to have interative
+All subclasses of RailStage are considered valid candidates to have interactive
 functions, and it is thus an error for a ``RailStage`` to lack the required
 infrastructure to have an interactive function generated. See the notes on
 :ref:`adding new stages<page-add-stage>` regarding requirements and best practices when

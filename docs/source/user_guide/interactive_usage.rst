@@ -298,3 +298,19 @@ You can now turn the array into a table or save it to a file directly using your
     If you have any examples that you think should be added to this list, you can open an `issue <https://github.com/LSSTDESC/rail/issues/new/choose>`_ 
     in RAIL, or if you are a part of the LSST Slack, send a message in the `\#desc-pz-rail
     <https://lsstc.slack.com/archives/CQGKM0WKD>`_ Slack channel! 
+
+
+===============
+Troubleshooting
+===============
+
+The interactive API docs are updated along with pz-rail-base, but the content of them is generated from the algorithm packages, using the versions that were available when this documentation was generated.
+
+Therefore, if your installed version of pz-rail-base differs from the current version, this documentation *may* not match the docstrings available on your machine.
+
+Additionally, it is possible that the algorithm packages on your machine differ from those that were available when this documentation was generated (e.g., if you have updated a pz-rail-<algorithm> package). In this case, the docstrings on your computer *may* be out of date. If you have issues regarding incorrect docstrings, try the following:
+
+1. Ensure that you have the latest release version of pz-rail-base installed
+2. If you have a specific package whose docstrings are incorrect, try upgrading to the latest released version of that package (or possibly downgrading, if you've installed via git clone.)
+
+If you are still having issues, please notify the RAIL team. You can also use the documentation of the corresponding class-based RAIL stage to identify the correct parameters.

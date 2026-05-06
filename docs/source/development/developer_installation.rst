@@ -1,3 +1,5 @@
+.. _page-developer-installation:
+
 ***********************************
 Developer Installation Instructions
 ***********************************
