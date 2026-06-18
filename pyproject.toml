@@ -1,7 +1,7 @@
 [project]
 name = "pz-rail"
-requires-python = ">=3.9"
-license = { file = "LICENSE" }
+requires-python = ">=3.11"
+license = {file = "LICENSE"}
 readme = "README.md"
 authors = [
     { name = "LSST Dark Energy Science Collaboration (DESC)", email = "later@later.com" },
