@@ -52,7 +52,7 @@ jobs:
         echo "SPS_HOME=/opt/hostedtoolcache/Python/fsps" >> $GITHUB_ENV
     - name: Run notebooks
       run: |
-        rail render-nb interactive_examples/${{ matrix.notebook-dir }}_examples/*.ipynb --skip interactive_examples/creation_examples/SOM_Spectroscopic_Selector.ipynb --skip interactive_examples/estimation_examples/SomocluSOM.ipynb
+        rail render-nb interactive_examples/${{ matrix.notebook-dir }}_examples/*.ipynb --skip interactive_examples/creation_examples/DSPS_SED.ipynb interactive_examples/creation_examples/FSPS_SED.ipynb --skip interactive_examples/creation_examples/Exploring_the_Effects_of_Degraders.ipynb --skip interactive_examples/core_examples/FluxtoMag_and_Deredden.ipynb --skip interactive_examples/estimation_examples/Quick_Start_in_Estimation.ipynb --skip interactive_examples/estimation_examples/Sampled_Summarizers.ipynb --skip interactive_examples/estimation_examples/FlexZBoost_PDF_Representation_Comparison.ipynb --skip interactive_examples/estimation_examples/Using_Photometry_to_Estimate_Photometric_Redshifts.ipynb --skip interactive_examples/estimation_examples/Estimating_Redshifts_and_Comparing_Results_for_Different_Parameters.ipynb --skip interactive_examples/goldenspike_examples/Goldenspike.ipynb --skip interactive_examples/creation_examples/FSPS_SED.ipynb --skip interactive_examples/creation_examples/SOM_Spectroscopic_Selector.ipynb --skip interactive_examples/estimation_examples/SomocluSOM.ipynb --skip interactive_examples/estimation_examples/YAW.ipynb
     - name: Send status to Slack app (RAIL CI Reporter)
       if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
       id: slack
